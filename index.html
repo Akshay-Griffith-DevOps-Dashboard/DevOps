@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Griffith DevOps Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span class="logo-mark">GU</span>
+      <div class="logo-text">
+        <span class="logo-primary">Griffith</span>
+        <span class="logo-secondary">DevOps</span>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="#overview" class="nav-item active" data-section="overview">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="1" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/></svg>
+        Overview
+      </a>
+      <a href="#sf-health" class="nav-item" data-section="sf-health">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Org Health
+      </a>
+      <a href="#sf-deployments" class="nav-item" data-section="sf-deployments">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1v10M4 7l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 13h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        Deployments
+      </a>
+      <a href="#azure-pipelines" class="nav-item" data-section="azure-pipelines">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="3" cy="8" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="13" cy="4" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="13" cy="12" r="2" stroke="currentColor" stroke-width="1.5"/><path d="M5 7.5l6-3M5 8.5l6 3" stroke="currentColor" stroke-width="1.5"/></svg>
+        Pipelines
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div id="connection-status" class="conn-indicator disconnected">
+        <span class="conn-dot"></span>
+        <span class="conn-label">Not connected</span>
+      </div>
+      <button id="connect-btn" class="btn-connect">Connect Salesforce</button>
+      <div class="last-refresh" id="last-refresh">—</div>
+    </div>
+  </aside>
+
+  <!-- Main content -->
+  <main class="main">
+
+    <!-- Header -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <h1 class="page-title" id="page-title">Overview</h1>
+        <span class="page-env" id="page-env">Production Org</span>
+      </div>
+      <div class="topbar-right">
+        <button class="btn-refresh" id="refresh-btn" title="Refresh data">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13.5 8A5.5 5.5 0 1 1 8 2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M8 1l2.5 1.5L8 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Refresh
+        </button>
+        <div class="topbar-time" id="topbar-time"></div>
+      </div>
+    </header>
+
+    <!-- Auth banner (shown when not connected) -->
+    <div id="auth-banner" class="auth-banner">
+      <div class="auth-banner-inner">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8.5" stroke="#58A6FF" stroke-width="1.5"/><path d="M10 6v4M10 13.5v.5" stroke="#58A6FF" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span>Connect your Salesforce org to load live data. Dashboard shows sample data until connected.</span>
+        <button id="auth-banner-btn" class="btn-connect-inline">Connect now</button>
+      </div>
+    </div>
+
+    <!-- OVERVIEW SECTION -->
+    <section id="overview" class="section active">
+      <div class="stat-row">
+        <div class="stat-card" id="stat-api-usage">
+          <div class="stat-label">API Requests Used</div>
+          <div class="stat-value mono" id="ov-api-used">72,430</div>
+          <div class="stat-sub">of <span id="ov-api-limit">5,000,000</span> daily limit</div>
+          <div class="stat-bar"><div class="stat-bar-fill green" id="ov-api-bar" style="width:1.4%"></div></div>
+        </div>
+        <div class="stat-card" id="stat-data-storage">
+          <div class="stat-label">Data Storage</div>
+          <div class="stat-value mono" id="ov-data-storage">4.2 GB</div>
+          <div class="stat-sub">of <span id="ov-data-limit">10 GB</span> allocated</div>
+          <div class="stat-bar"><div class="stat-bar-fill amber" id="ov-data-bar" style="width:42%"></div></div>
+        </div>
+        <div class="stat-card" id="stat-file-storage">
+          <div class="stat-label">File Storage</div>
+          <div class="stat-value mono" id="ov-file-storage">1.1 GB</div>
+          <div class="stat-sub">of <span id="ov-file-limit">20 GB</span> allocated</div>
+          <div class="stat-bar"><div class="stat-bar-fill green" id="ov-file-bar" style="width:5.5%"></div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Active Users (30d)</div>
+          <div class="stat-value mono" id="ov-active-users">183</div>
+          <div class="stat-sub">of <span id="ov-total-users">250</span> licensed</div>
+          <div class="stat-bar"><div class="stat-bar-fill blue" id="ov-users-bar" style="width:73%"></div></div>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <!-- Recent deployments mini -->
+        <div class="panel">
+          <div class="panel-header">
+            <span class="panel-title">Recent Deployments</span>
+            <a href="#sf-deployments" class="panel-link" data-goto="sf-deployments">View all</a>
+          </div>
+          <table class="data-table" id="ov-deployments-table">
+            <thead><tr><th>Component</th><th>Type</th><th>Status</th><th>When</th></tr></thead>
+            <tbody id="ov-deploy-tbody">
+              <tr><td class="mono">AccountTrigger</td><td>ApexTrigger</td><td><span class="badge green">Success</span></td><td class="mono text-muted">2h ago</td></tr>
+              <tr><td class="mono">OpportunityFlow</td><td>Flow</td><td><span class="badge green">Success</span></td><td class="mono text-muted">5h ago</td></tr>
+              <tr><td class="mono">LeadConvertPage</td><td>LWC</td><td><span class="badge red">Failed</span></td><td class="mono text-muted">8h ago</td></tr>
+              <tr><td class="mono">PricingCalc</td><td>ApexClass</td><td><span class="badge green">Success</span></td><td class="mono text-muted">1d ago</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pipeline status mini -->
+        <div class="panel">
+          <div class="panel-header">
+            <span class="panel-title">Pipeline Status</span>
+            <a href="#azure-pipelines" class="panel-link" data-goto="azure-pipelines">View all</a>
+          </div>
+          <div class="pipeline-mini-list" id="ov-pipeline-list">
+            <div class="pipeline-mini-item">
+              <span class="status-dot green"></span>
+              <span class="pipeline-name">sf-deploy-prod</span>
+              <span class="badge green mono">passed</span>
+              <span class="pipeline-time mono text-muted">14m</span>
+            </div>
+            <div class="pipeline-mini-item">
+              <span class="status-dot green"></span>
+              <span class="pipeline-name">sf-validate-staging</span>
+              <span class="badge green mono">passed</span>
+              <span class="pipeline-time mono text-muted">31m</span>
+            </div>
+            <div class="pipeline-mini-item">
+              <span class="status-dot amber"></span>
+              <span class="pipeline-name">sf-apex-tests</span>
+              <span class="badge amber mono">running</span>
+              <span class="pipeline-time mono text-muted">8m</span>
+            </div>
+            <div class="pipeline-mini-item">
+              <span class="status-dot red"></span>
+              <span class="pipeline-name">integration-checks</span>
+              <span class="badge red mono">failed</span>
+              <span class="pipeline-time mono text-muted">2h</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SF ORG HEALTH SECTION -->
+    <section id="sf-health" class="section">
+      <h2 class="section-heading">Salesforce Org Health</h2>
+
+      <div class="stat-row">
+        <div class="stat-card accent-left green">
+          <div class="stat-label">Daily API Limit</div>
+          <div class="stat-value mono" id="sh-api-pct">1.4%</div>
+          <div class="stat-sub" id="sh-api-detail">72,430 / 5,000,000 used</div>
+          <div class="stat-bar"><div class="stat-bar-fill green" id="sh-api-bar" style="width:1.4%"></div></div>
+        </div>
+        <div class="stat-card accent-left amber">
+          <div class="stat-label">SOQL Queries (sync)</div>
+          <div class="stat-value mono" id="sh-soql">78/100</div>
+          <div class="stat-sub">per transaction limit</div>
+          <div class="stat-bar"><div class="stat-bar-fill amber" id="sh-soql-bar" style="width:78%"></div></div>
+        </div>
+        <div class="stat-card accent-left green">
+          <div class="stat-label">Apex CPU Time</div>
+          <div class="stat-value mono" id="sh-cpu">32%</div>
+          <div class="stat-sub">avg of 10,000ms limit</div>
+          <div class="stat-bar"><div class="stat-bar-fill green" id="sh-cpu-bar" style="width:32%"></div></div>
+        </div>
+        <div class="stat-card accent-left green">
+          <div class="stat-label">Heap Size</div>
+          <div class="stat-value mono" id="sh-heap">12%</div>
+          <div class="stat-sub">avg of 6MB limit</div>
+          <div class="stat-bar"><div class="stat-bar-fill green" id="sh-heap-bar" style="width:12%"></div></div>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="panel">
+          <div class="panel-header"><span class="panel-title">Storage Breakdown</span></div>
+          <div class="storage-list">
+            <div class="storage-item">
+              <span class="storage-label">Data Storage</span>
+              <div class="storage-bar-wrap">
+                <div class="storage-bar"><div class="storage-bar-fill amber" style="width:42%"></div></div>
+                <span class="mono text-muted">4.2 / 10 GB</span>
+              </div>
+            </div>
+            <div class="storage-item">
+              <span class="storage-label">File Storage</span>
+              <div class="storage-bar-wrap">
+                <div class="storage-bar"><div class="storage-bar-fill green" style="width:5.5%"></div></div>
+                <span class="mono text-muted">1.1 / 20 GB</span>
+              </div>
+            </div>
+            <div class="storage-item">
+              <span class="storage-label">Big Objects</span>
+              <div class="storage-bar-wrap">
+                <div class="storage-bar"><div class="storage-bar-fill green" style="width:3%"></div></div>
+                <span class="mono text-muted">0.3 / 10 GB</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header"><span class="panel-title">User Licences</span></div>
+          <table class="data-table" id="sh-licences-table">
+            <thead><tr><th>Licence Type</th><th>Total</th><th>Used</th><th>Available</th></tr></thead>
+            <tbody>
+              <tr><td>Salesforce</td><td class="mono">250</td><td class="mono">218</td><td class="mono green-text">32</td></tr>
+              <tr><td>Salesforce Platform</td><td class="mono">50</td><td class="mono">48</td><td class="mono amber-text">2</td></tr>
+              <tr><td>Communities (External)</td><td class="mono">1,000</td><td class="mono">412</td><td class="mono green-text">588</td></tr>
+              <tr><td>API Only</td><td class="mono">10</td><td class="mono">6</td><td class="mono green-text">4</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">Governor Limit Snapshot</span>
+          <span class="panel-meta mono text-muted" id="sh-governor-time">Last checked: —</span>
+        </div>
+        <table class="data-table" id="sh-governor-table">
+          <thead><tr><th>Limit</th><th>Max</th><th>Remaining</th><th>Used %</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Daily API Requests</td><td class="mono">5,000,000</td><td class="mono">4,927,570</td><td class="mono">1.4%</td><td><span class="badge green">OK</span></td></tr>
+            <tr><td>Daily Bulk API Requests</td><td class="mono">10,000</td><td class="mono">9,847</td><td class="mono">1.5%</td><td><span class="badge green">OK</span></td></tr>
+            <tr><td>Daily Streaming API Events</td><td class="mono">1,000,000</td><td class="mono">998,200</td><td class="mono">0.2%</td><td><span class="badge green">OK</span></td></tr>
+            <tr><td>Daily Async Apex Executions</td><td class="mono">250,000</td><td class="mono">218,500</td><td class="mono">12.6%</td><td><span class="badge green">OK</span></td></tr>
+            <tr><td>Concurrent Long-Running Apex</td><td class="mono">10</td><td class="mono">8</td><td class="mono">20%</td><td><span class="badge green">OK</span></td></tr>
+            <tr><td>Data Storage</td><td class="mono">10 GB</td><td class="mono">5.8 GB</td><td class="mono">42%</td><td><span class="badge amber">Watch</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- DEPLOYMENTS SECTION -->
+    <section id="sf-deployments" class="section">
+      <h2 class="section-heading">Salesforce Deployments</h2>
+
+      <div class="stat-row four-stat">
+        <div class="stat-card">
+          <div class="stat-label">Deployments (30d)</div>
+          <div class="stat-value mono" id="dep-total">47</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Success Rate</div>
+          <div class="stat-value mono green-text" id="dep-success-rate">91.5%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Failed</div>
+          <div class="stat-value mono red-text" id="dep-failed">4</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Avg Deploy Time</div>
+          <div class="stat-value mono" id="dep-avg-time">3m 42s</div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">Deployment History</span>
+          <div class="panel-filters">
+            <select id="dep-filter-status" class="filter-select">
+              <option value="all">All statuses</option>
+              <option value="Succeeded">Succeeded</option>
+              <option value="Failed">Failed</option>
+              <option value="InProgress">In Progress</option>
+            </select>
+            <select id="dep-filter-type" class="filter-select">
+              <option value="all">All types</option>
+              <option value="ApexClass">ApexClass</option>
+              <option value="ApexTrigger">ApexTrigger</option>
+              <option value="LWC">LWC</option>
+              <option value="Flow">Flow</option>
+            </select>
+          </div>
+        </div>
+        <table class="data-table sortable" id="dep-table">
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th>Type</th>
+              <th>Deployed by</th>
+              <th>Environment</th>
+              <th>Duration</th>
+              <th>Status</th>
+              <th>Timestamp</th>
+            </tr>
+          </thead>
+          <tbody id="dep-tbody">
+            <!-- Populated by JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- AZURE PIPELINES SECTION -->
+    <section id="azure-pipelines" class="section">
+      <h2 class="section-heading">Azure DevOps Pipelines</h2>
+
+      <div class="stat-row four-stat">
+        <div class="stat-card">
+          <div class="stat-label">Total Runs (7d)</div>
+          <div class="stat-value mono" id="az-total-runs">138</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Pass Rate</div>
+          <div class="stat-value mono green-text" id="az-pass-rate">89.1%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Currently Running</div>
+          <div class="stat-value mono amber-text" id="az-running">3</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Avg Duration</div>
+          <div class="stat-value mono" id="az-avg-dur">6m 18s</div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header"><span class="panel-title">Pipeline Runs</span></div>
+        <table class="data-table" id="az-table">
+          <thead>
+            <tr>
+              <th>Pipeline</th>
+              <th>Branch</th>
+              <th>Triggered by</th>
+              <th>Duration</th>
+              <th>Status</th>
+              <th>Started</th>
+            </tr>
+          </thead>
+          <tbody id="az-tbody">
+            <!-- Populated by JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="two-col">
+        <div class="panel">
+          <div class="panel-header"><span class="panel-title">Pass Rate by Pipeline (7d)</span></div>
+          <div class="bar-chart-list" id="az-bar-chart">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-header"><span class="panel-title">Recent Failures</span></div>
+          <table class="data-table" id="az-failures-table">
+            <thead><tr><th>Pipeline</th><th>Reason</th><th>When</th></tr></thead>
+            <tbody id="az-failures-tbody">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- OAuth Modal -->
+  <div id="oauth-modal" class="modal hidden">
+    <div class="modal-backdrop"></div>
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3>Connect Salesforce Org</h3>
+        <button class="modal-close" id="modal-close">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Instance URL</label>
+          <input type="text" id="sf-instance-url" class="form-input" placeholder="https://yourorg.my.salesforce.com" />
+        </div>
+        <div class="form-group">
+          <label>Client ID (Consumer Key)</label>
+          <input type="text" id="sf-client-id" class="form-input" placeholder="Connected App Consumer Key" />
+        </div>
+        <div class="form-group">
+          <label>Redirect URI</label>
+          <input type="text" id="sf-redirect-uri" class="form-input" readonly id="sf-redirect-uri" />
+        </div>
+        <p class="modal-note">You will be redirected to Salesforce to authorise this dashboard. Credentials are stored only in your browser session.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" id="modal-cancel">Cancel</button>
+        <button class="btn-primary" id="modal-connect">Authorise with Salesforce</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/sf-api.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Salesforce OAuth Callback</title>
+  <style>
+    :root { color-scheme: dark; }
+    body {
+      background: #0D1117;
+      color: #E6EDF3;
+      font-family: 'Inter', system-ui, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .msg { text-align: center; font-size: 14px; color: #8B949E; }
+    .mono { font-family: monospace; color: #3FB950; }
+  </style>
+</head>
+<body>
+<div class="msg">
+  <p>Completing Salesforce authorisation…</p>
+  <p class="mono" id="status">Processing</p>
+</div>
+<script>
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    const code   = params.get('code');
+    const error  = params.get('error');
+
+    if (code) {
+      // Post code back to the opener (dashboard)
+      if (window.opener) {
+        window.opener.postMessage({ type: 'SF_OAUTH_CODE', code }, window.location.origin);
+        document.getElementById('status').textContent = 'Authorised. Closing…';
+      } else {
+        // Fallback: store in sessionStorage and redirect
+        sessionStorage.setItem('gu_sf_oauth_code', code);
+        window.location.href = './index.html?oauth=callback';
+      }
+    } else if (error) {
+      if (window.opener) {
+        window.opener.postMessage({ type: 'SF_OAUTH_ERROR', error: params.get('error_description') || error }, window.location.origin);
+      }
+      document.getElementById('status').textContent = 'Error: ' + error;
+    } else {
+      document.getElementById('status').textContent = 'No code received.';
+    }
+  })();
+</script>
+</body>
+</html>
