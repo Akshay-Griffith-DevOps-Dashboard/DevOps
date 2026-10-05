@@ -69,23 +69,16 @@
     </a>
 
     <div class="subnav-right">
-      <div id="connection-status" class="conn-indicator disconnected">
+      <div id="connection-status" class="conn-indicator connected">
         <span class="conn-dot"></span>
-        <span class="conn-label">Not connected</span>
+        <span class="conn-label">SIT Sandbox — snapshot</span>
       </div>
-      <button id="connect-btn" class="btn-connect">Connect Salesforce</button>
-      <div class="last-refresh" id="last-refresh">—</div>
+      <div class="last-refresh" id="last-refresh">Data: <span id="data-pulled-date">—</span></div>
     </div>
   </nav>
 
-  <!-- Auth banner -->
-  <div id="auth-banner" class="auth-banner">
-    <div class="auth-banner-inner">
-      <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8.5" stroke="currentColor" stroke-width="1.5"/><path d="M10 6v4M10 13.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-      Connect your Salesforce org to load live data. Dashboard shows sample data until connected.
-      <button id="auth-banner-btn" class="btn-connect-inline">Connect now</button>
-    </div>
-  </div>
+  <!-- Auth banner hidden — SIT data is always baked in -->
+  <div id="auth-banner" class="auth-banner hidden"></div>
 
   <!-- ═══════════════ MAIN CONTENT ═══════════════ -->
   <main style="padding: 0 28px; max-width: 1400px;">
@@ -98,12 +91,20 @@
         <!-- Donut ring -->
         <div class="score-donut-wrap">
           <svg viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
-            <!-- Track ring -->
+            <!-- Track ring (full grey background) -->
             <circle cx="55" cy="55" r="46" fill="none" stroke="#EAEDF1" stroke-width="10"/>
-            <!-- Score arc — colour set by JS based on score value -->
+            <!-- Green segment: 0–70 of scale (top of ring, clockwise) -->
             <circle cx="55" cy="55" r="46" fill="none" stroke="#1A7F4B" stroke-width="10"
-              stroke-dasharray="0 289" stroke-dashoffset="72" stroke-linecap="round"
-              id="donut-arc"/>
+              stroke-dasharray="0 289" stroke-dashoffset="72"
+              id="donut-green"/>
+            <!-- Amber segment: follows green -->
+            <circle cx="55" cy="55" r="46" fill="none" stroke="#E8A317" stroke-width="10"
+              stroke-dasharray="0 289" stroke-dashoffset="72"
+              id="donut-amber"/>
+            <!-- Red segment: follows amber -->
+            <circle cx="55" cy="55" r="46" fill="none" stroke="#C0392B" stroke-width="10"
+              stroke-dasharray="0 289" stroke-dashoffset="72"
+              id="donut-red"/>
           </svg>
           <div class="score-center">
             <span class="score-number" id="score-number">—</span>

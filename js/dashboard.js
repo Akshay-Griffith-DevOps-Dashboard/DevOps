@@ -66,11 +66,9 @@
     return pct >= 80 ? 'red' : pct >= 60 ? 'amber' : 'teal';
   }
 
-  /* ── Data pulled date ─────────────────────────────── */
-  const datePulledEl = document.getElementById('data-pulled-date');
-  if (datePulledEl) {
-    datePulledEl.textContent = LIVE_DATA.org.fetchedAt || new Date().toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' });
-  }
+  /* ── Data pulled date (shown in subnav right) ────── */
+  const fetchedLabel = LIVE_DATA.org.fetchedAt || new Date().toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' });
+  document.querySelectorAll('#data-pulled-date').forEach(el => { el.textContent = fetchedLabel; });
 
   /* ── Org pill label ───────────────────────────────── */
   const pillSIT = document.querySelector('.org-pill[data-org="sit"]');
@@ -126,61 +124,14 @@
 
   /* ── OAuth modal ──────────────────────────────────── */
   const modal        = document.getElementById('oauth-modal');
-  const connectBtn   = document.getElementById('connect-btn');
-  const bannerBtn    = document.getElementById('auth-banner-btn');
+  /* ── Modal (kept for future live-connect use) ────── */
   const modalClose   = document.getElementById('modal-close');
   const modalCancel  = document.getElementById('modal-cancel');
-  const modalConnect = document.getElementById('modal-connect');
-  const redirectInput = document.getElementById('sf-redirect-uri');
-
-  if (redirectInput) {
-    redirectInput.value = `${location.origin}${location.pathname.replace(/\/?[^/]*$/, '/')}callback.html`;
-  }
-
-  function openModal() { if (modal) modal.classList.remove('hidden'); }
+  function openModal()  { if (modal) modal.classList.remove('hidden'); }
   function closeModal() { if (modal) modal.classList.add('hidden'); }
-
-  if (connectBtn) connectBtn.addEventListener('click', openModal);
-  if (bannerBtn)  bannerBtn.addEventListener('click', openModal);
-  if (modalClose) modalClose.addEventListener('click', closeModal);
+  if (modalClose)  modalClose.addEventListener('click', closeModal);
   if (modalCancel) modalCancel.addEventListener('click', closeModal);
-  if (modal) modal.querySelector('.modal-backdrop').addEventListener('click', closeModal);
-
-  if (modalConnect) {
-    modalConnect.addEventListener('click', async () => {
-      const instanceUrl = document.getElementById('sf-instance-url').value.trim().replace(/\/$/, '');
-      const clientId    = document.getElementById('sf-client-id').value.trim();
-      const redirectUri = redirectInput ? redirectInput.value.trim() : '';
-      if (!instanceUrl) { alert('Please enter your Salesforce instance URL.'); return; }
-      if (!clientId)    { alert('Please enter your Connected App Client ID.'); return; }
-      closeModal();
-      try {
-        const code = await sfApi.initiateOAuth(instanceUrl, clientId, redirectUri);
-        await sfApi.exchangeCode(code);
-        setConnected(true);
-        renderAll();
-      } catch (err) {
-        console.error('OAuth error:', err);
-        alert(`Connection failed: ${err.message}`);
-        setConnected(false);
-      }
-    });
-  }
-
-  /* ── Connection state ─────────────────────────────── */
-  const connIndicator = document.getElementById('connection-status');
-  const connLabel     = connIndicator ? connIndicator.querySelector('.conn-label') : null;
-  const authBanner    = document.getElementById('auth-banner');
-  const lastRefreshEl = document.getElementById('last-refresh');
-
-  // SIT sandbox baked-in — treat as always showing live snapshot
-  setConnected(true, 'SIT Sandbox');
-
-  function setConnected(connected, orgName) {
-    if (connIndicator) connIndicator.className = `conn-indicator ${connected ? 'connected' : 'disconnected'}`;
-    if (connLabel)     connLabel.textContent   = connected ? (orgName || 'Connected') : 'Not connected';
-    if (authBanner)    authBanner.classList.toggle('hidden', connected);
-  }
+  if (modal) modal.querySelector('.modal-backdrop')?.addEventListener('click', closeModal);
 
   /* ═══════════════════════════════════════════════════
      RENDER FUNCTIONS — Salesforce live data
@@ -251,14 +202,44 @@
     const largEl = document.getElementById('score-value-large');
     if (largEl) largEl.style.color = scoreColor;
 
-    // Donut — single arc coloured green / amber / red based on score
-    const circ    = 289;
-    const arcLen  = Math.round((score / 100) * circ);
-    const arcColor = score >= 85 ? '#1A7F4B' : score >= 60 ? '#E8A317' : '#C0392B';
-    const arc = document.getElementById('donut-arc');
-    if (arc) {
-      arc.setAttribute('stroke-dasharray', `${arcLen} ${circ}`);
-      arc.setAttribute('stroke', arcColor);
+    // Donut — three fixed colour zones always visible on the ring
+    // Ring is split: green zone covers 0-70 of scale, amber 70-85, red 85-100
+    // Each segment is drawn as a dasharray arc; the score determines the filled length
+    // Visually: green occupies most of the ring; amber and red are small caps at the top
+    const circ = 289; // 2πr for r=46
+    // Zone lengths on the ring (proportional to score range)
+    const greenMax = Math.round((70 / 100) * circ);   // 202px — green zone extent
+    const amberMax = Math.round((15 / 100) * circ);   // 43px  — amber zone extent
+    const redMax   = Math.round((15 / 100) * circ);   // 43px  — red zone extent
+
+    // How much of each zone is filled based on score
+    const greenFill = score >= 70  ? greenMax : Math.round((score / 70) * greenMax);
+    const amberFill = score >= 85  ? amberMax
+                    : score >= 70  ? Math.round(((score - 70) / 15) * amberMax)
+                    : 0;
+    const redFill   = score >= 100 ? redMax
+                    : score >= 85  ? Math.round(((score - 85) / 15) * redMax)
+                    : 0;
+
+    // stroke-dashoffset: SVG starts at 3 o'clock, we want 12 o'clock = offset -72 (quarter turn back)
+    // Each subsequent segment starts where the previous one ended
+    // offset = -(previous filled lengths)
+    const gEl = document.getElementById('donut-green');
+    const aEl = document.getElementById('donut-amber');
+    const rEl = document.getElementById('donut-red');
+
+    if (gEl) {
+      gEl.setAttribute('stroke-dasharray', `${greenFill} ${circ}`);
+      gEl.setAttribute('stroke-dashoffset', '72');
+    }
+    if (aEl) {
+      aEl.setAttribute('stroke-dasharray', `${amberFill} ${circ}`);
+      // offset = 72 - greenFill (positive offset moves start clockwise)
+      aEl.setAttribute('stroke-dashoffset', `${72 - greenFill}`);
+    }
+    if (rEl) {
+      rEl.setAttribute('stroke-dasharray', `${redFill} ${circ}`);
+      rEl.setAttribute('stroke-dashoffset', `${72 - greenFill - amberFill}`);
     }
 
     // Score breakdown list
