@@ -187,11 +187,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-05 08:47 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-05 10:55 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-05 08:47 UTC',
+  fetchedAt: '2026-10-05 10:55 UTC',
 
   repos: [
     {
@@ -427,12 +427,12 @@ const AZURE_DATA = {
         "repo": "RSDF-SalesforcePlatform",
         "name": "devmerge",
         "isDefault": false,
-        "aheadCount": 86,
+        "aheadCount": 89,
         "behindCount": 0,
-        "commitId": "974b355a",
-        "author": "Akshay Kumar",
-        "date": "2026-10-01",
-        "comment": "Merged PR 9344: Feature-SOPS-73_2"
+        "commitId": "0d36c1c5",
+        "author": "Sudaif Haider",
+        "date": "2026-10-05",
+        "comment": "Merged PR 9346: bugFix-SOPS-195"
     },
     {
         "repo": "RSDF-SalesforcePlatform",
@@ -942,14 +942,14 @@ const AZURE_DATA = {
     },
     {
         "repo": "RSDF-SalesforcePlatform",
-        "name": "gs-pipeline/bugFix-SOPS-195_-_devmerge",
+        "name": "gs-pipeline/bugFix-SOPS-195_-_uat",
         "isDefault": false,
-        "aheadCount": 88,
+        "aheadCount": 23,
         "behindCount": 0,
-        "commitId": "f0602a5e",
+        "commitId": "19c16796",
         "author": "Team user",
         "date": "2026-10-05",
-        "comment": "Gearset: Semantic reverse merge of devmerge into gs-pipeline/bugFix-SOPS-195_-_d"
+        "comment": "Gearset: Semantic reverse merge of uat into gs-pipeline/bugFix-SOPS-195_-_uat"
     },
     {
         "repo": "RSDF-SalesforcePlatform",
@@ -1296,12 +1296,12 @@ const AZURE_DATA = {
         "repo": "RSDF-SalesforcePlatform",
         "name": "sit",
         "isDefault": false,
-        "aheadCount": 48,
+        "aheadCount": 51,
         "behindCount": 0,
-        "commitId": "b8bab3cd",
-        "author": "Akshay Kumar",
+        "commitId": "7c143063",
+        "author": "Sudaif Haider",
         "date": "2026-10-05",
-        "comment": "Merged PR 9330: SOPS-156"
+        "comment": "Merged PR 9348: bugFix-SOPS-195"
     },
     {
         "repo": "RSDF-SalesforcePlatform",
@@ -1384,6 +1384,42 @@ const AZURE_DATA = {
 
   pullRequests: [
     {
+        "id": 9349,
+        "title": "bugFix-SOPS-195",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/bugFix-SOPS-195_-_uat",
+        "targetBranch": "uat",
+        "createdBy": "Sudaif Haider",
+        "createdDate": "2026-10-05",
+        "closedDate": null,
+        "reviewers": [
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9348,
+        "title": "bugFix-SOPS-195",
+        "status": "completed",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/bugFix-SOPS-195_-_sit",
+        "targetBranch": "sit",
+        "createdBy": "Sudaif Haider",
+        "createdDate": "2026-10-05",
+        "closedDate": "2026-10-05",
+        "reviewers": [
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
         "id": 9347,
         "title": "SOPS-156",
         "status": "active",
@@ -1404,14 +1440,16 @@ const AZURE_DATA = {
     {
         "id": 9346,
         "title": "bugFix-SOPS-195",
-        "status": "active",
+        "status": "completed",
         "repo": "RSDF-SalesforcePlatform",
         "sourceBranch": "gs-pipeline/bugFix-SOPS-195_-_devmerge",
         "targetBranch": "devmerge",
         "createdBy": "Sudaif Haider",
         "createdDate": "2026-10-05",
-        "closedDate": null,
-        "reviewers": [],
+        "closedDate": "2026-10-05",
+        "reviewers": [
+            "Amit Sood"
+        ],
         "isDraft": false,
         "mergeStatus": "succeeded",
         "approved": false
@@ -3171,46 +3209,74 @@ const AZURE_DATA = {
         "isDraft": false,
         "mergeStatus": "succeeded",
         "approved": false
-    },
-    {
-        "id": 9246,
-        "title": "Feature SOPS 73",
-        "status": "abandoned",
-        "repo": "RSDF-SalesforcePlatform",
-        "sourceBranch": "Feature-SOPS-73",
-        "targetBranch": "devmerge",
-        "createdBy": "Sagar Dey",
-        "createdDate": "2026-09-11",
-        "closedDate": "2026-09-11",
-        "reviewers": [
-            "Amit Sood",
-            "Sudaif Haider"
-        ],
-        "isDraft": false,
-        "mergeStatus": "",
-        "approved": false
-    },
-    {
-        "id": 9245,
-        "title": "Feature SOPS 73",
-        "status": "abandoned",
-        "repo": "RSDF-SalesforcePlatform",
-        "sourceBranch": "gs-pipeline/Feature-SOPS-73_-_main",
-        "targetBranch": "main",
-        "createdBy": "Akshay Kumar",
-        "createdDate": "2026-09-11",
-        "closedDate": "2026-09-11",
-        "reviewers": [
-            "Sudaif Haider",
-            "Giles Bill"
-        ],
-        "isDraft": false,
-        "mergeStatus": "",
-        "approved": false
     }
 ],
 
   commits: [
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "19c16796",
+        "comment": "Gearset: Semantic reverse merge of uat into gs-pipeline/bugFix-SOPS-195_-_uat",
+        "author": "Team user",
+        "date": "2026-10-05",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "6de0675a",
+        "comment": "Merge pull request 9349 from gs-pipeline/bugFix-SOPS-195_-_uat into uat",
+        "author": "Sudaif Haider",
+        "date": "2026-10-05",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "83af35cc",
+        "comment": "Merge pull request 9349 from gs-pipeline/bugFix-SOPS-195_-_uat into uat",
+        "author": "Sudaif Haider",
+        "date": "2026-10-05",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "7c143063",
+        "comment": "Merged PR 9348: bugFix-SOPS-195",
+        "author": "Sudaif Haider",
+        "date": "2026-10-05",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "1d96285a",
+        "comment": "Gearset: Semantic reverse merge of sit into gs-pipeline/bugFix-SOPS-195_-_sit",
+        "author": "Team user",
+        "date": "2026-10-05",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "e28ca855",
+        "comment": "Merge pull request 9348 from gs-pipeline/bugFix-SOPS-195_-_sit into sit",
+        "author": "Sudaif Haider",
+        "date": "2026-10-05",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "6d43c606",
+        "comment": "Merge pull request 9348 from gs-pipeline/bugFix-SOPS-195_-_sit into sit",
+        "author": "Sudaif Haider",
+        "date": "2026-10-05",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "0d36c1c5",
+        "comment": "Merged PR 9346: bugFix-SOPS-195",
+        "author": "Sudaif Haider",
+        "date": "2026-10-05",
+        "branch": ""
+    },
     {
         "repo": "RSDF-SalesforcePlatform",
         "commitId": "35fd56fa",
@@ -3304,70 +3370,6 @@ const AZURE_DATA = {
         "commitId": "e20c6cf7",
         "comment": "Merge pull request 9341 from Feature-SOPS-73_2 into main",
         "author": "Sagar Dey",
-        "date": "2026-10-01",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "d99a6493",
-        "comment": "Feature-SOPS-73_2",
-        "author": "Sagar-GitHub-18",
-        "date": "2026-10-01",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "64ee6f5a",
-        "comment": "Sagar-Deleted ucinn_ascendv2__Designation__c.sharingRules-meta.xml",
-        "author": "Sagar Dey",
-        "date": "2026-10-01",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "b79c04ee",
-        "comment": "Sagar-Deleted ConstituentRole.sharingRules-meta.xml",
-        "author": "Sagar Dey",
-        "date": "2026-10-01",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "bcf4e688",
-        "comment": "Merge pull request 9340 from gs-pipeline/Feature-SOPS-73_1_-_sit into sit",
-        "author": "Akshay Kumar",
-        "date": "2026-10-01",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "b88fa2ec",
-        "comment": "Merged PR 9339: SOPS-73-Defect-209",
-        "author": "Akshay Kumar",
-        "date": "2026-10-01",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "c1f10283",
-        "comment": "Merge pull request 9339 from gs-pipeline/Feature-SOPS-73_1_-_devmerge into devmerge",
-        "author": "Akshay Kumar",
-        "date": "2026-10-01",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "9b8b4b0b",
-        "comment": "Akshay - Updated ConstituentRole.sharingRules-meta.xml",
-        "author": "Akshay Kumar",
-        "date": "2026-10-01",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "fcf32c19",
-        "comment": "Merge pull request 9339 from gs-pipeline/Feature-SOPS-73_1_-_devmerge into devmerge",
-        "author": "Akshay Kumar",
         "date": "2026-10-01",
         "branch": ""
     }
