@@ -5,9 +5,12 @@ on:
     branches:
       - main
   workflow_dispatch:
+  schedule:
+    # Refresh data every 6 hours
+    - cron: '0 */6 * * *'
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -16,7 +19,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  fetch-and-deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -27,13 +30,34 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # ── Fetch Azure DevOps data ──────────────────────────
+      - name: Fetch Azure DevOps Branches & Pull Requests
+        if: ${{ secrets.AZURE_DEVOPS_PAT != '' }}
+        env:
+          AZURE_PAT: ${{ secrets.AZURE_DEVOPS_PAT }}
+          AZURE_ORG: ${{ vars.AZURE_ORG }}
+          AZURE_PROJECT: ${{ vars.AZURE_PROJECT }}
+        run: |
+          python3 fetch-azure-data.py \
+            --pat "$AZURE_PAT" \
+            --org "$AZURE_ORG" \
+            --project "$AZURE_PROJECT"
+
+      # ── Commit updated data.js if it changed ─────────────
+      - name: Commit refreshed data
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git diff --quiet js/data.js || \
+            git commit -am "chore: auto-refresh Azure DevOps data [skip ci]"
+          git push || true
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository root (all dashboard files)
           path: '.'
 
       - name: Deploy to GitHub Pages

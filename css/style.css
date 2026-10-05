@@ -1016,6 +1016,85 @@ main {
 .text-navy     { color: var(--navy); }
 
 /* =========================================================
+   SECTION HEADING ROW
+   ========================================================= */
+.section-heading-row {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--teal-light);
+}
+
+.section-heading-row .section-heading {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.section-meta {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+/* =========================================================
+   INFO BANNER (azure no-data notice)
+   ========================================================= */
+.info-banner {
+  background: var(--blue-bg);
+  border: 1px solid rgba(26,107,181,0.2);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  font-size: 12px;
+  color: var(--blue);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.info-banner.hidden { display: none; }
+
+.info-banner code {
+  font-family: var(--font-mono);
+  background: rgba(26,107,181,0.1);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 11px;
+}
+
+/* =========================================================
+   EMPTY TABLE ROW
+   ========================================================= */
+.empty-row {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 32px 20px !important;
+  font-size: 13px;
+}
+
+/* =========================================================
+   BRANCH AHEAD/BEHIND BADGES
+   ========================================================= */
+.delta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 10px;
+}
+
+.delta-badge.ahead  { background: var(--teal-light); color: var(--teal); }
+.delta-badge.behind { background: var(--amber-bg);   color: var(--amber); }
+.delta-badge.zero   { background: var(--bg-subtle);  color: var(--text-muted); }
+
+/* =========================================================
    OAUTH MODAL
    ========================================================= */
 .modal { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; }

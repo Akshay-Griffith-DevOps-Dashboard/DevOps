@@ -187,6 +187,19 @@ const MOCK_DATA = {
   ],
 };
 
+// ── Azure DevOps live data ────────────────────────────────────────────────────
+// This block is overwritten by fetch-azure-data.py / GitHub Actions on every deploy.
+// Manually run:  python3 fetch-azure-data.py --pat "YOUR_PAT" --org "ORG" --project "PROJECT"
+const AZURE_DATA = {
+  org:       '',
+  project:   '',
+  fetchedAt: '',
+
+  repos: [],       // { id, name, defaultBranch, remoteUrl }
+  branches: [],    // { repo, name, isDefault, aheadCount, behindCount, commitId, author, date, comment }
+  pullRequests: [], // { id, title, status, repo, sourceBranch, targetBranch, createdBy, createdDate, closedDate, reviewers, isDraft, mergeStatus, approved }
+};
+
 /**
  * Compute pass rates per unique pipeline name
  */

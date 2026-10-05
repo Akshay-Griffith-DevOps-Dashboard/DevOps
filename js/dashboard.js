@@ -549,44 +549,165 @@
     setText('dep-avg-time',     depDurs.length ? fmtDuration(Math.round(depDurs.reduce((a,b) => a+b, 0) / depDurs.length)) : '—');
   }
 
-  /* ── Azure pipelines ──────────────────────────────── */
-  function renderPipelines(runs) {
-    const tbody = document.getElementById('az-tbody');
-    if (!tbody) return;
-    tbody.innerHTML = runs.map(r => `
-      <tr>
-        <td class="mono">${r.name}</td>
-        <td class="mono text-muted">${r.branch}</td>
-        <td class="mono">${r.triggeredBy}</td>
-        <td class="mono">${r.status === 'running' ? '<span class="text-amber">running…</span>' : fmtDuration(r.durationSec)}</td>
-        <td>${statusBadge(r.status)}</td>
-        <td class="mono text-muted">${timeAgo(r.started instanceof Date ? r.started : new Date(r.started))}</td>
-      </tr>`).join('');
+  /* ── Azure DevOps — Branches + Pull Requests ─────── */
+  function renderAzure() {
+    const az = typeof AZURE_DATA !== 'undefined' ? AZURE_DATA : null;
+    const hasData = az && (az.branches.length > 0 || az.pullRequests.length > 0);
+
+    // Show/hide no-data banner
+    const banner = document.getElementById('az-no-data-banner');
+    if (banner) banner.classList.toggle('hidden', hasData);
+
+    if (!hasData) {
+      setText('az-repo-count',   '—');
+      setText('az-branch-count', '—');
+      setText('az-pr-open',      '—');
+      setText('az-pr-merged',    '—');
+      setText('az-branch-sub',   'connect Azure DevOps to see data');
+      setText('az-pr-sub',       '');
+      setText('az-pr-merged-sub','');
+      const bTbody = document.getElementById('az-branch-tbody');
+      if (bTbody) bTbody.innerHTML = '<tr><td colspan="7" class="empty-row">No data yet — see banner above</td></tr>';
+      const pTbody = document.getElementById('az-pr-tbody');
+      if (pTbody) pTbody.innerHTML = '<tr><td colspan="8" class="empty-row">No data yet — see banner above</td></tr>';
+      return;
+    }
+
+    // Fetch date
+    const fetchDateEl = document.getElementById('az-fetch-date');
+    if (fetchDateEl && az.fetchedAt) fetchDateEl.textContent = `Data fetched: ${az.fetchedAt}`;
+
+    // Summary stats
+    const openPRs   = az.pullRequests.filter(p => p.status === 'active');
+    const mergedPRs = az.pullRequests.filter(p => p.status === 'completed');
+    setText('az-repo-count',    az.repos.length);
+    setText('az-branch-count',  az.branches.length);
+    setText('az-pr-open',       openPRs.length);
+    setText('az-pr-merged',     mergedPRs.length);
+    setText('az-branch-sub',    az.repos.map(r => r.name).join(', ').substring(0, 50) || 'across all repos');
+    setText('az-pr-sub',        openPRs.length === 1 ? '1 PR awaiting review' : `${openPRs.length} PRs awaiting review`);
+    setText('az-pr-merged-sub', `${mergedPRs.length} merged`);
+
+    // Populate repo filter dropdowns
+    const repoNames = [...new Set(az.repos.map(r => r.name))].sort();
+    ['az-branch-repo-filter', 'az-pr-repo-filter'].forEach(id => {
+      const sel = document.getElementById(id);
+      if (!sel) return;
+      const current = sel.value;
+      // Keep the "all" option, re-add repos
+      while (sel.options.length > 1) sel.remove(1);
+      repoNames.forEach(name => {
+        const opt = document.createElement('option');
+        opt.value = name; opt.textContent = name;
+        sel.appendChild(opt);
+      });
+      sel.value = current;
+    });
+
+    renderBranchTable();
+    renderPRTable();
   }
 
-  function renderPipelinePassRates(rates) {
-    const container = document.getElementById('az-bar-chart');
-    if (!container) return;
-    container.innerHTML = rates.map(r => {
-      const cls = r.pct >= 90 ? 'high' : r.pct >= 70 ? 'medium' : 'low';
-      return `<div class="bar-chart-item">
-        <span class="bar-chart-name" title="${r.name}">${r.name}</span>
-        <div class="bar-chart-bar"><div class="bar-chart-fill ${cls}" style="width:${r.pct}%"></div></div>
-        <span class="bar-chart-pct">${r.pct}%</span>
-      </div>`;
+  function renderBranchTable() {
+    const az = typeof AZURE_DATA !== 'undefined' ? AZURE_DATA : null;
+    if (!az) return;
+    const tbody = document.getElementById('az-branch-tbody');
+    if (!tbody) return;
+
+    const repoFilter  = document.getElementById('az-branch-repo-filter')?.value  || 'all';
+    const typeFilter  = document.getElementById('az-branch-type-filter')?.value  || 'all';
+
+    let branches = az.branches;
+    if (repoFilter !== 'all') branches = branches.filter(b => b.repo === repoFilter);
+    if (typeFilter === 'default')  branches = branches.filter(b => b.isDefault);
+    if (typeFilter === 'feature')  branches = branches.filter(b => !b.isDefault);
+    if (typeFilter === 'ahead')    branches = branches.filter(b => b.aheadCount > 0);
+
+    // Sort: default first, then by date desc
+    branches = [...branches].sort((a, b) => {
+      if (a.isDefault && !b.isDefault) return -1;
+      if (!a.isDefault && b.isDefault) return 1;
+      return (b.date || '').localeCompare(a.date || '');
+    });
+
+    if (!branches.length) {
+      tbody.innerHTML = '<tr><td colspan="7" class="empty-row">No branches match the filter</td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = branches.map(b => {
+      const defaultBadge = b.isDefault ? '<span class="badge teal" style="font-size:10px">default</span> ' : '';
+      const aheadCls  = b.aheadCount  > 0 ? 'ahead' : 'zero';
+      const behindCls = b.behindCount > 0 ? 'behind': 'zero';
+      return `<tr>
+        <td class="mono" style="font-size:12px">${b.repo}</td>
+        <td class="mono">${defaultBadge}${escHtml(b.name)}</td>
+        <td style="font-size:11px;max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${escHtml(b.comment)}">${escHtml(b.comment || '—')}</td>
+        <td style="font-size:12px">${escHtml(b.author || '—')}</td>
+        <td class="mono" style="font-size:11px">${b.date || '—'}</td>
+        <td><span class="delta-badge ${aheadCls}">+${b.aheadCount}</span></td>
+        <td><span class="delta-badge ${behindCls}">-${b.behindCount}</span></td>
+      </tr>`;
     }).join('');
   }
 
-  function renderAzureFailures(failures) {
-    const tbody = document.getElementById('az-failures-tbody');
+  function renderPRTable() {
+    const az = typeof AZURE_DATA !== 'undefined' ? AZURE_DATA : null;
+    if (!az) return;
+    const tbody = document.getElementById('az-pr-tbody');
     if (!tbody) return;
-    tbody.innerHTML = failures.map(f => `
-      <tr>
-        <td class="mono">${f.pipeline}</td>
-        <td style="font-size:11px;color:var(--text-muted)">${f.reason}</td>
-        <td class="mono text-muted">${f.when}</td>
-      </tr>`).join('');
+
+    const statusFilter = document.getElementById('az-pr-status-filter')?.value || 'all';
+    const repoFilter   = document.getElementById('az-pr-repo-filter')?.value   || 'all';
+
+    let prs = az.pullRequests;
+    if (statusFilter !== 'all') prs = prs.filter(p => p.status === statusFilter);
+    if (repoFilter   !== 'all') prs = prs.filter(p => p.repo   === repoFilter);
+
+    // Sort: open first, then by created date desc
+    prs = [...prs].sort((a, b) => {
+      const order = { active: 0, completed: 1, abandoned: 2 };
+      if ((order[a.status] ?? 9) !== (order[b.status] ?? 9)) return (order[a.status] ?? 9) - (order[b.status] ?? 9);
+      return (b.createdDate || '').localeCompare(a.createdDate || '');
+    });
+
+    if (!prs.length) {
+      tbody.innerHTML = '<tr><td colspan="8" class="empty-row">No pull requests match the filter</td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = prs.map(pr => {
+      const statusMap = {
+        active:    ['amber', 'Open'],
+        completed: ['green', 'Merged'],
+        abandoned: ['muted', 'Abandoned'],
+      };
+      const [sCls, sLabel] = statusMap[pr.status] || ['muted', pr.status];
+      const draftBadge = pr.isDraft ? '<span class="badge muted" style="font-size:10px">Draft</span> ' : '';
+      const reviewerStr = (pr.reviewers || []).slice(0, 2).join(', ') + ((pr.reviewers || []).length > 2 ? ` +${pr.reviewers.length - 2}` : '');
+      const approvedEl  = pr.approved ? '<span class="badge green" style="font-size:10px">✓</span>' : '';
+      return `<tr>
+        <td class="mono" style="font-size:12px">#${pr.id}</td>
+        <td style="max-width:240px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${escHtml(pr.title)}">${draftBadge}${escHtml(pr.title)}</td>
+        <td class="mono" style="font-size:11px">${escHtml(pr.repo)}</td>
+        <td class="mono" style="font-size:11px">${escHtml(pr.sourceBranch)} → ${escHtml(pr.targetBranch)}</td>
+        <td style="font-size:12px">${escHtml(pr.createdBy)}</td>
+        <td style="font-size:11px;color:var(--text-muted)">${escHtml(reviewerStr)} ${approvedEl}</td>
+        <td class="mono" style="font-size:11px">${pr.createdDate || '—'}</td>
+        <td><span class="badge ${sCls}">${sLabel}</span></td>
+      </tr>`;
+    }).join('');
   }
+
+  function escHtml(s) {
+    return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  // Wire up Azure filter dropdowns
+  document.getElementById('az-branch-repo-filter')?.addEventListener('change', renderBranchTable);
+  document.getElementById('az-branch-type-filter')?.addEventListener('change', renderBranchTable);
+  document.getElementById('az-pr-status-filter')?.addEventListener('change', renderPRTable);
+  document.getElementById('az-pr-repo-filter')?.addEventListener('change', renderPRTable);
 
   /* ── Utility ──────────────────────────────────────── */
   function setText(id, val) {
@@ -618,21 +739,10 @@
     renderDeploymentStats();
     applyDeployFilters();
 
-    // Azure — from MOCK_DATA
-    renderPipelines(MOCK_DATA.azurePipelines);
-    renderPipelinePassRates(computePipelinePassRates(MOCK_DATA.azurePipelines));
-    renderAzureFailures(MOCK_DATA.azureFailures);
+    // Azure — from AZURE_DATA (populated by fetch-azure-data.py / GitHub Actions)
+    renderAzure();
 
-    const runs   = MOCK_DATA.azurePipelines;
-    const passed = runs.filter(r => r.status === 'succeeded').length;
-    setText('az-total-runs', runs.length);
-    setText('az-pass-rate',  Math.round((passed/runs.length)*100) + '%');
-    setText('az-running',    runs.filter(r => r.status === 'running').length);
-    const durations = runs.filter(r => r.durationSec).map(r => r.durationSec);
-    const avgDur = durations.length ? Math.round(durations.reduce((a,b) => a+b, 0) / durations.length) : 0;
-    setText('az-avg-dur', fmtDuration(avgDur));
-
-    if (lastRefreshEl) lastRefreshEl.textContent = `Live data · ${LIVE_DATA.org.fetchedAt}`;
+    if (lastRefreshEl) lastRefreshEl.textContent = `SF: ${LIVE_DATA.org.fetchedAt}`;
   }
 
   renderAll();

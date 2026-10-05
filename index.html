@@ -429,52 +429,102 @@
       </div>
     </section>
 
-    <!-- ─── AZURE PIPELINES SECTION ─── -->
+    <!-- ─── AZURE DEVOPS SECTION ─── -->
     <section id="azure-pipelines" class="section">
-      <h2 class="section-heading">Azure DevOps Pipelines</h2>
+      <div class="section-heading-row">
+        <h2 class="section-heading">Azure DevOps</h2>
+        <span class="section-meta" id="az-fetch-date"></span>
+      </div>
 
+      <!-- Summary stat cards -->
       <div class="stat-row four-col">
         <div class="stat-card border-navy">
-          <div class="stat-label">Total Runs (7d)</div>
-          <div class="stat-value navy" id="az-total-runs">138</div>
+          <div class="stat-label">Repositories</div>
+          <div class="stat-value navy" id="az-repo-count">—</div>
+          <div class="stat-sub" id="az-repo-sub">loading…</div>
         </div>
         <div class="stat-card border-teal">
-          <div class="stat-label">Pass Rate</div>
-          <div class="stat-value" id="az-pass-rate">89.1%</div>
+          <div class="stat-label">Total Branches</div>
+          <div class="stat-value" id="az-branch-count">—</div>
+          <div class="stat-sub" id="az-branch-sub">across all repos</div>
         </div>
         <div class="stat-card border-amber">
-          <div class="stat-label">Currently Running</div>
-          <div class="stat-value amber" id="az-running">3</div>
+          <div class="stat-label">Open Pull Requests</div>
+          <div class="stat-value amber" id="az-pr-open">—</div>
+          <div class="stat-sub" id="az-pr-sub">awaiting review</div>
         </div>
         <div class="stat-card border-blue">
-          <div class="stat-label">Avg Duration</div>
-          <div class="stat-value blue" id="az-avg-dur">6m 18s</div>
+          <div class="stat-label">Merged PRs (all time)</div>
+          <div class="stat-value blue" id="az-pr-merged">—</div>
+          <div class="stat-sub" id="az-pr-merged-sub">completed</div>
         </div>
       </div>
 
+      <!-- Data source note -->
+      <div id="az-no-data-banner" class="info-banner hidden">
+        <svg width="15" height="15" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8.5" stroke="currentColor" stroke-width="1.5"/><path d="M10 6v4M10 13.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        Azure DevOps data not yet fetched. Run <code>python3 fetch-azure-data.py --pat "PAT" --org "ORG" --project "PROJECT"</code> locally, then push — or add the <strong>AZURE_DEVOPS_PAT</strong> secret + <strong>AZURE_ORG</strong> / <strong>AZURE_PROJECT</strong> variables in GitHub Actions to auto-fetch on every deploy.
+      </div>
+
+      <!-- Branches panel -->
       <div class="panel">
-        <div class="panel-header"><span class="panel-title">Pipeline Runs</span></div>
-        <table class="data-table">
+        <div class="panel-header">
+          <span class="panel-title">Branches</span>
+          <div class="panel-filters">
+            <select id="az-branch-repo-filter" class="filter-select">
+              <option value="all">All repos</option>
+            </select>
+            <select id="az-branch-type-filter" class="filter-select">
+              <option value="all">All branches</option>
+              <option value="default">Default only</option>
+              <option value="feature">Feature branches</option>
+              <option value="ahead">Ahead of default</option>
+            </select>
+          </div>
+        </div>
+        <table class="data-table" id="az-branch-table">
           <thead>
-            <tr><th>Pipeline</th><th>Branch</th><th>Triggered by</th><th>Duration</th><th>Status</th><th>Started</th></tr>
+            <tr>
+              <th>Repository</th><th>Branch</th><th>Last Commit</th>
+              <th>Author</th><th>Date</th><th>Ahead</th><th>Behind</th>
+            </tr>
           </thead>
-          <tbody id="az-tbody"></tbody>
+          <tbody id="az-branch-tbody">
+            <tr><td colspan="7" class="empty-row">Loading…</td></tr>
+          </tbody>
         </table>
       </div>
 
-      <div class="two-col">
-        <div class="panel">
-          <div class="panel-header"><span class="panel-title">Pass Rate by Pipeline (7d)</span></div>
-          <div class="bar-chart-list" id="az-bar-chart"></div>
+      <!-- Pull Requests panel -->
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">Pull Requests</span>
+          <div class="panel-filters">
+            <select id="az-pr-status-filter" class="filter-select">
+              <option value="all">All statuses</option>
+              <option value="active">Open</option>
+              <option value="completed">Merged</option>
+              <option value="abandoned">Abandoned</option>
+            </select>
+            <select id="az-pr-repo-filter" class="filter-select">
+              <option value="all">All repos</option>
+            </select>
+          </div>
         </div>
-        <div class="panel">
-          <div class="panel-header"><span class="panel-title">Recent Failures</span></div>
-          <table class="data-table">
-            <thead><tr><th>Pipeline</th><th>Reason</th><th>When</th></tr></thead>
-            <tbody id="az-failures-tbody"></tbody>
-          </table>
-        </div>
+        <table class="data-table" id="az-pr-table">
+          <thead>
+            <tr>
+              <th>PR #</th><th>Title</th><th>Repository</th>
+              <th>From → To</th><th>Author</th><th>Reviewers</th>
+              <th>Created</th><th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="az-pr-tbody">
+            <tr><td colspan="8" class="empty-row">Loading…</td></tr>
+          </tbody>
+        </table>
       </div>
+
     </section>
 
   </main>
