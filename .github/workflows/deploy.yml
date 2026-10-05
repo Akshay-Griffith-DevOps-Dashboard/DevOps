@@ -9,33 +9,26 @@ on:
     # Refresh data every 6 hours
     - cron: '0 */6 * * *'
 
-permissions:
-  contents: write
-  pages: write
-  id-token: write
-
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  fetch-and-deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
+  # ── Job 1: Fetch live data & commit back to main ────────
+  fetch-data:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # ── Fetch Azure DevOps data ──────────────────────────
       - name: Fetch Azure DevOps Branches & Pull Requests
-        if: ${{ secrets.AZURE_DEVOPS_PAT != '' }}
+        if: ${{ vars.AZURE_ORG != '' && vars.AZURE_PROJECT != '' }}
         env:
-          AZURE_PAT: ${{ secrets.AZURE_DEVOPS_PAT }}
-          AZURE_ORG: ${{ vars.AZURE_ORG }}
+          AZURE_PAT:     ${{ secrets.AZURE_DEVOPS_PAT }}
+          AZURE_ORG:     ${{ vars.AZURE_ORG }}
           AZURE_PROJECT: ${{ vars.AZURE_PROJECT }}
         run: |
           python3 fetch-azure-data.py \
@@ -43,14 +36,34 @@ jobs:
             --org "$AZURE_ORG" \
             --project "$AZURE_PROJECT"
 
-      # ── Commit updated data.js if it changed ─────────────
-      - name: Commit refreshed data
+      - name: Commit refreshed data if changed
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git diff --quiet js/data.js || \
-            git commit -am "chore: auto-refresh Azure DevOps data [skip ci]"
-          git push || true
+          if ! git diff --quiet js/data.js; then
+            git add js/data.js
+            git commit -m "chore: auto-refresh Azure DevOps data [skip ci]"
+            git push
+          else
+            echo "No data changes to commit"
+          fi
+
+  # ── Job 2: Deploy to GitHub Pages ───────────────────────
+  deploy:
+    needs: fetch-data
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout (with latest data)
+        uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
