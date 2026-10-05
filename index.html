@@ -13,6 +13,7 @@
 
   <!-- ═══════════════ TOPBAR ═══════════════ -->
   <header class="topbar">
+  <div class="topbar-inner">
     <div class="topbar-brand">
       <a class="brand-logo" href="#">
         <span class="brand-mark">GU</span>
@@ -28,6 +29,9 @@
         <span class="org-pill-dot"></span>
         SIT
         <span class="org-pill-score" id="pill-score-sit">—</span>
+        <a class="org-pill-link" href="https://griffith--sit.sandbox.my.salesforce.com" target="_blank" rel="noopener" title="Open SIT org">
+          <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M5 2H2a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V7M8 1h3m0 0v3m0-3L5 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
       <div class="org-pill muted" data-org="uat">
         <span class="org-pill-dot"></span>
@@ -41,16 +45,14 @@
         <span class="dot-live"></span>
         Data pulled: <span id="data-pulled-date">—</span>
       </span>
-      <button class="btn-refresh" id="refresh-btn" title="Refresh data">
-        <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M13.5 8A5.5 5.5 0 1 1 8 2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M8 1l2.5 1.5L8 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Refresh
-      </button>
       <div class="topbar-time" id="topbar-time"></div>
     </div>
+  </div>
   </header>
 
   <!-- ═══════════════ SUB-NAV ═══════════════ -->
   <nav class="subnav">
+  <div class="subnav-inner">
     <a href="#overview" class="nav-item active" data-section="overview">
       <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="1" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/></svg>
       Overview
@@ -75,13 +77,14 @@
       </div>
       <div class="last-refresh" id="last-refresh">Data: <span id="data-pulled-date">—</span></div>
     </div>
+  </div>
   </nav>
 
   <!-- Auth banner hidden — SIT data is always baked in -->
   <div id="auth-banner" class="auth-banner hidden"></div>
 
   <!-- ═══════════════ MAIN CONTENT ═══════════════ -->
-  <main style="padding: 0 28px; max-width: 1400px;">
+  <main>
 
     <!-- ─── OVERVIEW SECTION ─── -->
     <section id="overview" class="section active">
@@ -90,21 +93,10 @@
       <div class="score-hero">
         <!-- Donut ring -->
         <div class="score-donut-wrap">
-          <svg viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
-            <!-- Track ring (full grey background) -->
+          <svg id="donut-svg" viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
+            <!-- Track ring -->
             <circle cx="55" cy="55" r="46" fill="none" stroke="#EAEDF1" stroke-width="10"/>
-            <!-- Green segment: 0–70 of scale (top of ring, clockwise) -->
-            <circle cx="55" cy="55" r="46" fill="none" stroke="#1A7F4B" stroke-width="10"
-              stroke-dasharray="0 289" stroke-dashoffset="72"
-              id="donut-green"/>
-            <!-- Amber segment: follows green -->
-            <circle cx="55" cy="55" r="46" fill="none" stroke="#E8A317" stroke-width="10"
-              stroke-dasharray="0 289" stroke-dashoffset="72"
-              id="donut-amber"/>
-            <!-- Red segment: follows amber -->
-            <circle cx="55" cy="55" r="46" fill="none" stroke="#C0392B" stroke-width="10"
-              stroke-dasharray="0 289" stroke-dashoffset="72"
-              id="donut-red"/>
+            <!-- Coloured arc segments drawn by JS as <path> elements -->
           </svg>
           <div class="score-center">
             <span class="score-number" id="score-number">—</span>

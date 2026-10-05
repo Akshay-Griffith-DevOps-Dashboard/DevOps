@@ -112,16 +112,6 @@
   tick();
   setInterval(tick, 1000);
 
-  /* ── Refresh button ───────────────────────────────── */
-  const refreshBtn = document.getElementById('refresh-btn');
-  if (refreshBtn) {
-    refreshBtn.addEventListener('click', () => {
-      refreshBtn.classList.add('spinning');
-      renderAll();
-      setTimeout(() => refreshBtn.classList.remove('spinning'), 600);
-    });
-  }
-
   /* ── OAuth modal ──────────────────────────────────── */
   const modal        = document.getElementById('oauth-modal');
   /* ── Modal (kept for future live-connect use) ────── */
@@ -202,45 +192,76 @@
     const largEl = document.getElementById('score-value-large');
     if (largEl) largEl.style.color = scoreColor;
 
-    // Donut — three fixed colour zones always visible on the ring
-    // Ring is split: green zone covers 0-70 of scale, amber 70-85, red 85-100
-    // Each segment is drawn as a dasharray arc; the score determines the filled length
-    // Visually: green occupies most of the ring; amber and red are small caps at the top
-    const circ = 289; // 2πr for r=46
-    // Zone lengths on the ring (proportional to score range)
-    const greenMax = Math.round((70 / 100) * circ);   // 202px — green zone extent
-    const amberMax = Math.round((15 / 100) * circ);   // 43px  — amber zone extent
-    const redMax   = Math.round((15 / 100) * circ);   // 43px  — red zone extent
+    // Donut — draw three arc segments using SVG path (reliable, no dashoffset tricks)
+    // The ring starts at 12 o'clock and goes clockwise.
+    // Zone split: green 0-70%, amber 70-85%, red 85-100% of the full circle.
+    // The score determines how much of each zone is filled.
+    // A small 2° gap is left between segments for visual clarity.
+    (function drawDonut(score) {
+      const svg    = document.getElementById('donut-svg');
+      if (!svg) return;
+      const cx = 55, cy = 55, r = 46;
+      const GAP_DEG = 1.5; // small gap between segments
 
-    // How much of each zone is filled based on score
-    const greenFill = score >= 70  ? greenMax : Math.round((score / 70) * greenMax);
-    const amberFill = score >= 85  ? amberMax
-                    : score >= 70  ? Math.round(((score - 70) / 15) * amberMax)
-                    : 0;
-    const redFill   = score >= 100 ? redMax
-                    : score >= 85  ? Math.round(((score - 85) / 15) * redMax)
-                    : 0;
+      // Convert polar angle (degrees, 0 = 12 o'clock, clockwise) to SVG x,y
+      function polarToXY(angleDeg) {
+        const rad = (angleDeg - 90) * Math.PI / 180;
+        return { x: cx + r * Math.cos(rad), y: cy + r * Math.sin(rad) };
+      }
 
-    // stroke-dashoffset: SVG starts at 3 o'clock, we want 12 o'clock = offset -72 (quarter turn back)
-    // Each subsequent segment starts where the previous one ended
-    // offset = -(previous filled lengths)
-    const gEl = document.getElementById('donut-green');
-    const aEl = document.getElementById('donut-amber');
-    const rEl = document.getElementById('donut-red');
+      // Build a stroke arc <path> from startDeg to endDeg
+      function arcPath(startDeg, endDeg, color) {
+        if (endDeg <= startDeg) return null;
+        const s = polarToXY(startDeg);
+        const e = polarToXY(endDeg);
+        const large = (endDeg - startDeg) > 180 ? 1 : 0;
+        const p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        p.setAttribute('d', `M ${s.x} ${s.y} A ${r} ${r} 0 ${large} 1 ${e.x} ${e.y}`);
+        p.setAttribute('fill', 'none');
+        p.setAttribute('stroke', color);
+        p.setAttribute('stroke-width', '10');
+        p.setAttribute('stroke-linecap', 'round');
+        return p;
+      }
 
-    if (gEl) {
-      gEl.setAttribute('stroke-dasharray', `${greenFill} ${circ}`);
-      gEl.setAttribute('stroke-dashoffset', '72');
-    }
-    if (aEl) {
-      aEl.setAttribute('stroke-dasharray', `${amberFill} ${circ}`);
-      // offset = 72 - greenFill (positive offset moves start clockwise)
-      aEl.setAttribute('stroke-dashoffset', `${72 - greenFill}`);
-    }
-    if (rEl) {
-      rEl.setAttribute('stroke-dasharray', `${redFill} ${circ}`);
-      rEl.setAttribute('stroke-dashoffset', `${72 - greenFill - amberFill}`);
-    }
+      // Remove old arc paths (keep track circle at index 0)
+      svg.querySelectorAll('path').forEach(p => p.remove());
+
+      // Zone boundaries in degrees (full ring = 360°)
+      const greenEnd = 360 * 0.70;  // 252°
+      const amberEnd = 360 * 0.85;  // 306°
+      const redEnd   = 360 * 1.00;  // 360° = 0° (back to top)
+
+      // Filled degrees based on score
+      const scoreDeg = 3.6 * score; // score/100 * 360
+
+      // Green arc: from 0 to min(scoreDeg, greenEnd)
+      const gEnd = Math.min(scoreDeg, greenEnd);
+      if (gEnd > GAP_DEG) {
+        const p = arcPath(GAP_DEG, gEnd, '#1A7F4B');
+        if (p) svg.appendChild(p);
+      }
+
+      // Amber arc: from greenEnd to min(scoreDeg, amberEnd)
+      if (scoreDeg > greenEnd) {
+        const aStart = greenEnd + GAP_DEG;
+        const aEnd   = Math.min(scoreDeg, amberEnd);
+        if (aEnd > aStart) {
+          const p = arcPath(aStart, aEnd, '#E8A317');
+          if (p) svg.appendChild(p);
+        }
+      }
+
+      // Red arc: from amberEnd to min(scoreDeg, 359.5)
+      if (scoreDeg > amberEnd) {
+        const rStart = amberEnd + GAP_DEG;
+        const rEnd   = Math.min(scoreDeg, 359.5);
+        if (rEnd > rStart) {
+          const p = arcPath(rStart, rEnd, '#C0392B');
+          if (p) svg.appendChild(p);
+        }
+      }
+    })(score);
 
     // Score breakdown list
     const bdEl = document.getElementById('score-breakdown');

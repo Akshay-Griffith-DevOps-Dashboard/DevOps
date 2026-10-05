@@ -67,14 +67,20 @@ body {
 .topbar {
   height: var(--topbar-h);
   background: var(--navy);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 28px;
   position: sticky;
   top: 0;
   z-index: 100;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.topbar-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 28px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .topbar-brand {
@@ -180,6 +186,17 @@ body {
   opacity: 0.8;
 }
 
+.org-pill-link {
+  display: flex;
+  align-items: center;
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  margin-left: 2px;
+  transition: color 0.15s;
+}
+
+.org-pill-link:hover { color: #fff; }
+
 /* Topbar right actions */
 .topbar-right {
   display: flex;
@@ -237,14 +254,19 @@ body {
 .subnav {
   background: var(--bg-white);
   border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  padding: 0 28px;
-  gap: 2px;
   position: sticky;
   top: var(--topbar-h);
   z-index: 90;
   box-shadow: var(--shadow-sm);
+}
+
+.subnav-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
 }
 
 .nav-item {
@@ -357,12 +379,17 @@ body {
 }
 
 /* =========================================================
-   SECTIONS
+   MAIN + SECTIONS
    ========================================================= */
+main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
 .section {
   display: none;
-  padding: 28px;
-  max-width: 1400px;
+  padding: 28px 0;
 }
 
 .section.active { display: block; }
