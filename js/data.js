@@ -1,9 +1,118 @@
 /**
- * data.js — Mock/sample data for Griffith DevOps Dashboard
+ * data.js — Data for Griffith DevOps Dashboard
  *
- * Replace MOCK_DATA sections with real API calls (sf-api.js + azure-api.js)
- * once credentials are configured.
+ * LIVE_DATA: fetched 2026-10-05 from griffith--sit.sandbox.my.salesforce.com
+ *            via Client Credentials OAuth flow (client_credentials grant).
+ *            sf-api.js refreshes this at runtime when the org is reachable;
+ *            these values are the last-known snapshot used as initial state.
+ *
+ * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
+
+// ── Live SIT Sandbox data (fetched 2026-10-05) ────────────────────────────
+const LIVE_DATA = {
+  org: {
+    name: 'Griffith SIT',
+    instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
+    orgId: '00DOg000003NRdi',
+    environment: 'SIT Sandbox',
+    fetchedAt: '2026-10-05',
+  },
+
+  /* Org limits — from /services/data/v60.0/limits */
+  limits: {
+    DailyApiRequests:         { Max: 5000000,  Remaining: 4999886 },  // 114 used = 0.002%
+    DailyAsyncApexExecutions: { Max: 250000,   Remaining: 249986  },  // 14 used
+    DailyBulkApiBatches:      { Max: 15000,    Remaining: 15000   },
+    DataStorageMB:            { Max: 5120,     Remaining: 3987    },  // 1133 MB used = 22%
+    FileStorageMB:            { Max: 332440,   Remaining: 331374  },  // 1066 MB used = 0.3%
+    SingleEmail:              { Max: 5000,     Remaining: 5000    },
+    HourlyTimeBasedWorkflow:  { Max: 1000,     Remaining: 1000    },
+  },
+
+  /* Metadata counts */
+  metadata: {
+    activeApexClasses:   4224,
+    activeApexTriggers:  158,
+    activeFlows:         217,   // FlowDefinitionView WHERE ActiveVersionId != null
+  },
+
+  /* Scheduled jobs summary */
+  scheduledJobs: {
+    total:    20,
+    waiting:  16,   // 16 in WAITING state (healthy)
+    complete: 3,
+    acquired: 1,    // BatchDocgenProcessingCronJob — ACQUIRED (running)
+    jobs: [
+      { name: 'BatchDocgenProcessingCronJob',                        state: 'ACQUIRED',  next: '2026-09-30T02:51:00Z' },
+      { name: 'DC.TELEMETRY',                                        state: 'WAITING',   next: '2026-10-05T06:44:00Z' },
+      { name: 'Privacy Center Audit',                                state: 'WAITING',   next: '2026-10-05T07:00:00Z' },
+      { name: 'Metalytics Dataflow Runner',                          state: 'WAITING',   next: '2026-10-05T07:09:00Z' },
+      { name: 'MciDashboardUpdateJobType',                           state: 'WAITING',   next: '2026-10-05T07:30:00Z' },
+      { name: 'After_Create_Update_Person_Employment_Schedule_Flow', state: 'WAITING',   next: '2026-10-05T20:00:00Z' },
+      { name: 'After_Create_Update_Constituent_Role_Schedule_Flow',  state: 'WAITING',   next: '2026-10-05T21:00:00Z' },
+      { name: 'DC.LICENSE',                                          state: 'WAITING',   next: '2026-10-06T00:00:00Z' },
+      { name: 'CommIncrementalSitemapJob (ascend Portal)',            state: 'WAITING',   next: '2026-10-06T00:45:00Z' },
+      { name: 'SmartDigestJob',                                      state: 'WAITING',   next: '2026-10-05T17:00:00Z' },
+    ],
+  },
+
+  /* User licences */
+  userLicences: [
+    { type: 'Salesforce',                      total: 140,  used: 133 },
+    { type: 'Cloud Integration User',          total: 1,    used: 1   },
+    { type: 'Salesforce Integration',          total: 5,    used: 2   },
+    { type: 'Guest User License',              total: 25,   used: 4   },
+    { type: 'Analytics Cloud Integration',     total: 2,    used: 2   },
+    { type: 'Sales Insights Integration',      total: 1,    used: 1   },
+    { type: 'Chatter Free',                    total: 5000, used: 0   },
+    { type: 'Identity',                        total: 170,  used: 0   },
+  ],
+
+  /* Active users (top 20, sorted by LastLoginDate DESC) */
+  users: [
+    { initials: 'DU', name: 'Dashboard User',          username: 'akshay.kumar@griffith.edu.au.dashboard', userType: 'Standard',         profile: 'System Administrator',           lastLogin: '2026-10-05', loginClass: 'recent' },
+    { initials: 'KU', name: 'Kaviya UC',                username: 'k.uc@griffith.edu.au.sit',               userType: 'Standard',         profile: 'System Administrator',           lastLogin: '2026-10-05', loginClass: 'recent' },
+    { initials: 'AK', name: 'Akshay Kumar',             username: 'akshay.kumar@griffith.edu.au.sit',       userType: 'Standard',         profile: 'System Administrator',           lastLogin: '2026-10-05', loginClass: 'recent' },
+    { initials: 'SD', name: 'Sagar Dey',                username: 's.dey@griffith.edu.au.sit',              userType: 'Standard',         profile: 'System Administrator',           lastLogin: '2026-10-02', loginClass: 'recent' },
+    { initials: 'DU', name: 'Deployment User',          username: 'deploymentuser@griffith.edu.au.sit',     userType: 'Standard',         profile: 'Gearset Integration Administrator', lastLogin: '2026-10-01', loginClass: 'recent' },
+    { initials: 'RA', name: 'Rahul Ahuja',              username: 'r.ahuja@griffith.edu.au.sit',            userType: 'Standard',         profile: 'System Administrator',           lastLogin: '2026-10-01', loginClass: 'recent' },
+    { initials: 'SH', name: 'Sudaif Haider',            username: 's.haider@griffith.edu.au.sit',           userType: 'Standard',         profile: 'System Administrator',           lastLogin: '2026-09-28', loginClass: 'recent' },
+    { initials: 'AS', name: 'Amit Sood',                username: 'a.sood@griffith.edu.au.sit',             userType: 'Standard',         profile: 'System Administrator',           lastLogin: '2026-09-22', loginClass: 'recent' },
+    { initials: 'JF', name: 'Jeremy Fahey',             username: 'j.fahey@griffith.edu.au.sit',            userType: 'Standard',         profile: 'System Administrator',           lastLogin: '2026-09-22', loginClass: 'recent' },
+    { initials: 'HM', name: 'Heidi McKellar',           username: 'h.mckellar@griffith.edu.au.sit',         userType: 'Standard',         profile: 'System Administrator',           lastLogin: '2026-09-22', loginClass: 'recent' },
+    { initials: 'GI', name: 'Gearset Integration User', username: 'gearset@griffith.edu.au.sit',            userType: 'Standard',         profile: 'System Administrator',           lastLogin: null,         loginClass: 'never'  },
+    { initials: 'GU', name: 'ascend Portal Guest',      username: 'ascend_portal@...force.com.sit',         userType: 'Guest',            profile: 'ascend Portal Profile',          lastLogin: null,         loginClass: 'never'  },
+    { initials: 'PV', name: 'Patricia Villalva',        username: 'p.villalva@griffith.edu.au.sit',         userType: 'Standard',         profile: 'System Administrator',           lastLogin: null,         loginClass: 'never'  },
+    { initials: 'DM', name: 'Data Migration User',      username: 'datamigration@griffith.edu.au.sit',      userType: 'Standard',         profile: 'GU Integration',                 lastLogin: null,         loginClass: 'never'  },
+    { initials: 'SY', name: 'System',                   username: 'automatedcase@...ext',                   userType: 'AutomatedProcess', profile: null,                             lastLogin: null,         loginClass: 'never'  },
+    { initials: 'II', name: 'Insights Integration',     username: 'insightsintegration@...ext',             userType: 'Standard',         profile: 'Sales Insights Integration User', lastLogin: null,        loginClass: 'never'  },
+    { initials: 'AI', name: 'Azure Integration User',   username: 'azureintegration@griffith.edu.au.sit',   userType: 'Standard',         profile: 'GU Integration',                 lastLogin: null,         loginClass: 'never'  },
+    { initials: 'DL', name: 'Damon McLellan',           username: 'd.mclellan@griffith.edu.au.sit',         userType: 'Standard',         profile: 'GU Base Profile',                lastLogin: null,         loginClass: 'never'  },
+    { initials: 'SU', name: 'Security User',            username: 'insightssecurity@...com',                userType: 'Standard',         profile: 'Analytics Cloud Security User',   lastLogin: null,         loginClass: 'never'  },
+    { initials: 'IU', name: 'Integration User',         username: 'integration@...com',                     userType: 'Standard',         profile: 'Analytics Cloud Integration User', lastLogin: null,        loginClass: 'never'  },
+  ],
+
+  /* Recent deployments from Tooling API */
+  sfDeployments: [
+    { id: '0AfOg000006bf8nKAA', deployedBy: 'Deployment User', checkOnly: true,  componentsDeployed: 0, errors: 0, status: 'Succeeded', startDate: '2026-10-01T14:30:50Z', durationSec: 0  },
+    { id: '0AfOg000006bM1KKAU', deployedBy: 'Deployment User', checkOnly: true,  componentsDeployed: 0, errors: 0, status: 'Succeeded', startDate: '2026-10-01T07:47:19Z', durationSec: 0  },
+    { id: '0AfOg000006aNSVKA2', deployedBy: 'Deployment User', checkOnly: true,  componentsDeployed: 1, errors: 0, status: 'Succeeded', startDate: '2026-09-30T07:34:28Z', durationSec: 2  },
+    { id: '0AfOg000006aCiLKAU', deployedBy: 'Deployment User', checkOnly: false, componentsDeployed: 5, errors: 0, status: 'Succeeded', startDate: '2026-09-30T01:23:12Z', durationSec: 63 },
+    { id: '0AfOg000006a7QvKAI', deployedBy: 'Deployment User', checkOnly: true,  componentsDeployed: 5, errors: 0, status: 'Succeeded', startDate: '2026-09-29T13:31:34Z', durationSec: 48 },
+    { id: '0AfOg000006a5grKAA', deployedBy: 'Deployment User', checkOnly: true,  componentsDeployed: 3, errors: 0, status: 'Succeeded', startDate: '2026-09-29T11:21:43Z', durationSec: 3  },
+    { id: '0AfOg000006a4rFKAQ', deployedBy: 'Deployment User', checkOnly: true,  componentsDeployed: 0, errors: 0, status: 'Succeeded', startDate: '2026-09-29T10:13:09Z', durationSec: 1  },
+    { id: '0AfOg000006ZynRKAS', deployedBy: 'Deployment User', checkOnly: true,  componentsDeployed: 3, errors: 0, status: 'Succeeded', startDate: '2026-09-29T05:08:29Z', durationSec: 50 },
+    { id: '0AfOg000006ZVDZKA4', deployedBy: 'Deployment User', checkOnly: false, componentsDeployed: 1, errors: 0, status: 'Succeeded', startDate: '2026-09-25T12:44:35Z', durationSec: 6  },
+    { id: '0AfOg000006ZTAAKA4', deployedBy: 'Deployment User', checkOnly: true,  componentsDeployed: 1, errors: 0, status: 'Succeeded', startDate: '2026-09-25T09:13:46Z', durationSec: 7  },
+    { id: '0AfOg000006ZQXFKA4', deployedBy: 'Deployment User', checkOnly: false, componentsDeployed: 1, errors: 0, status: 'Succeeded', startDate: '2026-09-25T07:18:40Z', durationSec: 16 },
+    { id: '0AfOg000006ZQDtKAO', deployedBy: 'Deployment User', checkOnly: false, componentsDeployed: 1, errors: 0, status: 'Succeeded', startDate: '2026-09-25T07:15:20Z', durationSec: 3  },
+    { id: '0AfOg000006ZF8nKAG', deployedBy: 'Deployment User', checkOnly: true,  componentsDeployed: 1, errors: 0, status: 'Succeeded', startDate: '2026-09-24T13:20:51Z', durationSec: 5  },
+    { id: '0AfOg000006ZEW6KAO', deployedBy: 'Deployment User', checkOnly: true,  componentsDeployed: 1, errors: 0, status: 'Succeeded', startDate: '2026-09-24T11:31:59Z', durationSec: 23 },
+    { id: '0AfOg000006Z0RVKA0', deployedBy: 'Deployment User', checkOnly: false, componentsDeployed: 6, errors: 0, status: 'Succeeded', startDate: '2026-09-24T01:53:06Z', durationSec: 30 },
+  ],
+};
+
 
 const MOCK_DATA = {
 
