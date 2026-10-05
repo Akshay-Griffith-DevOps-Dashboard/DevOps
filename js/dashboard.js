@@ -73,9 +73,9 @@
   }
 
   /* ── Org pill label ───────────────────────────────── */
-  const pillProd = document.querySelector('.org-pill[data-org="prod"]');
-  if (pillProd) {
-    pillProd.querySelector('.org-pill-score').textContent = '—';
+  const pillSIT = document.querySelector('.org-pill[data-org="sit"]');
+  if (pillSIT) {
+    pillSIT.querySelector('.org-pill-score').textContent = '—';
     // Will be updated after health score computed
   }
 
@@ -243,16 +243,23 @@
     score = Math.min(100, score);
 
     // Update DOM
-    const verdict = score >= 85 ? 'Healthy' : score >= 70 ? 'Fair' : score >= 50 ? 'Needs Attention' : 'Critical';
+    const verdict     = score >= 85 ? 'Healthy' : score >= 60 ? 'Fair' : score >= 40 ? 'Needs Attention' : 'Critical';
+    const scoreColor  = score >= 85 ? 'var(--green)' : score >= 60 ? 'var(--amber)' : 'var(--red)';
     setText('score-number', score);
     setText('score-value-large', score);
     setText('score-verdict', verdict);
+    const largEl = document.getElementById('score-value-large');
+    if (largEl) largEl.style.color = scoreColor;
 
-    // Donut — green arc = score% of circumference (289)
-    const circ   = 289;
-    const greenLen = Math.round((score / 100) * circ);
-    const el = document.getElementById('donut-green');
-    if (el) el.setAttribute('stroke-dasharray', `${greenLen} ${circ}`);
+    // Donut — single arc coloured green / amber / red based on score
+    const circ    = 289;
+    const arcLen  = Math.round((score / 100) * circ);
+    const arcColor = score >= 85 ? '#1A7F4B' : score >= 60 ? '#E8A317' : '#C0392B';
+    const arc = document.getElementById('donut-arc');
+    if (arc) {
+      arc.setAttribute('stroke-dasharray', `${arcLen} ${circ}`);
+      arc.setAttribute('stroke', arcColor);
+    }
 
     // Score breakdown list
     const bdEl = document.getElementById('score-breakdown');
@@ -264,8 +271,8 @@
       ).join('');
     }
 
-    // Update org pill score
-    const pillScore = document.getElementById('pill-score-prod');
+    // Update SIT pill score
+    const pillScore = document.getElementById('pill-score-sit');
     if (pillScore) pillScore.textContent = `${score}/100`;
 
     return score;

@@ -169,8 +169,10 @@ body {
   flex-shrink: 0;
 }
 
-.org-pill.warn .org-pill-dot  { background: var(--gold); }
-.org-pill.error .org-pill-dot { background: #F87171; }
+.org-pill.warn .org-pill-dot   { background: var(--gold); }
+.org-pill.error .org-pill-dot  { background: #F87171; }
+.org-pill.muted                { opacity: 0.6; }
+.org-pill.muted .org-pill-dot  { background: var(--text-muted); }
 
 .org-pill-score {
   font-family: var(--font-mono);

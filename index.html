@@ -24,15 +24,15 @@
 
     <!-- Org switcher pills -->
     <div class="org-switcher" id="org-switcher">
-      <div class="org-pill active" data-org="prod">
+      <div class="org-pill active" data-org="sit">
         <span class="org-pill-dot"></span>
-        Trailsignup
-        <span class="org-pill-score" id="pill-score-prod">89/100</span>
+        SIT
+        <span class="org-pill-score" id="pill-score-sit">—</span>
       </div>
-      <div class="org-pill warn" data-org="sandbox">
+      <div class="org-pill muted" data-org="uat">
         <span class="org-pill-dot"></span>
-        DashboardSandbox
-        <span class="org-pill-score" id="pill-score-sandbox">78/100</span>
+        UAT
+        <span class="org-pill-score" id="pill-score-uat">—</span>
       </div>
     </div>
 
@@ -98,22 +98,15 @@
         <!-- Donut ring -->
         <div class="score-donut-wrap">
           <svg viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
+            <!-- Track ring -->
             <circle cx="55" cy="55" r="46" fill="none" stroke="#EAEDF1" stroke-width="10"/>
-            <!-- Green arc: 89% of 289px circumference ≈ 257 -->
+            <!-- Score arc — colour set by JS based on score value -->
             <circle cx="55" cy="55" r="46" fill="none" stroke="#1A7F4B" stroke-width="10"
-              stroke-dasharray="257 289" stroke-dashoffset="72" stroke-linecap="round"
-              id="donut-green"/>
-            <!-- Amber arc: small warning segment ~15px offset after green -->
-            <circle cx="55" cy="55" r="46" fill="none" stroke="#E8A317" stroke-width="10"
-              stroke-dasharray="14 289" stroke-dashoffset="-187" stroke-linecap="round"
-              id="donut-amber"/>
-            <!-- Red: small segment -->
-            <circle cx="55" cy="55" r="46" fill="none" stroke="#C0392B" stroke-width="10"
-              stroke-dasharray="6 289" stroke-dashoffset="-202" stroke-linecap="round"
-              id="donut-red"/>
+              stroke-dasharray="0 289" stroke-dashoffset="72" stroke-linecap="round"
+              id="donut-arc"/>
           </svg>
           <div class="score-center">
-            <span class="score-number" id="score-number">89</span>
+            <span class="score-number" id="score-number">—</span>
             <span class="score-denom">/100</span>
           </div>
         </div>
