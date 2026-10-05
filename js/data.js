@@ -187,17 +187,934 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data ────────────────────────────────────────────────────
-// This block is overwritten by fetch-azure-data.py / GitHub Actions on every deploy.
-// Manually run:  python3 fetch-azure-data.py --pat "YOUR_PAT" --org "ORG" --project "PROJECT"
+// ── Azure DevOps live data (fetched 2026-10-05) ─────────────────────
 const AZURE_DATA = {
-  org:       '',
-  project:   '',
-  fetchedAt: '',
+  org:     'griffith-SalesforceCRM',
+  project: 'RSDF-SalesforcePlatform',
+  fetchedAt: '2026-10-05',
 
-  repos: [],       // { id, name, defaultBranch, remoteUrl }
-  branches: [],    // { repo, name, isDefault, aheadCount, behindCount, commitId, author, date, comment }
-  pullRequests: [], // { id, title, status, repo, sourceBranch, targetBranch, createdBy, createdDate, closedDate, reviewers, isDraft, mergeStatus, approved }
+  repos: [
+    {
+        "id": "1d29a928-aee1-4b76-8e1b-d53000307df3",
+        "name": "RSDF-SalesforcePlatform",
+        "defaultBranch": "main",
+        "remoteUrl": "https://griffith-SalesforceCRM@dev.azure.com/griffith-SalesforceCRM/RSDF-SalesforcePlatform/_git/RSDF-SalesforcePlatform"
+    }
+],
+
+  branches: [],
+
+  pullRequests: [
+    {
+        "id": 9347,
+        "title": "SOPS-156",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/Feature-SOPS-156_-_uat",
+        "targetBranch": "uat",
+        "createdBy": "Akshay Kumar",
+        "createdDate": "2026-10-05",
+        "closedDate": null,
+        "reviewers": [
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9346,
+        "title": "bugFix-SOPS-195",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/bugFix-SOPS-195_-_devmerge",
+        "targetBranch": "devmerge",
+        "createdBy": "Sudaif Haider",
+        "createdDate": "2026-10-05",
+        "closedDate": null,
+        "reviewers": [],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9345,
+        "title": "Feature-SOPS-73_2",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/Feature-SOPS-73_2_-_sit",
+        "targetBranch": "sit",
+        "createdBy": "Akshay Kumar",
+        "createdDate": "2026-10-01",
+        "closedDate": null,
+        "reviewers": [
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9344,
+        "title": "Feature-SOPS-73_2",
+        "status": "completed",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/Feature-SOPS-73_2_-_devmerge",
+        "targetBranch": "devmerge",
+        "createdBy": "Akshay Kumar",
+        "createdDate": "2026-10-01",
+        "closedDate": "2026-10-01",
+        "reviewers": [
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": true
+    },
+    {
+        "id": 9343,
+        "title": "Feature-SOPS-73_2",
+        "status": "abandoned",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "Feature-SOPS-73_2",
+        "targetBranch": "devmerge",
+        "createdBy": "Sagar Dey",
+        "createdDate": "2026-10-01",
+        "closedDate": "2026-10-01",
+        "reviewers": [],
+        "isDraft": false,
+        "mergeStatus": "",
+        "approved": false
+    },
+    {
+        "id": 9342,
+        "title": "Feature-SOPS-73_2",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/Feature-SOPS-73_2_-_main",
+        "targetBranch": "main",
+        "createdBy": "Akshay Kumar",
+        "createdDate": "2026-10-01",
+        "closedDate": null,
+        "reviewers": [
+            "Giles Bill"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9341,
+        "title": "Feature-SOPS-73_2",
+        "status": "abandoned",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "Feature-SOPS-73_2",
+        "targetBranch": "main",
+        "createdBy": "Sagar Dey",
+        "createdDate": "2026-10-01",
+        "closedDate": "2026-10-01",
+        "reviewers": [
+            "Giles Bill"
+        ],
+        "isDraft": false,
+        "mergeStatus": "",
+        "approved": false
+    },
+    {
+        "id": 9340,
+        "title": "SOPS-73-Defect-209",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/Feature-SOPS-73_1_-_sit",
+        "targetBranch": "sit",
+        "createdBy": "Akshay Kumar",
+        "createdDate": "2026-10-01",
+        "closedDate": null,
+        "reviewers": [
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9339,
+        "title": "SOPS-73-Defect-209",
+        "status": "completed",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/Feature-SOPS-73_1_-_devmerge",
+        "targetBranch": "devmerge",
+        "createdBy": "Akshay Kumar",
+        "createdDate": "2026-10-01",
+        "closedDate": "2026-10-01",
+        "reviewers": [
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9338,
+        "title": "SOPS-73-Defect-209",
+        "status": "abandoned",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "Feature-SOPS-73_1",
+        "targetBranch": "devmerge",
+        "createdBy": "Sagar Dey",
+        "createdDate": "2026-10-01",
+        "closedDate": "2026-10-01",
+        "reviewers": [
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "",
+        "approved": false
+    },
+    {
+        "id": 9337,
+        "title": "Sync: SOPS 96",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/SOPS-96_-_uat",
+        "targetBranch": "uat",
+        "createdBy": "Akshay Kumar",
+        "createdDate": "2026-10-01",
+        "closedDate": null,
+        "reviewers": [
+            "Asra Khan",
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9336,
+        "title": "feature-sops-104",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/feature-sops-104_-_sit",
+        "targetBranch": "sit",
+        "createdBy": "Sudaif Haider",
+        "createdDate": "2026-09-30",
+        "closedDate": null,
+        "reviewers": [
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "conflicts",
+        "approved": false
+    },
+    {
+        "id": 9335,
+        "title": "Update designation sharing rules for DevMerge deploy",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/Feature-SOPS-73_-_devmerge",
+        "targetBranch": "devmerge",
+        "createdBy": "Akshay Kumar",
+        "createdDate": "2026-09-30",
+        "closedDate": null,
+        "reviewers": [
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9334,
+        "title": "Update designation sharing rules for DevMerge deploy",
+        "status": "abandoned",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "Feature-SOPS-73",
+        "targetBranch": "devmerge",
+        "createdBy": "Sagar Dey",
+        "createdDate": "2026-09-30",
+        "closedDate": "2026-09-30",
+        "reviewers": [
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "",
+        "approved": false
+    },
+    {
+        "id": 9333,
+        "title": "feature-sops-104",
+        "status": "completed",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/feature-sops-104_-_devmerge",
+        "targetBranch": "devmerge",
+        "createdBy": "Sudaif Haider",
+        "createdDate": "2026-09-30",
+        "closedDate": "2026-09-30",
+        "reviewers": [
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9331,
+        "title": "SOPS 199",
+        "status": "completed",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "SOPS-199",
+        "targetBranch": "gs-pipeline/SOPS-199_-_sit",
+        "createdBy": "Rahul Ahuja",
+        "createdDate": "2026-09-29",
+        "closedDate": "2026-09-29",
+        "reviewers": [],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9330,
+        "title": "SOPS-156",
+        "status": "completed",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/Feature-SOPS-156_-_sit",
+        "targetBranch": "sit",
+        "createdBy": "Akshay Kumar",
+        "createdDate": "2026-09-29",
+        "closedDate": "2026-10-05",
+        "reviewers": [
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9329,
+        "title": "Remove view roles from 3 PS",
+        "status": "completed",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/Feature-SOPS-156_-_devmerge",
+        "targetBranch": "devmerge",
+        "createdBy": "Akshay Kumar",
+        "createdDate": "2026-09-29",
+        "closedDate": "2026-09-29",
+        "reviewers": [
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9328,
+        "title": "Remove view roles from 3 PS",
+        "status": "abandoned",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "Feature-SOPS-156",
+        "targetBranch": "devmerge",
+        "createdBy": "Sagar Dey",
+        "createdDate": "2026-09-29",
+        "closedDate": "2026-09-29",
+        "reviewers": [
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "",
+        "approved": false
+    },
+    {
+        "id": 9327,
+        "title": "Update ucinn_ascendv2__Designation__c.sharingRules-meta.xml",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/Feature-SOPS-73_-_sit",
+        "targetBranch": "sit",
+        "createdBy": "Akshay Kumar",
+        "createdDate": "2026-09-29",
+        "closedDate": null,
+        "reviewers": [
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9326,
+        "title": "Update ucinn_ascendv2__Designation__c.sharingRules-meta.xml",
+        "status": "completed",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/Feature-SOPS-73_-_devmerge",
+        "targetBranch": "devmerge",
+        "createdBy": "Akshay Kumar",
+        "createdDate": "2026-09-29",
+        "closedDate": "2026-09-29",
+        "reviewers": [
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9325,
+        "title": "Update ucinn_ascendv2__Designation__c.sharingRules-meta.xml",
+        "status": "abandoned",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "Feature-SOPS-73",
+        "targetBranch": "devmerge",
+        "createdBy": "Sagar Dey",
+        "createdDate": "2026-09-29",
+        "closedDate": "2026-09-29",
+        "reviewers": [
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "",
+        "approved": false
+    },
+    {
+        "id": 9324,
+        "title": "Commit: SOPS-199, added new list view and updated nebula logger error handling",
+        "status": "completed",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/SOPS-199_-_devmerge",
+        "targetBranch": "devmerge",
+        "createdBy": "Akshay Kumar",
+        "createdDate": "2026-09-29",
+        "closedDate": "2026-09-29",
+        "reviewers": [
+            "Asra Khan",
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": true
+    },
+    {
+        "id": 9323,
+        "title": "Commit: SOPS-199, added new list view and updated nebula logger error handling",
+        "status": "abandoned",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "SOPS-199",
+        "targetBranch": "devmerge",
+        "createdBy": "Rahul Ahuja",
+        "createdDate": "2026-09-29",
+        "closedDate": "2026-09-29",
+        "reviewers": [
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "",
+        "approved": false
+    },
+    {
+        "id": 9322,
+        "title": "Commit: SOPS-199 GU_PTAT_Alert_Email__mdt page layout",
+        "status": "completed",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/SOPS-199_-_devmerge",
+        "targetBranch": "devmerge",
+        "createdBy": "Akshay Kumar",
+        "createdDate": "2026-09-29",
+        "closedDate": "2026-09-29",
+        "reviewers": [
+            "Asra Khan",
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": true
+    },
+    {
+        "id": 9321,
+        "title": "Commit: SOPS-199 GU_PTAT_Alert_Email__mdt page layout",
+        "status": "abandoned",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "SOPS-199",
+        "targetBranch": "devmerge",
+        "createdBy": "Rahul Ahuja",
+        "createdDate": "2026-09-29",
+        "closedDate": "2026-09-29",
+        "reviewers": [
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "",
+        "approved": false
+    },
+    {
+        "id": 9320,
+        "title": "SOPS 199",
+        "status": "completed",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/SOPS-199_-_sit",
+        "targetBranch": "sit",
+        "createdBy": "Akshay Kumar",
+        "createdDate": "2026-09-29",
+        "closedDate": "2026-09-30",
+        "reviewers": [
+            "Asra Khan",
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9319,
+        "title": "SOPS 199",
+        "status": "completed",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/SOPS-199_-_devmerge",
+        "targetBranch": "devmerge",
+        "createdBy": "Akshay Kumar",
+        "createdDate": "2026-09-29",
+        "closedDate": "2026-09-29",
+        "reviewers": [
+            "Asra Khan",
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": true
+    },
+    {
+        "id": 9318,
+        "title": "SOPS 199",
+        "status": "abandoned",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "SOPS-199",
+        "targetBranch": "devmerge",
+        "createdBy": "Rahul Ahuja",
+        "createdDate": "2026-09-29",
+        "closedDate": "2026-09-29",
+        "reviewers": [
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "",
+        "approved": false
+    },
+    {
+        "id": 9317,
+        "title": "SOPS 140",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/feature-SOPS140_-_devmerge",
+        "targetBranch": "devmerge",
+        "createdBy": "Sudaif Haider",
+        "createdDate": "2026-09-28",
+        "closedDate": null,
+        "reviewers": [
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9316,
+        "title": "SOPS 140",
+        "status": "abandoned",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "feature-SOPS140",
+        "targetBranch": "devmerge",
+        "createdBy": "Sudaif Haider",
+        "createdDate": "2026-09-28",
+        "closedDate": "2026-09-28",
+        "reviewers": [
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "",
+        "approved": false
+    },
+    {
+        "id": 9315,
+        "title": "SOPS 140",
+        "status": "abandoned",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/feature-SOPS140_-_main",
+        "targetBranch": "main",
+        "createdBy": "Sudaif Haider",
+        "createdDate": "2026-09-28",
+        "closedDate": "2026-09-28",
+        "reviewers": [
+            "Giles Bill"
+        ],
+        "isDraft": false,
+        "mergeStatus": "",
+        "approved": false
+    },
+    {
+        "id": 9314,
+        "title": "SOPS 140",
+        "status": "abandoned",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "feature-SOPS140",
+        "targetBranch": "main",
+        "createdBy": "Sudaif Haider",
+        "createdDate": "2026-09-28",
+        "closedDate": "2026-09-28",
+        "reviewers": [
+            "Giles Bill"
+        ],
+        "isDraft": false,
+        "mergeStatus": "",
+        "approved": false
+    },
+    {
+        "id": 9313,
+        "title": "SOPS 199",
+        "status": "abandoned",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/SOPS-199_-_devmerge",
+        "targetBranch": "devmerge",
+        "createdBy": "Akshay Kumar",
+        "createdDate": "2026-09-28",
+        "closedDate": "2026-09-29",
+        "reviewers": [
+            "Asra Khan",
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "",
+        "approved": false
+    },
+    {
+        "id": 9312,
+        "title": "SOPS 199",
+        "status": "abandoned",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "SOPS-199",
+        "targetBranch": "devmerge",
+        "createdBy": "Rahul Ahuja",
+        "createdDate": "2026-09-28",
+        "closedDate": "2026-09-28",
+        "reviewers": [
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "",
+        "approved": false
+    },
+    {
+        "id": 9311,
+        "title": "Updates for SOPS-199",
+        "status": "abandoned",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/SOPS-199_-_devmerge",
+        "targetBranch": "devmerge",
+        "createdBy": "Akshay Kumar",
+        "createdDate": "2026-09-28",
+        "closedDate": "2026-09-28",
+        "reviewers": [
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "",
+        "approved": false
+    },
+    {
+        "id": 9310,
+        "title": "Updates for SOPS-199",
+        "status": "abandoned",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "SOPS-199",
+        "targetBranch": "devmerge",
+        "createdBy": "Rahul Ahuja",
+        "createdDate": "2026-09-28",
+        "closedDate": "2026-09-28",
+        "reviewers": [
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "",
+        "approved": false
+    },
+    {
+        "id": 9309,
+        "title": "Commit: Fix for City, State, Ascend Id",
+        "status": "completed",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/SOPS-96_-_sit",
+        "targetBranch": "sit",
+        "createdBy": "Akshay Kumar",
+        "createdDate": "2026-09-25",
+        "closedDate": "2026-09-25",
+        "reviewers": [
+            "Amit Sood",
+            "Sudaif Haider",
+            "Rahul Ahuja"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9308,
+        "title": "Commit: Fix for City, State, Ascend Id",
+        "status": "completed",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/SOPS-96_-_devmerge",
+        "targetBranch": "devmerge",
+        "createdBy": "Akshay Kumar",
+        "createdDate": "2026-09-25",
+        "closedDate": "2026-09-25",
+        "reviewers": [
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9307,
+        "title": "Commit: Fix for City, State, Ascend Id",
+        "status": "abandoned",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "SOPS-96",
+        "targetBranch": "devmerge",
+        "createdBy": "Rahul Ahuja",
+        "createdDate": "2026-09-25",
+        "closedDate": "2026-09-25",
+        "reviewers": [
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "",
+        "approved": false
+    },
+    {
+        "id": 9306,
+        "title": "SOPS-155_154",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/Feature-SOPS-155_154_-_uat",
+        "targetBranch": "uat",
+        "createdBy": "Akshay Kumar",
+        "createdDate": "2026-09-25",
+        "closedDate": null,
+        "reviewers": [
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9305,
+        "title": "SOPS_103",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/Feature-SOPS-103_-_uat",
+        "targetBranch": "uat",
+        "createdBy": "Akshay Kumar",
+        "createdDate": "2026-09-25",
+        "closedDate": null,
+        "reviewers": [
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9304,
+        "title": "feature-SOPS-89",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/feature-SOPS-89_-_main",
+        "targetBranch": "main",
+        "createdBy": "Sudaif Haider",
+        "createdDate": "2026-09-25",
+        "closedDate": null,
+        "reviewers": [
+            "Amit Sood",
+            "Akshay Kumar",
+            "Sudaif Haider",
+            "Giles Bill"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9303,
+        "title": "feature-SOPS-33PermissionSet",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/feature-SOPS-33PermissionSet_-_main",
+        "targetBranch": "main",
+        "createdBy": "Sudaif Haider",
+        "createdDate": "2026-09-25",
+        "closedDate": null,
+        "reviewers": [
+            "Amit Sood",
+            "Akshay Kumar",
+            "Sudaif Haider",
+            "Giles Bill"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9302,
+        "title": "SOPS-33",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/feature-SOPS-33New_-_main",
+        "targetBranch": "main",
+        "createdBy": "Sudaif Haider",
+        "createdDate": "2026-09-25",
+        "closedDate": null,
+        "reviewers": [
+            "Amit Sood",
+            "Akshay Kumar",
+            "Sudaif Haider",
+            "Giles Bill"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9301,
+        "title": "feature-SOPS-35",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/feature-SOPS-35_-_main",
+        "targetBranch": "main",
+        "createdBy": "Sudaif Haider",
+        "createdDate": "2026-09-25",
+        "closedDate": null,
+        "reviewers": [
+            "Amit Sood",
+            "Akshay Kumar",
+            "Sudaif Haider",
+            "Giles Bill"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9300,
+        "title": "feature-SOPS-28",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/feature-SOPS-28_-_main",
+        "targetBranch": "main",
+        "createdBy": "Sudaif Haider",
+        "createdDate": "2026-09-25",
+        "closedDate": null,
+        "reviewers": [
+            "Amit Sood",
+            "Akshay Kumar",
+            "Sudaif Haider",
+            "Giles Bill"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9299,
+        "title": "feature-SOPS-37",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/feature-SOPS-37_-_main",
+        "targetBranch": "main",
+        "createdBy": "Sudaif Haider",
+        "createdDate": "2026-09-25",
+        "closedDate": null,
+        "reviewers": [
+            "Amit Sood",
+            "Akshay Kumar",
+            "Sudaif Haider",
+            "Giles Bill"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9298,
+        "title": "Feature-SOPS-101",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/Feature-SOPS-101_-_main",
+        "targetBranch": "main",
+        "createdBy": "Akshay Kumar",
+        "createdDate": "2026-09-25",
+        "closedDate": null,
+        "reviewers": [
+            "Amit Sood",
+            "Akshay Kumar",
+            "Sudaif Haider",
+            "Giles Bill"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9297,
+        "title": "feature-SOPS-159",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/feature-SOPS-159_-_main",
+        "targetBranch": "main",
+        "createdBy": "Sudaif Haider",
+        "createdDate": "2026-09-25",
+        "closedDate": null,
+        "reviewers": [
+            "Amit Sood",
+            "Akshay Kumar",
+            "Sudaif Haider",
+            "Giles Bill"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    }
+],
 };
 
 /**
