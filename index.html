@@ -341,16 +341,34 @@
         </div>
 
         <div class="panel">
-          <div class="panel-header"><span class="panel-title">User Licences</span></div>
-          <table class="data-table">
-            <thead><tr><th>Licence Type</th><th>Total</th><th>Used</th><th>Available</th></tr></thead>
-            <tbody>
-              <tr><td>Salesforce</td><td class="mono">250</td><td class="mono">218</td><td class="mono text-green">32</td></tr>
-              <tr><td>Salesforce Platform</td><td class="mono">50</td><td class="mono">48</td><td class="mono text-amber">2</td></tr>
-              <tr><td>Communities (External)</td><td class="mono">1,000</td><td class="mono">412</td><td class="mono text-green">588</td></tr>
-              <tr><td>API Only</td><td class="mono">10</td><td class="mono">6</td><td class="mono text-green">4</td></tr>
-            </tbody>
-          </table>
+          <div class="panel-header"><span class="panel-title">User Licence Summary</span></div>
+          <div class="stat-row three-col" id="lic-summary-cards" style="padding:0 0 4px 0">
+            <div class="stat-card border-navy" style="margin:0">
+              <div class="stat-label">Total Allocated</div>
+              <div class="stat-value navy" id="lic-total-allocated">—</div>
+              <div class="stat-sub">across all licence types</div>
+            </div>
+            <div class="stat-card border-amber" style="margin:0">
+              <div class="stat-label">Total In Use</div>
+              <div class="stat-value amber" id="lic-total-used">—</div>
+              <div class="stat-sub" id="lic-used-pct">—% utilisation</div>
+            </div>
+            <div class="stat-card border-red" style="margin:0">
+              <div class="stat-label">At Risk (≤10% left)</div>
+              <div class="stat-value red" id="lic-at-risk">—</div>
+              <div class="stat-sub">licence types near limit</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Licence usage detail panel -->
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">Licence Usage — SIT Sandbox</span>
+        </div>
+        <div id="lic-usage-grid" class="lic-usage-grid">
+          <!-- populated by JS -->
         </div>
       </div>
 

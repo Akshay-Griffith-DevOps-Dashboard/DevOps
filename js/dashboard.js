@@ -466,28 +466,58 @@
     }).join('');
   }
 
-  /* ── User licence table ───────────────────────────── */
+  /* ── User licence cards + usage grid ─────────────── */
   function renderUserLicences() {
-    const tbody = document.querySelector('#sh-licences-table tbody') || document.querySelector('.data-table tbody');
-    // Find the licences table specifically
-    const tables = document.querySelectorAll('.data-table');
-    let licTable = null;
-    tables.forEach(t => { if (t.querySelector('th') && t.querySelector('th').textContent === 'Licence Type') licTable = t; });
-    if (!licTable) return;
-    const ltbody = licTable.querySelector('tbody');
-    if (!ltbody) return;
-    ltbody.innerHTML = LIVE_DATA.userLicences
-      .filter(l => l.total > 0)
-      .map(l => {
-        const avail    = l.total - l.used;
-        const availCls = avail === 0 ? 'text-red' : avail <= 5 ? 'text-amber' : 'text-green';
-        return `<tr>
-          <td>${l.type}</td>
-          <td class="mono">${fmt(l.total)}</td>
-          <td class="mono">${fmt(l.used)}</td>
-          <td class="mono ${availCls}">${fmt(avail)}</td>
-        </tr>`;
-      }).join('');
+    const licences = (LIVE_DATA.userLicences || []).filter(l => l.total > 0);
+    if (!licences.length) return;
+
+    // Summary stats
+    const totalAllocated = licences.reduce((s, l) => s + l.total, 0);
+    const totalUsed      = licences.reduce((s, l) => s + l.used,  0);
+    const atRisk         = licences.filter(l => {
+      const pct = l.total > 0 ? (l.used / l.total) * 100 : 0;
+      return pct >= 90;
+    }).length;
+    const usedPct = totalAllocated > 0 ? Math.round((totalUsed / totalAllocated) * 100) : 0;
+
+    setText('lic-total-allocated', fmt(totalAllocated));
+    setText('lic-total-used',      fmt(totalUsed));
+    setText('lic-used-pct',        `${usedPct}% utilisation`);
+    setText('lic-at-risk',         atRisk);
+
+    // Usage grid — one card per licence type
+    const grid = document.getElementById('lic-usage-grid');
+    if (!grid) return;
+
+    grid.innerHTML = licences.map(l => {
+      const pct     = l.total > 0 ? Math.round((l.used / l.total) * 100) : 0;
+      const avail   = l.total - l.used;
+      const barCls  = pct >= 90 ? 'red' : pct >= 70 ? 'amber' : 'teal';
+      const availCls= avail === 0 ? 'red' : avail <= 5 ? 'amber' : 'green';
+      const statusLabel = pct >= 90 ? 'Critical' : pct >= 70 ? 'Warning' : 'OK';
+      const statusCls   = pct >= 90 ? 'red' : pct >= 70 ? 'amber' : 'green';
+      return `
+        <div class="lic-card">
+          <div class="lic-card-header">
+            <span class="lic-card-name">${escHtml(l.type)}</span>
+            <span class="badge ${statusCls}" style="font-size:10px">${statusLabel}</span>
+          </div>
+          <div class="lic-card-numbers">
+            <span class="lic-used">${fmt(l.used)}</span>
+            <span class="lic-sep">/</span>
+            <span class="lic-total">${fmt(l.total)}</span>
+            <span class="lic-pct">${pct}%</span>
+          </div>
+          <div class="lic-bar-wrap">
+            <div class="lic-bar">
+              <div class="lic-bar-fill ${barCls}" style="width:${Math.min(pct,100)}%"></div>
+            </div>
+          </div>
+          <div class="lic-footer">
+            <span class="${availCls === 'red' ? 'text-red' : availCls === 'amber' ? 'text-amber' : 'text-green'}">${fmt(avail)} available</span>
+          </div>
+        </div>`;
+    }).join('');
   }
 
   /* ── Deployments ──────────────────────────────────── */
