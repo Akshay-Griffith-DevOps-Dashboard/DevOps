@@ -111,6 +111,12 @@ body {
   flex-shrink: 0;
 }
 
+.brand-crest {
+  flex-shrink: 0;
+  display: block;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.3));
+}
+
 .brand-name {
   color: #FFFFFF;
   font-size: 15px;
@@ -489,7 +495,7 @@ main {
 .score-breakdown-title {
   font-size: 12px;
   font-weight: 600;
-  color: var(--text-secondary);
+  color: var(--blue);
   margin-bottom: 6px;
   grid-column: 1 / -1;
 }

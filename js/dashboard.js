@@ -199,13 +199,17 @@
     score = Math.min(100, score);
 
     // Update DOM
-    const verdict     = score >= 85 ? 'Healthy' : score >= 60 ? 'Fair' : score >= 40 ? 'Needs Attention' : 'Critical';
-    const scoreColor  = score >= 85 ? 'var(--green)' : score >= 60 ? 'var(--amber)' : 'var(--red)';
+    const verdict    = score >= 85 ? 'Healthy' : score >= 60 ? 'Fair' : score >= 40 ? 'Needs Attention' : 'Critical';
+    // Score colour: green > 70, amber 50-70, red < 50
+    const scoreColor = score > 70 ? 'var(--green)' : score >= 50 ? 'var(--amber)' : 'var(--red)';
     setText('score-number', score);
     setText('score-value-large', score);
     setText('score-verdict', verdict);
-    const largEl = document.getElementById('score-value-large');
-    if (largEl) largEl.style.color = scoreColor;
+    // Apply colour to both the large display number and the donut center number
+    const largEl   = document.getElementById('score-value-large');
+    const centerEl = document.getElementById('score-number');
+    if (largEl)   largEl.style.color   = scoreColor;
+    if (centerEl) centerEl.style.color = scoreColor;
 
     // Donut — three FIXED colour bands always visible; score needle shows position
     // Green band:  0–70% of ring  (score 0–70)
