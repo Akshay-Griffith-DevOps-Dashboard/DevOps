@@ -136,51 +136,66 @@
     let score = 0;
     const breakdown = [];
 
-    // API limits well within threshold (+15)
+    // ── Check 1: Daily API usage (max 20pts) ─────────────
     const apiUsed = limits.DailyApiRequests.Max - limits.DailyApiRequests.Remaining;
     const apiPct  = pctOf(apiUsed, limits.DailyApiRequests.Max);
-    if (apiPct < 50) { score += 15; breakdown.push({ cls: 'green', text: 'API limits well within threshold (+15)' }); }
-    else             { breakdown.push({ cls: 'amber', text: 'API usage elevated — monitor daily limit' }); }
+    if      (apiPct < 50) { score += 20; breakdown.push({ cls: 'green', text: `API usage ${apiPct.toFixed(2)}% — well within limit (+20)` }); }
+    else if (apiPct < 80) { score += 10; breakdown.push({ cls: 'amber', text: `API usage ${apiPct.toFixed(1)}% — monitor closely (+10)` }); }
+    else                  {              breakdown.push({ cls: 'red',   text: `API usage ${apiPct.toFixed(1)}% — critical, near limit (0)` }); }
 
-    // No aborted async jobs (+10)
-    score += 10;
-    breakdown.push({ cls: 'green', text: 'No aborted async jobs (+10)' });
-
-    // All scheduled jobs WAITING/running (+10)
-    const waiting = ld.scheduledJobs.waiting;
-    if (waiting >= ld.scheduledJobs.total * 0.7) {
-      score += 10;
-      breakdown.push({ cls: 'green', text: `${waiting} scheduled jobs WAITING (+10)` });
-    } else {
-      breakdown.push({ cls: 'amber', text: 'Some scheduled jobs not in healthy state' });
-    }
-
-    // Data & file storage healthy (+10)
+    // ── Check 2: Data storage (max 15pts) ───────────────
     const dataMBUsed = limits.DataStorageMB.Max - limits.DataStorageMB.Remaining;
     const dataPct    = pctOf(dataMBUsed, limits.DataStorageMB.Max);
-    if (dataPct < 70) { score += 10; breakdown.push({ cls: 'green', text: 'Data & file storage healthy (+10)' }); }
-    else              { breakdown.push({ cls: 'amber', text: 'Data storage approaching limit' }); }
+    if      (dataPct < 50) { score += 15; breakdown.push({ cls: 'green', text: `Data storage ${dataPct.toFixed(1)}% used — healthy (+15)` }); }
+    else if (dataPct < 80) { score += 8;  breakdown.push({ cls: 'amber', text: `Data storage ${dataPct.toFixed(1)}% used — approaching limit (+8)` }); }
+    else                   {              breakdown.push({ cls: 'red',   text: `Data storage ${dataPct.toFixed(1)}% used — critical (0)` }); }
 
-    // Active Apex classes, 0 errors (+10)
-    score += 10;
-    breakdown.push({ cls: 'green', text: `${fmt(ld.metadata.activeApexClasses)} active Apex classes, 0 errors (+10)` });
+    // ── Check 3: File storage (max 10pts) ───────────────
+    const fileMBUsed = limits.FileStorageMB.Max - limits.FileStorageMB.Remaining;
+    const filePct    = pctOf(fileMBUsed, limits.FileStorageMB.Max);
+    if      (filePct < 50) { score += 10; breakdown.push({ cls: 'green', text: `File storage ${filePct.toFixed(1)}% used (+10)` }); }
+    else if (filePct < 80) { score += 5;  breakdown.push({ cls: 'amber', text: `File storage ${filePct.toFixed(1)}% used (+5)` }); }
+    else                   {              breakdown.push({ cls: 'red',   text: `File storage ${filePct.toFixed(1)}% used — critical (0)` }); }
 
-    // Active flows (+15)
-    score += 15;
-    breakdown.push({ cls: 'green', text: `${fmt(ld.metadata.activeFlows)} active flows (+15)` });
+    // ── Check 4: Scheduled jobs health (max 10pts) ──────
+    const waiting = ld.scheduledJobs.waiting;
+    const jobsPct = waiting / (ld.scheduledJobs.total || 1) * 100;
+    if      (jobsPct >= 70) { score += 10; breakdown.push({ cls: 'green', text: `${waiting}/${ld.scheduledJobs.total} scheduled jobs WAITING (+10)` }); }
+    else if (jobsPct >= 40) { score += 5;  breakdown.push({ cls: 'amber', text: `Only ${waiting}/${ld.scheduledJobs.total} jobs in WAITING state (+5)` }); }
+    else                    {              breakdown.push({ cls: 'red',   text: `${waiting}/${ld.scheduledJobs.total} jobs healthy — many stuck/failed (0)` }); }
 
-    // Apex triggers present — note only, no deduction for SIT
-    if (ld.metadata.activeApexTriggers > 0) {
-      breakdown.push({ cls: 'amber', text: `${fmt(ld.metadata.activeApexTriggers)} active Apex triggers (review recommended)` });
+    // ── Check 5: Async Apex usage (max 10pts) ───────────
+    const asyncUsed = limits.DailyAsyncApexExecutions.Max - limits.DailyAsyncApexExecutions.Remaining;
+    const asyncPct  = pctOf(asyncUsed, limits.DailyAsyncApexExecutions.Max);
+    if      (asyncPct < 50) { score += 10; breakdown.push({ cls: 'green', text: `Async Apex ${asyncPct.toFixed(1)}% used (+10)` }); }
+    else if (asyncPct < 80) { score += 5;  breakdown.push({ cls: 'amber', text: `Async Apex ${asyncPct.toFixed(1)}% used — elevated (+5)` }); }
+    else                    {              breakdown.push({ cls: 'red',   text: `Async Apex ${asyncPct.toFixed(1)}% used — near limit (0)` }); }
+
+    // ── Check 6: Active flows (max 15pts) ───────────────
+    const flows = ld.metadata.activeFlows;
+    if   (flows > 0) { score += 15; breakdown.push({ cls: 'green', text: `${fmt(flows)} active flows in use (+15)` }); }
+    else             {              breakdown.push({ cls: 'amber', text: 'No active flows found (0)' }); }
+
+    // ── Check 7: Apex triggers (max 10pts) ──────────────
+    // Griffith uses flow-first; triggers indicate legacy/risk
+    const triggers = ld.metadata.activeApexTriggers;
+    if      (triggers === 0)   { score += 10; breakdown.push({ cls: 'green', text: 'No Apex triggers — clean flow-first architecture (+10)' }); }
+    else if (triggers <= 50)   { score += 7;  breakdown.push({ cls: 'green', text: `${triggers} Apex triggers — moderate, manageable (+7)` }); }
+    else if (triggers <= 150)  { score += 3;  breakdown.push({ cls: 'amber', text: `${triggers} Apex triggers — high count, review recommended (+3)` }); }
+    else                       {              breakdown.push({ cls: 'red',   text: `${triggers} Apex triggers — very high, technical debt risk (0)` }); }
+
+    // ── Check 8: Test coverage (max 10pts) ──────────────
+    // No coverage data available from API snapshot
+    if (ld.metadata.apexTestCoverage != null) {
+      const cov = ld.metadata.apexTestCoverage;
+      if      (cov >= 85) { score += 10; breakdown.push({ cls: 'green', text: `Apex test coverage ${cov}% (+10)` }); }
+      else if (cov >= 75) { score += 5;  breakdown.push({ cls: 'amber', text: `Apex test coverage ${cov}% — below recommended 85% (+5)` }); }
+      else                {              breakdown.push({ cls: 'red',   text: `Apex test coverage ${cov}% — too low, deployments may fail (0)` }); }
     } else {
-      score += 5;
-      breakdown.push({ cls: 'green', text: 'No triggers — flow-first architecture (+5)' });
+      breakdown.push({ cls: 'amber', text: 'Apex test coverage — not available in snapshot (0)' });
     }
 
-    // No Apex test coverage data available
-    breakdown.push({ cls: 'amber', text: 'No Apex test results / coverage data' });
-
-    // Clamp
+    // Clamp to 100
     score = Math.min(100, score);
 
     // Update DOM
@@ -192,75 +207,71 @@
     const largEl = document.getElementById('score-value-large');
     if (largEl) largEl.style.color = scoreColor;
 
-    // Donut — draw three arc segments using SVG path (reliable, no dashoffset tricks)
-    // The ring starts at 12 o'clock and goes clockwise.
-    // Zone split: green 0-70%, amber 70-85%, red 85-100% of the full circle.
-    // The score determines how much of each zone is filled.
-    // A small 2° gap is left between segments for visual clarity.
+    // Donut — three FIXED colour bands always visible; score needle shows position
+    // Green band:  0–70% of ring  (score 0–70)
+    // Amber band: 70–85% of ring  (score 70–85)
+    // Red band:   85–100% of ring (score 85–100)
+    // A white/dark dot marker sits at the score's position on the ring.
     (function drawDonut(score) {
-      const svg    = document.getElementById('donut-svg');
+      const svg = document.getElementById('donut-svg');
       if (!svg) return;
       const cx = 55, cy = 55, r = 46;
-      const GAP_DEG = 1.5; // small gap between segments
+      const GAP = 2.5; // gap in degrees between bands
 
-      // Convert polar angle (degrees, 0 = 12 o'clock, clockwise) to SVG x,y
-      function polarToXY(angleDeg) {
-        const rad = (angleDeg - 90) * Math.PI / 180;
-        return { x: cx + r * Math.cos(rad), y: cy + r * Math.sin(rad) };
+      function polarToXY(deg) {
+        const rad = (deg - 90) * Math.PI / 180;
+        return { x: +(cx + r * Math.cos(rad)).toFixed(3),
+                 y: +(cy + r * Math.sin(rad)).toFixed(3) };
       }
 
-      // Build a stroke arc <path> from startDeg to endDeg
-      function arcPath(startDeg, endDeg, color) {
-        if (endDeg <= startDeg) return null;
-        const s = polarToXY(startDeg);
-        const e = polarToXY(endDeg);
+      function makePath(startDeg, endDeg, color, width) {
+        if (endDeg - startDeg < 0.1) return null;
+        const s = polarToXY(startDeg), e = polarToXY(endDeg);
         const large = (endDeg - startDeg) > 180 ? 1 : 0;
         const p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
         p.setAttribute('d', `M ${s.x} ${s.y} A ${r} ${r} 0 ${large} 1 ${e.x} ${e.y}`);
         p.setAttribute('fill', 'none');
         p.setAttribute('stroke', color);
-        p.setAttribute('stroke-width', '10');
+        p.setAttribute('stroke-width', width || '10');
         p.setAttribute('stroke-linecap', 'round');
         return p;
       }
 
-      // Remove old arc paths (keep track circle at index 0)
-      svg.querySelectorAll('path').forEach(p => p.remove());
+      // Clear previous dynamic elements
+      svg.querySelectorAll('.donut-band, .donut-needle, .donut-needle-dot').forEach(el => el.remove());
 
-      // Zone boundaries in degrees (full ring = 360°)
-      const greenEnd = 360 * 0.70;  // 252°
-      const amberEnd = 360 * 0.85;  // 306°
-      const redEnd   = 360 * 1.00;  // 360° = 0° (back to top)
+      // Fixed zone boundaries (degrees)
+      const G_START =   0 + GAP;      // green starts
+      const G_END   = 252 - GAP;      // 70% of 360
+      const A_START = 252 + GAP;      // amber starts
+      const A_END   = 306 - GAP;      // 85% of 360
+      const R_START = 306 + GAP;      // red starts
+      const R_END   = 359.5;          // red ends just before 12 o'clock
 
-      // Filled degrees based on score
-      const scoreDeg = 3.6 * score; // score/100 * 360
+      // Draw green band (always full — this is the healthy zone)
+      const gp = makePath(G_START, G_END, '#1A7F4B');
+      if (gp) { gp.classList.add('donut-band'); svg.appendChild(gp); }
 
-      // Green arc: from 0 to min(scoreDeg, greenEnd)
-      const gEnd = Math.min(scoreDeg, greenEnd);
-      if (gEnd > GAP_DEG) {
-        const p = arcPath(GAP_DEG, gEnd, '#1A7F4B');
-        if (p) svg.appendChild(p);
-      }
+      // Draw amber band (always full)
+      const ap = makePath(A_START, A_END, '#E8A317');
+      if (ap) { ap.classList.add('donut-band'); svg.appendChild(ap); }
 
-      // Amber arc: from greenEnd to min(scoreDeg, amberEnd)
-      if (scoreDeg > greenEnd) {
-        const aStart = greenEnd + GAP_DEG;
-        const aEnd   = Math.min(scoreDeg, amberEnd);
-        if (aEnd > aStart) {
-          const p = arcPath(aStart, aEnd, '#E8A317');
-          if (p) svg.appendChild(p);
-        }
-      }
+      // Draw red band (always full)
+      const rp = makePath(R_START, R_END, '#C0392B');
+      if (rp) { rp.classList.add('donut-band'); svg.appendChild(rp); }
 
-      // Red arc: from amberEnd to min(scoreDeg, 359.5)
-      if (scoreDeg > amberEnd) {
-        const rStart = amberEnd + GAP_DEG;
-        const rEnd   = Math.min(scoreDeg, 359.5);
-        if (rEnd > rStart) {
-          const p = arcPath(rStart, rEnd, '#C0392B');
-          if (p) svg.appendChild(p);
-        }
-      }
+      // Score needle — white circle on the ring at the score's position
+      const scoreDeg  = score * 3.6;  // 0–360
+      const needlePos = polarToXY(scoreDeg);
+      const needle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      needle.setAttribute('cx', needlePos.x);
+      needle.setAttribute('cy', needlePos.y);
+      needle.setAttribute('r', '6');
+      needle.setAttribute('fill', '#FFFFFF');
+      needle.setAttribute('stroke', score >= 85 ? '#C0392B' : score >= 70 ? '#E8A317' : '#1A7F4B');
+      needle.setAttribute('stroke-width', '2.5');
+      needle.classList.add('donut-needle-dot');
+      svg.appendChild(needle);
     })(score);
 
     // Score breakdown list
