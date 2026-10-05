@@ -104,13 +104,9 @@
   const hash = location.hash.slice(1);
   if (hash && document.getElementById(hash)) activateSection(hash);
 
-  /* ── Clock ────────────────────────────────────────── */
+  /* ── Hide clock (data pulled timestamp replaces it) ── */
   const clockEl = document.getElementById('topbar-time');
-  function tick() {
-    clockEl.textContent = new Date().toLocaleTimeString('en-AU', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-  }
-  tick();
-  setInterval(tick, 1000);
+  if (clockEl) clockEl.style.display = 'none';
 
   /* ── OAuth modal ──────────────────────────────────── */
   const modal        = document.getElementById('oauth-modal');
@@ -746,7 +742,6 @@
     // Azure — from AZURE_DATA (populated by fetch-azure-data.py / GitHub Actions)
     renderAzure();
 
-    if (lastRefreshEl) lastRefreshEl.textContent = `SF: ${LIVE_DATA.org.fetchedAt}`;
   }
 
   renderAll();

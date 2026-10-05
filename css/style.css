@@ -342,6 +342,16 @@ body {
   align-items: center;
   gap: 6px;
   font-size: 12px;
+  text-decoration: none;
+  border-radius: 4px;
+  padding: 2px 6px;
+  transition: background 0.15s;
+}
+a.conn-indicator:hover {
+  background: rgba(255,255,255,0.08);
+}
+a.conn-indicator:hover .conn-label {
+  text-decoration: underline;
 }
 
 .conn-dot {
