@@ -55,22 +55,28 @@
     return `<span class="badge ${cls}">${label}</span>`;
   }
 
+  /* ── Data pulled date ─────────────────────────────── */
+  const datePulledEl = document.getElementById('data-pulled-date');
+  if (datePulledEl) {
+    datePulledEl.textContent = new Date().toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' });
+  }
+
   /* ── Section navigation ───────────────────────────── */
   const navItems = document.querySelectorAll('.nav-item');
   const sections = document.querySelectorAll('.section');
   const pageTitle = document.getElementById('page-title');
 
   const sectionTitles = {
-    overview:       'Overview',
-    'sf-health':    'Org Health',
-    'sf-deployments': 'Deployments',
+    overview:          'Overview',
+    'sf-health':       'Org Health',
+    'sf-deployments':  'Deployments',
     'azure-pipelines': 'Pipelines',
   };
 
   function activateSection(id) {
     sections.forEach(s => s.classList.toggle('active', s.id === id));
     navItems.forEach(n => n.classList.toggle('active', n.dataset.section === id));
-    pageTitle.textContent = sectionTitles[id] || id;
+    if (pageTitle) pageTitle.textContent = sectionTitles[id] || id;
     history.replaceState(null, '', `#${id}`);
   }
 
@@ -156,15 +162,19 @@
 
   /* ── Connection state ─────────────────────────────── */
   const connIndicator = document.getElementById('connection-status');
-  const connLabel     = connIndicator.querySelector('.conn-label');
+  const connLabel     = connIndicator ? connIndicator.querySelector('.conn-label') : null;
   const authBanner    = document.getElementById('auth-banner');
   const lastRefreshEl = document.getElementById('last-refresh');
-  const pageEnvEl     = document.getElementById('page-env');
 
   function setConnected(connected, orgName) {
-    connIndicator.className = `conn-indicator ${connected ? 'connected' : 'disconnected'}`;
-    connLabel.textContent   = connected ? (orgName || 'Connected') : 'Not connected';
-    authBanner.classList.toggle('hidden', connected);
+    if (connIndicator) connIndicator.className = `conn-indicator ${connected ? 'connected' : 'disconnected'}`;
+    if (connLabel)     connLabel.textContent   = connected ? (orgName || 'Connected') : 'Not connected';
+    if (authBanner)    authBanner.classList.toggle('hidden', connected);
+    // Update data-pulled date
+    const datePulledEl2 = document.getElementById('data-pulled-date');
+    if (datePulledEl2 && connected) {
+      datePulledEl2.textContent = new Date().toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' });
+    }
     if (connected) {
       connectBtn.textContent = 'Disconnect';
       connectBtn.onclick = () => {

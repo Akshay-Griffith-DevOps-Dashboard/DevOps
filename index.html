@@ -3,44 +3,72 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Griffith DevOps Dashboard</title>
+  <title>Griffith University — DevOps Metrics</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <div class="sidebar-logo">
-      <span class="logo-mark">GU</span>
-      <div class="logo-text">
-        <span class="logo-primary">Griffith</span>
-        <span class="logo-secondary">DevOps</span>
+  <!-- ═══════════════ TOPBAR ═══════════════ -->
+  <header class="topbar">
+    <div class="topbar-brand">
+      <a class="brand-logo" href="#">
+        <span class="brand-mark">GU</span>
+        <span class="brand-name"><span>Griffith</span> University</span>
+      </a>
+      <div class="topbar-divider"></div>
+      <span class="topbar-subtitle">DevOps Metrics</span>
+    </div>
+
+    <!-- Org switcher pills -->
+    <div class="org-switcher" id="org-switcher">
+      <div class="org-pill active" data-org="prod">
+        <span class="org-pill-dot"></span>
+        Trailsignup
+        <span class="org-pill-score" id="pill-score-prod">89/100</span>
+      </div>
+      <div class="org-pill warn" data-org="sandbox">
+        <span class="org-pill-dot"></span>
+        DashboardSandbox
+        <span class="org-pill-score" id="pill-score-sandbox">78/100</span>
       </div>
     </div>
 
-    <nav class="sidebar-nav">
-      <a href="#overview" class="nav-item active" data-section="overview">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="1" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/></svg>
-        Overview
-      </a>
-      <a href="#sf-health" class="nav-item" data-section="sf-health">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Org Health
-      </a>
-      <a href="#sf-deployments" class="nav-item" data-section="sf-deployments">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1v10M4 7l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 13h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        Deployments
-      </a>
-      <a href="#azure-pipelines" class="nav-item" data-section="azure-pipelines">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="3" cy="8" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="13" cy="4" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="13" cy="12" r="2" stroke="currentColor" stroke-width="1.5"/><path d="M5 7.5l6-3M5 8.5l6 3" stroke="currentColor" stroke-width="1.5"/></svg>
-        Pipelines
-      </a>
-    </nav>
+    <div class="topbar-right">
+      <span class="topbar-data-note">
+        <span class="dot-live"></span>
+        Data pulled: <span id="data-pulled-date">—</span>
+      </span>
+      <button class="btn-refresh" id="refresh-btn" title="Refresh data">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M13.5 8A5.5 5.5 0 1 1 8 2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M8 1l2.5 1.5L8 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Refresh
+      </button>
+      <div class="topbar-time" id="topbar-time"></div>
+    </div>
+  </header>
 
-    <div class="sidebar-footer">
+  <!-- ═══════════════ SUB-NAV ═══════════════ -->
+  <nav class="subnav">
+    <a href="#overview" class="nav-item active" data-section="overview">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="1" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/></svg>
+      Overview
+    </a>
+    <a href="#sf-health" class="nav-item" data-section="sf-health">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Org Health
+    </a>
+    <a href="#sf-deployments" class="nav-item" data-section="sf-deployments">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 1v10M4 7l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 13h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Deployments
+    </a>
+    <a href="#azure-pipelines" class="nav-item" data-section="azure-pipelines">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="3" cy="8" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="13" cy="4" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="13" cy="12" r="2" stroke="currentColor" stroke-width="1.5"/><path d="M5 7.5l6-3M5 8.5l6 3" stroke="currentColor" stroke-width="1.5"/></svg>
+      Pipelines
+    </a>
+
+    <div class="subnav-right">
       <div id="connection-status" class="conn-indicator disconnected">
         <span class="conn-dot"></span>
         <span class="conn-label">Not connected</span>
@@ -48,146 +76,255 @@
       <button id="connect-btn" class="btn-connect">Connect Salesforce</button>
       <div class="last-refresh" id="last-refresh">—</div>
     </div>
-  </aside>
+  </nav>
 
-  <!-- Main content -->
-  <main class="main">
-
-    <!-- Header -->
-    <header class="topbar">
-      <div class="topbar-left">
-        <h1 class="page-title" id="page-title">Overview</h1>
-        <span class="page-env" id="page-env">Production Org</span>
-      </div>
-      <div class="topbar-right">
-        <button class="btn-refresh" id="refresh-btn" title="Refresh data">
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13.5 8A5.5 5.5 0 1 1 8 2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M8 1l2.5 1.5L8 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Refresh
-        </button>
-        <div class="topbar-time" id="topbar-time"></div>
-      </div>
-    </header>
-
-    <!-- Auth banner (shown when not connected) -->
-    <div id="auth-banner" class="auth-banner">
-      <div class="auth-banner-inner">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8.5" stroke="#58A6FF" stroke-width="1.5"/><path d="M10 6v4M10 13.5v.5" stroke="#58A6FF" stroke-width="1.5" stroke-linecap="round"/></svg>
-        <span>Connect your Salesforce org to load live data. Dashboard shows sample data until connected.</span>
-        <button id="auth-banner-btn" class="btn-connect-inline">Connect now</button>
-      </div>
+  <!-- Auth banner -->
+  <div id="auth-banner" class="auth-banner">
+    <div class="auth-banner-inner">
+      <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8.5" stroke="currentColor" stroke-width="1.5"/><path d="M10 6v4M10 13.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Connect your Salesforce org to load live data. Dashboard shows sample data until connected.
+      <button id="auth-banner-btn" class="btn-connect-inline">Connect now</button>
     </div>
+  </div>
 
-    <!-- OVERVIEW SECTION -->
+  <!-- ═══════════════ MAIN CONTENT ═══════════════ -->
+  <main style="padding: 0 28px; max-width: 1400px;">
+
+    <!-- ─── OVERVIEW SECTION ─── -->
     <section id="overview" class="section active">
+
+      <!-- Org Health Score Hero -->
+      <div class="score-hero">
+        <!-- Donut ring -->
+        <div class="score-donut-wrap">
+          <svg viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="55" cy="55" r="46" fill="none" stroke="#EAEDF1" stroke-width="10"/>
+            <!-- Green arc: 89% of 289px circumference ≈ 257 -->
+            <circle cx="55" cy="55" r="46" fill="none" stroke="#1A7F4B" stroke-width="10"
+              stroke-dasharray="257 289" stroke-dashoffset="72" stroke-linecap="round"
+              id="donut-green"/>
+            <!-- Amber arc: small warning segment ~15px offset after green -->
+            <circle cx="55" cy="55" r="46" fill="none" stroke="#E8A317" stroke-width="10"
+              stroke-dasharray="14 289" stroke-dashoffset="-187" stroke-linecap="round"
+              id="donut-amber"/>
+            <!-- Red: small segment -->
+            <circle cx="55" cy="55" r="46" fill="none" stroke="#C0392B" stroke-width="10"
+              stroke-dasharray="6 289" stroke-dashoffset="-202" stroke-linecap="round"
+              id="donut-red"/>
+          </svg>
+          <div class="score-center">
+            <span class="score-number" id="score-number">89</span>
+            <span class="score-denom">/100</span>
+          </div>
+        </div>
+
+        <!-- Score label -->
+        <div class="score-label-block">
+          <span class="score-value-large" id="score-value-large">89</span>
+          <span class="score-verdict" id="score-verdict">Healthy</span>
+          <span class="score-caption">Org Health Score</span>
+        </div>
+
+        <!-- Score breakdown -->
+        <div>
+          <div class="score-breakdown-title">Score breakdown — based on live org data</div>
+          <div class="score-breakdown" id="score-breakdown">
+            <div class="breakdown-item"><span class="breakdown-dot green"></span><span>API limits well within threshold (+15)</span></div>
+            <div class="breakdown-item"><span class="breakdown-dot green"></span><span>Data &amp; file storage healthy (+10)</span></div>
+            <div class="breakdown-item"><span class="breakdown-dot green"></span><span>All 323 flows active (+15)</span></div>
+            <div class="breakdown-item"><span class="breakdown-dot green"></span><span>All 7 scheduled jobs WAITING (+10)</span></div>
+            <div class="breakdown-item"><span class="breakdown-dot green"></span><span>32 active Apex classes, 0 errors (+10)</span></div>
+            <div class="breakdown-item"><span class="breakdown-dot green"></span><span>No triggers — flow-first architecture (+5)</span></div>
+            <div class="breakdown-item"><span class="breakdown-dot green"></span><span>No aborted async jobs (+10)</span></div>
+            <div class="breakdown-item"><span class="breakdown-dot amber"></span><span>No Apex test results / coverage data</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6-stat row -->
       <div class="stat-row">
-        <div class="stat-card" id="stat-api-usage">
-          <div class="stat-label">API Requests Used</div>
-          <div class="stat-value mono" id="ov-api-used">72,430</div>
-          <div class="stat-sub">of <span id="ov-api-limit">5,000,000</span> daily limit</div>
-          <div class="stat-bar"><div class="stat-bar-fill green" id="ov-api-bar" style="width:1.4%"></div></div>
+        <div class="stat-card border-teal">
+          <div class="stat-label">Active Users</div>
+          <div class="stat-value" id="ov-active-users">10</div>
+          <div class="stat-sub" id="ov-users-sub">5 human · 5 system/integration</div>
         </div>
-        <div class="stat-card" id="stat-data-storage">
-          <div class="stat-label">Data Storage</div>
-          <div class="stat-value mono" id="ov-data-storage">4.2 GB</div>
-          <div class="stat-sub">of <span id="ov-data-limit">10 GB</span> allocated</div>
-          <div class="stat-bar"><div class="stat-bar-fill amber" id="ov-data-bar" style="width:42%"></div></div>
+        <div class="stat-card border-navy">
+          <div class="stat-label">Active Apex Classes</div>
+          <div class="stat-value navy" id="ov-apex-classes">32</div>
+          <div class="stat-sub">0 triggers · all active</div>
         </div>
-        <div class="stat-card" id="stat-file-storage">
-          <div class="stat-label">File Storage</div>
-          <div class="stat-value mono" id="ov-file-storage">1.1 GB</div>
-          <div class="stat-sub">of <span id="ov-file-limit">20 GB</span> allocated</div>
-          <div class="stat-bar"><div class="stat-bar-fill green" id="ov-file-bar" style="width:5.5%"></div></div>
+        <div class="stat-card border-teal">
+          <div class="stat-label">Active Flows</div>
+          <div class="stat-value" id="ov-flows">323</div>
+          <div class="stat-sub">AutoLaunched, Screen, Orchestrator</div>
         </div>
-        <div class="stat-card">
-          <div class="stat-label">Active Users (30d)</div>
-          <div class="stat-value mono" id="ov-active-users">183</div>
-          <div class="stat-sub">of <span id="ov-total-users">250</span> licensed</div>
-          <div class="stat-bar"><div class="stat-bar-fill blue" id="ov-users-bar" style="width:73%"></div></div>
+        <div class="stat-card border-blue">
+          <div class="stat-label">Scheduled Jobs</div>
+          <div class="stat-value blue" id="ov-scheduled-jobs">7</div>
+          <div class="stat-sub" id="ov-jobs-sub">All in WAITING state</div>
+        </div>
+        <div class="stat-card border-amber">
+          <div class="stat-label">API Usage Today</div>
+          <div class="stat-value amber" id="ov-api-today">~0.01%</div>
+          <div class="stat-sub" id="ov-api-sub">23 of 441,450 requests used</div>
+        </div>
+        <div class="stat-card border-orange">
+          <div class="stat-label">Open Pull Requests</div>
+          <div class="stat-value orange" id="ov-open-prs">1</div>
+          <div class="stat-sub" id="ov-pr-sub">feature → uat · awaiting review</div>
         </div>
       </div>
 
       <div class="two-col">
-        <!-- Recent deployments mini -->
+        <!-- Salesforce Live Limits -->
         <div class="panel">
           <div class="panel-header">
-            <span class="panel-title">Recent Deployments</span>
-            <a href="#sf-deployments" class="panel-link" data-goto="sf-deployments">View all</a>
+            <span class="panel-title">Salesforce Org Health — Live Limits</span>
+            <span class="panel-meta mono" id="limits-org-id">—</span>
           </div>
-          <table class="data-table" id="ov-deployments-table">
-            <thead><tr><th>Component</th><th>Type</th><th>Status</th><th>When</th></tr></thead>
-            <tbody id="ov-deploy-tbody">
-              <tr><td class="mono">AccountTrigger</td><td>ApexTrigger</td><td><span class="badge green">Success</span></td><td class="mono text-muted">2h ago</td></tr>
-              <tr><td class="mono">OpportunityFlow</td><td>Flow</td><td><span class="badge green">Success</span></td><td class="mono text-muted">5h ago</td></tr>
-              <tr><td class="mono">LeadConvertPage</td><td>LWC</td><td><span class="badge red">Failed</span></td><td class="mono text-muted">8h ago</td></tr>
-              <tr><td class="mono">PricingCalc</td><td>ApexClass</td><td><span class="badge green">Success</span></td><td class="mono text-muted">1d ago</td></tr>
+          <div class="limits-list" id="ov-limits-list">
+            <div class="limit-row">
+              <span class="limit-name">Daily API Requests</span>
+              <div class="limit-bar-wrap">
+                <div class="limit-bar"><div class="limit-bar-fill teal" style="width:0.01%"></div></div>
+              </div>
+              <span class="limit-detail teal" id="lim-api">~0.01% used (23 / 441,450)</span>
+            </div>
+            <div class="limit-row">
+              <span class="limit-name">Data Storage (MB)</span>
+              <div class="limit-bar-wrap">
+                <div class="limit-bar"><div class="limit-bar-fill teal" style="width:0%"></div></div>
+              </div>
+              <span class="limit-detail teal" id="lim-data">~0.0% used (0 / 52,537)</span>
+            </div>
+            <div class="limit-row">
+              <span class="limit-name">File Storage (MB)</span>
+              <div class="limit-bar-wrap">
+                <div class="limit-bar"><div class="limit-bar-fill teal" style="width:0.001%"></div></div>
+              </div>
+              <span class="limit-detail teal" id="lim-file">~0.0% used (2 / 134,712)</span>
+            </div>
+            <div class="limit-row">
+              <span class="limit-name">Daily Async Apex Executions</span>
+              <div class="limit-bar-wrap">
+                <div class="limit-bar"><div class="limit-bar-fill teal" style="width:0%"></div></div>
+              </div>
+              <span class="limit-detail teal" id="lim-async">~0.0% used (0 / 691,800)</span>
+            </div>
+          </div>
+          <div class="ok-banner" id="limits-status-banner">
+            ✓ All org limits are well within safe thresholds.
+          </div>
+          <!-- Checks table -->
+          <table class="data-table checks-table" id="ov-checks-table">
+            <thead><tr><th>Check</th><th>Status</th><th>Detail</th></tr></thead>
+            <tbody id="ov-checks-tbody">
+              <tr><td>Active Apex Classes</td><td><span class="badge green">Pass</span></td><td>32 active classes</td></tr>
+              <tr><td>Apex Triggers</td><td><span class="badge teal">Info</span></td><td>0 triggers — flow-first architecture</td></tr>
+              <tr><td>Active Flows</td><td><span class="badge green">Pass</span></td><td>323 active flows</td></tr>
+              <tr><td>Scheduled Jobs</td><td><span class="badge green">Pass</span></td><td>7 jobs, all WAITING</td></tr>
             </tbody>
           </table>
         </div>
 
-        <!-- Pipeline status mini -->
+        <!-- User Activity & Onboarding -->
         <div class="panel">
           <div class="panel-header">
-            <span class="panel-title">Pipeline Status</span>
-            <a href="#azure-pipelines" class="panel-link" data-goto="azure-pipelines">View all</a>
+            <span class="panel-title">User Activity &amp; Onboarding</span>
+            <span class="panel-meta" id="ua-active-count">10 active users</span>
           </div>
-          <div class="pipeline-mini-list" id="ov-pipeline-list">
-            <div class="pipeline-mini-item">
-              <span class="status-dot green"></span>
-              <span class="pipeline-name">sf-deploy-prod</span>
-              <span class="badge green mono">passed</span>
-              <span class="pipeline-time mono text-muted">14m</span>
+          <div class="user-type-row">
+            <div class="user-type-cell">
+              <div class="user-type-count" id="ua-human">5</div>
+              <div class="user-type-label">Human Users</div>
             </div>
-            <div class="pipeline-mini-item">
-              <span class="status-dot green"></span>
-              <span class="pipeline-name">sf-validate-staging</span>
-              <span class="badge green mono">passed</span>
-              <span class="pipeline-time mono text-muted">31m</span>
+            <div class="user-type-cell">
+              <div class="user-type-count" id="ua-integration">5</div>
+              <div class="user-type-label">Integration Users</div>
             </div>
-            <div class="pipeline-mini-item">
-              <span class="status-dot amber"></span>
-              <span class="pipeline-name">sf-apex-tests</span>
-              <span class="badge amber mono">running</span>
-              <span class="pipeline-time mono text-muted">8m</span>
+            <div class="user-type-cell">
+              <div class="user-type-count" id="ua-automated">0</div>
+              <div class="user-type-label">Automated Process</div>
             </div>
-            <div class="pipeline-mini-item">
-              <span class="status-dot red"></span>
-              <span class="pipeline-name">integration-checks</span>
-              <span class="badge red mono">failed</span>
-              <span class="pipeline-time mono text-muted">2h</span>
+          </div>
+          <div id="ua-user-list">
+            <div class="user-list-item">
+              <div class="user-avatar">AK</div>
+              <div class="user-info">
+                <span class="user-name">Akshay Kumar</span>
+                <span class="user-meta">Standard · Created 2026-08-19 · Last login: <span class="recent">2026-09-28</span></span>
+              </div>
+              <span class="badge green">Active</span>
             </div>
+            <div class="user-list-item">
+              <div class="user-avatar" style="background:#FEF3C7;color:#B45309">CE</div>
+              <div class="user-info">
+                <span class="user-name">Chatter Expert</span>
+                <span class="user-meta">CsnOnly · Created 2026-08-19 · Last login: <span class="never">Never</span></span>
+              </div>
+              <span class="badge muted">System</span>
+            </div>
+            <div class="user-list-item">
+              <div class="user-avatar" style="background:#EBF4FF;color:#1A6BB5">PU</div>
+              <div class="user-info">
+                <span class="user-name">Platform Integration User</span>
+                <span class="user-meta">CloudIntegrationUser · Created 2026-08-19 · Last login: <span class="never">Never</span></span>
+              </div>
+              <span class="badge blue">Integration</span>
+            </div>
+            <div class="user-list-item">
+              <div class="user-avatar" style="background:#F7F8FA;color:#8896A6">DC</div>
+              <div class="user-info">
+                <span class="user-name">Data.com Clean</span>
+                <span class="user-meta">AutomatedProcess · Created 2026-08-19 · Last login: <span class="never">Never</span></span>
+              </div>
+              <span class="badge muted">System</span>
+            </div>
+            <div class="user-list-item">
+              <div class="user-avatar" style="background:#E6F4F3;color:#00867A">IU</div>
+              <div class="user-info">
+                <span class="user-name">Integration User</span>
+                <span class="user-meta">Standard · Created 2026-08-19 · Last login: <span class="never">Never</span></span>
+              </div>
+              <span class="badge green">Active</span>
+            </div>
+          </div>
+          <div class="inline-warning" id="ua-never-warning">
+            ⚠ 9 of 10 users have never logged in.
           </div>
         </div>
       </div>
+
     </section>
 
-    <!-- SF ORG HEALTH SECTION -->
+    <!-- ─── SF ORG HEALTH SECTION ─── -->
     <section id="sf-health" class="section">
       <h2 class="section-heading">Salesforce Org Health</h2>
 
-      <div class="stat-row">
-        <div class="stat-card accent-left green">
+      <div class="stat-row four-col">
+        <div class="stat-card border-teal">
           <div class="stat-label">Daily API Limit</div>
-          <div class="stat-value mono" id="sh-api-pct">1.4%</div>
-          <div class="stat-sub" id="sh-api-detail">72,430 / 5,000,000 used</div>
-          <div class="stat-bar"><div class="stat-bar-fill green" id="sh-api-bar" style="width:1.4%"></div></div>
+          <div class="stat-value" id="sh-api-pct">0.01%</div>
+          <div class="stat-sub" id="sh-api-detail">23 / 441,450 used</div>
+          <div class="stat-bar"><div class="stat-bar-fill teal" id="sh-api-bar" style="width:0.01%"></div></div>
         </div>
-        <div class="stat-card accent-left amber">
+        <div class="stat-card border-amber">
           <div class="stat-label">SOQL Queries (sync)</div>
-          <div class="stat-value mono" id="sh-soql">78/100</div>
+          <div class="stat-value amber" id="sh-soql">78/100</div>
           <div class="stat-sub">per transaction limit</div>
           <div class="stat-bar"><div class="stat-bar-fill amber" id="sh-soql-bar" style="width:78%"></div></div>
         </div>
-        <div class="stat-card accent-left green">
+        <div class="stat-card border-teal">
           <div class="stat-label">Apex CPU Time</div>
-          <div class="stat-value mono" id="sh-cpu">32%</div>
+          <div class="stat-value" id="sh-cpu">32%</div>
           <div class="stat-sub">avg of 10,000ms limit</div>
-          <div class="stat-bar"><div class="stat-bar-fill green" id="sh-cpu-bar" style="width:32%"></div></div>
+          <div class="stat-bar"><div class="stat-bar-fill teal" id="sh-cpu-bar" style="width:32%"></div></div>
         </div>
-        <div class="stat-card accent-left green">
+        <div class="stat-card border-teal">
           <div class="stat-label">Heap Size</div>
-          <div class="stat-value mono" id="sh-heap">12%</div>
+          <div class="stat-value" id="sh-heap">12%</div>
           <div class="stat-sub">avg of 6MB limit</div>
-          <div class="stat-bar"><div class="stat-bar-fill green" id="sh-heap-bar" style="width:12%"></div></div>
+          <div class="stat-bar"><div class="stat-bar-fill teal" id="sh-heap-bar" style="width:12%"></div></div>
         </div>
       </div>
 
@@ -205,14 +342,14 @@
             <div class="storage-item">
               <span class="storage-label">File Storage</span>
               <div class="storage-bar-wrap">
-                <div class="storage-bar"><div class="storage-bar-fill green" style="width:5.5%"></div></div>
+                <div class="storage-bar"><div class="storage-bar-fill teal" style="width:5.5%"></div></div>
                 <span class="mono text-muted">1.1 / 20 GB</span>
               </div>
             </div>
             <div class="storage-item">
               <span class="storage-label">Big Objects</span>
               <div class="storage-bar-wrap">
-                <div class="storage-bar"><div class="storage-bar-fill green" style="width:3%"></div></div>
+                <div class="storage-bar"><div class="storage-bar-fill teal" style="width:3%"></div></div>
                 <span class="mono text-muted">0.3 / 10 GB</span>
               </div>
             </div>
@@ -221,13 +358,13 @@
 
         <div class="panel">
           <div class="panel-header"><span class="panel-title">User Licences</span></div>
-          <table class="data-table" id="sh-licences-table">
+          <table class="data-table">
             <thead><tr><th>Licence Type</th><th>Total</th><th>Used</th><th>Available</th></tr></thead>
             <tbody>
-              <tr><td>Salesforce</td><td class="mono">250</td><td class="mono">218</td><td class="mono green-text">32</td></tr>
-              <tr><td>Salesforce Platform</td><td class="mono">50</td><td class="mono">48</td><td class="mono amber-text">2</td></tr>
-              <tr><td>Communities (External)</td><td class="mono">1,000</td><td class="mono">412</td><td class="mono green-text">588</td></tr>
-              <tr><td>API Only</td><td class="mono">10</td><td class="mono">6</td><td class="mono green-text">4</td></tr>
+              <tr><td>Salesforce</td><td class="mono">250</td><td class="mono">218</td><td class="mono text-green">32</td></tr>
+              <tr><td>Salesforce Platform</td><td class="mono">50</td><td class="mono">48</td><td class="mono text-amber">2</td></tr>
+              <tr><td>Communities (External)</td><td class="mono">1,000</td><td class="mono">412</td><td class="mono text-green">588</td></tr>
+              <tr><td>API Only</td><td class="mono">10</td><td class="mono">6</td><td class="mono text-green">4</td></tr>
             </tbody>
           </table>
         </div>
@@ -236,42 +373,42 @@
       <div class="panel">
         <div class="panel-header">
           <span class="panel-title">Governor Limit Snapshot</span>
-          <span class="panel-meta mono text-muted" id="sh-governor-time">Last checked: —</span>
+          <span class="panel-meta mono" id="sh-governor-time">Last checked: —</span>
         </div>
-        <table class="data-table" id="sh-governor-table">
+        <table class="data-table">
           <thead><tr><th>Limit</th><th>Max</th><th>Remaining</th><th>Used %</th><th>Status</th></tr></thead>
-          <tbody>
-            <tr><td>Daily API Requests</td><td class="mono">5,000,000</td><td class="mono">4,927,570</td><td class="mono">1.4%</td><td><span class="badge green">OK</span></td></tr>
+          <tbody id="sh-governor-tbody">
+            <tr><td>Daily API Requests</td><td class="mono">441,450</td><td class="mono">441,427</td><td class="mono">0.01%</td><td><span class="badge green">OK</span></td></tr>
             <tr><td>Daily Bulk API Requests</td><td class="mono">10,000</td><td class="mono">9,847</td><td class="mono">1.5%</td><td><span class="badge green">OK</span></td></tr>
             <tr><td>Daily Streaming API Events</td><td class="mono">1,000,000</td><td class="mono">998,200</td><td class="mono">0.2%</td><td><span class="badge green">OK</span></td></tr>
-            <tr><td>Daily Async Apex Executions</td><td class="mono">250,000</td><td class="mono">218,500</td><td class="mono">12.6%</td><td><span class="badge green">OK</span></td></tr>
-            <tr><td>Concurrent Long-Running Apex</td><td class="mono">10</td><td class="mono">8</td><td class="mono">20%</td><td><span class="badge green">OK</span></td></tr>
-            <tr><td>Data Storage</td><td class="mono">10 GB</td><td class="mono">5.8 GB</td><td class="mono">42%</td><td><span class="badge amber">Watch</span></td></tr>
+            <tr><td>Daily Async Apex Executions</td><td class="mono">691,800</td><td class="mono">691,800</td><td class="mono">0.0%</td><td><span class="badge green">OK</span></td></tr>
+            <tr><td>Concurrent Long-Running Apex</td><td class="mono">10</td><td class="mono">10</td><td class="mono">0%</td><td><span class="badge green">OK</span></td></tr>
+            <tr><td>Data Storage (MB)</td><td class="mono">52,537</td><td class="mono">52,537</td><td class="mono">~0%</td><td><span class="badge green">OK</span></td></tr>
           </tbody>
         </table>
       </div>
     </section>
 
-    <!-- DEPLOYMENTS SECTION -->
+    <!-- ─── DEPLOYMENTS SECTION ─── -->
     <section id="sf-deployments" class="section">
       <h2 class="section-heading">Salesforce Deployments</h2>
 
-      <div class="stat-row four-stat">
-        <div class="stat-card">
+      <div class="stat-row four-col">
+        <div class="stat-card border-navy">
           <div class="stat-label">Deployments (30d)</div>
-          <div class="stat-value mono" id="dep-total">47</div>
+          <div class="stat-value navy" id="dep-total">47</div>
         </div>
-        <div class="stat-card">
+        <div class="stat-card border-teal">
           <div class="stat-label">Success Rate</div>
-          <div class="stat-value mono green-text" id="dep-success-rate">91.5%</div>
+          <div class="stat-value" id="dep-success-rate">91.5%</div>
         </div>
-        <div class="stat-card">
+        <div class="stat-card border-red">
           <div class="stat-label">Failed</div>
-          <div class="stat-value mono red-text" id="dep-failed">4</div>
+          <div class="stat-value red" id="dep-failed">4</div>
         </div>
-        <div class="stat-card">
+        <div class="stat-card border-blue">
           <div class="stat-label">Avg Deploy Time</div>
-          <div class="stat-value mono" id="dep-avg-time">3m 42s</div>
+          <div class="stat-value blue" id="dep-avg-time">3m 42s</div>
         </div>
       </div>
 
@@ -294,81 +431,61 @@
             </select>
           </div>
         </div>
-        <table class="data-table sortable" id="dep-table">
+        <table class="data-table" id="dep-table">
           <thead>
             <tr>
-              <th>Component</th>
-              <th>Type</th>
-              <th>Deployed by</th>
-              <th>Environment</th>
-              <th>Duration</th>
-              <th>Status</th>
-              <th>Timestamp</th>
+              <th>Component</th><th>Type</th><th>Deployed by</th>
+              <th>Environment</th><th>Duration</th><th>Status</th><th>Timestamp</th>
             </tr>
           </thead>
-          <tbody id="dep-tbody">
-            <!-- Populated by JS -->
-          </tbody>
+          <tbody id="dep-tbody"></tbody>
         </table>
       </div>
     </section>
 
-    <!-- AZURE PIPELINES SECTION -->
+    <!-- ─── AZURE PIPELINES SECTION ─── -->
     <section id="azure-pipelines" class="section">
       <h2 class="section-heading">Azure DevOps Pipelines</h2>
 
-      <div class="stat-row four-stat">
-        <div class="stat-card">
+      <div class="stat-row four-col">
+        <div class="stat-card border-navy">
           <div class="stat-label">Total Runs (7d)</div>
-          <div class="stat-value mono" id="az-total-runs">138</div>
+          <div class="stat-value navy" id="az-total-runs">138</div>
         </div>
-        <div class="stat-card">
+        <div class="stat-card border-teal">
           <div class="stat-label">Pass Rate</div>
-          <div class="stat-value mono green-text" id="az-pass-rate">89.1%</div>
+          <div class="stat-value" id="az-pass-rate">89.1%</div>
         </div>
-        <div class="stat-card">
+        <div class="stat-card border-amber">
           <div class="stat-label">Currently Running</div>
-          <div class="stat-value mono amber-text" id="az-running">3</div>
+          <div class="stat-value amber" id="az-running">3</div>
         </div>
-        <div class="stat-card">
+        <div class="stat-card border-blue">
           <div class="stat-label">Avg Duration</div>
-          <div class="stat-value mono" id="az-avg-dur">6m 18s</div>
+          <div class="stat-value blue" id="az-avg-dur">6m 18s</div>
         </div>
       </div>
 
       <div class="panel">
         <div class="panel-header"><span class="panel-title">Pipeline Runs</span></div>
-        <table class="data-table" id="az-table">
+        <table class="data-table">
           <thead>
-            <tr>
-              <th>Pipeline</th>
-              <th>Branch</th>
-              <th>Triggered by</th>
-              <th>Duration</th>
-              <th>Status</th>
-              <th>Started</th>
-            </tr>
+            <tr><th>Pipeline</th><th>Branch</th><th>Triggered by</th><th>Duration</th><th>Status</th><th>Started</th></tr>
           </thead>
-          <tbody id="az-tbody">
-            <!-- Populated by JS -->
-          </tbody>
+          <tbody id="az-tbody"></tbody>
         </table>
       </div>
 
       <div class="two-col">
         <div class="panel">
           <div class="panel-header"><span class="panel-title">Pass Rate by Pipeline (7d)</span></div>
-          <div class="bar-chart-list" id="az-bar-chart">
-            <!-- Populated by JS -->
-          </div>
+          <div class="bar-chart-list" id="az-bar-chart"></div>
         </div>
         <div class="panel">
           <div class="panel-header"><span class="panel-title">Recent Failures</span></div>
-          <table class="data-table" id="az-failures-table">
+          <table class="data-table">
             <thead><tr><th>Pipeline</th><th>Reason</th><th>When</th></tr></thead>
-            <tbody id="az-failures-tbody">
-              <!-- Populated by JS -->
-            </tbody>
+            <tbody id="az-failures-tbody"></tbody>
           </table>
         </div>
       </div>
@@ -376,7 +493,7 @@
 
   </main>
 
-  <!-- OAuth Modal -->
+  <!-- ═══════════════ OAUTH MODAL ═══════════════ -->
   <div id="oauth-modal" class="modal hidden">
     <div class="modal-backdrop"></div>
     <div class="modal-box">
@@ -395,9 +512,9 @@
         </div>
         <div class="form-group">
           <label>Redirect URI</label>
-          <input type="text" id="sf-redirect-uri" class="form-input" readonly id="sf-redirect-uri" />
+          <input type="text" id="sf-redirect-uri" class="form-input" readonly />
         </div>
-        <p class="modal-note">You will be redirected to Salesforce to authorise this dashboard. Credentials are stored only in your browser session.</p>
+        <p class="modal-note">You will be redirected to Salesforce to authorise this dashboard. Credentials are stored only in your browser session and are never sent to any third party.</p>
       </div>
       <div class="modal-footer">
         <button class="btn-secondary" id="modal-cancel">Cancel</button>
