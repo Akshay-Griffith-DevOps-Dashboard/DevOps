@@ -592,7 +592,19 @@ main {
 .stat-value.amber { color: var(--amber); }
 .stat-value.red   { color: var(--red); }
 .stat-value.blue  { color: var(--blue); }
+.stat-value.teal  { color: var(--teal); }
 .stat-value.orange{ color: var(--orange); }
+
+/* Branch target pill in PR table */
+.branch-target {
+  display: inline-block;
+  background: var(--teal-light);
+  color: var(--teal);
+  border-radius: 3px;
+  padding: 1px 6px;
+  font-size: 11px;
+  font-weight: 500;
+}
 
 .stat-sub {
   font-size: 11px;

@@ -2293,6 +2293,10 @@ const AZURE_DATA = {
         "approved": false
     }
 ],
+
+  commits: [],   // populated by fetch-azure-data.py / GitHub Actions
+
+  tags: [],      // populated by fetch-azure-data.py / GitHub Actions
 };
 
 /**

@@ -73,10 +73,10 @@ def fetch_all(pat, org, project):
                 "comment":      (commit.get("comment","") or "")[:80],
             })
 
-    # Pull Requests (all statuses, last 50)
+    # Pull Requests (all statuses, last 100)
     print("  → Fetching pull requests...")
     prs_raw = az(pat,
-        f"{base}/git/pullrequests?searchCriteria.status=all&$top=50&api-version=7.1"
+        f"{base}/git/pullrequests?searchCriteria.status=all&$top=100&api-version=7.1"
     ).get("value", [])
     prs = []
     for pr in prs_raw:
@@ -99,9 +99,42 @@ def fetch_all(pat, org, project):
             "approved":     approved,
         })
 
-    return repos, branches, prs
+    # Commits (last 20 per repo)
+    print("  → Fetching recent commits...")
+    commits = []
+    for repo in repos_raw:
+        rid, rname = repo["id"], repo["name"]
+        data = az(pat, f"{base}/git/repositories/{rid}/commits?searchCriteria.$top=20&api-version=7.1")
+        for c in data.get("value", []):
+            commits.append({
+                "repo":       rname,
+                "commitId":   c.get("commitId","")[:8],
+                "comment":    (c.get("comment","") or "")[:100],
+                "author":     c.get("author",{}).get("name",""),
+                "date":       (c.get("author",{}).get("date","") or "")[:10],
+                "branch":     "",   # not returned in list call, left blank
+            })
 
-def write_data_js(repos, branches, prs, org, project, fetched_at):
+    # Tags
+    print("  → Fetching tags...")
+    tags = []
+    for repo in repos_raw:
+        rid, rname = repo["id"], repo["name"]
+        data = az(pat, f"{base}/git/repositories/{rid}/refs?filter=tags&api-version=7.1")
+        for t in data.get("value", []):
+            tag_name = t.get("name","").replace("refs/tags/","")
+            creator  = t.get("creator",{})
+            tags.append({
+                "repo":     rname,
+                "name":     tag_name,
+                "commitId": t.get("objectId","")[:8],
+                "author":   creator.get("displayName",""),
+                "date":     (t.get("creatorDate","") or "")[:10] or "",
+            })
+
+    return repos, branches, prs, commits, tags
+
+def write_data_js(repos, branches, prs, commits, tags, org, project, fetched_at):
     """Read data.js, replace the AZURE_DATA block, write back."""
     path = "js/data.js"
     try:
@@ -121,6 +154,10 @@ const AZURE_DATA = {{
   branches: {json.dumps(branches, indent=4)},
 
   pullRequests: {json.dumps(prs, indent=4)},
+
+  commits: {json.dumps(commits, indent=4)},
+
+  tags: {json.dumps(tags, indent=4)},
 }};"""
 
     # Replace existing AZURE_DATA block or append before MOCK_DATA
@@ -157,12 +194,12 @@ def main():
         org, project = discover(pat)
 
     print(f"\nFetching Azure DevOps data: {org} / {project}")
-    repos, branches, prs = fetch_all(pat, org, project)
-    print(f"  Repos: {len(repos)}, Branches: {len(branches)}, PRs: {len(prs)}")
+    repos, branches, prs, commits, tags = fetch_all(pat, org, project)
+    print(f"  Repos: {len(repos)}, Branches: {len(branches)}, PRs: {len(prs)}, Commits: {len(commits)}, Tags: {len(tags)}")
 
-    fetched_at = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-    write_data_js(repos, branches, prs, org, project, fetched_at)
-    print(f"\n✅ Done! {len(branches)} branches, {len(prs)} PRs written to js/data.js")
+    fetched_at = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    write_data_js(repos, branches, prs, commits, tags, org, project, fetched_at)
+    print(f"\n✅ Done! {len(prs)} PRs, {len(commits)} commits, {len(tags)} tags written to js/data.js")
     print("   Now run: git add js/data.js && git commit -m 'chore: refresh Azure data' && git push")
 
 if __name__ == "__main__":

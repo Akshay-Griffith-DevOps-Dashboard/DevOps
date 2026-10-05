@@ -439,61 +439,32 @@
         <div class="stat-card border-navy">
           <div class="stat-label">Repositories</div>
           <div class="stat-value navy" id="az-repo-count">—</div>
-          <div class="stat-sub" id="az-repo-sub">loading…</div>
-        </div>
-        <div class="stat-card border-teal">
-          <div class="stat-label">Total Branches</div>
-          <div class="stat-value" id="az-branch-count">—</div>
-          <div class="stat-sub" id="az-branch-sub">across all repos</div>
+          <div class="stat-sub" id="az-repo-sub">RSDF-SalesforcePlatform</div>
         </div>
         <div class="stat-card border-amber">
           <div class="stat-label">Open Pull Requests</div>
           <div class="stat-value amber" id="az-pr-open">—</div>
           <div class="stat-sub" id="az-pr-sub">awaiting review</div>
         </div>
-        <div class="stat-card border-blue">
-          <div class="stat-label">Merged PRs (all time)</div>
-          <div class="stat-value blue" id="az-pr-merged">—</div>
+        <div class="stat-card border-teal">
+          <div class="stat-label">Merged PRs</div>
+          <div class="stat-value teal" id="az-pr-merged">—</div>
           <div class="stat-sub" id="az-pr-merged-sub">completed</div>
+        </div>
+        <div class="stat-card border-red">
+          <div class="stat-label">Abandoned PRs</div>
+          <div class="stat-value red" id="az-pr-abandoned">—</div>
+          <div class="stat-sub" id="az-pr-abandoned-sub">closed without merge</div>
         </div>
       </div>
 
       <!-- Data source note -->
       <div id="az-no-data-banner" class="info-banner hidden">
         <svg width="15" height="15" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8.5" stroke="currentColor" stroke-width="1.5"/><path d="M10 6v4M10 13.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        Azure DevOps data not yet fetched. Run <code>python3 fetch-azure-data.py --pat "PAT" --org "ORG" --project "PROJECT"</code> locally, then push — or add the <strong>AZURE_DEVOPS_PAT</strong> secret + <strong>AZURE_ORG</strong> / <strong>AZURE_PROJECT</strong> variables in GitHub Actions to auto-fetch on every deploy.
+        Azure DevOps data not yet fetched. Add the <strong>AZURE_DEVOPS_PAT</strong> secret in GitHub Actions to auto-fetch on every deploy.
       </div>
 
-      <!-- Branches panel -->
-      <div class="panel">
-        <div class="panel-header">
-          <span class="panel-title">Branches</span>
-          <div class="panel-filters">
-            <select id="az-branch-repo-filter" class="filter-select">
-              <option value="all">All repos</option>
-            </select>
-            <select id="az-branch-type-filter" class="filter-select">
-              <option value="all">All branches</option>
-              <option value="default">Default only</option>
-              <option value="feature">Feature branches</option>
-              <option value="ahead">Ahead of default</option>
-            </select>
-          </div>
-        </div>
-        <table class="data-table" id="az-branch-table">
-          <thead>
-            <tr>
-              <th>Repository</th><th>Branch</th><th>Last Commit</th>
-              <th>Author</th><th>Date</th><th>Ahead</th><th>Behind</th>
-            </tr>
-          </thead>
-          <tbody id="az-branch-tbody">
-            <tr><td colspan="7" class="empty-row">Loading…</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Pull Requests panel -->
+      <!-- Pull Requests panel (primary view) -->
       <div class="panel">
         <div class="panel-header">
           <span class="panel-title">Pull Requests</span>
@@ -504,6 +475,9 @@
               <option value="completed">Merged</option>
               <option value="abandoned">Abandoned</option>
             </select>
+            <select id="az-pr-target-filter" class="filter-select">
+              <option value="all">All target branches</option>
+            </select>
             <select id="az-pr-repo-filter" class="filter-select">
               <option value="all">All repos</option>
             </select>
@@ -512,13 +486,70 @@
         <table class="data-table" id="az-pr-table">
           <thead>
             <tr>
-              <th>PR #</th><th>Title</th><th>Repository</th>
-              <th>From → To</th><th>Author</th><th>Reviewers</th>
-              <th>Created</th><th>Status</th>
+              <th style="width:52px">PR #</th>
+              <th>Title</th>
+              <th>Source Branch</th>
+              <th>Target Branch</th>
+              <th>Author</th>
+              <th>Created</th>
+              <th style="width:90px">Status</th>
             </tr>
           </thead>
           <tbody id="az-pr-tbody">
-            <tr><td colspan="8" class="empty-row">Loading…</td></tr>
+            <tr><td colspan="7" class="empty-row">Loading…</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Commits panel -->
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">Recent Commits</span>
+          <div class="panel-filters">
+            <select id="az-commit-repo-filter" class="filter-select">
+              <option value="all">All repos</option>
+            </select>
+          </div>
+        </div>
+        <table class="data-table" id="az-commit-table">
+          <thead>
+            <tr>
+              <th style="width:72px">Commit</th>
+              <th>Message</th>
+              <th>Repository</th>
+              <th>Branch</th>
+              <th>Author</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody id="az-commit-tbody">
+            <tr><td colspan="6" class="empty-row">Loading…</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Tags panel -->
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">Tags / Releases</span>
+          <div class="panel-filters">
+            <select id="az-tag-repo-filter" class="filter-select">
+              <option value="all">All repos</option>
+            </select>
+          </div>
+        </div>
+        <table class="data-table" id="az-tag-table">
+          <thead>
+            <tr>
+              <th>Tag</th>
+              <th>Repository</th>
+              <th>Commit</th>
+              <th>Author</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody id="az-tag-tbody">
+            <tr><td colspan="5" class="empty-row">Loading…</td></tr>
           </tbody>
         </table>
       </div>

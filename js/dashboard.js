@@ -552,103 +552,64 @@
   /* ── Azure DevOps — Branches + Pull Requests ─────── */
   function renderAzure() {
     const az = typeof AZURE_DATA !== 'undefined' ? AZURE_DATA : null;
-    const hasData = az && (az.branches.length > 0 || az.pullRequests.length > 0);
+    const hasData = az && (az.pullRequests.length > 0 || az.branches.length > 0);
 
-    // Show/hide no-data banner
     const banner = document.getElementById('az-no-data-banner');
     if (banner) banner.classList.toggle('hidden', hasData);
 
     if (!hasData) {
-      setText('az-repo-count',   '—');
-      setText('az-branch-count', '—');
-      setText('az-pr-open',      '—');
-      setText('az-pr-merged',    '—');
-      setText('az-branch-sub',   'connect Azure DevOps to see data');
-      setText('az-pr-sub',       '');
-      setText('az-pr-merged-sub','');
-      const bTbody = document.getElementById('az-branch-tbody');
-      if (bTbody) bTbody.innerHTML = '<tr><td colspan="7" class="empty-row">No data yet — see banner above</td></tr>';
+      setText('az-repo-count',      '—');
+      setText('az-pr-open',         '—');
+      setText('az-pr-merged',       '—');
+      setText('az-pr-abandoned',    '—');
       const pTbody = document.getElementById('az-pr-tbody');
-      if (pTbody) pTbody.innerHTML = '<tr><td colspan="8" class="empty-row">No data yet — see banner above</td></tr>';
+      if (pTbody) pTbody.innerHTML = '<tr><td colspan="7" class="empty-row">No data yet — add AZURE_DEVOPS_PAT secret in GitHub Actions</td></tr>';
+      const cTbody = document.getElementById('az-commit-tbody');
+      if (cTbody) cTbody.innerHTML = '<tr><td colspan="6" class="empty-row">No data yet</td></tr>';
+      const tTbody = document.getElementById('az-tag-tbody');
+      if (tTbody) tTbody.innerHTML = '<tr><td colspan="5" class="empty-row">No data yet</td></tr>';
       return;
     }
 
     // Fetch date
     const fetchDateEl = document.getElementById('az-fetch-date');
-    if (fetchDateEl && az.fetchedAt) fetchDateEl.textContent = `Data fetched: ${az.fetchedAt}`;
+    if (fetchDateEl && az.fetchedAt) fetchDateEl.textContent = `Fetched: ${az.fetchedAt}`;
 
     // Summary stats
-    const openPRs   = az.pullRequests.filter(p => p.status === 'active');
-    const mergedPRs = az.pullRequests.filter(p => p.status === 'completed');
-    setText('az-repo-count',    az.repos.length);
-    setText('az-branch-count',  az.branches.length);
-    setText('az-pr-open',       openPRs.length);
-    setText('az-pr-merged',     mergedPRs.length);
-    setText('az-branch-sub',    az.repos.map(r => r.name).join(', ').substring(0, 50) || 'across all repos');
-    setText('az-pr-sub',        openPRs.length === 1 ? '1 PR awaiting review' : `${openPRs.length} PRs awaiting review`);
-    setText('az-pr-merged-sub', `${mergedPRs.length} merged`);
+    const openPRs      = az.pullRequests.filter(p => p.status === 'active');
+    const mergedPRs    = az.pullRequests.filter(p => p.status === 'completed');
+    const abandonedPRs = az.pullRequests.filter(p => p.status === 'abandoned');
+    setText('az-repo-count',       az.repos.length);
+    setText('az-pr-open',          openPRs.length);
+    setText('az-pr-merged',        mergedPRs.length);
+    setText('az-pr-abandoned',     abandonedPRs.length);
+    setText('az-pr-sub',           openPRs.length === 1 ? '1 awaiting review' : `${openPRs.length} awaiting review`);
+    setText('az-pr-merged-sub',    `${mergedPRs.length} completed`);
+    setText('az-pr-abandoned-sub', `${abandonedPRs.length} closed without merge`);
 
-    // Populate repo filter dropdowns
-    const repoNames = [...new Set(az.repos.map(r => r.name))].sort();
-    ['az-branch-repo-filter', 'az-pr-repo-filter'].forEach(id => {
+    // Populate repo + target branch filter dropdowns for PRs
+    const repoNames   = [...new Set(az.repos.map(r => r.name))].sort();
+    const targetBranches = [...new Set(az.pullRequests.map(p => p.targetBranch).filter(Boolean))].sort();
+
+    function populateSelect(id, values, currentVal) {
       const sel = document.getElementById(id);
       if (!sel) return;
-      const current = sel.value;
-      // Keep the "all" option, re-add repos
       while (sel.options.length > 1) sel.remove(1);
-      repoNames.forEach(name => {
+      values.forEach(v => {
         const opt = document.createElement('option');
-        opt.value = name; opt.textContent = name;
+        opt.value = v; opt.textContent = v;
         sel.appendChild(opt);
       });
-      sel.value = current;
-    });
-
-    renderBranchTable();
-    renderPRTable();
-  }
-
-  function renderBranchTable() {
-    const az = typeof AZURE_DATA !== 'undefined' ? AZURE_DATA : null;
-    if (!az) return;
-    const tbody = document.getElementById('az-branch-tbody');
-    if (!tbody) return;
-
-    const repoFilter  = document.getElementById('az-branch-repo-filter')?.value  || 'all';
-    const typeFilter  = document.getElementById('az-branch-type-filter')?.value  || 'all';
-
-    let branches = az.branches;
-    if (repoFilter !== 'all') branches = branches.filter(b => b.repo === repoFilter);
-    if (typeFilter === 'default')  branches = branches.filter(b => b.isDefault);
-    if (typeFilter === 'feature')  branches = branches.filter(b => !b.isDefault);
-    if (typeFilter === 'ahead')    branches = branches.filter(b => b.aheadCount > 0);
-
-    // Sort: default first, then by date desc
-    branches = [...branches].sort((a, b) => {
-      if (a.isDefault && !b.isDefault) return -1;
-      if (!a.isDefault && b.isDefault) return 1;
-      return (b.date || '').localeCompare(a.date || '');
-    });
-
-    if (!branches.length) {
-      tbody.innerHTML = '<tr><td colspan="7" class="empty-row">No branches match the filter</td></tr>';
-      return;
+      if (currentVal) sel.value = currentVal;
     }
+    populateSelect('az-pr-repo-filter',    repoNames,     null);
+    populateSelect('az-pr-target-filter',  targetBranches, null);
+    populateSelect('az-commit-repo-filter', repoNames,    null);
+    populateSelect('az-tag-repo-filter',   repoNames,     null);
 
-    tbody.innerHTML = branches.map(b => {
-      const defaultBadge = b.isDefault ? '<span class="badge teal" style="font-size:10px">default</span> ' : '';
-      const aheadCls  = b.aheadCount  > 0 ? 'ahead' : 'zero';
-      const behindCls = b.behindCount > 0 ? 'behind': 'zero';
-      return `<tr>
-        <td class="mono" style="font-size:12px">${b.repo}</td>
-        <td class="mono">${defaultBadge}${escHtml(b.name)}</td>
-        <td style="font-size:11px;max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${escHtml(b.comment)}">${escHtml(b.comment || '—')}</td>
-        <td style="font-size:12px">${escHtml(b.author || '—')}</td>
-        <td class="mono" style="font-size:11px">${b.date || '—'}</td>
-        <td><span class="delta-badge ${aheadCls}">+${b.aheadCount}</span></td>
-        <td><span class="delta-badge ${behindCls}">-${b.behindCount}</span></td>
-      </tr>`;
-    }).join('');
+    renderPRTable();
+    renderCommitTable();
+    renderTagTable();
   }
 
   function renderPRTable() {
@@ -658,45 +619,95 @@
     if (!tbody) return;
 
     const statusFilter = document.getElementById('az-pr-status-filter')?.value || 'all';
+    const targetFilter = document.getElementById('az-pr-target-filter')?.value || 'all';
     const repoFilter   = document.getElementById('az-pr-repo-filter')?.value   || 'all';
 
     let prs = az.pullRequests;
-    if (statusFilter !== 'all') prs = prs.filter(p => p.status === statusFilter);
-    if (repoFilter   !== 'all') prs = prs.filter(p => p.repo   === repoFilter);
+    if (statusFilter !== 'all') prs = prs.filter(p => p.status       === statusFilter);
+    if (targetFilter !== 'all') prs = prs.filter(p => p.targetBranch === targetFilter);
+    if (repoFilter   !== 'all') prs = prs.filter(p => p.repo         === repoFilter);
 
     // Sort: open first, then by created date desc
     prs = [...prs].sort((a, b) => {
       const order = { active: 0, completed: 1, abandoned: 2 };
-      if ((order[a.status] ?? 9) !== (order[b.status] ?? 9)) return (order[a.status] ?? 9) - (order[b.status] ?? 9);
+      const oa = order[a.status] ?? 9, ob = order[b.status] ?? 9;
+      if (oa !== ob) return oa - ob;
       return (b.createdDate || '').localeCompare(a.createdDate || '');
     });
 
     if (!prs.length) {
-      tbody.innerHTML = '<tr><td colspan="8" class="empty-row">No pull requests match the filter</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="7" class="empty-row">No pull requests match the filter</td></tr>';
       return;
     }
 
+    const statusMap = { active: ['amber','Open'], completed: ['teal','Merged'], abandoned: ['muted','Abandoned'] };
     tbody.innerHTML = prs.map(pr => {
-      const statusMap = {
-        active:    ['amber', 'Open'],
-        completed: ['green', 'Merged'],
-        abandoned: ['muted', 'Abandoned'],
-      };
       const [sCls, sLabel] = statusMap[pr.status] || ['muted', pr.status];
-      const draftBadge = pr.isDraft ? '<span class="badge muted" style="font-size:10px">Draft</span> ' : '';
-      const reviewerStr = (pr.reviewers || []).slice(0, 2).join(', ') + ((pr.reviewers || []).length > 2 ? ` +${pr.reviewers.length - 2}` : '');
-      const approvedEl  = pr.approved ? '<span class="badge green" style="font-size:10px">✓</span>' : '';
+      const draftBadge = pr.isDraft ? '<span class="badge muted" style="font-size:10px;margin-right:4px">Draft</span>' : '';
+      const approvedEl = pr.approved ? ' <span class="badge teal" style="font-size:10px">✓ Approved</span>' : '';
       return `<tr>
-        <td class="mono" style="font-size:12px">#${pr.id}</td>
-        <td style="max-width:240px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${escHtml(pr.title)}">${draftBadge}${escHtml(pr.title)}</td>
-        <td class="mono" style="font-size:11px">${escHtml(pr.repo)}</td>
-        <td class="mono" style="font-size:11px">${escHtml(pr.sourceBranch)} → ${escHtml(pr.targetBranch)}</td>
+        <td class="mono" style="font-size:12px;font-weight:600">#${pr.id}</td>
+        <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${escHtml(pr.title)}">${draftBadge}${escHtml(pr.title)}${approvedEl}</td>
+        <td class="mono" style="font-size:11px;color:var(--text-secondary)">${escHtml(pr.sourceBranch)}</td>
+        <td class="mono" style="font-size:11px"><span class="branch-target">${escHtml(pr.targetBranch)}</span></td>
         <td style="font-size:12px">${escHtml(pr.createdBy)}</td>
-        <td style="font-size:11px;color:var(--text-muted)">${escHtml(reviewerStr)} ${approvedEl}</td>
-        <td class="mono" style="font-size:11px">${pr.createdDate || '—'}</td>
+        <td class="mono" style="font-size:11px;color:var(--text-muted)">${pr.createdDate || '—'}</td>
         <td><span class="badge ${sCls}">${sLabel}</span></td>
       </tr>`;
     }).join('');
+  }
+
+  function renderCommitTable() {
+    const az = typeof AZURE_DATA !== 'undefined' ? AZURE_DATA : null;
+    if (!az) return;
+    const tbody = document.getElementById('az-commit-tbody');
+    if (!tbody) return;
+
+    const repoFilter = document.getElementById('az-commit-repo-filter')?.value || 'all';
+    let commits = az.commits || [];
+    if (repoFilter !== 'all') commits = commits.filter(c => c.repo === repoFilter);
+
+    // Sort by date desc, limit to 50
+    commits = [...commits].sort((a, b) => (b.date || '').localeCompare(a.date || '')).slice(0, 50);
+
+    if (!commits.length) {
+      tbody.innerHTML = '<tr><td colspan="6" class="empty-row">No commit data — will populate on next GitHub Actions run</td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = commits.map(c => `<tr>
+      <td class="mono" style="font-size:11px;color:var(--text-muted)">${escHtml(c.commitId)}</td>
+      <td style="max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${escHtml(c.comment)}">${escHtml(c.comment || '—')}</td>
+      <td class="mono" style="font-size:11px">${escHtml(c.repo)}</td>
+      <td class="mono" style="font-size:11px;color:var(--text-secondary)">${escHtml(c.branch || '—')}</td>
+      <td style="font-size:12px">${escHtml(c.author || '—')}</td>
+      <td class="mono" style="font-size:11px;color:var(--text-muted)">${c.date || '—'}</td>
+    </tr>`).join('');
+  }
+
+  function renderTagTable() {
+    const az = typeof AZURE_DATA !== 'undefined' ? AZURE_DATA : null;
+    if (!az) return;
+    const tbody = document.getElementById('az-tag-tbody');
+    if (!tbody) return;
+
+    const repoFilter = document.getElementById('az-tag-repo-filter')?.value || 'all';
+    let tags = az.tags || [];
+    if (repoFilter !== 'all') tags = tags.filter(t => t.repo === repoFilter);
+    tags = [...tags].sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+
+    if (!tags.length) {
+      tbody.innerHTML = '<tr><td colspan="5" class="empty-row">No tags found — will populate on next GitHub Actions run</td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = tags.map(t => `<tr>
+      <td style="font-size:12px;font-weight:600">${escHtml(t.name)}</td>
+      <td class="mono" style="font-size:11px">${escHtml(t.repo)}</td>
+      <td class="mono" style="font-size:11px;color:var(--text-muted)">${escHtml(t.commitId)}</td>
+      <td style="font-size:12px">${escHtml(t.author || '—')}</td>
+      <td class="mono" style="font-size:11px;color:var(--text-muted)">${t.date || '—'}</td>
+    </tr>`).join('');
   }
 
   function escHtml(s) {
@@ -704,10 +715,11 @@
   }
 
   // Wire up Azure filter dropdowns
-  document.getElementById('az-branch-repo-filter')?.addEventListener('change', renderBranchTable);
-  document.getElementById('az-branch-type-filter')?.addEventListener('change', renderBranchTable);
   document.getElementById('az-pr-status-filter')?.addEventListener('change', renderPRTable);
+  document.getElementById('az-pr-target-filter')?.addEventListener('change', renderPRTable);
   document.getElementById('az-pr-repo-filter')?.addEventListener('change', renderPRTable);
+  document.getElementById('az-commit-repo-filter')?.addEventListener('change', renderCommitTable);
+  document.getElementById('az-tag-repo-filter')?.addEventListener('change', renderTagTable);
 
   /* ── Utility ──────────────────────────────────────── */
   function setText(id, val) {
