@@ -187,11 +187,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-05 10:55 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-05 12:16 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-05 10:55 UTC',
+  fetchedAt: '2026-10-05 12:16 UTC',
 
   repos: [
     {
