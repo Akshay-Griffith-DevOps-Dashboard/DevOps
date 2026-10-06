@@ -43,23 +43,47 @@ def fetch_issues(base, email, token, project):
     batch  = 100
     jql    = f"project = {project} ORDER BY updated DESC"
 
-    while True:
+    # First call to check connectivity and total
+    url = (f"{base}/rest/api/3/search"
+           f"?jql={urllib.parse.quote(jql)}"
+           f"&startAt=0&maxResults={batch}"
+           f"&fields=summary,status,issuetype,priority,assignee,"
+           f"reporter,created,updated,labels,fixVersions,"
+           f"customfield_10016,customfield_10028")
+    print(f"    → Fetching: {url[:120]}")
+    data = jira(email, token, url)
+
+    if not isinstance(data, dict):
+        print(f"  ⚠️  Unexpected response type: {type(data)}")
+        return []
+
+    if "errorMessages" in data or "errors" in data:
+        print(f"  ⚠️  Jira API error: {data}")
+        return []
+
+    total = data.get("total", 0)
+    print(f"  → Total issues found: {total}")
+
+    batch_issues = data.get("issues", [])
+    issues.extend(batch_issues)
+    start = len(batch_issues)
+    print(f"    fetched {start}/{total} issues...")
+
+    while start < total:
         url = (f"{base}/rest/api/3/search"
                f"?jql={urllib.parse.quote(jql)}"
                f"&startAt={start}&maxResults={batch}"
                f"&fields=summary,status,issuetype,priority,assignee,"
                f"reporter,created,updated,labels,fixVersions,"
-               f"customfield_10016,customfield_10014,comment")
+               f"customfield_10016,customfield_10028")
         data = jira(email, token, url)
         batch_issues = data.get("issues", [])
         if not batch_issues:
+            print(f"  ⚠️  Empty batch at offset {start}, stopping")
             break
         issues.extend(batch_issues)
-        total = data.get("total", 0)
         start += len(batch_issues)
         print(f"    fetched {start}/{total} issues...")
-        if start >= total:
-            break
 
     return issues
 
