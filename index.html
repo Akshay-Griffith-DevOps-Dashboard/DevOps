@@ -68,6 +68,10 @@
       <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="3" cy="8" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="13" cy="4" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="13" cy="12" r="2" stroke="currentColor" stroke-width="1.5"/><path d="M5 7.5l6-3M5 8.5l6 3" stroke="currentColor" stroke-width="1.5"/></svg>
       Pipelines
     </a>
+    <a href="#qa" class="nav-item" data-section="qa">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M6.5 1h3l.5 2h2a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h2l.5-2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M5.5 8.5l1.5 1.5 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      QA
+    </a>
 
     <div class="subnav-right">
       <a id="connection-status" class="conn-indicator connected" href="https://griffith--sit.sandbox.my.salesforce.com" target="_blank" rel="noopener" title="Open SIT Org">
@@ -570,6 +574,114 @@
             <tr><td colspan="5" class="empty-row">Loading…</td></tr>
           </tbody>
         </table>
+      </div>
+
+    </section>
+
+    <!-- ─── QA SECTION ─── -->
+    <section id="qa" class="section">
+      <div class="section-heading-row">
+        <h2 class="section-heading">QA — SOPS Project</h2>
+        <span class="section-meta" id="jira-fetch-date"></span>
+      </div>
+
+      <!-- No-data banner -->
+      <div id="jira-no-data-banner" class="info-banner hidden">
+        <svg width="15" height="15" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8.5" stroke="currentColor" stroke-width="1.5"/><path d="M10 6v4M10 13.5v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        Jira data not yet fetched. Add <strong>JIRA_API_TOKEN</strong> secret and <strong>JIRA_BASE_URL</strong> / <strong>JIRA_EMAIL</strong> / <strong>JIRA_PROJECT</strong> variables in GitHub Actions to auto-fetch on every deploy.
+      </div>
+
+      <!-- Summary stat cards -->
+      <div class="stat-row four-col">
+        <div class="stat-card border-amber">
+          <div class="stat-label">Open Issues</div>
+          <div class="stat-value amber" id="qa-open">—</div>
+          <div class="stat-sub" id="qa-open-sub">To Do + In Progress</div>
+        </div>
+        <div class="stat-card border-red">
+          <div class="stat-label">Bugs</div>
+          <div class="stat-value red" id="qa-bugs">—</div>
+          <div class="stat-sub" id="qa-bugs-sub">open bug issues</div>
+        </div>
+        <div class="stat-card border-teal">
+          <div class="stat-label">In Testing / QA</div>
+          <div class="stat-value teal" id="qa-in-testing">—</div>
+          <div class="stat-sub" id="qa-in-testing-sub">currently being tested</div>
+        </div>
+        <div class="stat-card border-navy">
+          <div class="stat-label">Done (this month)</div>
+          <div class="stat-value navy" id="qa-done">—</div>
+          <div class="stat-sub" id="qa-done-sub">resolved issues</div>
+        </div>
+      </div>
+
+      <!-- Priority breakdown + Sprint info -->
+      <div class="two-col">
+        <!-- Priority breakdown -->
+        <div class="panel">
+          <div class="panel-header"><span class="panel-title">Open Issues by Priority</span></div>
+          <div id="qa-priority-bars" class="qa-priority-bars">
+            <!-- populated by JS -->
+          </div>
+        </div>
+
+        <!-- Active sprint -->
+        <div class="panel">
+          <div class="panel-header"><span class="panel-title">Active Sprint</span></div>
+          <div id="qa-sprint-info" class="qa-sprint-info">
+            <div class="empty-row" style="padding:24px 0;text-align:center;color:var(--text-muted)">No sprint data</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Issues table -->
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">Issues</span>
+          <div class="panel-filters">
+            <select id="qa-type-filter" class="filter-select">
+              <option value="all">All types</option>
+              <option value="Bug">Bug</option>
+              <option value="Story">Story</option>
+              <option value="Task">Task</option>
+              <option value="Sub-task">Sub-task</option>
+            </select>
+            <select id="qa-status-filter" class="filter-select">
+              <option value="all">All statuses</option>
+              <option value="To Do">To Do</option>
+              <option value="In Progress">In Progress</option>
+              <option value="In Testing">In Testing</option>
+              <option value="Done">Done</option>
+            </select>
+            <select id="qa-priority-filter" class="filter-select">
+              <option value="all">All priorities</option>
+              <option value="Highest">Highest</option>
+              <option value="High">High</option>
+              <option value="Medium">Medium</option>
+              <option value="Low">Low</option>
+              <option value="Lowest">Lowest</option>
+            </select>
+            <input id="qa-search" class="filter-search" type="text" placeholder="Search issues…" />
+          </div>
+        </div>
+        <table class="data-table" id="qa-issues-table">
+          <thead>
+            <tr>
+              <th style="width:90px">Key</th>
+              <th>Summary</th>
+              <th style="width:80px">Type</th>
+              <th style="width:110px">Status</th>
+              <th style="width:80px">Priority</th>
+              <th>Assignee</th>
+              <th style="width:95px">Updated</th>
+              <th style="width:90px">Azure Branch</th>
+            </tr>
+          </thead>
+          <tbody id="qa-issues-tbody">
+            <tr><td colspan="8" class="empty-row">Loading…</td></tr>
+          </tbody>
+        </table>
+        <div class="panel-footer" id="qa-issues-count"></div>
       </div>
 
     </section>

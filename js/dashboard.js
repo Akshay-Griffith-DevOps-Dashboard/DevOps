@@ -766,6 +766,204 @@
   }
 
   /* ═══════════════════════════════════════════════════
+     QA / JIRA
+  ═══════════════════════════════════════════════════ */
+  function renderQA() {
+    const jd = typeof JIRA_DATA !== 'undefined' ? JIRA_DATA : null;
+    const hasData = jd && jd.issues && jd.issues.length > 0;
+
+    const banner = document.getElementById('jira-no-data-banner');
+    if (banner) banner.classList.toggle('hidden', hasData);
+
+    const fetchEl = document.getElementById('jira-fetch-date');
+    if (fetchEl && jd && jd.fetchedAt) fetchEl.textContent = `Fetched: ${jd.fetchedAt}`;
+
+    if (!hasData) {
+      setText('qa-open',       '—');
+      setText('qa-bugs',       '—');
+      setText('qa-in-testing', '—');
+      setText('qa-done',       '—');
+      const tbody = document.getElementById('qa-issues-tbody');
+      if (tbody) tbody.innerHTML = '<tr><td colspan="8" class="empty-row">No Jira data yet — add JIRA_API_TOKEN secret in GitHub Actions</td></tr>';
+      renderQAPriorityBars([]);
+      renderQASprint(null);
+      return;
+    }
+
+    const issues    = jd.issues;
+    const thisMonth = new Date().toISOString().slice(0,7); // YYYY-MM
+
+    // Status categories — Jira uses "To Do", "In Progress", "Done" as categories
+    const openIssues    = issues.filter(i => i.statusCat !== 'Done');
+    const bugs          = issues.filter(i => i.type === 'Bug' && i.statusCat !== 'Done');
+    const inTesting     = issues.filter(i => /test|qa|review/i.test(i.status) && i.statusCat !== 'Done');
+    const doneThisMonth = issues.filter(i => i.statusCat === 'Done' && i.updated.startsWith(thisMonth));
+
+    setText('qa-open',           openIssues.length);
+    setText('qa-bugs',           bugs.length);
+    setText('qa-in-testing',     inTesting.length);
+    setText('qa-done',           doneThisMonth.length);
+    setText('qa-open-sub',       `${openIssues.length} open issues`);
+    setText('qa-bugs-sub',       bugs.length === 1 ? '1 open bug' : `${bugs.length} open bugs`);
+    setText('qa-in-testing-sub', inTesting.length === 1 ? '1 in testing' : `${inTesting.length} in testing`);
+    setText('qa-done-sub',       `resolved in ${thisMonth}`);
+
+    // Populate dynamic filter options from real data
+    const allStatuses = [...new Set(issues.map(i => i.status))].sort();
+    const allTypes    = [...new Set(issues.map(i => i.type))].filter(Boolean).sort();
+    function populateDynamicFilter(id, values) {
+      const sel = document.getElementById(id);
+      if (!sel) return;
+      const cur = sel.value;
+      while (sel.options.length > 1) sel.remove(1);
+      values.forEach(v => {
+        const o = document.createElement('option');
+        o.value = v; o.textContent = v;
+        sel.appendChild(o);
+      });
+      sel.value = cur || 'all';
+    }
+    populateDynamicFilter('qa-status-filter',   allStatuses);
+    populateDynamicFilter('qa-type-filter',     allTypes);
+
+    renderQAPriorityBars(openIssues);
+    renderQASprint(jd.sprints);
+    renderQATable();
+  }
+
+  function renderQAPriorityBars(openIssues) {
+    const el = document.getElementById('qa-priority-bars');
+    if (!el) return;
+    if (!openIssues.length) {
+      el.innerHTML = '<div class="empty-row" style="padding:20px 0;text-align:center;color:var(--text-muted)">No open issues</div>';
+      return;
+    }
+    const order  = ['Highest','High','Medium','Low','Lowest'];
+    const colors = { Highest:'red', High:'amber', Medium:'blue', Low:'teal', Lowest:'muted' };
+    const counts = {};
+    openIssues.forEach(i => { counts[i.priority] = (counts[i.priority]||0)+1; });
+    const max = Math.max(...Object.values(counts), 1);
+
+    el.innerHTML = order.filter(p => counts[p]).map(p => {
+      const pct = Math.round((counts[p]/max)*100);
+      const cls = colors[p] || 'teal';
+      return `<div class="qa-priority-row">
+        <span class="qa-priority-label">${p}</span>
+        <div class="qa-priority-bar-wrap">
+          <div class="qa-priority-bar">
+            <div class="qa-priority-bar-fill ${cls}" style="width:${pct}%"></div>
+          </div>
+          <span class="qa-priority-count">${counts[p]}</span>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  function renderQASprint(sprints) {
+    const el = document.getElementById('qa-sprint-info');
+    if (!el) return;
+    const active = (sprints || []).find(s => s.state === 'active');
+    if (!active) {
+      el.innerHTML = '<div class="empty-row" style="padding:24px 0;text-align:center;color:var(--text-muted)">No active sprint data</div>';
+      return;
+    }
+    el.innerHTML = `
+      <div class="qa-sprint-name">${escHtml(active.name)}</div>
+      <div class="qa-sprint-dates">${active.startDate} → ${active.endDate}</div>
+      ${active.goal ? `<div class="qa-sprint-goal">${escHtml(active.goal)}</div>` : ''}
+    `;
+  }
+
+  function renderQATable() {
+    const jd     = typeof JIRA_DATA !== 'undefined' ? JIRA_DATA : null;
+    if (!jd) return;
+    const tbody  = document.getElementById('qa-issues-tbody');
+    const countEl= document.getElementById('qa-issues-count');
+    if (!tbody) return;
+
+    const typeFilter     = document.getElementById('qa-type-filter')?.value     || 'all';
+    const statusFilter   = document.getElementById('qa-status-filter')?.value   || 'all';
+    const priorityFilter = document.getElementById('qa-priority-filter')?.value || 'all';
+    const searchVal      = (document.getElementById('qa-search')?.value || '').toLowerCase().trim();
+
+    // Build Azure branch lookup from AZURE_DATA (key = SOPS-NNN → branch name)
+    const branchMap = {};
+    if (typeof AZURE_DATA !== 'undefined') {
+      AZURE_DATA.branches.forEach(b => {
+        const m = b.name.match(/SOPS[_-](\d+)/i);
+        if (m) {
+          const key = `SOPS-${m[1]}`;
+          if (!branchMap[key]) branchMap[key] = [];
+          branchMap[key].push(b.name);
+        }
+      });
+    }
+
+    let issues = jd.issues;
+    if (typeFilter     !== 'all') issues = issues.filter(i => i.type     === typeFilter);
+    if (statusFilter   !== 'all') issues = issues.filter(i => i.status   === statusFilter);
+    if (priorityFilter !== 'all') issues = issues.filter(i => i.priority === priorityFilter);
+    if (searchVal) issues = issues.filter(i =>
+      i.key.toLowerCase().includes(searchVal) ||
+      i.summary.toLowerCase().includes(searchVal) ||
+      (i.assignee||'').toLowerCase().includes(searchVal)
+    );
+
+    // Sort: open first, then by updated desc
+    issues = [...issues].sort((a, b) => {
+      const oa = a.statusCat === 'Done' ? 1 : 0;
+      const ob = b.statusCat === 'Done' ? 1 : 0;
+      if (oa !== ob) return oa - ob;
+      return (b.updated||'').localeCompare(a.updated||'');
+    });
+
+    if (countEl) countEl.textContent = `${issues.length} issue${issues.length !== 1 ? 's' : ''}`;
+
+    if (!issues.length) {
+      tbody.innerHTML = '<tr><td colspan="8" class="empty-row">No issues match the filter</td></tr>';
+      return;
+    }
+
+    const priorityIcon = { Highest:'🔴', High:'🟠', Medium:'🟡', Low:'🔵', Lowest:'⚪' };
+    const typeColors   = { Bug:'red', Story:'blue', Task:'teal', 'Sub-task':'muted' };
+
+    const statusCls = (s, cat) => {
+      if (cat === 'Done') return 'green';
+      if (/test|qa/i.test(s))    return 'teal';
+      if (/progress/i.test(s))   return 'amber';
+      return 'muted';
+    };
+
+    tbody.innerHTML = issues.map(issue => {
+      const branches  = branchMap[issue.key] || [];
+      const branchEl  = branches.length
+        ? `<span class="badge teal" style="font-size:10px" title="${escHtml(branches.join(', '))}">✓ ${branches.length}</span>`
+        : '<span style="color:var(--text-muted);font-size:11px">—</span>';
+      const jiraUrl   = `${jd.baseUrl}/browse/${issue.key}`;
+      const sCls      = statusCls(issue.status, issue.statusCat);
+      const tCls      = typeColors[issue.type] || 'muted';
+      const icon      = priorityIcon[issue.priority] || '•';
+
+      return `<tr>
+        <td><a href="${jiraUrl}" target="_blank" rel="noopener" class="jira-key">${escHtml(issue.key)}</a></td>
+        <td style="max-width:260px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${escHtml(issue.summary)}">${escHtml(issue.summary)}</td>
+        <td><span class="badge ${tCls}" style="font-size:10px">${escHtml(issue.type)}</span></td>
+        <td><span class="badge ${sCls}" style="font-size:10px">${escHtml(issue.status)}</span></td>
+        <td style="font-size:12px">${icon} ${escHtml(issue.priority||'—')}</td>
+        <td style="font-size:12px">${escHtml(issue.assignee||'Unassigned')}</td>
+        <td class="mono" style="font-size:11px;color:var(--text-muted)">${issue.updated||'—'}</td>
+        <td style="text-align:center">${branchEl}</td>
+      </tr>`;
+    }).join('');
+  }
+
+  // Wire QA filters
+  ['qa-type-filter','qa-status-filter','qa-priority-filter'].forEach(id => {
+    document.getElementById(id)?.addEventListener('change', renderQATable);
+  });
+  document.getElementById('qa-search')?.addEventListener('input', renderQATable);
+
+  /* ═══════════════════════════════════════════════════
      MAIN RENDER
   ═══════════════════════════════════════════════════ */
   function renderAll() {
@@ -784,6 +982,8 @@
     // Azure — from AZURE_DATA (populated by fetch-azure-data.py / GitHub Actions)
     renderAzure();
 
+    // Jira QA — from JIRA_DATA (populated by fetch-jira-data.py / GitHub Actions)
+    renderQA();
   }
 
   renderAll();

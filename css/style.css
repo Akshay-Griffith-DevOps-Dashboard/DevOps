@@ -1225,6 +1225,122 @@ main {
 }
 
 /* =========================================================
+   QA / JIRA SECTION
+   ========================================================= */
+.qa-priority-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 4px 0;
+}
+
+.qa-priority-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.qa-priority-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  width: 60px;
+  flex-shrink: 0;
+}
+
+.qa-priority-bar-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.qa-priority-bar {
+  flex: 1;
+  height: 8px;
+  background: var(--border-light);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.qa-priority-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+.qa-priority-bar-fill.red    { background: var(--red); }
+.qa-priority-bar-fill.amber  { background: var(--amber); }
+.qa-priority-bar-fill.blue   { background: var(--blue); }
+.qa-priority-bar-fill.teal   { background: var(--teal); }
+.qa-priority-bar-fill.muted  { background: var(--text-muted); }
+
+.qa-priority-count {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  width: 24px;
+  text-align: right;
+  font-family: var(--font-mono);
+}
+
+.qa-sprint-info {
+  padding: 4px 0;
+}
+
+.qa-sprint-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.qa-sprint-dates {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  margin-bottom: 8px;
+}
+
+.qa-sprint-goal {
+  font-size: 12px;
+  color: var(--text-secondary);
+  background: var(--bg-subtle);
+  border-left: 3px solid var(--teal);
+  padding: 6px 10px;
+  border-radius: 0 4px 4px 0;
+  line-height: 1.5;
+}
+
+.jira-key {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--blue);
+  text-decoration: none;
+}
+.jira-key:hover { text-decoration: underline; }
+
+.filter-search {
+  height: 28px;
+  padding: 0 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-family: var(--font-ui);
+  color: var(--text-primary);
+  background: var(--bg-white);
+  outline: none;
+  min-width: 160px;
+}
+.filter-search:focus { border-color: var(--teal); }
+
+.panel-footer {
+  padding: 8px 14px;
+  font-size: 11px;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-light);
+}
+
+/* =========================================================
    OAUTH MODAL
    ========================================================= */
 .modal { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; }

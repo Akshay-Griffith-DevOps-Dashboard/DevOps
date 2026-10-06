@@ -9,6 +9,18 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
+// ── Jira live data (fetched —) ────────────────────────────────────────────
+// overwritten by fetch-jira-data.py / GitHub Actions on every deploy
+const JIRA_DATA = {
+  project:    'SOPS',
+  baseUrl:    'https://griffith.atlassian.net',
+  fetchedAt:  '',
+  sprints:    [],
+  issueTypes: [],
+  statuses:   [],
+  issues:     [],
+};
+
 // ── Live SIT Sandbox data (fetched 2026-10-05) ────────────────────────────
 const LIVE_DATA = {
   org: {
