@@ -176,7 +176,7 @@ const JIRA_DATA = {{
 
   statuses: {json.dumps(sorted(meta_statuses), indent=4)},
 
-  issues: {json.dumps(issues, indent=4)},
+  issues: {json.dumps(issues, indent=4)}
 }};"""
 
     if "const JIRA_DATA" in content:

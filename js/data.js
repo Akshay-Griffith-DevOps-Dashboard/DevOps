@@ -1615,7 +1615,7 @@ const JIRA_DATA = {
         "fixVersions": [],
         "storyPoints": null
     }
-],
+]
 };
 
 // ── Live SIT Sandbox data (fetched 2026-10-05) ────────────────────────────
