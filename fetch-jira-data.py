@@ -15,7 +15,7 @@ Usage:
 Environment variables (used by GitHub Actions):
     JIRA_BASE_URL, JIRA_EMAIL, JIRA_API_TOKEN, JIRA_PROJECT
 """
-import argparse, base64, json, os, re, sys, urllib.request, urllib.error
+import argparse, base64, json, os, re, sys, urllib.request, urllib.error, urllib.parse
 from datetime import datetime, timezone
 
 # ── HTTP helper ──────────────────────────────────────────────────────────────
@@ -140,8 +140,6 @@ def write_data_js(issues, sprints, meta_types, meta_statuses,
     except FileNotFoundError:
         sys.exit(f"Cannot find {path}. Run from the dashboard root directory.")
 
-    import urllib.parse  # noqa — already imported above but guard here
-
     new_block = f"""// ── Jira live data (fetched {fetched_at}) ────────────────────────────
 const JIRA_DATA = {{
   project:   '{project}',
@@ -176,8 +174,6 @@ const JIRA_DATA = {{
 
 # ── Main ─────────────────────────────────────────────────────────────────────
 def main():
-    import urllib.parse  # needed for quote in fetch_issues
-
     ap = argparse.ArgumentParser()
     ap.add_argument("--url",     default=os.environ.get("JIRA_BASE_URL",""))
     ap.add_argument("--email",   default=os.environ.get("JIRA_EMAIL",""))
@@ -212,5 +208,4 @@ def main():
     print(f"\n✅ Done — {len(issues)} Jira issues written to js/data.js")
 
 if __name__ == "__main__":
-    import urllib.parse
     main()
