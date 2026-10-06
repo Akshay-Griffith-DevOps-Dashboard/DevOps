@@ -1227,11 +1227,45 @@ main {
 /* =========================================================
    QA / JIRA SECTION
    ========================================================= */
+/* QA Board tabs */
+.qa-board-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 12px;
+  border-bottom: 2px solid var(--border-light);
+  padding-bottom: 0;
+}
+
+.qa-tab-btn {
+  background: none;
+  border: none;
+  padding: 8px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  border-radius: 4px 4px 0 0;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.qa-tab-btn:hover {
+  color: var(--text-primary);
+  background: var(--bg-subtle);
+}
+
+.qa-tab-btn.active {
+  color: var(--teal);
+  border-bottom-color: var(--teal);
+  font-weight: 600;
+}
+
 .qa-priority-bars {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 4px 0;
+  padding: 8px 16px 8px 16px;
 }
 
 .qa-priority-row {
@@ -1283,7 +1317,7 @@ main {
 }
 
 .qa-sprint-info {
-  padding: 4px 0;
+  padding: 8px 16px;
 }
 
 .qa-sprint-name {

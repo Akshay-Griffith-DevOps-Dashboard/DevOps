@@ -809,8 +809,9 @@
     setText('qa-done-sub',       `resolved in ${thisMonth}`);
 
     // Populate dynamic filter options from real data
-    const allStatuses = [...new Set(issues.map(i => i.status))].sort();
-    const allTypes    = [...new Set(issues.map(i => i.type))].filter(Boolean).sort();
+    const allStatuses   = [...new Set(issues.map(i => i.status))].sort();
+    const allTypes      = [...new Set(issues.map(i => i.type))].filter(Boolean).sort();
+    const allAssignees  = [...new Set(issues.map(i => i.assignee||'Unassigned'))].sort();
     function populateDynamicFilter(id, values) {
       const sel = document.getElementById(id);
       if (!sel) return;
@@ -821,10 +822,11 @@
         o.value = v; o.textContent = v;
         sel.appendChild(o);
       });
-      sel.value = cur || 'all';
+      sel.value = (values.includes(cur)) ? cur : 'all';
     }
     populateDynamicFilter('qa-status-filter',   allStatuses);
     populateDynamicFilter('qa-type-filter',     allTypes);
+    populateDynamicFilter('qa-assignee-filter', allAssignees);
 
     renderQAPriorityBars(openIssues);
     renderQASprint(jd.sprints);
@@ -874,19 +876,27 @@
     `;
   }
 
+  // Track active board tab
+  let _qaActiveTab = 'sprint';
+
   function renderQATable() {
     const jd     = typeof JIRA_DATA !== 'undefined' ? JIRA_DATA : null;
     if (!jd) return;
     const tbody  = document.getElementById('qa-issues-tbody');
     const countEl= document.getElementById('qa-issues-count');
+    const titleEl= document.getElementById('qa-table-title');
     if (!tbody) return;
 
     const typeFilter     = document.getElementById('qa-type-filter')?.value     || 'all';
     const statusFilter   = document.getElementById('qa-status-filter')?.value   || 'all';
     const priorityFilter = document.getElementById('qa-priority-filter')?.value || 'all';
+    const assigneeFilter = document.getElementById('qa-assignee-filter')?.value || 'all';
     const searchVal      = (document.getElementById('qa-search')?.value || '').toLowerCase().trim();
 
-    // Build Azure branch lookup from AZURE_DATA (key = SOPS-NNN → branch name)
+    // Determine active sprint issue keys
+    const activeSprint = (jd.sprints || []).find(s => s.state === 'active');
+
+    // Build Azure branch lookup
     const branchMap = {};
     if (typeof AZURE_DATA !== 'undefined') {
       AZURE_DATA.branches.forEach(b => {
@@ -899,23 +909,33 @@
       });
     }
 
+    // Filter by tab: active sprint = open issues in current sprint (by sprint name match or non-done);
+    // backlog = issues not in active sprint or done
     let issues = jd.issues;
+    if (_qaActiveTab === 'sprint') {
+      // Show non-done issues (active sprint view)
+      issues = issues.filter(i => i.statusCat !== 'Done');
+      if (titleEl) titleEl.textContent = activeSprint ? `${activeSprint.name} Issues` : 'Active Sprint Issues';
+    } else {
+      // Backlog: to-do issues (not in progress/testing/done)
+      issues = issues.filter(i => i.statusCat === 'To Do');
+      if (titleEl) titleEl.textContent = 'Backlog';
+    }
+
     if (typeFilter     !== 'all') issues = issues.filter(i => i.type     === typeFilter);
     if (statusFilter   !== 'all') issues = issues.filter(i => i.status   === statusFilter);
     if (priorityFilter !== 'all') issues = issues.filter(i => i.priority === priorityFilter);
+    if (assigneeFilter !== 'all') issues = issues.filter(i => (i.assignee||'Unassigned') === assigneeFilter);
     if (searchVal) issues = issues.filter(i =>
       i.key.toLowerCase().includes(searchVal) ||
       i.summary.toLowerCase().includes(searchVal) ||
       (i.assignee||'').toLowerCase().includes(searchVal)
     );
 
-    // Sort: open first, then by updated desc
-    issues = [...issues].sort((a, b) => {
-      const oa = a.statusCat === 'Done' ? 1 : 0;
-      const ob = b.statusCat === 'Done' ? 1 : 0;
-      if (oa !== ob) return oa - ob;
-      return (b.updated||'').localeCompare(a.updated||'');
-    });
+    // Sort by updated desc
+    issues = [...issues].sort((a, b) =>
+      (b.updated||'').localeCompare(a.updated||'')
+    );
 
     if (countEl) countEl.textContent = `${issues.length} issue${issues.length !== 1 ? 's' : ''}`;
 
@@ -958,10 +978,20 @@
   }
 
   // Wire QA filters
-  ['qa-type-filter','qa-status-filter','qa-priority-filter'].forEach(id => {
+  ['qa-type-filter','qa-status-filter','qa-priority-filter','qa-assignee-filter'].forEach(id => {
     document.getElementById(id)?.addEventListener('change', renderQATable);
   });
   document.getElementById('qa-search')?.addEventListener('input', renderQATable);
+
+  // Wire QA board tabs
+  document.querySelectorAll('.qa-tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.qa-tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      _qaActiveTab = btn.dataset.tab;
+      renderQATable();
+    });
+  });
 
   /* ═══════════════════════════════════════════════════
      MAIN RENDER
