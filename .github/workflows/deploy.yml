@@ -37,7 +37,7 @@ jobs:
             --project "$AZURE_PROJECT"
 
       - name: Fetch Jira Issues (SOPS QA)
-        if: ${{ vars.JIRA_BASE_URL != '' && vars.JIRA_EMAIL != '' }}
+        if: ${{ vars.JIRA_BASE_URL != '' && vars.JIRA_EMAIL != '' && secrets.JIRA_API_TOKEN != '' }}
         env:
           JIRA_BASE_URL:  ${{ vars.JIRA_BASE_URL }}
           JIRA_EMAIL:     ${{ vars.JIRA_EMAIL }}
@@ -48,7 +48,7 @@ jobs:
             --url   "$JIRA_BASE_URL" \
             --email "$JIRA_EMAIL" \
             --token "$JIRA_API_TOKEN" \
-            --project "${JIRA_PROJECT:-SOPS}"
+            --project "${JIRA_PROJECT:-SOPS}" || echo "⚠️ Jira fetch failed — skipping"
 
       - name: Commit refreshed data if changed
         run: |
