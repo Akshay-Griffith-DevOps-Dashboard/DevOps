@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-10-06 12:18 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-10-06 18:16 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-10-06 12:18 UTC',
+  fetchedAt: '2026-10-06 18:16 UTC',
 
   sprints: [
     {
@@ -95,6 +95,23 @@ const JIRA_DATA = {
 ],
 
   issues: [
+    {
+        "key": "SOPS-186",
+        "summary": "Regression Test Suite : Future Student Module",
+        "type": "Story",
+        "status": "Blocked",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Kaviya UC",
+        "reporter": "Kaviya UC",
+        "created": "2026-09-18",
+        "updated": "2026-10-07",
+        "labels": [
+            "Blocked"
+        ],
+        "fixVersions": [],
+        "storyPoints": null
+    },
     {
         "key": "SOPS-234",
         "summary": "'GU_Base_Ascend' permission set is configured with 'Salesforce' license",
@@ -1074,21 +1091,6 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
-        "key": "SOPS-186",
-        "summary": "Regression Test Suite : Future Student Module",
-        "type": "Story",
-        "status": "Blocked",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Kaviya UC",
-        "reporter": "Kaviya UC",
-        "created": "2026-09-18",
-        "updated": "2026-10-05",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-152",
         "summary": "Permission Set Remediation : Merge CICDPermissions and GUCICD",
         "type": "Story",
@@ -1806,11 +1808,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-06 12:18 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-06 18:16 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-06 12:18 UTC',
+  fetchedAt: '2026-10-06 18:16 UTC',
 
   repos: [
     {
