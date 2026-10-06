@@ -180,19 +180,16 @@ const JIRA_DATA = {{
 }};"""
 
     if "const JIRA_DATA" in content:
-        # Replace everything from the JIRA_DATA declaration to its closing };
-        updated = re.sub(
+        # Use a lambda replacement to avoid re interpreting \u as regex escape
+        pattern = re.compile(
             r'(?:// ── Jira live data[^\n]*\n)?const JIRA_DATA\s*=\s*\{.*?\n\};',
-            new_block,
-            content, flags=re.DOTALL
+            re.DOTALL
         )
+        updated = pattern.sub(lambda m: new_block, content)
         if updated == content:
-            # Fallback: replace just the const JIRA_DATA block
-            updated = re.sub(
-                r'const JIRA_DATA\s*=\s*\{.*?\n\};',
-                new_block,
-                content, flags=re.DOTALL
-            )
+            # Fallback pattern
+            pattern2 = re.compile(r'const JIRA_DATA\s*=\s*\{.*?\n\};', re.DOTALL)
+            updated = pattern2.sub(lambda m: new_block, content)
         if updated == content:
             print("  ⚠️  Regex did not match existing JIRA_DATA block — inserting at top")
             content = new_block + "\n\n" + content
