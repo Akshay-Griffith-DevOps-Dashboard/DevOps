@@ -9,16 +9,92 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched —) ────────────────────────────────────────────
-// overwritten by fetch-jira-data.py / GitHub Actions on every deploy
+// ── Jira live data (fetched 2026-10-06 08:59 UTC) ────────────────────────────
 const JIRA_DATA = {
-  project:    'SOPS',
-  baseUrl:    'https://griffith.atlassian.net',
-  fetchedAt:  '',
-  sprints:    [],
-  issueTypes: [],
-  statuses:   [],
-  issues:     [],
+  project:   'SOPS',
+  baseUrl:   'https://griffith.atlassian.net',
+  fetchedAt: '2026-10-06 08:59 UTC',
+
+  sprints: [
+    {
+        "id": 9717,
+        "name": "SOPS Sprint 1",
+        "state": "closed",
+        "startDate": "2026-08-02",
+        "endDate": "2026-08-16",
+        "goal": ""
+    },
+    {
+        "id": 9758,
+        "name": "SOPS Sprint 2",
+        "state": "closed",
+        "startDate": "2026-08-16",
+        "endDate": "2026-08-30",
+        "goal": ""
+    },
+    {
+        "id": 9759,
+        "name": "SOPS Sprint 3",
+        "state": "closed",
+        "startDate": "2026-08-30",
+        "endDate": "2026-09-13",
+        "goal": ""
+    },
+    {
+        "id": 9810,
+        "name": "SOPS Sprint 4",
+        "state": "closed",
+        "startDate": "2026-09-14",
+        "endDate": "2026-09-27",
+        "goal": ""
+    },
+    {
+        "id": 9811,
+        "name": "SOPS Sprint 5",
+        "state": "active",
+        "startDate": "2026-10-05",
+        "endDate": "2026-10-11",
+        "goal": ""
+    }
+],
+
+  issueTypes: [
+    "Bug",
+    "Epic",
+    "Story",
+    "Sub-task",
+    "Task"
+],
+
+  statuses: [
+    "ASSUMPTIONS",
+    "BLOCKED (Env Alignment)",
+    "Blocked",
+    "DECISIONS",
+    "DEPENDENCIES",
+    "Discovery & Refinement",
+    "Done",
+    "IN QA",
+    "IN SIT",
+    "IN UAT",
+    "ISSUES",
+    "In DEV",
+    "In Progress",
+    "MERGE",
+    "Monitor",
+    "NOT REQUIRED",
+    "READY FOR RELEASE",
+    "READY FOR SIT",
+    "READY FOR UAT",
+    "Ready For Merge",
+    "Ready for DEV",
+    "Ready for QA",
+    "Review & Approval",
+    "Risks",
+    "To Do"
+],
+
+  issues: [],
 };
 
 // ── Live SIT Sandbox data (fetched 2026-10-05) ────────────────────────────
@@ -199,11 +275,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-06 06:05 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-06 08:59 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-06 06:05 UTC',
+  fetchedAt: '2026-10-06 08:59 UTC',
 
   repos: [
     {
