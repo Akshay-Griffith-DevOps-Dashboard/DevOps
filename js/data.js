@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-10-06 09:38 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-10-06 09:47 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-10-06 09:38 UTC',
+  fetchedAt: '2026-10-06 09:47 UTC',
 
   sprints: [
     {
@@ -275,11 +275,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-06 09:38 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-06 09:47 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-06 09:38 UTC',
+  fetchedAt: '2026-10-06 09:47 UTC',
 
   repos: [
     {
