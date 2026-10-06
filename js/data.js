@@ -199,11 +199,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-06 00:18 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-06 06:05 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-06 00:18 UTC',
+  fetchedAt: '2026-10-06 06:05 UTC',
 
   repos: [
     {
@@ -2158,6 +2158,7 @@ const AZURE_DATA = {
         "closedDate": null,
         "reviewers": [
             "Amit Sood",
+            "Akshay Kumar",
             "Sudaif Haider"
         ],
         "isDraft": false,
@@ -3033,6 +3034,7 @@ const AZURE_DATA = {
         "closedDate": null,
         "reviewers": [
             "Amit Sood",
+            "Akshay Kumar",
             "Sudaif Haider"
         ],
         "isDraft": false,
