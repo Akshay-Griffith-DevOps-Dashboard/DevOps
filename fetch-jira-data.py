@@ -44,12 +44,14 @@ def fetch_issues(base, email, token, project):
     jql    = f"project = {project} ORDER BY updated DESC"
 
     # First call to check connectivity and total
-    url = (f"{base}/rest/api/3/search"
+    fields = ("summary,status,issuetype,priority,assignee,"
+              "reporter,created,updated,labels,fixVersions,"
+              "customfield_10016,customfield_10028")
+
+    url = (f"{base}/rest/api/3/search/jql"
            f"?jql={urllib.parse.quote(jql)}"
            f"&startAt=0&maxResults={batch}"
-           f"&fields=summary,status,issuetype,priority,assignee,"
-           f"reporter,created,updated,labels,fixVersions,"
-           f"customfield_10016,customfield_10028")
+           f"&fields={fields}")
     print(f"    → Fetching: {url[:120]}")
     data = jira(email, token, url)
 
@@ -70,12 +72,10 @@ def fetch_issues(base, email, token, project):
     print(f"    fetched {start}/{total} issues...")
 
     while start < total:
-        url = (f"{base}/rest/api/3/search"
+        url = (f"{base}/rest/api/3/search/jql"
                f"?jql={urllib.parse.quote(jql)}"
                f"&startAt={start}&maxResults={batch}"
-               f"&fields=summary,status,issuetype,priority,assignee,"
-               f"reporter,created,updated,labels,fixVersions,"
-               f"customfield_10016,customfield_10028")
+               f"&fields={fields}")
         data = jira(email, token, url)
         batch_issues = data.get("issues", [])
         if not batch_issues:
