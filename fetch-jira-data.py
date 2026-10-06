@@ -156,11 +156,24 @@ const JIRA_DATA = {{
 }};"""
 
     if "const JIRA_DATA" in content:
-        content = re.sub(
-            r'// ── Jira live data.*?^};',
+        # Replace everything from the JIRA_DATA declaration to its closing };
+        updated = re.sub(
+            r'(?:// ── Jira live data[^\n]*\n)?const JIRA_DATA\s*=\s*\{.*?\n\};',
             new_block,
-            content, flags=re.DOTALL | re.MULTILINE
+            content, flags=re.DOTALL
         )
+        if updated == content:
+            # Fallback: replace just the const JIRA_DATA block
+            updated = re.sub(
+                r'const JIRA_DATA\s*=\s*\{.*?\n\};',
+                new_block,
+                content, flags=re.DOTALL
+            )
+        if updated == content:
+            print("  ⚠️  Regex did not match existing JIRA_DATA block — inserting at top")
+            content = new_block + "\n\n" + content
+        else:
+            content = updated
     else:
         # Insert before LIVE_DATA or at top
         if "const LIVE_DATA" in content:
