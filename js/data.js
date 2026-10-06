@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-10-06 10:35 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-10-06 12:18 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-10-06 10:35 UTC',
+  fetchedAt: '2026-10-06 12:18 UTC',
 
   sprints: [
     {
@@ -96,15 +96,211 @@ const JIRA_DATA = {
 
   issues: [
     {
-        "key": "SOPS-233",
-        "summary": "QA: Test Scripts & Test Execution",
-        "type": "Sub-task",
+        "key": "SOPS-234",
+        "summary": "'GU_Base_Ascend' permission set is configured with 'Salesforce' license",
+        "type": "Bug",
         "status": "To Do",
         "statusCat": "To Do",
         "priority": "Medium",
-        "assignee": "Unassigned",
+        "assignee": "Sudaif Haider",
         "reporter": "Kaviya UC",
         "created": "2026-10-06",
+        "updated": "2026-10-06",
+        "labels": [
+            "RAC:Coding/Logic_Issue"
+        ],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-209",
+        "summary": "Sharing Rule of Designation & Constituent Role Objs are still shared with Advancement Operations Group in SIT ",
+        "type": "Bug",
+        "status": "Done",
+        "statusCat": "Done",
+        "priority": "High",
+        "assignee": "Kaviya UC",
+        "reporter": "Kaviya UC",
+        "created": "2026-09-29",
+        "updated": "2026-10-06",
+        "labels": [
+            "RAC:Deployment_Issue"
+        ],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-202",
+        "summary": "[UAT|SIT] Automation/ Batch process is not triggering and updating the status as 'Reviewed', when Payment Amount = Gift ",
+        "type": "Bug",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "High",
+        "assignee": "Sudaif Haider",
+        "reporter": "Kaviya UC",
+        "created": "2026-09-28",
+        "updated": "2026-10-06",
+        "labels": [
+            "RAC:Coding/Logic_Issue"
+        ],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-197",
+        "summary": "'Ascend ID', 'Mailing State' and 'Mailing City' fields are mapped incorrectly in the Account Search Layout ",
+        "type": "Bug",
+        "status": "Done",
+        "statusCat": "Done",
+        "priority": "Medium",
+        "assignee": "Kaviya UC",
+        "reporter": "Kaviya UC",
+        "created": "2026-09-25",
+        "updated": "2026-10-06",
+        "labels": [
+            "RAC:Coding/Logic_Issue"
+        ],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-108",
+        "summary": "[SIT| Org Refresh| Smoke Testing] EDO is not able to create New Organisation (Account)/ Person Account Record",
+        "type": "Bug",
+        "status": "Done",
+        "statusCat": "Done",
+        "priority": "Medium",
+        "assignee": "Kaviya UC",
+        "reporter": "Kaviya UC",
+        "created": "2026-09-10",
+        "updated": "2026-10-06",
+        "labels": [
+            "RAC:Config_Issue"
+        ],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-192",
+        "summary": "[SIT - Fund Raising Activity] EDO is not able to create 'Organisation Account' with multiple modal steps to collect the ",
+        "type": "Bug",
+        "status": "Done",
+        "statusCat": "Done",
+        "priority": "High",
+        "assignee": "Kaviya UC",
+        "reporter": "Kaviya UC",
+        "created": "2026-09-21",
+        "updated": "2026-10-06",
+        "labels": [
+            "RAC:Config_Issue"
+        ],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-193",
+        "summary": "'Deployment user' is assigned with incorrect profile and permission sets.",
+        "type": "Bug",
+        "status": "Done",
+        "statusCat": "Done",
+        "priority": "Medium",
+        "assignee": "Kaviya UC",
+        "reporter": "Kaviya UC",
+        "created": "2026-09-22",
+        "updated": "2026-10-06",
+        "labels": [
+            "RAC:Config_Issue"
+        ],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-195",
+        "summary": "Ascend Portal Profile : Incorrect FLS for the below mentioned object",
+        "type": "Bug",
+        "status": "Discovery & Refinement",
+        "statusCat": "To Do",
+        "priority": "High",
+        "assignee": "Sudaif Haider",
+        "reporter": "Kaviya UC",
+        "created": "2026-09-22",
+        "updated": "2026-10-06",
+        "labels": [
+            "RAC:Config_Issue"
+        ],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-160",
+        "summary": "Permission Set Remediation : Rationalise redundant GU_ascend permission sets",
+        "type": "Story",
+        "status": "IN SIT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Kaviya UC",
+        "reporter": "Amit Sood",
+        "created": "2026-09-11",
+        "updated": "2026-10-06",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-156",
+        "summary": "Permission Set Remediation : Remove view role hierarchy from listed permission sets",
+        "type": "Story",
+        "status": "READY FOR UAT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Amit Sood",
+        "created": "2026-09-11",
+        "updated": "2026-10-06",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-233",
+        "summary": "QA: Test Scripts & Test Execution",
+        "type": "Sub-task",
+        "status": "Done",
+        "statusCat": "Done",
+        "priority": "Medium",
+        "assignee": "Kaviya UC",
+        "reporter": "Kaviya UC",
+        "created": "2026-10-06",
+        "updated": "2026-10-06",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-214",
+        "summary": "QA: Test Scripts & Test Execution",
+        "type": "Sub-task",
+        "status": "Done",
+        "statusCat": "Done",
+        "priority": "Medium",
+        "assignee": "Kaviya UC",
+        "reporter": "Kaviya UC",
+        "created": "2026-09-30",
+        "updated": "2026-10-06",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-104",
+        "summary": "Permission Set Remediation : Make API-enabled permission sets API Only",
+        "type": "Story",
+        "status": "IN SIT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Sudaif Haider",
+        "reporter": "Amit Sood",
+        "created": "2026-09-10",
         "updated": "2026-10-06",
         "labels": [],
         "fixVersions": [],
@@ -120,36 +316,6 @@ const JIRA_DATA = {
         "assignee": "Akshay Kumar",
         "reporter": "Asra Khan",
         "created": "2026-09-03",
-        "updated": "2026-10-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-202",
-        "summary": "[UAT|SIT] Automation/ Batch process is not triggering and updating the status as 'Reviewed', when Payment Amount = Gift ",
-        "type": "Bug",
-        "status": "To Do",
-        "statusCat": "To Do",
-        "priority": "High",
-        "assignee": "Sudaif Haider",
-        "reporter": "Kaviya UC",
-        "created": "2026-09-28",
-        "updated": "2026-10-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-104",
-        "summary": "Permission Set Remediation : Make API-enabled permission sets API Only",
-        "type": "Story",
-        "status": "READY FOR SIT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Sudaif Haider",
-        "reporter": "Amit Sood",
-        "created": "2026-09-10",
         "updated": "2026-10-06",
         "labels": [],
         "fixVersions": [],
@@ -576,36 +742,6 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
-        "key": "SOPS-156",
-        "summary": "Permission Set Remediation : Remove view role hierarchy from listed permission sets",
-        "type": "Story",
-        "status": "IN SIT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Kaviya UC",
-        "reporter": "Amit Sood",
-        "created": "2026-09-11",
-        "updated": "2026-10-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-160",
-        "summary": "Permission Set Remediation : Rationalise redundant GU_ascend permission sets",
-        "type": "Story",
-        "status": "IN SIT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Kaviya UC",
-        "reporter": "Amit Sood",
-        "created": "2026-09-11",
-        "updated": "2026-10-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-141",
         "summary": "OWD Remediation :  Change Individual Object OWD from ReadWrite to Private",
         "type": "Story",
@@ -737,23 +873,6 @@ const JIRA_DATA = {
         "created": "2026-09-11",
         "updated": "2026-10-06",
         "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-195",
-        "summary": "Ascend Portal Profile : Incorrect FLS for the below mentioned object",
-        "type": "Bug",
-        "status": "Discovery & Refinement",
-        "statusCat": "To Do",
-        "priority": "High",
-        "assignee": "Sudaif Haider",
-        "reporter": "Kaviya UC",
-        "created": "2026-09-22",
-        "updated": "2026-10-06",
-        "labels": [
-            "Config_Issue"
-        ],
         "fixVersions": [],
         "storyPoints": null
     },
@@ -1387,21 +1506,6 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
-        "key": "SOPS-209",
-        "summary": "Sharing Rule of Designation & Constituent Role Objs are still shared with Advancement Operations Group in SIT ",
-        "type": "Bug",
-        "status": "Done",
-        "statusCat": "Done",
-        "priority": "High",
-        "assignee": "Kaviya UC",
-        "reporter": "Kaviya UC",
-        "created": "2026-09-29",
-        "updated": "2026-10-05",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-210",
         "summary": "QA: Test Scripts & Test Execition",
         "type": "Sub-task",
@@ -1518,100 +1622,6 @@ const JIRA_DATA = {
         "created": "2026-10-01",
         "updated": "2026-10-01",
         "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-147",
-        "summary": "OWD Remediation :  Audit and Restrict Access to ucinn Ascend Constituent Objects via Permission Sets",
-        "type": "Story",
-        "status": "Discovery & Refinement",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Sagar Dey",
-        "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
-        "updated": "2026-09-30",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-216",
-        "summary": "QA: Test Scripts & Test Execution",
-        "type": "Sub-task",
-        "status": "Done",
-        "statusCat": "Done",
-        "priority": "Medium",
-        "assignee": "Kaviya UC",
-        "reporter": "Kaviya UC",
-        "created": "2026-09-30",
-        "updated": "2026-09-30",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-215",
-        "summary": "QA: Test Scripts & Test Execution",
-        "type": "Sub-task",
-        "status": "Done",
-        "statusCat": "Done",
-        "priority": "Medium",
-        "assignee": "Kaviya UC",
-        "reporter": "Kaviya UC",
-        "created": "2026-09-30",
-        "updated": "2026-09-30",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-214",
-        "summary": "QA: Test Scripts & Test Execution",
-        "type": "Sub-task",
-        "status": "In Progress",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Kaviya UC",
-        "reporter": "Kaviya UC",
-        "created": "2026-09-30",
-        "updated": "2026-09-30",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-30",
-        "summary": "Platform IP Whitelisting",
-        "type": "Story",
-        "status": "NOT REQUIRED",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Amit Sood",
-        "reporter": "Amit Sood",
-        "created": "2026-08-04",
-        "updated": "2026-09-30",
-        "labels": [
-            "Not_Required"
-        ],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-11",
-        "summary": "Action Plan Execution",
-        "type": "Story",
-        "status": "NOT REQUIRED",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Unassigned",
-        "reporter": "Amit Sood",
-        "created": "2026-07-31",
-        "updated": "2026-09-30",
-        "labels": [
-            "Not_Required"
-        ],
         "fixVersions": [],
         "storyPoints": null
     }
@@ -1796,11 +1806,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-06 10:35 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-06 12:18 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-06 10:35 UTC',
+  fetchedAt: '2026-10-06 12:18 UTC',
 
   repos: [
     {
@@ -2738,7 +2748,7 @@ const AZURE_DATA = {
     },
     {
         "repo": "RSDF-SalesforcePlatform",
-        "name": "gs-pipeline/feature-sops-104_-_sit",
+        "name": "gs-pipeline/feature-sops-104_-_uat",
         "isDefault": false,
         "aheadCount": 1,
         "behindCount": 0,
@@ -2905,12 +2915,12 @@ const AZURE_DATA = {
         "repo": "RSDF-SalesforcePlatform",
         "name": "sit",
         "isDefault": false,
-        "aheadCount": 51,
+        "aheadCount": 54,
         "behindCount": 0,
-        "commitId": "7c143063",
+        "commitId": "71e5f19d",
         "author": "Sudaif Haider",
-        "date": "2026-10-05",
-        "comment": "Merged PR 9348: bugFix-SOPS-195"
+        "date": "2026-10-06",
+        "comment": "Merge pull request 9336 from gs-pipeline/feature-sops-104_-_sit into sit"
     },
     {
         "repo": "RSDF-SalesforcePlatform",
@@ -2992,6 +3002,24 @@ const AZURE_DATA = {
 ],
 
   pullRequests: [
+    {
+        "id": 9350,
+        "title": "feature-sops-104",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/feature-sops-104_-_uat",
+        "targetBranch": "uat",
+        "createdBy": "Sudaif Haider",
+        "createdDate": "2026-10-06",
+        "closedDate": null,
+        "reviewers": [
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "conflicts",
+        "approved": false
+    },
     {
         "id": 9349,
         "title": "bugFix-SOPS-195",
@@ -3223,19 +3251,19 @@ const AZURE_DATA = {
     {
         "id": 9336,
         "title": "feature-sops-104",
-        "status": "active",
+        "status": "completed",
         "repo": "RSDF-SalesforcePlatform",
         "sourceBranch": "gs-pipeline/feature-sops-104_-_sit",
         "targetBranch": "sit",
         "createdBy": "Sudaif Haider",
         "createdDate": "2026-09-30",
-        "closedDate": null,
+        "closedDate": "2026-10-06",
         "reviewers": [
             "Amit Sood",
             "Sudaif Haider"
         ],
         "isDraft": false,
-        "mergeStatus": "conflicts",
+        "mergeStatus": "succeeded",
         "approved": false
     },
     {
@@ -4802,28 +4830,34 @@ const AZURE_DATA = {
         "isDraft": false,
         "mergeStatus": "succeeded",
         "approved": false
-    },
-    {
-        "id": 9247,
-        "title": "Feature SOPS 73",
-        "status": "completed",
-        "repo": "RSDF-SalesforcePlatform",
-        "sourceBranch": "gs-pipeline/Feature-SOPS-73_-_devmerge",
-        "targetBranch": "devmerge",
-        "createdBy": "Akshay Kumar",
-        "createdDate": "2026-09-11",
-        "closedDate": "2026-09-11",
-        "reviewers": [
-            "Amit Sood",
-            "Sudaif Haider"
-        ],
-        "isDraft": false,
-        "mergeStatus": "succeeded",
-        "approved": false
     }
 ],
 
   commits: [
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "71e5f19d",
+        "comment": "Merge pull request 9336 from gs-pipeline/feature-sops-104_-_sit into sit",
+        "author": "Sudaif Haider",
+        "date": "2026-10-06",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "f3d3a5b3",
+        "comment": "Merge pull request 9336 from gs-pipeline/feature-sops-104_-_sit into sit",
+        "author": "Sudaif Haider",
+        "date": "2026-10-06",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "f2682869",
+        "comment": "Gearset: Semantic reverse merge of branch sit into gs-pipeline/feature-sops-104_-_sit for pull reque",
+        "author": "s.haider@griffith.edu.au",
+        "date": "2026-10-06",
+        "branch": ""
+    },
     {
         "repo": "RSDF-SalesforcePlatform",
         "commitId": "19c16796",
@@ -4957,30 +4991,6 @@ const AZURE_DATA = {
         "commitId": "d3d39144",
         "comment": "Merge pull request 9344 from gs-pipeline/Feature-SOPS-73_2_-_devmerge into devmerge",
         "author": "Akshay Kumar",
-        "date": "2026-10-01",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "e9a224b4",
-        "comment": "Merge pull request 9343 from Feature-SOPS-73_2 into devmerge",
-        "author": "Sagar Dey",
-        "date": "2026-10-01",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "31ba2271",
-        "comment": "Merge pull request 9342 from gs-pipeline/Feature-SOPS-73_2_-_main into main",
-        "author": "Akshay Kumar",
-        "date": "2026-10-01",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "e20c6cf7",
-        "comment": "Merge pull request 9341 from Feature-SOPS-73_2 into main",
-        "author": "Sagar Dey",
         "date": "2026-10-01",
         "branch": ""
     }
