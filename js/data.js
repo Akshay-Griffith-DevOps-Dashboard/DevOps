@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-10-07 12:20 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-10-07 18:18 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-10-07 12:20 UTC',
+  fetchedAt: '2026-10-07 18:18 UTC',
 
   sprints: [
     {
@@ -95,6 +95,23 @@ const JIRA_DATA = {
 ],
 
   issues: [
+    {
+        "key": "SOPS-202",
+        "summary": "[UAT|SIT] Automation/ Batch process is not triggering and updating the status as 'Reviewed', when Payment Amount = Gift ",
+        "type": "Bug",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "High",
+        "assignee": "Sudaif Haider",
+        "reporter": "Kaviya UC",
+        "created": "2026-09-28",
+        "updated": "2026-10-07",
+        "labels": [
+            "RAC:Coding/Logic_Issue"
+        ],
+        "fixVersions": [],
+        "storyPoints": null
+    },
     {
         "key": "SOPS-234",
         "summary": "'GU_Base_Ascend' permission set is configured with 'Salesforce' license",
@@ -401,23 +418,6 @@ const JIRA_DATA = {
         "updated": "2026-10-06",
         "labels": [
             "RAC:Deployment_Issue"
-        ],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-202",
-        "summary": "[UAT|SIT] Automation/ Batch process is not triggering and updating the status as 'Reviewed', when Payment Amount = Gift ",
-        "type": "Bug",
-        "status": "To Do",
-        "statusCat": "To Do",
-        "priority": "High",
-        "assignee": "Sudaif Haider",
-        "reporter": "Kaviya UC",
-        "created": "2026-09-28",
-        "updated": "2026-10-06",
-        "labels": [
-            "RAC:Coding/Logic_Issue"
         ],
         "fixVersions": [],
         "storyPoints": null
@@ -1808,11 +1808,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-07 12:20 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-07 18:18 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-07 12:20 UTC',
+  fetchedAt: '2026-10-07 18:18 UTC',
 
   repos: [
     {
