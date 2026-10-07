@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-10-07 00:23 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-10-07 06:18 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-10-07 00:23 UTC',
+  fetchedAt: '2026-10-07 06:18 UTC',
 
   sprints: [
     {
@@ -95,6 +95,175 @@ const JIRA_DATA = {
 ],
 
   issues: [
+    {
+        "key": "SOPS-139",
+        "summary": "OWD Remediation :  Restrict External & Internal OWD on Contact Point Social to Private",
+        "type": "Story",
+        "status": "Discovery & Refinement",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Sudaif Haider",
+        "reporter": "Sudaif Haider",
+        "created": "2026-09-11",
+        "updated": "2026-10-07",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-235",
+        "summary": "QA: Test Scripts & Test Execution",
+        "type": "Sub-task",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Kaviya UC",
+        "reporter": "Kaviya UC",
+        "created": "2026-10-07",
+        "updated": "2026-10-07",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-104",
+        "summary": "Permission Set Remediation : Make API-enabled permission sets API Only",
+        "type": "Story",
+        "status": "IN SIT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Kaviya UC",
+        "reporter": "Amit Sood",
+        "created": "2026-09-10",
+        "updated": "2026-10-07",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-163",
+        "summary": "Profile Remediation : Delete unused custom profiles in production",
+        "type": "Story",
+        "status": "In DEV",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Amit Sood",
+        "reporter": "Amit Sood",
+        "created": "2026-09-11",
+        "updated": "2026-10-07",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-162",
+        "summary": "Profile Remediation : Restrict System Administrator profile in production",
+        "type": "Story",
+        "status": "Discovery & Refinement",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Vandana Bettens",
+        "reporter": "Amit Sood",
+        "created": "2026-09-11",
+        "updated": "2026-10-07",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-34",
+        "summary": "Remediate ODIDataMigration Connected App Security Configuration",
+        "type": "Story",
+        "status": "Blocked",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Amit Sood",
+        "reporter": "Amit Sood",
+        "created": "2026-08-06",
+        "updated": "2026-10-07",
+        "labels": [
+            "Blocked"
+        ],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-195",
+        "summary": "Ascend Portal Profile : Incorrect FLS for the below mentioned object",
+        "type": "Bug",
+        "status": "IN SIT",
+        "statusCat": "In Progress",
+        "priority": "High",
+        "assignee": "Kaviya UC",
+        "reporter": "Kaviya UC",
+        "created": "2026-09-22",
+        "updated": "2026-10-07",
+        "labels": [
+            "RAC:Config_Issue"
+        ],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-174",
+        "summary": "Review and Remediate SOAP API Login Usage",
+        "type": "Story",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Unassigned",
+        "reporter": "Jeremy Fahey",
+        "created": "2026-09-15",
+        "updated": "2026-10-07",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-172",
+        "summary": "Remediate Marketing Cloud Engagement Security Enhancements",
+        "type": "Story",
+        "status": "In Progress",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Jeremy Fahey",
+        "created": "2026-09-15",
+        "updated": "2026-10-07",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-171",
+        "summary": "Investigate and Resolve Salesforce Backup Failure",
+        "type": "Story",
+        "status": "In Progress",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Jeremy Fahey",
+        "created": "2026-09-15",
+        "updated": "2026-10-07",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-169",
+        "summary": "Setup and Configure Event Monitoring Analytics App",
+        "type": "Story",
+        "status": "Done",
+        "statusCat": "Done",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Jeremy Fahey",
+        "created": "2026-09-14",
+        "updated": "2026-10-07",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
     {
         "key": "SOPS-186",
         "summary": "Regression Test Suite : Future Student Module",
@@ -232,23 +401,6 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
-        "key": "SOPS-195",
-        "summary": "Ascend Portal Profile : Incorrect FLS for the below mentioned object",
-        "type": "Bug",
-        "status": "Discovery & Refinement",
-        "statusCat": "To Do",
-        "priority": "High",
-        "assignee": "Sudaif Haider",
-        "reporter": "Kaviya UC",
-        "created": "2026-09-22",
-        "updated": "2026-10-06",
-        "labels": [
-            "RAC:Config_Issue"
-        ],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-160",
         "summary": "Permission Set Remediation : Rationalise redundant GU_ascend permission sets",
         "type": "Story",
@@ -303,21 +455,6 @@ const JIRA_DATA = {
         "assignee": "Kaviya UC",
         "reporter": "Kaviya UC",
         "created": "2026-09-30",
-        "updated": "2026-10-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-104",
-        "summary": "Permission Set Remediation : Make API-enabled permission sets API Only",
-        "type": "Story",
-        "status": "IN SIT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Sudaif Haider",
-        "reporter": "Amit Sood",
-        "created": "2026-09-10",
         "updated": "2026-10-06",
         "labels": [],
         "fixVersions": [],
@@ -609,21 +746,6 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
-        "key": "SOPS-162",
-        "summary": "Profile Remediation : Restrict System Administrator profile in production",
-        "type": "Story",
-        "status": "Discovery & Refinement",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Vandana Bettens",
-        "reporter": "Amit Sood",
-        "created": "2026-09-11",
-        "updated": "2026-10-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-228",
         "summary": "Gift-processing spike: batch-size regression and a size for bulk approval",
         "type": "Story",
@@ -864,21 +986,6 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
-        "key": "SOPS-139",
-        "summary": "OWD Remediation :  Restrict External & Internal OWD on Contact Point Social to Private",
-        "type": "Story",
-        "status": "Discovery & Refinement",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Sudaif Haider",
-        "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
-        "updated": "2026-10-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-148",
         "summary": "OWD Remediation :  Audit and Enforce Private/Unlisted Type on Sensitive Chatter Groups",
         "type": "Story",
@@ -887,21 +994,6 @@ const JIRA_DATA = {
         "priority": "Medium",
         "assignee": "Sagar Dey",
         "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
-        "updated": "2026-10-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-163",
-        "summary": "Profile Remediation : Delete unused custom profiles in production",
-        "type": "Story",
-        "status": "In DEV",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Amit Sood",
-        "reporter": "Amit Sood",
         "created": "2026-09-11",
         "updated": "2026-10-06",
         "labels": [],
@@ -1290,23 +1382,6 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
-        "key": "SOPS-34",
-        "summary": "Remediate ODIDataMigration Connected App Security Configuration",
-        "type": "Story",
-        "status": "Blocked",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Amit Sood",
-        "reporter": "Amit Sood",
-        "created": "2026-08-06",
-        "updated": "2026-10-05",
-        "labels": [
-            "Blocked"
-        ],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-28",
         "summary": "Sharing Rules Remediation -  Ascend Portal Guest User Profile Permissions and FLS",
         "type": "Story",
@@ -1551,81 +1626,6 @@ const JIRA_DATA = {
         "labels": [],
         "fixVersions": [],
         "storyPoints": null
-    },
-    {
-        "key": "SOPS-36",
-        "summary": "CRM QSES <-> SF Campaign ID mapping remediation",
-        "type": "Story",
-        "status": "Discovery & Refinement",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Amit Sood",
-        "reporter": "Giles Bill",
-        "created": "2026-08-12",
-        "updated": "2026-10-02",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-199",
-        "summary": "Notify the PTAT load owner when a new Learning Program is created",
-        "type": "Story",
-        "status": "READY FOR UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Asra Khan",
-        "created": "2026-09-28",
-        "updated": "2026-10-02",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-219",
-        "summary": "QA : Test Scripts & Test Execution",
-        "type": "Sub-task",
-        "status": "In Progress",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Kaviya UC",
-        "reporter": "Kaviya UC",
-        "created": "2026-10-01",
-        "updated": "2026-10-01",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-217",
-        "summary": "QA : Test Scripts & Test Execution",
-        "type": "Sub-task",
-        "status": "Done",
-        "statusCat": "Done",
-        "priority": "Medium",
-        "assignee": "Kaviya UC",
-        "reporter": "Kaviya UC",
-        "created": "2026-09-30",
-        "updated": "2026-10-01",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-218",
-        "summary": "Create Griffith DevOps Dashboard",
-        "type": "Story",
-        "status": "To Do",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Akshay Kumar",
-        "reporter": "Akshay Kumar",
-        "created": "2026-10-01",
-        "updated": "2026-10-01",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
     }
 ]
 };
@@ -1808,11 +1808,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-07 00:23 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-07 06:18 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-07 00:23 UTC',
+  fetchedAt: '2026-10-07 06:18 UTC',
 
   repos: [
     {
