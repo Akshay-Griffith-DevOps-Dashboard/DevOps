@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-10-07 06:18 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-10-07 09:18 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-10-07 06:18 UTC',
+  fetchedAt: '2026-10-07 09:18 UTC',
 
   sprints: [
     {
@@ -96,6 +96,128 @@ const JIRA_DATA = {
 
   issues: [
     {
+        "key": "SOPS-234",
+        "summary": "'GU_Base_Ascend' permission set is configured with 'Salesforce' license",
+        "type": "Bug",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Sudaif Haider",
+        "reporter": "Kaviya UC",
+        "created": "2026-10-06",
+        "updated": "2026-10-07",
+        "labels": [
+            "RAC:Coding/Logic_Issue"
+        ],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-150",
+        "summary": "OWD Remediation :  Restrict Learner Program OWD to Private",
+        "type": "Story",
+        "status": "Discovery & Refinement",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Sagar Dey",
+        "reporter": "Sudaif Haider",
+        "created": "2026-09-11",
+        "updated": "2026-10-07",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-149",
+        "summary": "OWD Remediation :  Restrict Internal OWD on STG Staging Objects from Public Read to Private",
+        "type": "Story",
+        "status": "Discovery & Refinement",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Sagar Dey",
+        "reporter": "Sudaif Haider",
+        "created": "2026-09-11",
+        "updated": "2026-10-07",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-163",
+        "summary": "Profile Remediation : Delete unused custom profiles in production",
+        "type": "Story",
+        "status": "In DEV",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Amit Sood",
+        "reporter": "Amit Sood",
+        "created": "2026-09-11",
+        "updated": "2026-10-07",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-148",
+        "summary": "OWD Remediation :  Audit and Enforce Private/Unlisted Type on Sensitive Chatter Groups",
+        "type": "Story",
+        "status": "NOT REQUIRED",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Sagar Dey",
+        "reporter": "Sudaif Haider",
+        "created": "2026-09-11",
+        "updated": "2026-10-07",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-145",
+        "summary": "OWD Remediation :  Change Lead OWD from ReadWriteTransfer to Private",
+        "type": "Story",
+        "status": "Discovery & Refinement",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Sudaif Haider",
+        "reporter": "Sudaif Haider",
+        "created": "2026-09-11",
+        "updated": "2026-10-07",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-141",
+        "summary": "OWD Remediation :  Change Individual Object OWD from ReadWrite to Private",
+        "type": "Story",
+        "status": "Discovery & Refinement",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Sudaif Haider",
+        "reporter": "Sudaif Haider",
+        "created": "2026-09-11",
+        "updated": "2026-10-07",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-140",
+        "summary": "OWD Remediation :  Audit and Restrict Access to Dupcheck and OB_Archiver Objects via Permission Sets",
+        "type": "Story",
+        "status": "Discovery & Refinement",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Sudaif Haider",
+        "reporter": "Sudaif Haider",
+        "created": "2026-09-11",
+        "updated": "2026-10-07",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
         "key": "SOPS-139",
         "summary": "OWD Remediation :  Restrict External & Internal OWD on Contact Point Social to Private",
         "type": "Story",
@@ -135,21 +257,6 @@ const JIRA_DATA = {
         "assignee": "Kaviya UC",
         "reporter": "Amit Sood",
         "created": "2026-09-10",
-        "updated": "2026-10-07",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-163",
-        "summary": "Profile Remediation : Delete unused custom profiles in production",
-        "type": "Story",
-        "status": "In DEV",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Amit Sood",
-        "reporter": "Amit Sood",
-        "created": "2026-09-11",
         "updated": "2026-10-07",
         "labels": [],
         "fixVersions": [],
@@ -277,23 +384,6 @@ const JIRA_DATA = {
         "updated": "2026-10-07",
         "labels": [
             "Blocked"
-        ],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-234",
-        "summary": "'GU_Base_Ascend' permission set is configured with 'Salesforce' license",
-        "type": "Bug",
-        "status": "To Do",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Sudaif Haider",
-        "reporter": "Kaviya UC",
-        "created": "2026-10-06",
-        "updated": "2026-10-06",
-        "labels": [
-            "RAC:Coding/Logic_Issue"
         ],
         "fixVersions": [],
         "storyPoints": null
@@ -500,21 +590,6 @@ const JIRA_DATA = {
         "assignee": "Jeremy Fahey",
         "reporter": "Amit Sood",
         "created": "2026-09-01",
-        "updated": "2026-10-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-149",
-        "summary": "OWD Remediation :  Restrict Internal OWD on STG Staging Objects from Public Read to Private",
-        "type": "Story",
-        "status": "Discovery & Refinement",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Sagar Dey",
-        "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
         "updated": "2026-10-06",
         "labels": [],
         "fixVersions": [],
@@ -881,21 +956,6 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
-        "key": "SOPS-141",
-        "summary": "OWD Remediation :  Change Individual Object OWD from ReadWrite to Private",
-        "type": "Story",
-        "status": "Discovery & Refinement",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Sudaif Haider",
-        "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
-        "updated": "2026-10-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-142",
         "summary": "OWD Remediation :  Change Messaging Session and Messaging End User OWD from ReadWrite to Private",
         "type": "Story",
@@ -941,21 +1001,6 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
-        "key": "SOPS-145",
-        "summary": "OWD Remediation :  Change Lead OWD from ReadWriteTransfer to Private",
-        "type": "Story",
-        "status": "Discovery & Refinement",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Sudaif Haider",
-        "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
-        "updated": "2026-10-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-226",
         "summary": "VIP Modelling and Design",
         "type": "Story",
@@ -971,36 +1016,6 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
-        "key": "SOPS-140",
-        "summary": "OWD Remediation :  Audit and Restrict Access to Dupcheck and OB_Archiver Objects via Permission Sets",
-        "type": "Story",
-        "status": "Discovery & Refinement",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Sudaif Haider",
-        "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
-        "updated": "2026-10-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-148",
-        "summary": "OWD Remediation :  Audit and Enforce Private/Unlisted Type on Sensitive Chatter Groups",
-        "type": "Story",
-        "status": "Discovery & Refinement",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Sagar Dey",
-        "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
-        "updated": "2026-10-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-225",
         "summary": "Linkdein Sales navigator on the person account record",
         "type": "Story",
@@ -1010,21 +1025,6 @@ const JIRA_DATA = {
         "assignee": "Unassigned",
         "reporter": "Asra Khan",
         "created": "2026-10-05",
-        "updated": "2026-10-05",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-150",
-        "summary": "OWD Remediation :  Restrict Learner Program OWD to Private",
-        "type": "Story",
-        "status": "Discovery & Refinement",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Sagar Dey",
-        "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
         "updated": "2026-10-05",
         "labels": [],
         "fixVersions": [],
@@ -1808,11 +1808,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-07 06:18 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-07 09:18 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-07 06:18 UTC',
+  fetchedAt: '2026-10-07 09:18 UTC',
 
   repos: [
     {
@@ -2070,12 +2070,12 @@ const AZURE_DATA = {
         "repo": "RSDF-SalesforcePlatform",
         "name": "feature-SOPS-160",
         "isDefault": false,
-        "aheadCount": 2,
+        "aheadCount": 3,
         "behindCount": 0,
-        "commitId": "9c06edb3",
+        "commitId": "3eb29104",
         "author": "Sudaif",
-        "date": "2026-09-17",
-        "comment": "SOPS-160 changes"
+        "date": "2026-10-07",
+        "comment": "Update GU_Base_Ascend.permissionset-meta.xml"
     },
     {
         "repo": "RSDF-SalesforcePlatform",
@@ -2596,6 +2596,17 @@ const AZURE_DATA = {
     },
     {
         "repo": "RSDF-SalesforcePlatform",
+        "name": "gs-pipeline/feature-SOPS-160_-_devmerge",
+        "isDefault": false,
+        "aheadCount": 3,
+        "behindCount": 0,
+        "commitId": "3eb29104",
+        "author": "Sudaif",
+        "date": "2026-10-07",
+        "comment": "Update GU_Base_Ascend.permissionset-meta.xml"
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
         "name": "gs-pipeline/feature-SOPS-160_-_uat",
         "isDefault": false,
         "aheadCount": 2,
@@ -3004,6 +3015,36 @@ const AZURE_DATA = {
 ],
 
   pullRequests: [
+    {
+        "id": 9352,
+        "title": "Defect Fix SOPS-234",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/feature-SOPS-160_-_devmerge",
+        "targetBranch": "devmerge",
+        "createdBy": "Sudaif Haider",
+        "createdDate": "2026-10-07",
+        "closedDate": null,
+        "reviewers": [],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9351,
+        "title": "Defect Fix SOPS-234",
+        "status": "abandoned",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "feature-SOPS-160",
+        "targetBranch": "devmerge",
+        "createdBy": "Sudaif Haider",
+        "createdDate": "2026-10-07",
+        "closedDate": "2026-10-07",
+        "reviewers": [],
+        "isDraft": false,
+        "mergeStatus": "",
+        "approved": false
+    },
     {
         "id": 9350,
         "title": "feature-sops-104",
@@ -4796,46 +4837,34 @@ const AZURE_DATA = {
         "isDraft": false,
         "mergeStatus": "succeeded",
         "approved": false
-    },
-    {
-        "id": 9249,
-        "title": "SOPS 87 and SOPS 73",
-        "status": "completed",
-        "repo": "RSDF-SalesforcePlatform",
-        "sourceBranch": "gs-pipeline/SOPS-87_-_sit",
-        "targetBranch": "sit",
-        "createdBy": "Akshay Kumar",
-        "createdDate": "2026-09-11",
-        "closedDate": "2026-09-18",
-        "reviewers": [
-            "Amit Sood",
-            "Sudaif Haider"
-        ],
-        "isDraft": false,
-        "mergeStatus": "succeeded",
-        "approved": false
-    },
-    {
-        "id": 9248,
-        "title": "Feature SOPS 73",
-        "status": "completed",
-        "repo": "RSDF-SalesforcePlatform",
-        "sourceBranch": "gs-pipeline/Feature-SOPS-73_-_sit",
-        "targetBranch": "sit",
-        "createdBy": "Akshay Kumar",
-        "createdDate": "2026-09-11",
-        "closedDate": "2026-09-17",
-        "reviewers": [
-            "Amit Sood",
-            "Sudaif Haider"
-        ],
-        "isDraft": false,
-        "mergeStatus": "succeeded",
-        "approved": false
     }
 ],
 
   commits: [
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "5c8a76b2",
+        "comment": "Merge pull request 9352 from gs-pipeline/feature-SOPS-160_-_devmerge into devmerge",
+        "author": "Sudaif Haider",
+        "date": "2026-10-07",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "aaf738fb",
+        "comment": "Merge pull request 9351 from feature-SOPS-160 into devmerge",
+        "author": "Sudaif Haider",
+        "date": "2026-10-07",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "3eb29104",
+        "comment": "Update GU_Base_Ascend.permissionset-meta.xml",
+        "author": "Sudaif",
+        "date": "2026-10-07",
+        "branch": ""
+    },
     {
         "repo": "RSDF-SalesforcePlatform",
         "commitId": "71e5f19d",
@@ -4970,30 +4999,6 @@ const AZURE_DATA = {
         "comment": "Bug Fix SOPS-195",
         "author": "s.haider@griffith.edu.au",
         "date": "2026-10-05",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "afebeb1c",
-        "comment": "Merge pull request 9345 from gs-pipeline/Feature-SOPS-73_2_-_sit into sit",
-        "author": "Akshay Kumar",
-        "date": "2026-10-01",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "974b355a",
-        "comment": "Merged PR 9344: Feature-SOPS-73_2",
-        "author": "Akshay Kumar",
-        "date": "2026-10-01",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "d3d39144",
-        "comment": "Merge pull request 9344 from gs-pipeline/Feature-SOPS-73_2_-_devmerge into devmerge",
-        "author": "Akshay Kumar",
-        "date": "2026-10-01",
         "branch": ""
     }
 ],
