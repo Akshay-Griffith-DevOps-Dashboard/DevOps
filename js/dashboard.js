@@ -67,7 +67,13 @@
   }
 
   /* ── Data pulled date (shown in subnav right) ────── */
-  const fetchedLabel = LIVE_DATA.org.fetchedAt || new Date().toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' });
+  // Show the most recent fetchedAt across all data sources
+  const sfDate    = LIVE_DATA.org.fetchedAt || '';
+  const azDate    = (typeof AZURE_DATA !== 'undefined' && AZURE_DATA.fetchedAt) ? AZURE_DATA.fetchedAt : '';
+  const jiraDate  = (typeof JIRA_DATA  !== 'undefined' && JIRA_DATA.fetchedAt)  ? JIRA_DATA.fetchedAt  : '';
+  // Pick latest by string comparison (ISO-ish format sorts correctly)
+  const latestFetch = [sfDate, azDate, jiraDate].filter(Boolean).sort().pop() || '';
+  const fetchedLabel = latestFetch || new Date().toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' });
   document.querySelectorAll('#data-pulled-date').forEach(el => { el.textContent = fetchedLabel; });
 
   /* ── Org pill label ───────────────────────────────── */
