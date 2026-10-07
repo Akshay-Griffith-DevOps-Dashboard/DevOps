@@ -25,18 +25,17 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Fetch Salesforce SIT Data
-        if: ${{ vars.SF_INSTANCE_URL != '' && vars.SF_CLIENT_ID != '' }}
         env:
-          SF_INSTANCE_URL: ${{ vars.SF_INSTANCE_URL }}
-          SF_CLIENT_ID:    ${{ vars.SF_CLIENT_ID }}
+          SF_INSTANCE_URL:  ${{ vars.SF_INSTANCE_URL }}
+          SF_CLIENT_ID:     ${{ vars.SF_CLIENT_ID }}
           SF_CLIENT_SECRET: ${{ secrets.SF_CLIENT_SECRET }}
         run: |
-          if [ -z "$SF_CLIENT_SECRET" ]; then
-            echo "⚠️ SF_CLIENT_SECRET secret not set — skipping Salesforce fetch"
+          if [ -z "$SF_INSTANCE_URL" ] || [ -z "$SF_CLIENT_ID" ] || [ -z "$SF_CLIENT_SECRET" ]; then
+            echo "⚠️ SF_INSTANCE_URL / SF_CLIENT_ID / SF_CLIENT_SECRET not set — skipping Salesforce fetch"
           else
             python3 fetch-salesforce-data.py \
-              --instance-url "$SF_INSTANCE_URL" \
-              --client-id    "$SF_CLIENT_ID" \
+              --instance-url  "$SF_INSTANCE_URL" \
+              --client-id     "$SF_CLIENT_ID" \
               --client-secret "$SF_CLIENT_SECRET" || echo "⚠️ Salesforce fetch failed — continuing"
           fi
 
