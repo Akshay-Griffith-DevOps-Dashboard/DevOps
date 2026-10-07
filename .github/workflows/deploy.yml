@@ -76,7 +76,8 @@ jobs:
           if ! git diff --quiet js/data.js; then
             git add js/data.js
             git commit -m "chore: auto-refresh data $(date -u +'%Y-%m-%d %H:%M UTC') [skip ci]"
-            git push
+            git pull origin main --rebase || true
+            git push origin main || echo "⚠️ Push failed (concurrent run) — deploy will use current data"
           else
             echo "No data changes to commit"
           fi
