@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-10-08 07:19 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-10-08 12:20 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-10-08 07:19 UTC',
+  fetchedAt: '2026-10-08 12:20 UTC',
 
   sprints: [
     {
@@ -96,15 +96,60 @@ const JIRA_DATA = {
 
   issues: [
     {
-        "key": "SOPS-104",
-        "summary": "Permission Set Remediation : Make API-enabled permission sets API Only",
+        "key": "SOPS-25",
+        "summary": "Backup & Recovery Configuration",
         "type": "Story",
-        "status": "READY FOR UAT",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Sudaif Haider",
+        "reporter": "Amit Sood",
+        "created": "2026-07-31",
+        "updated": "2026-10-08",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-149",
+        "summary": "OWD Remediation :  Restrict Internal OWD on STG Staging Objects from Public Read to Private",
+        "type": "Story",
+        "status": "In DEV",
         "statusCat": "In Progress",
         "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Amit Sood",
-        "created": "2026-09-10",
+        "assignee": "Sagar Dey",
+        "reporter": "Sudaif Haider",
+        "created": "2026-09-11",
+        "updated": "2026-10-08",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-150",
+        "summary": "OWD Remediation :  Restrict Learner Program OWD to Private",
+        "type": "Story",
+        "status": "In DEV",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Sagar Dey",
+        "reporter": "Sudaif Haider",
+        "created": "2026-09-11",
+        "updated": "2026-10-08",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-145",
+        "summary": "OWD Remediation :  Change Lead OWD from ReadWriteTransfer to Private",
+        "type": "Story",
+        "status": "Discovery & Refinement",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Sagar Dey",
+        "reporter": "Sudaif Haider",
+        "created": "2026-09-11",
         "updated": "2026-10-08",
         "labels": [],
         "fixVersions": [],
@@ -126,6 +171,113 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
+        "key": "SOPS-219",
+        "summary": "QA : Test Scripts & Test Execution",
+        "type": "Sub-task",
+        "status": "In Progress",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Kaviya UC",
+        "reporter": "Kaviya UC",
+        "created": "2026-10-01",
+        "updated": "2026-10-08",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-72",
+        "summary": "QA : Test Scripts & Test Execution",
+        "type": "Sub-task",
+        "status": "Done",
+        "statusCat": "Done",
+        "priority": "Medium",
+        "assignee": "Kaviya UC",
+        "reporter": "Kaviya UC",
+        "created": "2026-08-26",
+        "updated": "2026-10-08",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-80",
+        "summary": "QA:Test Scripts & Test Execution",
+        "type": "Sub-task",
+        "status": "Done",
+        "statusCat": "Done",
+        "priority": "Medium",
+        "assignee": "Kaviya UC",
+        "reporter": "Kaviya UC",
+        "created": "2026-08-28",
+        "updated": "2026-10-08",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-57",
+        "summary": "CRM Data Storage Remediation",
+        "type": "Story",
+        "status": "Review & Approval",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Frank Nigro",
+        "reporter": "Giles Bill",
+        "created": "2026-08-21",
+        "updated": "2026-10-08",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-195",
+        "summary": "Ascend Portal Profile : Incorrect FLS for the below mentioned object",
+        "type": "Bug",
+        "status": "IN SIT",
+        "statusCat": "In Progress",
+        "priority": "High",
+        "assignee": "Kaviya UC",
+        "reporter": "Kaviya UC",
+        "created": "2026-09-22",
+        "updated": "2026-10-08",
+        "labels": [
+            "RAC:Deployment_Issue"
+        ],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-156",
+        "summary": "Permission Set Remediation : Remove view role hierarchy from listed permission sets",
+        "type": "Story",
+        "status": "READY FOR UAT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Amit Sood",
+        "created": "2026-09-11",
+        "updated": "2026-10-08",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-104",
+        "summary": "Permission Set Remediation : Make API-enabled permission sets API Only",
+        "type": "Story",
+        "status": "READY FOR UAT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Amit Sood",
+        "created": "2026-09-10",
+        "updated": "2026-10-08",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
         "key": "SOPS-163",
         "summary": "Profile Remediation : Delete unused custom profiles in production",
         "type": "Story",
@@ -135,21 +287,6 @@ const JIRA_DATA = {
         "assignee": "Amit Sood",
         "reporter": "Amit Sood",
         "created": "2026-09-11",
-        "updated": "2026-10-08",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-25",
-        "summary": "Backup & Recovery Configuration",
-        "type": "Story",
-        "status": "To Do",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Sudaif Haider",
-        "reporter": "Amit Sood",
-        "created": "2026-07-31",
         "updated": "2026-10-08",
         "labels": [],
         "fixVersions": [],
@@ -250,36 +387,6 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
-        "key": "SOPS-150",
-        "summary": "OWD Remediation :  Restrict Learner Program OWD to Private",
-        "type": "Story",
-        "status": "Discovery & Refinement",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Sagar Dey",
-        "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
-        "updated": "2026-10-07",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-149",
-        "summary": "OWD Remediation :  Restrict Internal OWD on STG Staging Objects from Public Read to Private",
-        "type": "Story",
-        "status": "Discovery & Refinement",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Sagar Dey",
-        "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
-        "updated": "2026-10-07",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-148",
         "summary": "OWD Remediation :  Audit and Enforce Private/Unlisted Type on Sensitive Chatter Groups",
         "type": "Story",
@@ -287,21 +394,6 @@ const JIRA_DATA = {
         "statusCat": "In Progress",
         "priority": "Medium",
         "assignee": "Sagar Dey",
-        "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
-        "updated": "2026-10-07",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-145",
-        "summary": "OWD Remediation :  Change Lead OWD from ReadWriteTransfer to Private",
-        "type": "Story",
-        "status": "Discovery & Refinement",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Sudaif Haider",
         "reporter": "Sudaif Haider",
         "created": "2026-09-11",
         "updated": "2026-10-07",
@@ -367,23 +459,6 @@ const JIRA_DATA = {
         "updated": "2026-10-07",
         "labels": [
             "Blocked"
-        ],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-195",
-        "summary": "Ascend Portal Profile : Incorrect FLS for the below mentioned object",
-        "type": "Bug",
-        "status": "IN SIT",
-        "statusCat": "In Progress",
-        "priority": "High",
-        "assignee": "Kaviya UC",
-        "reporter": "Kaviya UC",
-        "created": "2026-09-22",
-        "updated": "2026-10-07",
-        "labels": [
-            "RAC:Config_Issue"
         ],
         "fixVersions": [],
         "storyPoints": null
@@ -558,21 +633,6 @@ const JIRA_DATA = {
         "statusCat": "In Progress",
         "priority": "Medium",
         "assignee": "Kaviya UC",
-        "reporter": "Amit Sood",
-        "created": "2026-09-11",
-        "updated": "2026-10-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-156",
-        "summary": "Permission Set Remediation : Remove view role hierarchy from listed permission sets",
-        "type": "Story",
-        "status": "READY FOR UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
         "reporter": "Amit Sood",
         "created": "2026-09-11",
         "updated": "2026-10-06",
@@ -1566,66 +1626,6 @@ const JIRA_DATA = {
         "labels": [],
         "fixVersions": [],
         "storyPoints": null
-    },
-    {
-        "key": "SOPS-157",
-        "summary": "Permission Set Remediation : Reduce Modify All and View All on CICDPermissions and GUCICD",
-        "type": "Story",
-        "status": "NOT REQUIRED",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Sudaif Haider",
-        "reporter": "Amit Sood",
-        "created": "2026-09-11",
-        "updated": "2026-10-05",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-57",
-        "summary": "CRM Data Storage Remediation",
-        "type": "Story",
-        "status": "Review & Approval",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Frank Nigro",
-        "reporter": "Giles Bill",
-        "created": "2026-08-21",
-        "updated": "2026-10-05",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-31",
-        "summary": "Migrate Legacy Plauti Named Credentials & Remove High-Risk Package Assets",
-        "type": "Story",
-        "status": "NOT REQUIRED",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Sudaif Haider",
-        "reporter": "Amit Sood",
-        "created": "2026-08-04",
-        "updated": "2026-10-05",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-210",
-        "summary": "QA: Test Scripts & Test Execition",
-        "type": "Sub-task",
-        "status": "Done",
-        "statusCat": "Done",
-        "priority": "Medium",
-        "assignee": "Kaviya UC",
-        "reporter": "Kaviya UC",
-        "created": "2026-09-29",
-        "updated": "2026-10-05",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
     }
 ]
 };
@@ -1808,11 +1808,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-08 07:19 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-08 12:20 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-08 07:19 UTC',
+  fetchedAt: '2026-10-08 12:20 UTC',
 
   repos: [
     {
