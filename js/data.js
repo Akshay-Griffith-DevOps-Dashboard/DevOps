@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-10-08 06:21 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-10-08 07:12 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-10-08 06:21 UTC',
+  fetchedAt: '2026-10-08 07:12 UTC',
 
   sprints: [
     {
@@ -95,6 +95,36 @@ const JIRA_DATA = {
 ],
 
   issues: [
+    {
+        "key": "SOPS-104",
+        "summary": "Permission Set Remediation : Make API-enabled permission sets API Only",
+        "type": "Story",
+        "status": "READY FOR UAT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Amit Sood",
+        "created": "2026-09-10",
+        "updated": "2026-10-08",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-235",
+        "summary": "QA: Test Scripts & Test Execution",
+        "type": "Sub-task",
+        "status": "Done",
+        "statusCat": "Done",
+        "priority": "Medium",
+        "assignee": "Kaviya UC",
+        "reporter": "Kaviya UC",
+        "created": "2026-10-07",
+        "updated": "2026-10-08",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
     {
         "key": "SOPS-163",
         "summary": "Profile Remediation : Delete unused custom profiles in production",
@@ -319,36 +349,6 @@ const JIRA_DATA = {
         "assignee": "Sudaif Haider",
         "reporter": "Sudaif Haider",
         "created": "2026-09-11",
-        "updated": "2026-10-07",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-235",
-        "summary": "QA: Test Scripts & Test Execution",
-        "type": "Sub-task",
-        "status": "To Do",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Kaviya UC",
-        "reporter": "Kaviya UC",
-        "created": "2026-10-07",
-        "updated": "2026-10-07",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-104",
-        "summary": "Permission Set Remediation : Make API-enabled permission sets API Only",
-        "type": "Story",
-        "status": "IN SIT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Kaviya UC",
-        "reporter": "Amit Sood",
-        "created": "2026-09-10",
         "updated": "2026-10-07",
         "labels": [],
         "fixVersions": [],
@@ -1808,11 +1808,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-08 06:21 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-08 07:12 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-08 06:21 UTC',
+  fetchedAt: '2026-10-08 07:12 UTC',
 
   repos: [
     {
