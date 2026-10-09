@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-10-08 18:17 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-10-09 00:25 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-10-08 18:17 UTC',
+  fetchedAt: '2026-10-09 00:25 UTC',
 
   sprints: [
     {
@@ -96,6 +96,111 @@ const JIRA_DATA = {
 
   issues: [
     {
+        "key": "SOPS-141",
+        "summary": "OWD Remediation :  Change Individual Object OWD from ReadWrite to Private",
+        "type": "Story",
+        "status": "In DEV",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Amit Sood",
+        "reporter": "Sudaif Haider",
+        "created": "2026-09-11",
+        "updated": "2026-10-09",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-162",
+        "summary": "Profile Remediation : Restrict System Administrator profile in production",
+        "type": "Story",
+        "status": "Discovery & Refinement",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Amit Sood",
+        "created": "2026-09-11",
+        "updated": "2026-10-09",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-145",
+        "summary": "OWD Remediation :  Change Lead OWD from ReadWriteTransfer to Private",
+        "type": "Story",
+        "status": "Discovery & Refinement",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Sagar Dey",
+        "reporter": "Sudaif Haider",
+        "created": "2026-09-11",
+        "updated": "2026-10-09",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-144",
+        "summary": "OWD Remediation :  Change Case OWD from Public Read to Private",
+        "type": "Story",
+        "status": "Discovery & Refinement",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Sagar Dey",
+        "reporter": "Sudaif Haider",
+        "created": "2026-09-11",
+        "updated": "2026-10-09",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-143",
+        "summary": "OWD Remediation :  Change Account OWD from Public Read to Private",
+        "type": "Story",
+        "status": "Discovery & Refinement",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Sagar Dey",
+        "reporter": "Sudaif Haider",
+        "created": "2026-09-11",
+        "updated": "2026-10-09",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-149",
+        "summary": "OWD Remediation :  Restrict Internal OWD on STG Staging Objects from Public Read to Private",
+        "type": "Story",
+        "status": "In DEV",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Sagar Dey",
+        "reporter": "Sudaif Haider",
+        "created": "2026-09-11",
+        "updated": "2026-10-09",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-150",
+        "summary": "OWD Remediation :  Restrict Learner Program OWD to Private",
+        "type": "Story",
+        "status": "In DEV",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Sagar Dey",
+        "reporter": "Sudaif Haider",
+        "created": "2026-09-11",
+        "updated": "2026-10-09",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
         "key": "SOPS-140",
         "summary": "OWD Remediation :  Audit and Restrict Access to Dupcheck and OB_Archiver Objects via Permission Sets",
         "type": "Story",
@@ -137,51 +242,6 @@ const JIRA_DATA = {
         "assignee": "Sudaif Haider",
         "reporter": "Amit Sood",
         "created": "2026-07-31",
-        "updated": "2026-10-08",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-149",
-        "summary": "OWD Remediation :  Restrict Internal OWD on STG Staging Objects from Public Read to Private",
-        "type": "Story",
-        "status": "In DEV",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Sagar Dey",
-        "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
-        "updated": "2026-10-08",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-150",
-        "summary": "OWD Remediation :  Restrict Learner Program OWD to Private",
-        "type": "Story",
-        "status": "In DEV",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Sagar Dey",
-        "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
-        "updated": "2026-10-08",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-145",
-        "summary": "OWD Remediation :  Change Lead OWD from ReadWriteTransfer to Private",
-        "type": "Story",
-        "status": "Discovery & Refinement",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Sagar Dey",
-        "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
         "updated": "2026-10-08",
         "labels": [],
         "fixVersions": [],
@@ -338,21 +398,6 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
-        "key": "SOPS-162",
-        "summary": "Profile Remediation : Restrict System Administrator profile in production",
-        "type": "Story",
-        "status": "Discovery & Refinement",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Vandana Bettens",
-        "reporter": "Amit Sood",
-        "created": "2026-09-11",
-        "updated": "2026-10-08",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-207",
         "summary": "Alumni constituent role for Advancement education records",
         "type": "Story",
@@ -409,21 +454,6 @@ const JIRA_DATA = {
         "statusCat": "In Progress",
         "priority": "Medium",
         "assignee": "Sagar Dey",
-        "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
-        "updated": "2026-10-07",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-141",
-        "summary": "OWD Remediation :  Change Individual Object OWD from ReadWrite to Private",
-        "type": "Story",
-        "status": "Discovery & Refinement",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Sudaif Haider",
         "reporter": "Sudaif Haider",
         "created": "2026-09-11",
         "updated": "2026-10-07",
@@ -710,21 +740,6 @@ const JIRA_DATA = {
         "assignee": "Jeremy Fahey",
         "reporter": "Amit Sood",
         "created": "2026-09-01",
-        "updated": "2026-10-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-143",
-        "summary": "OWD Remediation :  Change Account OWD from Public Read to Private",
-        "type": "Story",
-        "status": "Discovery & Refinement",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Sudaif Haider",
-        "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
         "updated": "2026-10-06",
         "labels": [],
         "fixVersions": [],
@@ -1063,21 +1078,6 @@ const JIRA_DATA = {
     {
         "key": "SOPS-142",
         "summary": "OWD Remediation :  Change Messaging Session and Messaging End User OWD from ReadWrite to Private",
-        "type": "Story",
-        "status": "Discovery & Refinement",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Sudaif Haider",
-        "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
-        "updated": "2026-10-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-144",
-        "summary": "OWD Remediation :  Change Case OWD from Public Read to Private",
         "type": "Story",
         "status": "Discovery & Refinement",
         "statusCat": "To Do",
@@ -1808,11 +1808,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-08 18:17 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-09 00:25 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-08 18:17 UTC',
+  fetchedAt: '2026-10-09 00:25 UTC',
 
   repos: [
     {
@@ -3047,7 +3047,9 @@ const AZURE_DATA = {
         "createdBy": "Sudaif Haider",
         "createdDate": "2026-10-08",
         "closedDate": null,
-        "reviewers": [],
+        "reviewers": [
+            "Amit Sood"
+        ],
         "isDraft": false,
         "mergeStatus": "succeeded",
         "approved": false
@@ -3245,7 +3247,9 @@ const AZURE_DATA = {
         "createdBy": "Sudaif Haider",
         "createdDate": "2026-10-07",
         "closedDate": null,
-        "reviewers": [],
+        "reviewers": [
+            "Amit Sood"
+        ],
         "isDraft": false,
         "mergeStatus": "succeeded",
         "approved": false
