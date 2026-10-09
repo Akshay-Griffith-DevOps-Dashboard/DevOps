@@ -242,18 +242,34 @@ const LIVE_DATA = {{
   sfDeployments: {deployments_js}
 }};"""
 
-    pattern = re.compile(
-        r'// ── Live SIT Sandbox data.*?^const LIVE_DATA\s*=\s*\{.*?\n\};',
-        re.DOTALL | re.MULTILINE
-    )
-    updated = pattern.sub(lambda m: new_block, content)
-    if updated == content:
-        # fallback
-        pattern2 = re.compile(r'const LIVE_DATA\s*=\s*\{.*?\n\};', re.DOTALL)
-        updated = pattern2.sub(lambda m: new_block, content)
+    # Find the start of the LIVE_DATA block (including optional comment line)
+    comment_marker = '// ── Live SIT Sandbox data'
+    const_marker   = 'const LIVE_DATA'
+    start_idx = content.find(comment_marker)
+    if start_idx == -1:
+        start_idx = content.find(const_marker)
 
-    if updated == content:
-        print("  ⚠️  Could not find LIVE_DATA block to replace — appending")
+    if start_idx != -1:
+        # Find the closing }; of LIVE_DATA by scanning for \n}; after the opening {
+        open_brace = content.find('{', start_idx)
+        # Walk forward counting braces to find the matching close
+        depth = 0
+        end_idx = open_brace
+        for i, ch in enumerate(content[open_brace:], start=open_brace):
+            if ch == '{':
+                depth += 1
+            elif ch == '}':
+                depth -= 1
+                if depth == 0:
+                    # consume the trailing ;
+                    end_idx = i + 1
+                    if end_idx < len(content) and content[end_idx] == ';':
+                        end_idx += 1
+                    break
+        updated = content[:start_idx] + new_block + content[end_idx:]
+        print(f"  Replaced LIVE_DATA block (chars {start_idx}–{end_idx})")
+    else:
+        print("  ⚠️  Could not find LIVE_DATA block — appending")
         updated = content + "\n\n" + new_block
 
     with open(path, "w") as fh:
