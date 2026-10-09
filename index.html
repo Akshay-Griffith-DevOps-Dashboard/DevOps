@@ -398,18 +398,16 @@
             </select>
             <select id="dep-filter-type" class="filter-select">
               <option value="all">All types</option>
-              <option value="ApexClass">ApexClass</option>
-              <option value="ApexTrigger">ApexTrigger</option>
-              <option value="LWC">LWC</option>
-              <option value="Flow">Flow</option>
+              <option value="Deploy">Deploy</option>
+              <option value="Validate">Validate only</option>
             </select>
           </div>
         </div>
         <table class="data-table" id="dep-table">
           <thead>
             <tr>
-              <th>Component</th><th>Type</th><th>Deployed by</th>
-              <th>Environment</th><th>Duration</th><th>Status</th><th>Timestamp</th>
+              <th>Deployment ID</th><th>Type</th><th>Deployed by</th>
+              <th>Environment</th><th>Components</th><th>Duration</th><th>Status</th><th>Timestamp</th>
             </tr>
           </thead>
           <tbody id="dep-tbody"></tbody>

@@ -547,19 +547,27 @@
     const tbody = document.getElementById('dep-tbody');
     if (!tbody) return;
     if (!rows.length) {
-      tbody.innerHTML = '<tr><td colspan="7" style="padding:20px;text-align:center;color:var(--text-muted)">No deployments found.</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="8" style="padding:20px;text-align:center;color:var(--text-muted)">No deployments found.</td></tr>';
       return;
     }
-    tbody.innerHTML = rows.map(d => `
+    tbody.innerHTML = rows.map(d => {
+      const typeBadge = d.type === 'Validate'
+        ? '<span class="badge blue">Validate</span>'
+        : '<span class="badge teal">Deploy</span>';
+      const dur = d.durationSec > 0 ? fmtDuration(d.durationSec) : '<span class="text-muted">—</span>';
+      const shortId = d.component.length > 18 ? d.component.slice(-12) : d.component;
+      return `
       <tr>
-        <td class="mono" style="font-size:11px;max-width:140px;overflow:hidden;text-overflow:ellipsis" title="${d.component}">${d.component}</td>
-        <td>${statusBadge(d.type === 'Validate' ? 'queued' : 'Succeeded').replace(d.type === 'Validate' ? 'queued' : 'Succeeded', d.type)}</td>
+        <td class="mono" style="font-size:11px" title="${d.component}">${shortId}</td>
+        <td>${typeBadge}</td>
         <td>${d.deployedBy}</td>
         <td>${d.env}</td>
-        <td class="mono">${d.components} components</td>
+        <td class="mono">${d.components}</td>
+        <td class="mono">${dur}</td>
         <td>${statusBadge(d.status)}</td>
         <td class="mono text-muted">${timeAgo(d.ts)}</td>
-      </tr>`).join('');
+      </tr>`;
+    }).join('');
   }
 
   function applyDeployFilters() {
