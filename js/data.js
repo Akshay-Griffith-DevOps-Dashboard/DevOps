@@ -5107,6 +5107,18 @@ const AZURE_DATA = {
   tags: [],
 };
 
+// ── Weekly/Sprint history snapshots (for trend charts) ───────────────────────
+const WEEKLY_HISTORY = {
+  // Per-sprint issue counts (derived from issue created dates)
+  sprintTrend: [
+    { sprint: "Sprint 1", week: "2026-08-02", todo: 0,  inProgress: 7,  done: 0, cumulativeDone: 0,  deployments: 0 },
+    { sprint: "Sprint 2", week: "2026-08-16", todo: 1,  inProgress: 5,  done: 2, cumulativeDone: 2,  deployments: 0 },
+    { sprint: "Sprint 3", week: "2026-08-30", todo: 5,  inProgress: 33, done: 1, cumulativeDone: 3,  deployments: 0 },
+    { sprint: "Sprint 4", week: "2026-09-14", todo: 2,  inProgress: 6,  done: 4, cumulativeDone: 7,  deployments: 7 },
+    { sprint: "Sprint 5", week: "2026-10-05", todo: 12, inProgress: 2,  done: 2, cumulativeDone: 9,  deployments: 2 },
+  ],
+};
+
 /**
  * Compute pass rates per unique pipeline name
  */

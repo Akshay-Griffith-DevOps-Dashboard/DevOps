@@ -999,6 +999,131 @@
     });
   });
 
+  /* ── Trend Charts ─────────────────────────────────── */
+
+  function renderSprintTrendChart() {
+    const el = document.getElementById('sprint-trend-chart');
+    if (!el) return;
+    const data = (typeof WEEKLY_HISTORY !== 'undefined') ? WEEKLY_HISTORY.sprintTrend : [];
+    if (!data.length) { el.innerHTML = '<div class="empty-row" style="padding:20px;text-align:center;color:var(--text-muted)">No sprint history data</div>'; return; }
+
+    const W = el.clientWidth || 700, H = 200;
+    const pad = { top: 24, right: 20, bottom: 48, left: 40 };
+    const iW = W - pad.left - pad.right;
+    const iH = H - pad.top - pad.bottom;
+    const n = data.length;
+    const barW = Math.floor(iW / n * 0.22);
+    const gap  = Math.floor(iW / n);
+    const maxVal = Math.max(...data.map(d => d.todo + d.inProgress + d.done), 1);
+
+    const scaleY = v => iH - Math.round((v / maxVal) * iH);
+    const colors = { todo: '#F59E0B', inProgress: '#3B82F6', done: '#10B981' };
+
+    let bars = '', xLabels = '', yLabels = '';
+    const yTicks = 4;
+    for (let i = 0; i <= yTicks; i++) {
+      const v = Math.round((maxVal / yTicks) * i);
+      const y = pad.top + scaleY(v);
+      yLabels += `<line x1="${pad.left}" y1="${y}" x2="${pad.left + iW}" y2="${y}" stroke="var(--border)" stroke-dasharray="3,3"/>`;
+      yLabels += `<text x="${pad.left - 6}" y="${y + 4}" text-anchor="end" font-size="10" fill="var(--text-muted)">${v}</text>`;
+    }
+
+    data.forEach((d, i) => {
+      const x = pad.left + i * gap + gap / 2;
+      const cats = ['todo','inProgress','done'];
+      const offsets = [-barW - 1, 0, barW + 1];
+      cats.forEach((cat, ci) => {
+        const v = d[cat];
+        const bh = Math.max(Math.round((v / maxVal) * iH), v > 0 ? 2 : 0);
+        const bx = x + offsets[ci] - barW / 2;
+        const by = pad.top + iH - bh;
+        bars += `<rect x="${bx}" y="${by}" width="${barW}" height="${bh}" fill="${colors[cat]}" rx="2" opacity="0.9"><title>${d.sprint} · ${cat === 'inProgress' ? 'In Progress' : cat === 'todo' ? 'To Do' : 'Done'}: ${v}</title></rect>`;
+      });
+      xLabels += `<text x="${x}" y="${pad.top + iH + 16}" text-anchor="middle" font-size="10" fill="var(--text-muted)">${d.sprint}</text>`;
+      xLabels += `<text x="${x}" y="${pad.top + iH + 28}" text-anchor="middle" font-size="9" fill="var(--text-muted)" opacity="0.7">${d.week}</text>`;
+    });
+
+    const legend = [
+      { color: colors.todo,       label: 'To Do' },
+      { color: colors.inProgress, label: 'In Progress' },
+      { color: colors.done,       label: 'Done' },
+    ].map((l, i) =>
+      `<rect x="${pad.left + i * 100}" y="${H - 8}" width="10" height="10" fill="${l.color}" rx="2"/><text x="${pad.left + i * 100 + 14}" y="${H - 1}" font-size="10" fill="var(--text-muted)">${l.label}</text>`
+    ).join('');
+
+    el.innerHTML = `<svg width="100%" viewBox="0 0 ${W} ${H + 16}" xmlns="http://www.w3.org/2000/svg">${yLabels}${bars}${xLabels}${legend}</svg>`;
+    const meta = document.getElementById('sprint-trend-meta');
+    if (meta) meta.textContent = `${data.length} sprints · cumulative done: ${data[data.length-1].cumulativeDone}`;
+  }
+
+  function renderDepTrendChart() {
+    const el = document.getElementById('dep-trend-chart');
+    if (!el) return;
+    const data = (typeof WEEKLY_HISTORY !== 'undefined') ? WEEKLY_HISTORY.sprintTrend : [];
+    if (!data.length) { el.innerHTML = '<div class="empty-row" style="padding:20px;text-align:center;color:var(--text-muted)">No deployment history data</div>'; return; }
+
+    // Also aggregate from LIVE_DATA.sfDeployments by week
+    const liveByWeek = {};
+    (LIVE_DATA.sfDeployments || []).forEach(d => {
+      if (!d.startDate) return;
+      const dt = d.startDate.slice(0, 10);
+      // Find matching sprint week label
+      const sprint = data.find(s => dt >= s.week && dt <= (data[data.indexOf(s)+1]?.week || '9999'));
+      const key = sprint ? sprint.sprint : dt.slice(0, 7);
+      liveByWeek[key] = (liveByWeek[key] || 0) + 1;
+    });
+
+    // Merge: use live data where available, else WEEKLY_HISTORY
+    const chartData = data.map(d => ({
+      sprint: d.sprint,
+      week: d.week,
+      count: liveByWeek[d.sprint] ?? d.deployments,
+    }));
+
+    const W = el.clientWidth || 700, H = 160;
+    const pad = { top: 20, right: 20, bottom: 44, left: 36 };
+    const iW = W - pad.left - pad.right;
+    const iH = H - pad.top - pad.bottom;
+    const n = chartData.length;
+    const maxVal = Math.max(...chartData.map(d => d.count), 1);
+    const gap = iW / (n - 1 || 1);
+    const color = '#3B82F6';
+
+    let points = '', dots = '', xLabels = '', yLabels = '', area = '';
+    const yTicks = 3;
+    for (let i = 0; i <= yTicks; i++) {
+      const v = Math.round((maxVal / yTicks) * i);
+      const y = pad.top + iH - Math.round((v / maxVal) * iH);
+      yLabels += `<line x1="${pad.left}" y1="${y}" x2="${pad.left + iW}" y2="${y}" stroke="var(--border)" stroke-dasharray="3,3"/>`;
+      yLabels += `<text x="${pad.left - 5}" y="${y + 4}" text-anchor="end" font-size="10" fill="var(--text-muted)">${v}</text>`;
+    }
+
+    const pts = chartData.map((d, i) => {
+      const x = pad.left + i * gap;
+      const y = pad.top + iH - Math.round((d.count / maxVal) * iH);
+      return { x, y, d };
+    });
+
+    const lineStr = pts.map((p, i) => `${i === 0 ? 'M' : 'L'}${p.x},${p.y}`).join(' ');
+    const areaStr = `M${pts[0].x},${pad.top + iH} ${pts.map(p => `L${p.x},${p.y}`).join(' ')} L${pts[pts.length-1].x},${pad.top+iH} Z`;
+
+    pts.forEach((p, i) => {
+      xLabels += `<text x="${p.x}" y="${pad.top + iH + 14}" text-anchor="middle" font-size="10" fill="var(--text-muted)">${p.d.sprint}</text>`;
+      xLabels += `<text x="${p.x}" y="${pad.top + iH + 25}" text-anchor="middle" font-size="9" fill="var(--text-muted)" opacity="0.7">${p.d.week}</text>`;
+      dots += `<circle cx="${p.x}" cy="${p.y}" r="4" fill="${color}"><title>${p.d.sprint}: ${p.d.count} deployments</title></circle>`;
+    });
+
+    el.innerHTML = `<svg width="100%" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="depGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="${color}" stop-opacity="0.25"/><stop offset="100%" stop-color="${color}" stop-opacity="0.02"/></linearGradient></defs>
+      ${yLabels}
+      <path d="${areaStr}" fill="url(#depGrad)"/>
+      <path d="${lineStr}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round"/>
+      ${dots}${xLabels}
+    </svg>`;
+    const meta = document.getElementById('dep-trend-meta');
+    if (meta) meta.textContent = `${chartData.reduce((s, d) => s + d.count, 0)} total deployments across ${n} sprints`;
+  }
+
   /* ═══════════════════════════════════════════════════
      MAIN RENDER
   ═══════════════════════════════════════════════════ */
@@ -1014,12 +1139,14 @@
     allDeployments = buildDeploymentRows(LIVE_DATA.sfDeployments);
     renderDeploymentStats();
     applyDeployFilters();
+    renderDepTrendChart();
 
     // Azure — from AZURE_DATA (populated by fetch-azure-data.py / GitHub Actions)
     renderAzure();
 
     // Jira QA — from JIRA_DATA (populated by fetch-jira-data.py / GitHub Actions)
     renderQA();
+    renderSprintTrendChart();
   }
 
   renderAll();

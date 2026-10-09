@@ -133,8 +133,8 @@
       <div class="stat-row">
         <div class="stat-card border-teal">
           <div class="stat-label">Active Users</div>
-          <div class="stat-value" id="ov-active-users">10</div>
-          <div class="stat-sub" id="ov-users-sub">5 human · 5 system/integration</div>
+          <div class="stat-value" id="ov-active-users">—</div>
+          <div class="stat-sub" id="ov-users-sub">loading…</div>
         </div>
         <div class="stat-card border-navy">
           <div class="stat-label">Active Apex Classes</div>
@@ -219,67 +219,26 @@
         <div class="panel">
           <div class="panel-header">
             <span class="panel-title">User Activity &amp; Onboarding</span>
-            <span class="panel-meta" id="ua-active-count">10 active users</span>
+            <span class="panel-meta" id="ua-active-count">—</span>
           </div>
           <div class="user-type-row">
             <div class="user-type-cell">
-              <div class="user-type-count" id="ua-human">5</div>
+              <div class="user-type-count" id="ua-human">—</div>
               <div class="user-type-label">Human Users</div>
             </div>
             <div class="user-type-cell">
-              <div class="user-type-count" id="ua-integration">5</div>
+              <div class="user-type-count" id="ua-integration">—</div>
               <div class="user-type-label">Integration Users</div>
             </div>
             <div class="user-type-cell">
-              <div class="user-type-count" id="ua-automated">0</div>
+              <div class="user-type-count" id="ua-automated">—</div>
               <div class="user-type-label">Automated Process</div>
             </div>
           </div>
           <div id="ua-user-list">
-            <div class="user-list-item">
-              <div class="user-avatar">AK</div>
-              <div class="user-info">
-                <span class="user-name">Akshay Kumar</span>
-                <span class="user-meta">Standard · Created 2026-08-19 · Last login: <span class="recent">2026-09-28</span></span>
-              </div>
-              <span class="badge green">Active</span>
-            </div>
-            <div class="user-list-item">
-              <div class="user-avatar" style="background:#FEF3C7;color:#B45309">CE</div>
-              <div class="user-info">
-                <span class="user-name">Chatter Expert</span>
-                <span class="user-meta">CsnOnly · Created 2026-08-19 · Last login: <span class="never">Never</span></span>
-              </div>
-              <span class="badge muted">System</span>
-            </div>
-            <div class="user-list-item">
-              <div class="user-avatar" style="background:#EBF4FF;color:#1A6BB5">PU</div>
-              <div class="user-info">
-                <span class="user-name">Platform Integration User</span>
-                <span class="user-meta">CloudIntegrationUser · Created 2026-08-19 · Last login: <span class="never">Never</span></span>
-              </div>
-              <span class="badge blue">Integration</span>
-            </div>
-            <div class="user-list-item">
-              <div class="user-avatar" style="background:#F7F8FA;color:#8896A6">DC</div>
-              <div class="user-info">
-                <span class="user-name">Data.com Clean</span>
-                <span class="user-meta">AutomatedProcess · Created 2026-08-19 · Last login: <span class="never">Never</span></span>
-              </div>
-              <span class="badge muted">System</span>
-            </div>
-            <div class="user-list-item">
-              <div class="user-avatar" style="background:#E6F4F3;color:#00867A">IU</div>
-              <div class="user-info">
-                <span class="user-name">Integration User</span>
-                <span class="user-meta">Standard · Created 2026-08-19 · Last login: <span class="never">Never</span></span>
-              </div>
-              <span class="badge green">Active</span>
-            </div>
+            <div class="empty-row" style="padding:16px 0;text-align:center;color:var(--text-muted)">Loading users…</div>
           </div>
-          <div class="inline-warning" id="ua-never-warning">
-            ⚠ 9 of 10 users have never logged in.
-          </div>
+          <div class="inline-warning" id="ua-never-warning" style="display:none"></div>
         </div>
       </div>
 
@@ -416,6 +375,15 @@
           <div class="stat-label">Avg Deploy Time</div>
           <div class="stat-value blue" id="dep-avg-time">3m 42s</div>
         </div>
+      </div>
+
+      <!-- Deployment frequency trend chart -->
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">Deployment Frequency (Weekly)</span>
+          <span class="panel-meta" id="dep-trend-meta"></span>
+        </div>
+        <div id="dep-trend-chart" style="padding:12px 0 4px"></div>
       </div>
 
       <div class="panel">
@@ -632,6 +600,15 @@
             <div class="empty-row" style="padding:24px 0;text-align:center;color:var(--text-muted)">No sprint data</div>
           </div>
         </div>
+      </div>
+
+      <!-- Sprint trend chart -->
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">Weekly Issue Trend (by Sprint)</span>
+          <span class="panel-meta" id="sprint-trend-meta"></span>
+        </div>
+        <div id="sprint-trend-chart" style="padding:12px 0 4px"></div>
       </div>
 
       <!-- Board tabs: Active Sprint / Backlog -->
