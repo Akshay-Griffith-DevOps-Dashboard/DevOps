@@ -1531,3 +1531,58 @@ main {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
+
+/* ── Deployment component detail rows ───────────────────────────────────────── */
+.dep-id-link {
+  color: var(--navy);
+  text-decoration: none;
+  font-size: 11px;
+}
+.dep-id-link:hover { text-decoration: underline; }
+
+.dep-comp-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 11px;
+  color: var(--text-muted);
+  padding: 4px 12px 4px 16px;
+  text-align: left;
+  width: 100%;
+}
+.dep-comp-toggle:hover { color: var(--navy); }
+
+.dep-comp-detail-row.hidden { display: none; }
+
+.dep-comp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 4px 0 6px;
+  border-top: 1px solid var(--border);
+}
+.dep-comp-row {
+  display: grid;
+  grid-template-columns: 140px 1fr auto;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 11px;
+  padding: 2px 0;
+}
+.dep-comp-type {
+  color: var(--text-muted);
+  font-family: monospace;
+  white-space: nowrap;
+}
+.dep-comp-name {
+  font-family: monospace;
+  color: var(--text);
+  word-break: break-all;
+}
+.dep-comp-fail .dep-comp-name { color: var(--red); }
+.dep-comp-err {
+  color: var(--red);
+  font-size: 10px;
+  grid-column: 2 / 4;
+  padding-left: 4px;
+}

@@ -530,16 +530,22 @@
   let allDeployments = [];
 
   function buildDeploymentRows(data) {
+    const instanceUrl = (LIVE_DATA.org || {}).instanceUrl || '';
     return data.map(d => ({
-      component:   d.id,
+      id:          d.id,
       type:        d.checkOnly ? 'Validate' : 'Deploy',
       deployedBy:  d.deployedBy,
       env:         'SIT Sandbox',
       components:  d.componentsDeployed,
+      componentsTotal: d.componentsTotal || d.componentsDeployed,
       errors:      d.errors,
       durationSec: d.durationSec,
       status:      d.status,
       ts:          new Date(d.startDate),
+      componentList: d.components || [],
+      sfUrl:       instanceUrl
+        ? `${instanceUrl}/lightning/setup/DeployStatus/page?address=%2Fchangemgmt%2FmonitorDeploymentsDetails.apexp%3FasyncId%3D${d.id}`
+        : null,
     }));
   }
 
@@ -554,19 +560,60 @@
       const typeBadge = d.type === 'Validate'
         ? '<span class="badge blue">Validate</span>'
         : '<span class="badge teal">Deploy</span>';
-      const dur = d.durationSec > 0 ? fmtDuration(d.durationSec) : '<span class="text-muted">—</span>';
-      const shortId = d.component.length > 18 ? d.component.slice(-12) : d.component;
+      const dur = d.durationSec > 0 ? fmtDuration(d.durationSec) : '<span style="color:var(--text-muted)">—</span>';
+      const shortId = d.id.slice(-12);
+      const idCell = d.sfUrl
+        ? `<a href="${d.sfUrl}" target="_blank" rel="noopener" class="mono dep-id-link" title="Open in Salesforce: ${d.id}">${shortId} ↗</a>`
+        : `<span class="mono" title="${d.id}">${shortId}</span>`;
+
+      // Component detail rows (collapsed by default, toggled via JS)
+      let compRows = '';
+      if (d.componentList && d.componentList.length) {
+        const rowId = `dep-comp-${d.id}`;
+        const compHtml = d.componentList.map(c =>
+          `<div class="dep-comp-row ${c.success === false ? 'dep-comp-fail' : ''}">
+            <span class="dep-comp-type">${escHtml(c.type || '—')}</span>
+            <span class="dep-comp-name">${escHtml(c.name)}</span>
+            ${c.success === false && c.problem ? `<span class="dep-comp-err">${escHtml(c.problem)}</span>` : ''}
+          </div>`
+        ).join('');
+        const toggleLabel = d.componentList.length === 1
+          ? '1 component'
+          : `${d.componentList.length} components`;
+        compRows = `
+          <tr class="dep-comp-expand-row">
+            <td colspan="8" style="padding:0">
+              <button class="dep-comp-toggle" onclick="this.closest('tr').nextElementSibling.classList.toggle('hidden')">
+                ▶ ${toggleLabel}
+              </button>
+            </td>
+          </tr>
+          <tr class="dep-comp-detail-row hidden">
+            <td colspan="8" style="padding:0 12px 8px 24px">
+              <div class="dep-comp-list">${compHtml}</div>
+            </td>
+          </tr>`;
+      } else if (d.components > 0) {
+        // Components deployed but detail not yet fetched (old snapshot)
+        compRows = `
+          <tr class="dep-comp-expand-row">
+            <td colspan="8" style="padding:2px 12px 6px">
+              <span style="font-size:11px;color:var(--text-muted)">${d.components} component${d.components !== 1 ? 's' : ''} — details available after next data refresh</span>
+            </td>
+          </tr>`;
+      }
+
       return `
-      <tr>
-        <td class="mono" style="font-size:11px" title="${d.component}">${shortId}</td>
+      <tr class="dep-main-row">
+        <td style="font-size:11px">${idCell}</td>
         <td>${typeBadge}</td>
-        <td>${d.deployedBy}</td>
+        <td>${escHtml(d.deployedBy)}</td>
         <td>${d.env}</td>
-        <td class="mono">${d.components}</td>
+        <td class="mono">${d.components}${d.componentsTotal > d.components ? `<span style="color:var(--text-muted)">/${d.componentsTotal}</span>` : ''}</td>
         <td class="mono">${dur}</td>
         <td>${statusBadge(d.status)}</td>
-        <td class="mono text-muted">${timeAgo(d.ts)}</td>
-      </tr>`;
+        <td class="mono" style="color:var(--text-muted)">${timeAgo(d.ts)}</td>
+      </tr>${compRows}`;
     }).join('');
   }
 

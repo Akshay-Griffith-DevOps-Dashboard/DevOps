@@ -169,21 +169,72 @@ def fetch_all(instance_url, access_token):
 
     print("  → Fetching recent deployments...")
     deploy_records = sf_query(instance_url, access_token,
-        "SELECT Id, CreatedBy.Name, CheckOnly, NumberComponentsDeployed, NumberComponentErrors, "
-        "Status, StartDate FROM DeployRequest ORDER BY StartDate DESC LIMIT 20")
-    deployments = [
-        {
-            "id":                   r["Id"],
+        "SELECT Id, CreatedBy.Name, CheckOnly, NumberComponentsDeployed, NumberComponentsTotal, "
+        "NumberComponentErrors, Status, StartDate, CompletedDate, StateDetail "
+        "FROM DeployRequest ORDER BY StartDate DESC LIMIT 20")
+
+    deployments = []
+    for r in deploy_records:
+        dep_id     = r["Id"]
+        start_str  = r.get("StartDate", "") or ""
+        end_str    = r.get("CompletedDate", "") or ""
+        dur_sec    = 0
+        if start_str and end_str:
+            try:
+                from datetime import datetime as _dt
+                fmt = "%Y-%m-%dT%H:%M:%S.%f%z" if "." in start_str else "%Y-%m-%dT%H:%M:%S%z"
+                s = _dt.fromisoformat(start_str.replace("Z", "+00:00"))
+                e = _dt.fromisoformat(end_str.replace("Z", "+00:00"))
+                dur_sec = max(0, int((e - s).total_seconds()))
+            except Exception:
+                pass
+
+        # Fetch component details via checkDeployStatus REST endpoint
+        components = []
+        try:
+            detail_url = (f"{instance_url}/services/data/{API_VERSION}/"
+                          f"metadata/deployRequest/{dep_id}?includeDetails=true")
+            req = urllib.request.Request(detail_url, headers={
+                "Authorization": f"Bearer {access_token}",
+                "Accept":        "application/json",
+            })
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                detail = json.loads(resp.read())
+            details = (detail.get("deployResult") or {}).get("details") or {}
+            successes = details.get("componentSuccesses") or []
+            failures  = details.get("componentFailures")  or []
+            # componentSuccesses/Failures may be a dict (single) or list
+            if isinstance(successes, dict): successes = [successes]
+            if isinstance(failures,  dict): failures  = [failures]
+            for c in successes:
+                name = c.get("fullName", "")
+                ctype = c.get("componentType", "")
+                if name and name != "package.xml":
+                    components.append({"name": name, "type": ctype, "success": True})
+            for c in failures:
+                name = c.get("fullName", "")
+                ctype = c.get("componentType", "")
+                problem = c.get("problem", "")
+                if name:
+                    components.append({"name": name, "type": ctype, "success": False, "problem": problem})
+        except Exception as ex:
+            print(f"    ⚠ Could not fetch details for {dep_id}: {ex}")
+
+        deployments.append({
+            "id":                   dep_id,
             "deployedBy":           (r.get("CreatedBy") or {}).get("Name", "Unknown"),
             "checkOnly":            r.get("CheckOnly", False),
             "componentsDeployed":   r.get("NumberComponentsDeployed", 0),
+            "componentsTotal":      r.get("NumberComponentsTotal", 0),
             "errors":               r.get("NumberComponentErrors", 0),
             "status":               r.get("Status", ""),
-            "startDate":            r.get("StartDate", ""),
-            "durationSec":          0,
-        }
-        for r in deploy_records
-    ]
+            "startDate":            start_str,
+            "completedDate":        end_str,
+            "durationSec":          dur_sec,
+            "stateDetail":          r.get("StateDetail", "") or "",
+            "components":           components,
+        })
+    print(f"  ✅ Fetched details for {len(deployments)} deployments")
 
     return {
         "org_id":         org_id,
