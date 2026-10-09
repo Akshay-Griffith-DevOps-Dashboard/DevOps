@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-10-09 00:25 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-10-09 06:20 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-10-09 00:25 UTC',
+  fetchedAt: '2026-10-09 06:20 UTC',
 
   sprints: [
     {
@@ -96,10 +96,205 @@ const JIRA_DATA = {
 
   issues: [
     {
+        "key": "SOPS-140",
+        "summary": "OWD Remediation :  Audit and Restrict Access to Dupcheck and OB_Archiver Objects via Permission Sets",
+        "type": "Story",
+        "status": "IN SIT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Sudaif Haider",
+        "reporter": "Sudaif Haider",
+        "created": "2026-09-11",
+        "updated": "2026-10-09",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-150",
+        "summary": "OWD Remediation :  Restrict Learner Program OWD to Private",
+        "type": "Story",
+        "status": "In DEV",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Sagar Dey",
+        "reporter": "Sudaif Haider",
+        "created": "2026-09-11",
+        "updated": "2026-10-09",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-104",
+        "summary": "Permission Set Remediation : Make API-enabled permission sets API Only",
+        "type": "Story",
+        "status": "IN UAT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Amit Sood",
+        "created": "2026-09-10",
+        "updated": "2026-10-09",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-87",
+        "summary": "Sharing Rules Remediation - Include Student Recruitment Opportunity in the Advancement sharing rule",
+        "type": "Story",
+        "status": "READY FOR UAT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Amit Sood",
+        "created": "2026-09-01",
+        "updated": "2026-10-09",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-73",
+        "summary": "Sharing Rules Remediation - Replace Single-Member Public Group Sharing with Direct Role Sharing",
+        "type": "Story",
+        "status": "IN UAT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Amit Sood",
+        "created": "2026-08-27",
+        "updated": "2026-10-09",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-156",
+        "summary": "Permission Set Remediation : Remove view role hierarchy from listed permission sets",
+        "type": "Story",
+        "status": "IN UAT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Amit Sood",
+        "created": "2026-09-11",
+        "updated": "2026-10-09",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-154",
+        "summary": "Permission Set Remediation : Remove Customize Dashboards and Customize Reports from GU Integration",
+        "type": "Story",
+        "status": "IN UAT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Amit Sood",
+        "created": "2026-09-11",
+        "updated": "2026-10-09",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-155",
+        "summary": "Permission Set Remediation : Remove Run Reports from GU Integration",
+        "type": "Story",
+        "status": "IN UAT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Amit Sood",
+        "created": "2026-09-11",
+        "updated": "2026-10-09",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-103",
+        "summary": "Sharing Rules Remediation - Delete unused Advancement_Public_Group",
+        "type": "Story",
+        "status": "IN UAT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Benjamin Bates",
+        "reporter": "Amit Sood",
+        "created": "2026-09-09",
+        "updated": "2026-10-09",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-90",
+        "summary": "Sharing Rules Remediation - Review Advancement Ops sharing rule on Person Education",
+        "type": "Story",
+        "status": "IN UAT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Amit Sood",
+        "created": "2026-09-01",
+        "updated": "2026-10-09",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-220",
+        "summary": "Student email keeps the alumnus personal address",
+        "type": "Story",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Unassigned",
+        "reporter": "Asra Khan",
+        "created": "2026-10-05",
+        "updated": "2026-10-09",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-139",
+        "summary": "OWD Remediation :  Restrict External & Internal OWD on Contact Point Social to Private",
+        "type": "Story",
+        "status": "In DEV",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Amit Sood",
+        "reporter": "Sudaif Haider",
+        "created": "2026-09-11",
+        "updated": "2026-10-09",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-145",
+        "summary": "OWD Remediation :  Change Lead OWD from ReadWriteTransfer to Private",
+        "type": "Story",
+        "status": "Ready For Merge",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Amit Sood",
+        "reporter": "Sudaif Haider",
+        "created": "2026-09-11",
+        "updated": "2026-10-09",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
         "key": "SOPS-141",
         "summary": "OWD Remediation :  Change Individual Object OWD from ReadWrite to Private",
         "type": "Story",
-        "status": "In DEV",
+        "status": "Ready For Merge",
         "statusCat": "In Progress",
         "priority": "Medium",
         "assignee": "Amit Sood",
@@ -119,21 +314,6 @@ const JIRA_DATA = {
         "priority": "Medium",
         "assignee": "Jeremy Fahey",
         "reporter": "Amit Sood",
-        "created": "2026-09-11",
-        "updated": "2026-10-09",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-145",
-        "summary": "OWD Remediation :  Change Lead OWD from ReadWriteTransfer to Private",
-        "type": "Story",
-        "status": "Discovery & Refinement",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Sagar Dey",
-        "reporter": "Sudaif Haider",
         "created": "2026-09-11",
         "updated": "2026-10-09",
         "labels": [],
@@ -178,36 +358,6 @@ const JIRA_DATA = {
         "statusCat": "In Progress",
         "priority": "Medium",
         "assignee": "Sagar Dey",
-        "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
-        "updated": "2026-10-09",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-150",
-        "summary": "OWD Remediation :  Restrict Learner Program OWD to Private",
-        "type": "Story",
-        "status": "In DEV",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Sagar Dey",
-        "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
-        "updated": "2026-10-09",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-140",
-        "summary": "OWD Remediation :  Audit and Restrict Access to Dupcheck and OB_Archiver Objects via Permission Sets",
-        "type": "Story",
-        "status": "Ready For Merge",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Sudaif Haider",
         "reporter": "Sudaif Haider",
         "created": "2026-09-11",
         "updated": "2026-10-09",
@@ -323,36 +473,6 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
-        "key": "SOPS-156",
-        "summary": "Permission Set Remediation : Remove view role hierarchy from listed permission sets",
-        "type": "Story",
-        "status": "READY FOR UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Amit Sood",
-        "created": "2026-09-11",
-        "updated": "2026-10-08",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-104",
-        "summary": "Permission Set Remediation : Make API-enabled permission sets API Only",
-        "type": "Story",
-        "status": "READY FOR UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Amit Sood",
-        "created": "2026-09-10",
-        "updated": "2026-10-08",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-163",
         "summary": "Profile Remediation : Delete unused custom profiles in production",
         "type": "Story",
@@ -454,21 +574,6 @@ const JIRA_DATA = {
         "statusCat": "In Progress",
         "priority": "Medium",
         "assignee": "Sagar Dey",
-        "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
-        "updated": "2026-10-07",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-139",
-        "summary": "OWD Remediation :  Restrict External & Internal OWD on Contact Point Social to Private",
-        "type": "Story",
-        "status": "Discovery & Refinement",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Sudaif Haider",
         "reporter": "Sudaif Haider",
         "created": "2026-09-11",
         "updated": "2026-10-07",
@@ -716,36 +821,6 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
-        "key": "SOPS-87",
-        "summary": "Sharing Rules Remediation - Include Student Recruitment Opportunity in the Advancement sharing rule",
-        "type": "Story",
-        "status": "READY FOR UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Amit Sood",
-        "created": "2026-09-01",
-        "updated": "2026-10-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-90",
-        "summary": "Sharing Rules Remediation - Review Advancement Ops sharing rule on Person Education",
-        "type": "Story",
-        "status": "READY FOR UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Amit Sood",
-        "created": "2026-09-01",
-        "updated": "2026-10-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-231",
         "summary": "Remediation Scope",
         "type": "Task",
@@ -973,51 +1048,6 @@ const JIRA_DATA = {
     {
         "key": "SOPS-224",
         "summary": "Bulk close and approve auto-matched payroll sessions by rule",
-        "type": "Story",
-        "status": "To Do",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Unassigned",
-        "reporter": "Asra Khan",
-        "created": "2026-10-05",
-        "updated": "2026-10-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-155",
-        "summary": "Permission Set Remediation : Remove Run Reports from GU Integration",
-        "type": "Story",
-        "status": "READY FOR UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Amit Sood",
-        "created": "2026-09-11",
-        "updated": "2026-10-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-154",
-        "summary": "Permission Set Remediation : Remove Customize Dashboards and Customize Reports from GU Integration",
-        "type": "Story",
-        "status": "READY FOR UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Amit Sood",
-        "created": "2026-09-11",
-        "updated": "2026-10-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-220",
-        "summary": "Student email keeps the alumnus personal address",
         "type": "Story",
         "status": "To Do",
         "statusCat": "To Do",
@@ -1534,21 +1564,6 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
-        "key": "SOPS-103",
-        "summary": "Sharing Rules Remediation - Delete unused Advancement_Public_Group",
-        "type": "Story",
-        "status": "READY FOR UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Benjamin Bates",
-        "reporter": "Amit Sood",
-        "created": "2026-09-09",
-        "updated": "2026-10-05",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-33",
         "summary": "Remediate Gearset Deploy Connected App Access Controls",
         "type": "Story",
@@ -1609,21 +1624,6 @@ const JIRA_DATA = {
         "labels": [
             "Blocked"
         ],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-73",
-        "summary": "Sharing Rules Remediation - Replace Single-Member Public Group Sharing with Direct Role Sharing",
-        "type": "Story",
-        "status": "READY FOR UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Amit Sood",
-        "created": "2026-08-27",
-        "updated": "2026-10-05",
-        "labels": [],
         "fixVersions": [],
         "storyPoints": null
     }
@@ -1808,11 +1808,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-09 00:25 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-09 06:20 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-09 00:25 UTC',
+  fetchedAt: '2026-10-09 06:20 UTC',
 
   repos: [
     {
@@ -1856,6 +1856,17 @@ const AZURE_DATA = {
         "author": "Sagar-GitHub-18",
         "date": "2026-09-24",
         "comment": "Delete Advancement_Public_Group.group-meta.xml"
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "name": "Feature-SOPS-150",
+        "isDefault": true,
+        "aheadCount": 0,
+        "behindCount": 0,
+        "commitId": "4eead63e",
+        "author": "akshay.kumar@griffith.edu.au",
+        "date": "2026-08-18",
+        "comment": "Retrieved latest metadata from production and committing to main branch to sync "
     },
     {
         "repo": "RSDF-SalesforcePlatform",
@@ -2048,12 +2059,12 @@ const AZURE_DATA = {
         "repo": "RSDF-SalesforcePlatform",
         "name": "devmerge",
         "isDefault": false,
-        "aheadCount": 89,
+        "aheadCount": 94,
         "behindCount": 0,
-        "commitId": "0d36c1c5",
+        "commitId": "5cc2cef2",
         "author": "Sudaif Haider",
-        "date": "2026-10-05",
-        "comment": "Merged PR 9346: bugFix-SOPS-195"
+        "date": "2026-10-09",
+        "comment": "Merged PR 9363: Feature SOPS140"
     },
     {
         "repo": "RSDF-SalesforcePlatform",
@@ -2486,6 +2497,17 @@ const AZURE_DATA = {
     },
     {
         "repo": "RSDF-SalesforcePlatform",
+        "name": "gs-pipeline/Feature-SOPS-73_-_main",
+        "isDefault": false,
+        "aheadCount": 4,
+        "behindCount": 0,
+        "commitId": "9cbceb6a",
+        "author": "Sagar-GitHub-18",
+        "date": "2026-09-30",
+        "comment": "Update designation sharing rules for DevMerge deploy"
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
         "name": "gs-pipeline/Feature-SOPS-73_-_sit",
         "isDefault": false,
         "aheadCount": 3,
@@ -2494,17 +2516,6 @@ const AZURE_DATA = {
         "author": "Sagar-GitHub-18",
         "date": "2026-09-29",
         "comment": "Update ucinn_ascendv2__Designation__c.sharingRules-meta.xml"
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "name": "gs-pipeline/Feature-SOPS-73_-_uat",
-        "isDefault": false,
-        "aheadCount": 4,
-        "behindCount": 0,
-        "commitId": "9cbceb6a",
-        "author": "Sagar-GitHub-18",
-        "date": "2026-09-30",
-        "comment": "Update designation sharing rules for DevMerge deploy"
     },
     {
         "repo": "RSDF-SalesforcePlatform",
@@ -2552,14 +2563,14 @@ const AZURE_DATA = {
     },
     {
         "repo": "RSDF-SalesforcePlatform",
-        "name": "gs-pipeline/SOPS-87_-_uat",
+        "name": "gs-pipeline/SOPS-87_-_main",
         "isDefault": false,
-        "aheadCount": 29,
+        "aheadCount": 1,
         "behindCount": 0,
-        "commitId": "45c2cdda",
-        "author": "akshay.kumar@griffith.edu.au",
-        "date": "2026-10-08",
-        "comment": "Gearset: Semantic reverse merge of branch uat into gs-pipeline/SOPS-87_-_uat for"
+        "commitId": "7b1009a5",
+        "author": "Sagar Dey",
+        "date": "2026-09-08",
+        "comment": "SOPS 87(it has changes from SOPS 73)"
     },
     {
         "repo": "RSDF-SalesforcePlatform",
@@ -2761,17 +2772,6 @@ const AZURE_DATA = {
     },
     {
         "repo": "RSDF-SalesforcePlatform",
-        "name": "gs-pipeline/feature-SOPS140_-_devmerge",
-        "isDefault": false,
-        "aheadCount": 93,
-        "behindCount": 0,
-        "commitId": "6c30fe7a",
-        "author": "Team user",
-        "date": "2026-10-08",
-        "comment": "Gearset: Semantic reverse merge of devmerge into gs-pipeline/feature-SOPS140_-_d"
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
         "name": "gs-pipeline/feature-SOPS140_-_main",
         "isDefault": false,
         "aheadCount": 1,
@@ -2783,7 +2783,18 @@ const AZURE_DATA = {
     },
     {
         "repo": "RSDF-SalesforcePlatform",
-        "name": "gs-pipeline/feature-sops-104_-_uat",
+        "name": "gs-pipeline/feature-SOPS140_-_uat",
+        "isDefault": false,
+        "aheadCount": 48,
+        "behindCount": 0,
+        "commitId": "aa2cfa49",
+        "author": "Team user",
+        "date": "2026-10-09",
+        "comment": "Gearset: Semantic reverse merge of uat into gs-pipeline/feature-SOPS140_-_uat"
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "name": "gs-pipeline/feature-sops-104_-_main",
         "isDefault": false,
         "aheadCount": 1,
         "behindCount": 0,
@@ -2950,12 +2961,12 @@ const AZURE_DATA = {
         "repo": "RSDF-SalesforcePlatform",
         "name": "sit",
         "isDefault": false,
-        "aheadCount": 54,
+        "aheadCount": 59,
         "behindCount": 0,
-        "commitId": "71e5f19d",
+        "commitId": "5fcda31c",
         "author": "Sudaif Haider",
-        "date": "2026-10-06",
-        "comment": "Merge pull request 9336 from gs-pipeline/feature-sops-104_-_sit into sit"
+        "date": "2026-10-09",
+        "comment": "Merged PR 9365: Feature SOPS140"
     },
     {
         "repo": "RSDF-SalesforcePlatform",
@@ -3027,26 +3038,125 @@ const AZURE_DATA = {
         "repo": "RSDF-SalesforcePlatform",
         "name": "uat",
         "isDefault": false,
-        "aheadCount": 35,
+        "aheadCount": 44,
         "behindCount": 0,
-        "commitId": "9017fc3e",
-        "author": "Sudaif Haider",
-        "date": "2026-10-08",
-        "comment": "Merge pull request 9238 from gs-pipeline/feature-SOPS-88_-_uat into uat"
+        "commitId": "1338a854",
+        "author": "Akshay Kumar",
+        "date": "2026-10-09",
+        "comment": "Merge pull request 9264 from gs-pipeline/SOPS-87_-_uat into uat"
     }
 ],
 
   pullRequests: [
     {
-        "id": 9363,
+        "id": 9368,
         "title": "Feature SOPS140",
         "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/feature-SOPS140_-_uat",
+        "targetBranch": "uat",
+        "createdBy": "Sudaif Haider",
+        "createdDate": "2026-10-09",
+        "closedDate": null,
+        "reviewers": [
+            "Amit Sood",
+            "Jeremy Fahey",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9367,
+        "title": "SOPS 87 and SOPS 73",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/SOPS-87_-_main",
+        "targetBranch": "main",
+        "createdBy": "Akshay Kumar",
+        "createdDate": "2026-10-09",
+        "closedDate": null,
+        "reviewers": [
+            "Amit Sood",
+            "Akshay Kumar",
+            "Jeremy Fahey",
+            "Sudaif Haider",
+            "Giles Bill"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9366,
+        "title": "feature-sops-104",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/feature-sops-104_-_main",
+        "targetBranch": "main",
+        "createdBy": "Sudaif Haider",
+        "createdDate": "2026-10-09",
+        "closedDate": null,
+        "reviewers": [
+            "Amit Sood",
+            "Akshay Kumar",
+            "Jeremy Fahey",
+            "Sudaif Haider",
+            "Giles Bill"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9365,
+        "title": "Feature SOPS140",
+        "status": "completed",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/feature-SOPS140_-_sit",
+        "targetBranch": "sit",
+        "createdBy": "Sudaif Haider",
+        "createdDate": "2026-10-09",
+        "closedDate": "2026-10-09",
+        "reviewers": [
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9364,
+        "title": "Feature SOPS 73",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/Feature-SOPS-73_-_main",
+        "targetBranch": "main",
+        "createdBy": "Akshay Kumar",
+        "createdDate": "2026-10-09",
+        "closedDate": null,
+        "reviewers": [
+            "Amit Sood",
+            "Jeremy Fahey",
+            "Sudaif Haider",
+            "Giles Bill"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9363,
+        "title": "Feature SOPS140",
+        "status": "completed",
         "repo": "RSDF-SalesforcePlatform",
         "sourceBranch": "gs-pipeline/feature-SOPS140_-_devmerge",
         "targetBranch": "devmerge",
         "createdBy": "Sudaif Haider",
         "createdDate": "2026-10-08",
-        "closedDate": null,
+        "closedDate": "2026-10-09",
         "reviewers": [
             "Amit Sood"
         ],
@@ -3123,15 +3233,16 @@ const AZURE_DATA = {
     {
         "id": 9358,
         "title": "Sync: Feature SOPS 73",
-        "status": "active",
+        "status": "completed",
         "repo": "RSDF-SalesforcePlatform",
         "sourceBranch": "gs-pipeline/Feature-SOPS-73_-_uat",
         "targetBranch": "uat",
         "createdBy": "Akshay Kumar",
         "createdDate": "2026-10-08",
-        "closedDate": null,
+        "closedDate": "2026-10-09",
         "reviewers": [
             "Amit Sood",
+            "Jeremy Fahey",
             "Sudaif Haider"
         ],
         "isDraft": false,
@@ -3272,20 +3383,21 @@ const AZURE_DATA = {
     {
         "id": 9350,
         "title": "feature-sops-104",
-        "status": "active",
+        "status": "completed",
         "repo": "RSDF-SalesforcePlatform",
         "sourceBranch": "gs-pipeline/feature-sops-104_-_uat",
         "targetBranch": "uat",
         "createdBy": "Sudaif Haider",
         "createdDate": "2026-10-06",
-        "closedDate": null,
+        "closedDate": "2026-10-09",
         "reviewers": [
             "Amit Sood",
+            "Akshay Kumar",
             "Jeremy Fahey",
             "Sudaif Haider"
         ],
         "isDraft": false,
-        "mergeStatus": "conflicts",
+        "mergeStatus": "succeeded",
         "approved": false
     },
     {
@@ -4776,101 +4888,138 @@ const AZURE_DATA = {
         "isDraft": false,
         "mergeStatus": "succeeded",
         "approved": false
-    },
-    {
-        "id": 9265,
-        "title": "feature-SOPS-159",
-        "status": "completed",
-        "repo": "RSDF-SalesforcePlatform",
-        "sourceBranch": "gs-pipeline/feature-SOPS-159_-_devmerge",
-        "targetBranch": "devmerge",
-        "createdBy": "Sudaif Haider",
-        "createdDate": "2026-09-18",
-        "closedDate": "2026-09-21",
-        "reviewers": [
-            "Amit Sood",
-            "Sudaif Haider"
-        ],
-        "isDraft": false,
-        "mergeStatus": "succeeded",
-        "approved": false
-    },
-    {
-        "id": 9264,
-        "title": "SOPS 87 and SOPS 73",
-        "status": "active",
-        "repo": "RSDF-SalesforcePlatform",
-        "sourceBranch": "gs-pipeline/SOPS-87_-_uat",
-        "targetBranch": "uat",
-        "createdBy": "Akshay Kumar",
-        "createdDate": "2026-09-18",
-        "closedDate": null,
-        "reviewers": [
-            "Amit Sood",
-            "Jeremy Fahey",
-            "Sudaif Haider"
-        ],
-        "isDraft": false,
-        "mergeStatus": "succeeded",
-        "approved": false
-    },
-    {
-        "id": 9263,
-        "title": "Feature SOPS 160",
-        "status": "completed",
-        "repo": "RSDF-SalesforcePlatform",
-        "sourceBranch": "gs-pipeline/feature-SOPS-160_-_devmerge",
-        "targetBranch": "devmerge",
-        "createdBy": "Sudaif Haider",
-        "createdDate": "2026-09-17",
-        "closedDate": "2026-09-18",
-        "reviewers": [
-            "Amit Sood",
-            "Sudaif Haider"
-        ],
-        "isDraft": false,
-        "mergeStatus": "succeeded",
-        "approved": false
-    },
-    {
-        "id": 9262,
-        "title": "Feature SOPS 160",
-        "status": "abandoned",
-        "repo": "RSDF-SalesforcePlatform",
-        "sourceBranch": "feature-SOPS-160",
-        "targetBranch": "devmerge",
-        "createdBy": "Sudaif Haider",
-        "createdDate": "2026-09-17",
-        "closedDate": "2026-09-17",
-        "reviewers": [
-            "Amit Sood",
-            "Sudaif Haider"
-        ],
-        "isDraft": false,
-        "mergeStatus": "",
-        "approved": false
-    },
-    {
-        "id": 9261,
-        "title": "Feature SOPS 160",
-        "status": "abandoned",
-        "repo": "RSDF-SalesforcePlatform",
-        "sourceBranch": "feature-SOPS-160",
-        "targetBranch": "devmerge",
-        "createdBy": "Sudaif Haider",
-        "createdDate": "2026-09-17",
-        "closedDate": "2026-09-17",
-        "reviewers": [
-            "Amit Sood",
-            "Sudaif Haider"
-        ],
-        "isDraft": false,
-        "mergeStatus": "",
-        "approved": false
     }
 ],
 
   commits: [
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "06571b0f",
+        "comment": "Merge pull request 9368 from gs-pipeline/feature-SOPS140_-_uat into uat",
+        "author": "Sudaif Haider",
+        "date": "2026-10-09",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "aa2cfa49",
+        "comment": "Gearset: Semantic reverse merge of uat into gs-pipeline/feature-SOPS140_-_uat",
+        "author": "Team user",
+        "date": "2026-10-09",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "27e0373b",
+        "comment": "Merge pull request 9368 from gs-pipeline/feature-SOPS140_-_uat into uat",
+        "author": "Sudaif Haider",
+        "date": "2026-10-09",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "5fcda31c",
+        "comment": "Merged PR 9365: Feature SOPS140",
+        "author": "Sudaif Haider",
+        "date": "2026-10-09",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "6524a7c5",
+        "comment": "Merge pull request 9367 from gs-pipeline/SOPS-87_-_main into main",
+        "author": "Akshay Kumar",
+        "date": "2026-10-09",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "29dead88",
+        "comment": "Merge pull request 9366 from gs-pipeline/feature-sops-104_-_main into main",
+        "author": "Sudaif Haider",
+        "date": "2026-10-09",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "1338a854",
+        "comment": "Merge pull request 9264 from gs-pipeline/SOPS-87_-_uat into uat",
+        "author": "Akshay Kumar",
+        "date": "2026-10-09",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "42a635a0",
+        "comment": "Merge pull request 9350 from gs-pipeline/feature-sops-104_-_uat into uat",
+        "author": "Sudaif Haider",
+        "date": "2026-10-09",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "2ef6fe85",
+        "comment": "Merge pull request 9365 from gs-pipeline/feature-SOPS140_-_sit into sit",
+        "author": "Sudaif Haider",
+        "date": "2026-10-09",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "22562a66",
+        "comment": "Gearset: Semantic reverse merge of sit into gs-pipeline/feature-SOPS140_-_sit",
+        "author": "Team user",
+        "date": "2026-10-09",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "1bbe8ead",
+        "comment": "Merge pull request 9365 from gs-pipeline/feature-SOPS140_-_sit into sit",
+        "author": "Sudaif Haider",
+        "date": "2026-10-09",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "5cc2cef2",
+        "comment": "Merged PR 9363: Feature SOPS140",
+        "author": "Sudaif Haider",
+        "date": "2026-10-09",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "15c4d729",
+        "comment": "Merge pull request 9364 from gs-pipeline/Feature-SOPS-73_-_main into main",
+        "author": "Akshay Kumar",
+        "date": "2026-10-09",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "53e36102",
+        "comment": "Gearset: Semantic reverse merge of branch uat into gs-pipeline/feature-sops-104_-_uat for pull reque",
+        "author": "j.fahey@griffith.edu.au",
+        "date": "2026-10-09",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "eb7a592a",
+        "comment": "Merge pull request 9350 from gs-pipeline/feature-sops-104_-_uat into uat",
+        "author": "Sudaif Haider",
+        "date": "2026-10-09",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "ffcda24c",
+        "comment": "Merge pull request 9358 from gs-pipeline/Feature-SOPS-73_-_uat into uat",
+        "author": "Akshay Kumar",
+        "date": "2026-10-09",
+        "branch": ""
+    },
     {
         "repo": "RSDF-SalesforcePlatform",
         "commitId": "6c30fe7a",
@@ -4900,134 +5049,6 @@ const AZURE_DATA = {
         "commitId": "83c03ead",
         "comment": "Merge pull request 9362 from feature-SOPS140 into devmerge",
         "author": "Sudaif Haider",
-        "date": "2026-10-08",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "ee7a2581",
-        "comment": "Merge pull request 9361 from feature-SOPS140 into devmerge",
-        "author": "Sudaif Haider",
-        "date": "2026-10-08",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "c701ee4c",
-        "comment": "changes for sops-140",
-        "author": "s.haider@griffith.edu.au",
-        "date": "2026-10-08",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "ec70d7b6",
-        "comment": "Merge pull request 9360 from feature-SOPS140 into devmerge",
-        "author": "Sudaif Haider",
-        "date": "2026-10-08",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "a835ffb5",
-        "comment": "Update GU_Duplicate_Check_for_Salesforce_Super_User.permissionset-meta.xml",
-        "author": "Sudaif",
-        "date": "2026-10-08",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "27d02a1f",
-        "comment": "Merge pull request 9359 from gs-pipeline/feature-SOPS-88_-_main into main",
-        "author": "Sudaif Haider",
-        "date": "2026-10-08",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "b7189cca",
-        "comment": "Merge pull request 9358 from gs-pipeline/Feature-SOPS-73_-_uat into uat",
-        "author": "Akshay Kumar",
-        "date": "2026-10-08",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "0e0d0f1a",
-        "comment": "Merge pull request 9357 from gs-pipeline/feature-SOPS-90_-_main into main",
-        "author": "Sudaif Haider",
-        "date": "2026-10-08",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "9017fc3e",
-        "comment": "Merge pull request 9238 from gs-pipeline/feature-SOPS-88_-_uat into uat",
-        "author": "Sudaif Haider",
-        "date": "2026-10-08",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "d56a8059",
-        "comment": "Merge pull request 9257 from gs-pipeline/feature-SOPS-90_-_uat into uat",
-        "author": "Sudaif Haider",
-        "date": "2026-10-08",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "d93efecc",
-        "comment": "Merge pull request 9260 from gs-pipeline/Feature-SOPS-73_-_uat into uat",
-        "author": "Akshay Kumar",
-        "date": "2026-10-08",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "8004f792",
-        "comment": "Merge pull request 9356 from gs-pipeline/Feature-SOPS-103_-_main into main",
-        "author": "Akshay Kumar",
-        "date": "2026-10-08",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "359a725a",
-        "comment": "Merge pull request 9355 from gs-pipeline/Feature-SOPS-155_154_-_main into main",
-        "author": "Akshay Kumar",
-        "date": "2026-10-08",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "07a4842f",
-        "comment": "Merge pull request 9354 from gs-pipeline/Feature-SOPS-156_-_main into main",
-        "author": "Akshay Kumar",
-        "date": "2026-10-08",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "45c2cdda",
-        "comment": "Gearset: Semantic reverse merge of branch uat into gs-pipeline/SOPS-87_-_uat for pull request !9264.",
-        "author": "akshay.kumar@griffith.edu.au",
-        "date": "2026-10-08",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "dc0a344f",
-        "comment": "Merge pull request 9264 from gs-pipeline/SOPS-87_-_uat into uat",
-        "author": "Akshay Kumar",
-        "date": "2026-10-08",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "f6cf0ae5",
-        "comment": "Merge pull request 9305 from gs-pipeline/Feature-SOPS-103_-_uat into uat",
-        "author": "Akshay Kumar",
         "date": "2026-10-08",
         "branch": ""
     }
