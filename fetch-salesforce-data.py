@@ -167,32 +167,35 @@ def fetch_all(instance_url, access_token):
             "loginClass": login_cls,
         })
 
-    print("  → Fetching recent deployments (Metadata REST API)...")
+    print("  → Fetching recent deployments (Tooling API)...")
+    # Tooling API DeployRequest works with client_credentials Connected Apps
+    # that lack standard SOQL or Metadata REST API deployment access.
+    tooling_soql = (
+        "SELECT Id, CreatedBy.Name, CheckOnly, NumberComponentsDeployed, "
+        "NumberComponentsTotal, NumberComponentErrors, Status, StartDate, "
+        "CompletedDate, StateDetail FROM DeployRequest "
+        "ORDER BY StartDate DESC LIMIT 20"
+    )
+    encoded = urllib.parse.quote(tooling_soql)
+    tooling_url = f"{instance_url}/services/data/{API_VERSION}/tooling/query/?q={encoded}"
     deployments = []
     try:
-        # Use the Metadata REST API deployRequest list endpoint — works with
-        # client_credentials Connected Apps that lack DeployRequest SOQL access.
-        list_url = (f"{instance_url}/services/data/{API_VERSION}/"
-                    f"metadata/deployRequest?includeDetails=false")
-        req = urllib.request.Request(list_url, headers={
+        req = urllib.request.Request(tooling_url, headers={
             "Authorization": f"Bearer {access_token}",
             "Accept":        "application/json",
         })
         with urllib.request.urlopen(req, timeout=30) as resp:
-            list_data = json.loads(resp.read())
-        # Response is { deployResults: [...] } or a list directly
-        raw_list = list_data if isinstance(list_data, list) else list_data.get("deployResults", [])
-        # Sort by startDate desc, take 20
-        raw_list = sorted(raw_list, key=lambda x: x.get("startDate", ""), reverse=True)[:20]
-        print(f"    Found {len(raw_list)} deployments from list endpoint")
+            tdata = json.loads(resp.read())
+        raw_list = tdata.get("records", [])
+        print(f"    Found {len(raw_list)} deployments via Tooling API")
     except Exception as ex:
-        print(f"  ⚠ Could not list deployments via REST API: {ex}")
+        print(f"  ⚠ Tooling API deployment fetch failed: {ex}")
         raw_list = []
 
     for r in raw_list:
-        dep_id    = r.get("id", "")
-        start_str = r.get("startDate", "") or ""
-        end_str   = r.get("completedDate", "") or ""
+        dep_id    = r.get("Id", "")
+        start_str = r.get("StartDate", "") or ""
+        end_str   = r.get("CompletedDate", "") or ""
         dur_sec   = 0
         if start_str and end_str:
             try:
@@ -203,15 +206,10 @@ def fetch_all(instance_url, access_token):
             except Exception:
                 pass
 
-        # Fetch full details including component list
-        components = []
-        deployed_count = r.get("numberComponentsDeployed", 0)
-        total_count    = r.get("numberComponentsTotal", 0)
-        error_count    = r.get("numberComponentErrors", 0)
-        status         = r.get("status", "")
-        check_only     = r.get("checkOnly", False)
-        deployed_by    = (r.get("createdBy") or {}).get("name", "") or r.get("createdByName", "Unknown")
+        deployed_by = (r.get("CreatedBy") or {}).get("Name", "Unknown")
 
+        # Try fetching component details via Metadata REST endpoint
+        components = []
         try:
             detail_url = (f"{instance_url}/services/data/{API_VERSION}/"
                           f"metadata/deployRequest/{dep_id}?includeDetails=true")
@@ -221,15 +219,8 @@ def fetch_all(instance_url, access_token):
             })
             with urllib.request.urlopen(req, timeout=15) as resp:
                 detail = json.loads(resp.read())
-            dr = detail.get("deployResult") or detail
-            deployed_count = dr.get("numberComponentsDeployed", deployed_count)
-            total_count    = dr.get("numberComponentsTotal", total_count)
-            error_count    = dr.get("numberComponentErrors", error_count)
-            status         = dr.get("status", status)
-            check_only     = dr.get("checkOnly", check_only)
-            if not deployed_by or deployed_by == "Unknown":
-                deployed_by = (dr.get("createdBy") or {}).get("name", deployed_by)
-            details   = (dr.get("details") or {})
+            dr      = detail.get("deployResult") or detail
+            details = dr.get("details") or {}
             successes = details.get("componentSuccesses") or []
             failures  = details.get("componentFailures")  or []
             if isinstance(successes, dict): successes = [successes]
@@ -246,20 +237,20 @@ def fetch_all(instance_url, access_token):
                 if name:
                     components.append({"name": name, "type": ctype, "success": False, "problem": problem})
         except Exception as ex:
-            print(f"    ⚠ Could not fetch details for {dep_id}: {ex}")
+            print(f"    ⚠ Could not fetch component details for {dep_id}: {ex}")
 
         deployments.append({
             "id":                 dep_id,
             "deployedBy":         deployed_by,
-            "checkOnly":          check_only,
-            "componentsDeployed": deployed_count,
-            "componentsTotal":    total_count,
-            "errors":             error_count,
-            "status":             status,
+            "checkOnly":          r.get("CheckOnly", False),
+            "componentsDeployed": r.get("NumberComponentsDeployed", 0),
+            "componentsTotal":    r.get("NumberComponentsTotal", 0),
+            "errors":             r.get("NumberComponentErrors", 0),
+            "status":             r.get("Status", ""),
             "startDate":          start_str,
             "completedDate":      end_str,
             "durationSec":        dur_sec,
-            "stateDetail":        r.get("stateDetail", "") or "",
+            "stateDetail":        r.get("StateDetail", "") or "",
             "components":         components,
         })
     print(f"  ✅ Fetched details for {len(deployments)} deployments")
