@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-10-12 11:14 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-10-12 11:27 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-10-12 11:14 UTC',
+  fetchedAt: '2026-10-12 11:27 UTC',
 
   sprints: [
     {
@@ -1662,21 +1662,21 @@ const JIRA_DATA = {
 ]
 };
 
-// ── Live SIT Sandbox data (fetched 2026-10-12 11:14 UTC) ────────────────────────────
+// ── Live SIT Sandbox data (fetched 2026-10-12 11:27 UTC) ────────────────────────────
 const LIVE_DATA = {
   org: {
     name:        'GRIFFITH UNIVERSITY',
     instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
     orgId:       '00DOg000003NRdiMAG',
     environment: 'SIT Sandbox',
-    fetchedAt:   '2026-10-12 11:14 UTC',
+    fetchedAt:   '2026-10-12 11:27 UTC',
   },
 
   /* Org limits */
   limits: {
     "DailyApiRequests": {
         "Max": 5000000,
-        "Remaining": 4999777
+        "Remaining": 4999727
     },
     "DailyAsyncApexExecutions": {
         "Max": 250000,
@@ -1746,7 +1746,7 @@ const LIVE_DATA = {
         {
             "name": "BatchDocgenProcessingCronJob",
             "state": "ACQUIRED",
-            "next": "2026-10-07T12:36:00Z"
+            "next": "2026-10-07T13:02:00Z"
         },
         {
             "name": "Privacy Center Audit",
@@ -2559,11 +2559,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-12 11:14 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-12 11:27 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-12 11:14 UTC',
+  fetchedAt: '2026-10-12 11:27 UTC',
 
   repos: [
     {
@@ -3404,12 +3404,12 @@ const AZURE_DATA = {
         "repo": "RSDF-SalesforcePlatform",
         "name": "gs-pipeline/SOPS-96-V2_-_devmerge",
         "isDefault": false,
-        "aheadCount": 1,
+        "aheadCount": 100,
         "behindCount": 0,
-        "commitId": "db8ec6c9",
-        "author": "Rahul Ahuja",
+        "commitId": "212403d7",
+        "author": "Team user",
         "date": "2026-10-12",
-        "comment": "Commit: Fix for SOPS-96 UAT testing"
+        "comment": "Gearset: Semantic reverse merge of devmerge into gs-pipeline/SOPS-96-V2_-_devmer"
     },
     {
         "repo": "RSDF-SalesforcePlatform",
@@ -3503,12 +3503,12 @@ const AZURE_DATA = {
         "repo": "RSDF-SalesforcePlatform",
         "name": "gs-pipeline/feature-SOPS-163n_-_devmerge",
         "isDefault": false,
-        "aheadCount": 2,
+        "aheadCount": 101,
         "behindCount": 0,
-        "commitId": "29983e4a",
-        "author": "Sudaif",
+        "commitId": "d5d5c326",
+        "author": "s.haider@griffith.edu.au",
         "date": "2026-10-12",
-        "comment": "SOPS-163n Deployment Fix"
+        "comment": "Gearset: Conflicts resolved. Merging branch devmerge into gs-pipeline/feature-SO"
     },
     {
         "repo": "RSDF-SalesforcePlatform",
@@ -3921,7 +3921,7 @@ const AZURE_DATA = {
         "closedDate": null,
         "reviewers": [],
         "isDraft": false,
-        "mergeStatus": "conflicts",
+        "mergeStatus": "succeeded",
         "approved": false
     },
     {
@@ -3951,7 +3951,7 @@ const AZURE_DATA = {
         "closedDate": null,
         "reviewers": [],
         "isDraft": false,
-        "mergeStatus": "conflicts",
+        "mergeStatus": "succeeded",
         "approved": false
     },
     {
@@ -5725,6 +5725,38 @@ const AZURE_DATA = {
   commits: [
     {
         "repo": "RSDF-SalesforcePlatform",
+        "commitId": "a05b9294",
+        "comment": "Merge pull request 9378 from gs-pipeline/feature-SOPS-163n_-_devmerge into devmerge",
+        "author": "Sudaif Haider",
+        "date": "2026-10-12",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "d5d5c326",
+        "comment": "Gearset: Conflicts resolved. Merging branch devmerge into gs-pipeline/feature-SOPS-163n_-_devmerge",
+        "author": "s.haider@griffith.edu.au",
+        "date": "2026-10-12",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "fff0fcbe",
+        "comment": "Merge pull request 9380 from gs-pipeline/SOPS-96-V2_-_devmerge into devmerge",
+        "author": "Akshay Kumar",
+        "date": "2026-10-12",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "212403d7",
+        "comment": "Gearset: Semantic reverse merge of devmerge into gs-pipeline/SOPS-96-V2_-_devmerge",
+        "author": "Team user",
+        "date": "2026-10-12",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
         "commitId": "db8ec6c9",
         "comment": "Commit: Fix for SOPS-96 UAT testing",
         "author": "Rahul Ahuja",
@@ -5848,38 +5880,6 @@ const AZURE_DATA = {
         "commitId": "5c6a3e39",
         "comment": "Merged PR 9352: Defect Fix SOPS-234",
         "author": "Sudaif Haider",
-        "date": "2026-10-09",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "4414007c",
-        "comment": "Merge pull request 9371 from gs-pipeline/Feature-SOPS-150_-_sit into sit",
-        "author": "Akshay Kumar",
-        "date": "2026-10-09",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "fbd3871e",
-        "comment": "Merged PR 9370: Create LearnerProgram.object-meta.xml",
-        "author": "Akshay Kumar",
-        "date": "2026-10-09",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "07d893ca",
-        "comment": "Merge pull request 9370 from gs-pipeline/Feature-SOPS-150_-_devmerge into devmerge",
-        "author": "Akshay Kumar",
-        "date": "2026-10-09",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "08d2b59a",
-        "comment": "Merge pull request 9369 from Feature-SOPS-150 into devmerge",
-        "author": "Sagar Dey",
         "date": "2026-10-09",
         "branch": ""
     }
