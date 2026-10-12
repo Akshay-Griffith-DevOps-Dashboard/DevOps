@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-10-12 11:05 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-10-12 11:14 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-10-12 11:05 UTC',
+  fetchedAt: '2026-10-12 11:14 UTC',
 
   sprints: [
     {
@@ -1662,21 +1662,21 @@ const JIRA_DATA = {
 ]
 };
 
-// ── Live SIT Sandbox data (fetched 2026-10-12 11:05 UTC) ────────────────────────────
+// ── Live SIT Sandbox data (fetched 2026-10-12 11:14 UTC) ────────────────────────────
 const LIVE_DATA = {
   org: {
     name:        'GRIFFITH UNIVERSITY',
     instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
     orgId:       '00DOg000003NRdiMAG',
     environment: 'SIT Sandbox',
-    fetchedAt:   '2026-10-12 11:05 UTC',
+    fetchedAt:   '2026-10-12 11:14 UTC',
   },
 
   /* Org limits */
   limits: {
     "DailyApiRequests": {
         "Max": 5000000,
-        "Remaining": 4999827
+        "Remaining": 4999777
     },
     "DailyAsyncApexExecutions": {
         "Max": 250000,
@@ -1714,9 +1714,9 @@ const LIVE_DATA = {
   /* Scheduled jobs summary */
   scheduledJobs: {
     "total": 27,
-    "waiting": 22,
+    "waiting": 21,
     "complete": 5,
-    "acquired": 0,
+    "acquired": 1,
     "jobs": [
         {
             "name": "287c8878-0d88-a8e9-787e-376a8892842a",
@@ -1745,8 +1745,8 @@ const LIVE_DATA = {
         },
         {
             "name": "BatchDocgenProcessingCronJob",
-            "state": "WAITING",
-            "next": "2026-10-07T12:23:00Z"
+            "state": "ACQUIRED",
+            "next": "2026-10-07T12:36:00Z"
         },
         {
             "name": "Privacy Center Audit",
@@ -2559,11 +2559,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-12 11:05 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-12 11:14 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-12 11:05 UTC',
+  fetchedAt: '2026-10-12 11:14 UTC',
 
   repos: [
     {
@@ -2765,13 +2765,13 @@ const AZURE_DATA = {
     {
         "repo": "RSDF-SalesforcePlatform",
         "name": "SOPS-96-V2",
-        "isDefault": true,
-        "aheadCount": 0,
+        "isDefault": false,
+        "aheadCount": 1,
         "behindCount": 0,
-        "commitId": "4eead63e",
-        "author": "akshay.kumar@griffith.edu.au",
-        "date": "2026-08-18",
-        "comment": "Retrieved latest metadata from production and committing to main branch to sync "
+        "commitId": "db8ec6c9",
+        "author": "Rahul Ahuja",
+        "date": "2026-10-12",
+        "comment": "Commit: Fix for SOPS-96 UAT testing"
     },
     {
         "repo": "RSDF-SalesforcePlatform",
@@ -3402,6 +3402,17 @@ const AZURE_DATA = {
     },
     {
         "repo": "RSDF-SalesforcePlatform",
+        "name": "gs-pipeline/SOPS-96-V2_-_devmerge",
+        "isDefault": false,
+        "aheadCount": 1,
+        "behindCount": 0,
+        "commitId": "db8ec6c9",
+        "author": "Rahul Ahuja",
+        "date": "2026-10-12",
+        "comment": "Commit: Fix for SOPS-96 UAT testing"
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
         "name": "gs-pipeline/SOPS-96_-_uat",
         "isDefault": false,
         "aheadCount": 4,
@@ -3898,6 +3909,36 @@ const AZURE_DATA = {
 ],
 
   pullRequests: [
+    {
+        "id": 9380,
+        "title": "Commit: Fix for SOPS-96 UAT testing",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/SOPS-96-V2_-_devmerge",
+        "targetBranch": "devmerge",
+        "createdBy": "Akshay Kumar",
+        "createdDate": "2026-10-12",
+        "closedDate": null,
+        "reviewers": [],
+        "isDraft": false,
+        "mergeStatus": "conflicts",
+        "approved": false
+    },
+    {
+        "id": 9379,
+        "title": "Commit: Fix for SOPS-96 UAT testing",
+        "status": "abandoned",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "SOPS-96-V2",
+        "targetBranch": "devmerge",
+        "createdBy": "Rahul Ahuja",
+        "createdDate": "2026-10-12",
+        "closedDate": "2026-10-12",
+        "reviewers": [],
+        "isDraft": false,
+        "mergeStatus": "",
+        "approved": false
+    },
     {
         "id": 9378,
         "title": "Feature SOPS 163n",
@@ -5678,47 +5719,18 @@ const AZURE_DATA = {
         "isDraft": false,
         "mergeStatus": "",
         "approved": false
-    },
-    {
-        "id": 9279,
-        "title": "Feature SOPS 96",
-        "status": "abandoned",
-        "repo": "RSDF-SalesforcePlatform",
-        "sourceBranch": "feature-SOPS-96",
-        "targetBranch": "main",
-        "createdBy": "Rahul Ahuja",
-        "createdDate": "2026-09-23",
-        "closedDate": "2026-09-23",
-        "reviewers": [
-            "Giles Bill"
-        ],
-        "isDraft": false,
-        "mergeStatus": "",
-        "approved": false
-    },
-    {
-        "id": 9278,
-        "title": "Revert 'Feature SOPS 96'",
-        "status": "completed",
-        "repo": "RSDF-SalesforcePlatform",
-        "sourceBranch": "gs-pipeline/feature-SOPS-96_-_devmerge-revert-from-devmerge",
-        "targetBranch": "devmerge",
-        "createdBy": "Akshay Kumar",
-        "createdDate": "2026-09-23",
-        "closedDate": "2026-09-23",
-        "reviewers": [
-            "Amit Sood",
-            "Akshay Kumar",
-            "Sudaif Haider",
-            "Rahul Ahuja"
-        ],
-        "isDraft": false,
-        "mergeStatus": "succeeded",
-        "approved": false
     }
 ],
 
   commits: [
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "db8ec6c9",
+        "comment": "Commit: Fix for SOPS-96 UAT testing",
+        "author": "Rahul Ahuja",
+        "date": "2026-10-12",
+        "branch": ""
+    },
     {
         "repo": "RSDF-SalesforcePlatform",
         "commitId": "29983e4a",
@@ -5868,14 +5880,6 @@ const AZURE_DATA = {
         "commitId": "08d2b59a",
         "comment": "Merge pull request 9369 from Feature-SOPS-150 into devmerge",
         "author": "Sagar Dey",
-        "date": "2026-10-09",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "3371c121",
-        "comment": "Create LearnerProgram.object-meta.xml",
-        "author": "Sagar-GitHub-18",
         "date": "2026-10-09",
         "branch": ""
     }
