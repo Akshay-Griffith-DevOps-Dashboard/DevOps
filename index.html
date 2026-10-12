@@ -251,55 +251,35 @@
       <div class="stat-row four-col">
         <div class="stat-card border-teal">
           <div class="stat-label">Daily API Limit</div>
-          <div class="stat-value" id="sh-api-pct">0.01%</div>
-          <div class="stat-sub" id="sh-api-detail">23 / 441,450 used</div>
-          <div class="stat-bar"><div class="stat-bar-fill teal" id="sh-api-bar" style="width:0.01%"></div></div>
-        </div>
-        <div class="stat-card border-amber">
-          <div class="stat-label">SOQL Queries (sync)</div>
-          <div class="stat-value amber" id="sh-soql">78/100</div>
-          <div class="stat-sub">per transaction limit</div>
-          <div class="stat-bar"><div class="stat-bar-fill amber" id="sh-soql-bar" style="width:78%"></div></div>
+          <div class="stat-value" id="sh-api-pct">—</div>
+          <div class="stat-sub" id="sh-api-detail">loading…</div>
+          <div class="stat-bar"><div class="stat-bar-fill teal" id="sh-api-bar" style="width:0%"></div></div>
         </div>
         <div class="stat-card border-teal">
-          <div class="stat-label">Apex CPU Time</div>
-          <div class="stat-value" id="sh-cpu">32%</div>
-          <div class="stat-sub">avg of 10,000ms limit</div>
-          <div class="stat-bar"><div class="stat-bar-fill teal" id="sh-cpu-bar" style="width:32%"></div></div>
+          <div class="stat-label">Async Apex (daily)</div>
+          <div class="stat-value" id="sh-async-pct">—</div>
+          <div class="stat-sub" id="sh-async-detail">loading…</div>
+          <div class="stat-bar"><div class="stat-bar-fill teal" id="sh-async-bar" style="width:0%"></div></div>
         </div>
         <div class="stat-card border-teal">
-          <div class="stat-label">Heap Size</div>
-          <div class="stat-value" id="sh-heap">12%</div>
-          <div class="stat-sub">avg of 6MB limit</div>
-          <div class="stat-bar"><div class="stat-bar-fill teal" id="sh-heap-bar" style="width:12%"></div></div>
+          <div class="stat-label">Data Storage</div>
+          <div class="stat-value" id="sh-data-pct">—</div>
+          <div class="stat-sub" id="sh-data-detail">loading…</div>
+          <div class="stat-bar"><div class="stat-bar-fill teal" id="sh-data-bar" style="width:0%"></div></div>
+        </div>
+        <div class="stat-card border-teal">
+          <div class="stat-label">File Storage</div>
+          <div class="stat-value" id="sh-file-pct">—</div>
+          <div class="stat-sub" id="sh-file-detail">loading…</div>
+          <div class="stat-bar"><div class="stat-bar-fill teal" id="sh-file-bar" style="width:0%"></div></div>
         </div>
       </div>
 
       <div class="two-col">
         <div class="panel">
           <div class="panel-header"><span class="panel-title">Storage Breakdown</span></div>
-          <div class="storage-list">
-            <div class="storage-item">
-              <span class="storage-label">Data Storage</span>
-              <div class="storage-bar-wrap">
-                <div class="storage-bar"><div class="storage-bar-fill amber" style="width:42%"></div></div>
-                <span class="mono text-muted">4.2 / 10 GB</span>
-              </div>
-            </div>
-            <div class="storage-item">
-              <span class="storage-label">File Storage</span>
-              <div class="storage-bar-wrap">
-                <div class="storage-bar"><div class="storage-bar-fill teal" style="width:5.5%"></div></div>
-                <span class="mono text-muted">1.1 / 20 GB</span>
-              </div>
-            </div>
-            <div class="storage-item">
-              <span class="storage-label">Big Objects</span>
-              <div class="storage-bar-wrap">
-                <div class="storage-bar"><div class="storage-bar-fill teal" style="width:3%"></div></div>
-                <span class="mono text-muted">0.3 / 10 GB</span>
-              </div>
-            </div>
+          <div class="storage-list" id="sh-storage-list">
+            <!-- populated by JS from LIVE_DATA.limits -->
           </div>
         </div>
 

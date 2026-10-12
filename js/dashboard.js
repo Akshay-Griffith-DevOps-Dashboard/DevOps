@@ -399,12 +399,45 @@
       if (timeEl) timeEl.textContent = `Last checked: ${new Date().toLocaleTimeString()}`;
     }
 
-    // Org health stats
-    setText('sh-api-pct',    pctLabel(limits.DailyApiRequests.Max - limits.DailyApiRequests.Remaining, limits.DailyApiRequests.Max));
-    setText('sh-api-detail', `${fmt(limits.DailyApiRequests.Max - limits.DailyApiRequests.Remaining)} / ${fmt(limits.DailyApiRequests.Max)} used`);
-    const dataMBUsed = limits.DataStorageMB.Max - limits.DataStorageMB.Remaining;
-    const dataPct    = pctOf(dataMBUsed, limits.DataStorageMB.Max);
-    setBar('sh-api-bar', pctOf(limits.DailyApiRequests.Max - limits.DailyApiRequests.Remaining, limits.DailyApiRequests.Max));
+    // Org health stat cards (top row)
+    function setStatCard(idPct, idDetail, idBar, lim) {
+      if (!lim) return;
+      const used = lim.Max - lim.Remaining;
+      const pct  = pctOf(used, lim.Max);
+      const cls  = limitClass(pct);
+      const el   = document.getElementById(idPct);
+      if (el) { el.textContent = pctLabel(used, lim.Max); el.className = `stat-value ${cls === 'teal' ? '' : cls}`; }
+      setText(idDetail, `${fmt(used)} / ${fmt(lim.Max)} used`);
+      setBar(idBar, pct);
+      const bar = document.getElementById(idBar);
+      if (bar) bar.className = `stat-bar-fill ${cls}`;
+    }
+    setStatCard('sh-api-pct',   'sh-api-detail',   'sh-api-bar',   limits.DailyApiRequests);
+    setStatCard('sh-async-pct', 'sh-async-detail', 'sh-async-bar', limits.DailyAsyncApexExecutions);
+    setStatCard('sh-data-pct',  'sh-data-detail',  'sh-data-bar',  limits.DataStorageMB);
+    setStatCard('sh-file-pct',  'sh-file-detail',  'sh-file-bar',  limits.FileStorageMB);
+
+    // Storage breakdown list
+    const storageList = document.getElementById('sh-storage-list');
+    if (storageList) {
+      const storageItems = [
+        { label: 'Data Storage (MB)', lim: limits.DataStorageMB },
+        { label: 'File Storage (MB)', lim: limits.FileStorageMB },
+      ];
+      storageList.innerHTML = storageItems.map(({ label, lim: l }) => {
+        if (!l) return '';
+        const used = l.Max - l.Remaining;
+        const pct  = pctOf(used, l.Max);
+        const cls  = limitClass(pct);
+        return `<div class="storage-item">
+          <span class="storage-label">${label}</span>
+          <div class="storage-bar-wrap">
+            <div class="storage-bar"><div class="storage-bar-fill ${cls}" style="width:${Math.max(pct, 0.1).toFixed(2)}%"></div></div>
+            <span class="mono text-muted">${fmt(used)} / ${fmt(l.Max)} MB (${pctLabel(used, l.Max)})</span>
+          </div>
+        </div>`;
+      }).join('');
+    }
   }
 
   /* ── User Activity panel ──────────────────────────── */
