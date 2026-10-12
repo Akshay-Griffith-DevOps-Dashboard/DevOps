@@ -561,10 +561,10 @@
         ? '<span class="badge blue">Validate</span>'
         : '<span class="badge teal">Deploy</span>';
       const dur = d.durationSec > 0 ? fmtDuration(d.durationSec) : '<span style="color:var(--text-muted)">—</span>';
-      const shortId = d.id.slice(-12);
+      const shortId = d.id;
       const idCell = d.sfUrl
-        ? `<a href="${d.sfUrl}" target="_blank" rel="noopener" class="mono dep-id-link" title="Open in Salesforce: ${d.id}">${shortId} ↗</a>`
-        : `<span class="mono" title="${d.id}">${shortId}</span>`;
+        ? `<a href="${d.sfUrl}" target="_blank" rel="noopener" class="mono dep-id-link" title="Open in Salesforce">${shortId} ↗</a>`
+        : `<span class="mono">${shortId}</span>`;
 
       // Component detail rows (collapsed by default, toggled via JS)
       let compRows = '';
