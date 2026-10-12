@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-10-12 10:56 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-10-12 11:00 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-10-12 10:56 UTC',
+  fetchedAt: '2026-10-12 11:00 UTC',
 
   sprints: [
     {
@@ -1662,21 +1662,21 @@ const JIRA_DATA = {
 ]
 };
 
-// ── Live SIT Sandbox data (fetched 2026-10-12 10:56 UTC) ────────────────────────────
+// ── Live SIT Sandbox data (fetched 2026-10-12 11:00 UTC) ────────────────────────────
 const LIVE_DATA = {
   org: {
     name:        'GRIFFITH UNIVERSITY',
     instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
     orgId:       '00DOg000003NRdiMAG',
     environment: 'SIT Sandbox',
-    fetchedAt:   '2026-10-12 10:56 UTC',
+    fetchedAt:   '2026-10-12 11:00 UTC',
   },
 
   /* Org limits */
   limits: {
     "DailyApiRequests": {
         "Max": 5000000,
-        "Remaining": 4999897
+        "Remaining": 4999887
     },
     "DailyAsyncApexExecutions": {
         "Max": 250000,
@@ -1714,9 +1714,9 @@ const LIVE_DATA = {
   /* Scheduled jobs summary */
   scheduledJobs: {
     "total": 27,
-    "waiting": 22,
+    "waiting": 20,
     "complete": 5,
-    "acquired": 0,
+    "acquired": 2,
     "jobs": [
         {
             "name": "287c8878-0d88-a8e9-787e-376a8892842a",
@@ -1745,12 +1745,12 @@ const LIVE_DATA = {
         },
         {
             "name": "BatchDocgenProcessingCronJob",
-            "state": "WAITING",
-            "next": "2026-10-07T12:16:00Z"
+            "state": "ACQUIRED",
+            "next": "2026-10-07T12:18:00Z"
         },
         {
             "name": "Privacy Center Audit",
-            "state": "WAITING",
+            "state": "ACQUIRED",
             "next": "2026-10-12T11:00:00Z"
         },
         {
@@ -2112,11 +2112,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-12 10:56 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-12 11:00 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-12 10:56 UTC',
+  fetchedAt: '2026-10-12 11:00 UTC',
 
   repos: [
     {
@@ -2451,12 +2451,12 @@ const AZURE_DATA = {
         "repo": "RSDF-SalesforcePlatform",
         "name": "feature-SOPS-163n",
         "isDefault": false,
-        "aheadCount": 1,
+        "aheadCount": 2,
         "behindCount": 0,
-        "commitId": "75697b08",
-        "author": "s.haider@griffith.edu.au",
+        "commitId": "29983e4a",
+        "author": "Sudaif",
         "date": "2026-10-12",
-        "comment": "changes for SOPS-163"
+        "comment": "SOPS-163n Deployment Fix"
     },
     {
         "repo": "RSDF-SalesforcePlatform",
@@ -5283,6 +5283,14 @@ const AZURE_DATA = {
   commits: [
     {
         "repo": "RSDF-SalesforcePlatform",
+        "commitId": "29983e4a",
+        "comment": "SOPS-163n Deployment Fix",
+        "author": "Sudaif",
+        "date": "2026-10-12",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
         "commitId": "6004c93e",
         "comment": "Merge pull request 9376 from gs-pipeline/Feature-SOPS-237_-_devmerge into devmerge",
         "author": "Akshay Kumar",
@@ -5430,14 +5438,6 @@ const AZURE_DATA = {
         "commitId": "3371c121",
         "comment": "Create LearnerProgram.object-meta.xml",
         "author": "Sagar-GitHub-18",
-        "date": "2026-10-09",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "06571b0f",
-        "comment": "Merge pull request 9368 from gs-pipeline/feature-SOPS140_-_uat into uat",
-        "author": "Sudaif Haider",
         "date": "2026-10-09",
         "branch": ""
     }
