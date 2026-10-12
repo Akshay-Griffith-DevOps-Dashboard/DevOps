@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-10-12 06:23 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-10-12 10:35 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-10-12 06:23 UTC',
+  fetchedAt: '2026-10-12 10:35 UTC',
 
   sprints: [
     {
@@ -95,6 +95,38 @@ const JIRA_DATA = {
 ],
 
   issues: [
+    {
+        "key": "SOPS-237",
+        "summary": " Configure the Campus__c picklist field with standardized API names and labels on the LearningProgram and LearnerProgram",
+        "type": "Story",
+        "status": "In DEV",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Sagar Dey",
+        "reporter": "Sudaif Haider",
+        "created": "2026-10-12",
+        "updated": "2026-10-12",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-96",
+        "summary": "Enable person/alumni search by additional identifiers (email, GU ID etc .) in Global Search Layout",
+        "type": "Story",
+        "status": "IN UAT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Akshay Kumar",
+        "reporter": "Asra Khan",
+        "created": "2026-09-03",
+        "updated": "2026-10-12",
+        "labels": [],
+        "fixVersions": [
+            "GU-SF-R1"
+        ],
+        "storyPoints": null
+    },
     {
         "key": "SOPS-150",
         "summary": "OWD Remediation :  Restrict Learner Program OWD to Private",
@@ -333,23 +365,6 @@ const JIRA_DATA = {
         "assignee": "Jeremy Fahey",
         "reporter": "Amit Sood",
         "created": "2026-09-11",
-        "updated": "2026-10-09",
-        "labels": [],
-        "fixVersions": [
-            "GU-SF-R1"
-        ],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-96",
-        "summary": "Enable person/alumni search by additional identifiers (email, GU ID etc .) in Global Search Layout",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Akshay Kumar",
-        "reporter": "Asra Khan",
-        "created": "2026-09-03",
         "updated": "2026-10-09",
         "labels": [],
         "fixVersions": [
@@ -1643,127 +1658,384 @@ const JIRA_DATA = {
         "labels": [],
         "fixVersions": [],
         "storyPoints": null
-    },
-    {
-        "key": "SOPS-24",
-        "summary": "Advising on Archival Strategy",
-        "type": "Story",
-        "status": "Review & Approval",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Giles Bill",
-        "reporter": "Amit Sood",
-        "created": "2026-07-31",
-        "updated": "2026-10-05",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
     }
 ]
 };
 
-// ── Live SIT Sandbox data (fetched 2026-10-05) ────────────────────────────
+// ── Live SIT Sandbox data (fetched 2026-10-12 10:35 UTC) ────────────────────────────
 const LIVE_DATA = {
   org: {
-    name: 'Griffith SIT',
+    name:        'GRIFFITH UNIVERSITY',
     instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
-    orgId: '00DOg000003NRdi',
+    orgId:       '00DOg000003NRdiMAG',
     environment: 'SIT Sandbox',
-    fetchedAt: '2026-10-05 01:57:21 pm',
+    fetchedAt:   '2026-10-12 10:35 UTC',
   },
 
-  /* Org limits — from /services/data/v60.0/limits */
+  /* Org limits */
   limits: {
-    DailyApiRequests:         { Max: 5000000,  Remaining: 4999886 },  // 114 used = 0.002%
-    DailyAsyncApexExecutions: { Max: 250000,   Remaining: 249986  },  // 14 used
-    DailyBulkApiBatches:      { Max: 15000,    Remaining: 15000   },
-    DataStorageMB:            { Max: 5120,     Remaining: 3987    },  // 1133 MB used = 22%
-    FileStorageMB:            { Max: 332440,   Remaining: 331374  },  // 1066 MB used = 0.3%
-    SingleEmail:              { Max: 5000,     Remaining: 5000    },
-    HourlyTimeBasedWorkflow:  { Max: 1000,     Remaining: 1000    },
-  },
+    "DailyApiRequests": {
+        "Max": 5000000,
+        "Remaining": 4999906
+    },
+    "DailyAsyncApexExecutions": {
+        "Max": 250000,
+        "Remaining": 249998
+    },
+    "DailyBulkApiBatches": {
+        "Max": 15000,
+        "Remaining": 15000
+    },
+    "DataStorageMB": {
+        "Max": 5120,
+        "Remaining": 3987
+    },
+    "FileStorageMB": {
+        "Max": 332440,
+        "Remaining": 331374
+    },
+    "SingleEmail": {
+        "Max": 5000,
+        "Remaining": 5000
+    },
+    "HourlyTimeBasedWorkflow": {
+        "Max": 1000,
+        "Remaining": 1000
+    }
+},
 
   /* Metadata counts */
   metadata: {
-    activeApexClasses:   4224,
-    activeApexTriggers:  158,
-    activeFlows:         217,   // FlowDefinitionView WHERE ActiveVersionId != null
-  },
+    "activeApexClasses": 0,
+    "activeApexTriggers": 0,
+    "activeFlows": 0
+},
 
   /* Scheduled jobs summary */
   scheduledJobs: {
-    total:    20,
-    waiting:  16,   // 16 in WAITING state (healthy)
-    complete: 3,
-    acquired: 1,    // BatchDocgenProcessingCronJob — ACQUIRED (running)
-    jobs: [
-      { name: 'BatchDocgenProcessingCronJob',                        state: 'ACQUIRED',  next: '2026-09-30T02:51:00Z' },
-      { name: 'DC.TELEMETRY',                                        state: 'WAITING',   next: '2026-10-05T06:44:00Z' },
-      { name: 'Privacy Center Audit',                                state: 'WAITING',   next: '2026-10-05T07:00:00Z' },
-      { name: 'Metalytics Dataflow Runner',                          state: 'WAITING',   next: '2026-10-05T07:09:00Z' },
-      { name: 'MciDashboardUpdateJobType',                           state: 'WAITING',   next: '2026-10-05T07:30:00Z' },
-      { name: 'After_Create_Update_Person_Employment_Schedule_Flow', state: 'WAITING',   next: '2026-10-05T20:00:00Z' },
-      { name: 'After_Create_Update_Constituent_Role_Schedule_Flow',  state: 'WAITING',   next: '2026-10-05T21:00:00Z' },
-      { name: 'DC.LICENSE',                                          state: 'WAITING',   next: '2026-10-06T00:00:00Z' },
-      { name: 'CommIncrementalSitemapJob (ascend Portal)',            state: 'WAITING',   next: '2026-10-06T00:45:00Z' },
-      { name: 'SmartDigestJob',                                      state: 'WAITING',   next: '2026-10-05T17:00:00Z' },
-    ],
-  },
+    "total": 27,
+    "waiting": 21,
+    "complete": 5,
+    "acquired": 1,
+    "jobs": [
+        {
+            "name": "287c8878-0d88-a8e9-787e-376a8892842a",
+            "state": "COMPLETE",
+            "next": "2026-09-03T22:00:00Z"
+        },
+        {
+            "name": "4650d5d6-d873-f97d-dd8f-4e7a4c7dc458",
+            "state": "COMPLETE",
+            "next": "2026-09-04T04:00:00Z"
+        },
+        {
+            "name": "cc59d531-2393-5d70-84db-d944d788c3bf",
+            "state": "COMPLETE",
+            "next": "2026-09-14T00:00:00Z"
+        },
+        {
+            "name": "e9069e39-d200-6b03-ce6f-872b8cc108c8",
+            "state": "COMPLETE",
+            "next": "2026-09-15T23:00:00Z"
+        },
+        {
+            "name": "b1e3706a-dba0-da38-ef2e-f264834b9c5e",
+            "state": "COMPLETE",
+            "next": "2026-10-05T03:00:00Z"
+        },
+        {
+            "name": "BatchDocgenProcessingCronJob",
+            "state": "ACQUIRED",
+            "next": "2026-10-07T11:46:00Z"
+        },
+        {
+            "name": "DC.TELEMETRY",
+            "state": "WAITING",
+            "next": "2026-10-12T10:44:00Z"
+        },
+        {
+            "name": "Privacy Center Audit",
+            "state": "WAITING",
+            "next": "2026-10-12T11:00:00Z"
+        },
+        {
+            "name": "Metalytics Data Loader Job for Org : 00DOg000003NRdi",
+            "state": "WAITING",
+            "next": "2026-10-12T12:23:00Z"
+        },
+        {
+            "name": "Retention Usage",
+            "state": "WAITING",
+            "next": "2026-10-12T14:00:00Z"
+        }
+    ]
+},
 
   /* User licences */
   userLicences: [
-    { type: 'Salesforce',                      total: 140,  used: 133 },
-    { type: 'Cloud Integration User',          total: 1,    used: 1   },
-    { type: 'Salesforce Integration',          total: 5,    used: 2   },
-    { type: 'Guest User License',              total: 25,   used: 4   },
-    { type: 'Analytics Cloud Integration',     total: 2,    used: 2   },
-    { type: 'Sales Insights Integration',      total: 1,    used: 1   },
-    { type: 'Chatter Free',                    total: 5000, used: 0   },
-    { type: 'Identity',                        total: 170,  used: 0   },
-  ],
+    {
+        "type": "Chatter Free",
+        "total": 5000,
+        "used": 0
+    },
+    {
+        "type": "External Apps Login",
+        "total": 2020,
+        "used": 0
+    },
+    {
+        "type": "Einstein Agent",
+        "total": 601,
+        "used": 0
+    },
+    {
+        "type": "Chatter External",
+        "total": 500,
+        "used": 0
+    },
+    {
+        "type": "External Einstein Agent",
+        "total": 401,
+        "used": 0
+    },
+    {
+        "type": "Identity",
+        "total": 170,
+        "used": 0
+    },
+    {
+        "type": "Salesforce",
+        "total": 140,
+        "used": 133
+    },
+    {
+        "type": "Guest User License",
+        "total": 25,
+        "used": 4
+    },
+    {
+        "type": "Customer Community Login",
+        "total": 20,
+        "used": 0
+    },
+    {
+        "type": "Salesforce Platform",
+        "total": 10,
+        "used": 0
+    },
+    {
+        "type": "Salesforce Integration",
+        "total": 5,
+        "used": 2
+    },
+    {
+        "type": "Analytics Cloud Integration User",
+        "total": 2,
+        "used": 2
+    },
+    {
+        "type": "Sales Insights Integration User",
+        "total": 1,
+        "used": 1
+    },
+    {
+        "type": "SalesforceIQ Integration User",
+        "total": 1,
+        "used": 1
+    },
+    {
+        "type": "Cloud Integration User",
+        "total": 1,
+        "used": 1
+    }
+],
 
-  /* Active users (top 20, sorted by LastLoginDate DESC) */
+  /* Active users */
   users: [
-    { initials: 'DU', name: 'Dashboard User',          username: 'akshay.kumar@griffith.edu.au.dashboard', userType: 'Standard',         profile: 'System Administrator',           lastLogin: '2026-10-05', loginClass: 'recent' },
-    { initials: 'KU', name: 'Kaviya UC',                username: 'k.uc@griffith.edu.au.sit',               userType: 'Standard',         profile: 'System Administrator',           lastLogin: '2026-10-05', loginClass: 'recent' },
-    { initials: 'AK', name: 'Akshay Kumar',             username: 'akshay.kumar@griffith.edu.au.sit',       userType: 'Standard',         profile: 'System Administrator',           lastLogin: '2026-10-05', loginClass: 'recent' },
-    { initials: 'SD', name: 'Sagar Dey',                username: 's.dey@griffith.edu.au.sit',              userType: 'Standard',         profile: 'System Administrator',           lastLogin: '2026-10-02', loginClass: 'recent' },
-    { initials: 'DU', name: 'Deployment User',          username: 'deploymentuser@griffith.edu.au.sit',     userType: 'Standard',         profile: 'Gearset Integration Administrator', lastLogin: '2026-10-01', loginClass: 'recent' },
-    { initials: 'RA', name: 'Rahul Ahuja',              username: 'r.ahuja@griffith.edu.au.sit',            userType: 'Standard',         profile: 'System Administrator',           lastLogin: '2026-10-01', loginClass: 'recent' },
-    { initials: 'SH', name: 'Sudaif Haider',            username: 's.haider@griffith.edu.au.sit',           userType: 'Standard',         profile: 'System Administrator',           lastLogin: '2026-09-28', loginClass: 'recent' },
-    { initials: 'AS', name: 'Amit Sood',                username: 'a.sood@griffith.edu.au.sit',             userType: 'Standard',         profile: 'System Administrator',           lastLogin: '2026-09-22', loginClass: 'recent' },
-    { initials: 'JF', name: 'Jeremy Fahey',             username: 'j.fahey@griffith.edu.au.sit',            userType: 'Standard',         profile: 'System Administrator',           lastLogin: '2026-09-22', loginClass: 'recent' },
-    { initials: 'HM', name: 'Heidi McKellar',           username: 'h.mckellar@griffith.edu.au.sit',         userType: 'Standard',         profile: 'System Administrator',           lastLogin: '2026-09-22', loginClass: 'recent' },
-    { initials: 'GI', name: 'Gearset Integration User', username: 'gearset@griffith.edu.au.sit',            userType: 'Standard',         profile: 'System Administrator',           lastLogin: null,         loginClass: 'never'  },
-    { initials: 'GU', name: 'ascend Portal Guest',      username: 'ascend_portal@...force.com.sit',         userType: 'Guest',            profile: 'ascend Portal Profile',          lastLogin: null,         loginClass: 'never'  },
-    { initials: 'PV', name: 'Patricia Villalva',        username: 'p.villalva@griffith.edu.au.sit',         userType: 'Standard',         profile: 'System Administrator',           lastLogin: null,         loginClass: 'never'  },
-    { initials: 'DM', name: 'Data Migration User',      username: 'datamigration@griffith.edu.au.sit',      userType: 'Standard',         profile: 'GU Integration',                 lastLogin: null,         loginClass: 'never'  },
-    { initials: 'SY', name: 'System',                   username: 'automatedcase@...ext',                   userType: 'AutomatedProcess', profile: null,                             lastLogin: null,         loginClass: 'never'  },
-    { initials: 'II', name: 'Insights Integration',     username: 'insightsintegration@...ext',             userType: 'Standard',         profile: 'Sales Insights Integration User', lastLogin: null,        loginClass: 'never'  },
-    { initials: 'AI', name: 'Azure Integration User',   username: 'azureintegration@griffith.edu.au.sit',   userType: 'Standard',         profile: 'GU Integration',                 lastLogin: null,         loginClass: 'never'  },
-    { initials: 'DL', name: 'Damon McLellan',           username: 'd.mclellan@griffith.edu.au.sit',         userType: 'Standard',         profile: 'GU Base Profile',                lastLogin: null,         loginClass: 'never'  },
-    { initials: 'SU', name: 'Security User',            username: 'insightssecurity@...com',                userType: 'Standard',         profile: 'Analytics Cloud Security User',   lastLogin: null,         loginClass: 'never'  },
-    { initials: 'IU', name: 'Integration User',         username: 'integration@...com',                     userType: 'Standard',         profile: 'Analytics Cloud Integration User', lastLogin: null,        loginClass: 'never'  },
-  ],
+    {
+        "initials": "DU",
+        "name": "Dashboard User",
+        "username": "akshay.kumar@griffith.edu.au.dashboard",
+        "userType": "Standard",
+        "profile": "System Administrator",
+        "lastLogin": "2026-10-12",
+        "loginClass": "recent"
+    },
+    {
+        "initials": "AK",
+        "name": "Akshay Kumar",
+        "username": "akshay.kumar@griffith.edu.au.sit",
+        "userType": "Standard",
+        "profile": "System Administrator",
+        "lastLogin": "2026-10-12",
+        "loginClass": "recent"
+    },
+    {
+        "initials": "RA",
+        "name": "Rahul Ahuja",
+        "username": "r.ahuja@griffith.edu.au.sit",
+        "userType": "Standard",
+        "profile": "System Administrator",
+        "lastLogin": "2026-10-12",
+        "loginClass": "recent"
+    },
+    {
+        "initials": "SH",
+        "name": "Sudaif Haider",
+        "username": "s.haider@griffith.edu.au.sit",
+        "userType": "Standard",
+        "profile": "System Administrator",
+        "lastLogin": "2026-10-12",
+        "loginClass": "recent"
+    },
+    {
+        "initials": "SD",
+        "name": "Sagar Dey",
+        "username": "sagar.dey@griffith.edu.au.sit",
+        "userType": "Standard",
+        "profile": "System Administrator",
+        "lastLogin": "2026-10-12",
+        "loginClass": "recent"
+    },
+    {
+        "initials": "AS",
+        "name": "Amit Sood",
+        "username": "a.sood@griffith.edu.au.sit",
+        "userType": "Standard",
+        "profile": "System Administrator",
+        "lastLogin": "2026-10-12",
+        "loginClass": "recent"
+    },
+    {
+        "initials": "DU",
+        "name": "Deployment User",
+        "username": "deploymentuser@griffith.edu.au.sit",
+        "userType": "Standard",
+        "profile": "Gearset Integration Administrator",
+        "lastLogin": "2026-10-09",
+        "loginClass": "recent"
+    },
+    {
+        "initials": "KU",
+        "name": "Kaviya UC",
+        "username": "k.uc@griffith.edu.au.sit",
+        "userType": "Standard",
+        "profile": "System Administrator",
+        "lastLogin": "2026-10-08",
+        "loginClass": "recent"
+    },
+    {
+        "initials": "JF",
+        "name": "Jeremy Fahey",
+        "username": "j.fahey@griffith.edu.au.sit",
+        "userType": "Standard",
+        "profile": "System Administrator",
+        "lastLogin": "2026-09-22",
+        "loginClass": "recent"
+    },
+    {
+        "initials": "HM",
+        "name": "Heidi McKellar",
+        "username": "h.mckellar@griffith.edu.au.sit",
+        "userType": "Standard",
+        "profile": "System Administrator",
+        "lastLogin": "2026-09-22",
+        "loginClass": "recent"
+    },
+    {
+        "initials": "GI",
+        "name": "Gearset Integration User",
+        "username": "gearset@griffith.edu.au.sit",
+        "userType": "Standard",
+        "profile": "System Administrator",
+        "lastLogin": null,
+        "loginClass": "never"
+    },
+    {
+        "initials": "AP",
+        "name": "ascend Portal Site Guest User",
+        "username": "ascend_portal@00dmn000001a6tnma0.org.force.com.sit",
+        "userType": "Guest",
+        "profile": "ascend Portal Profile",
+        "lastLogin": null,
+        "loginClass": "never"
+    },
+    {
+        "initials": "PV",
+        "name": "Patricia Villalva",
+        "username": "p.villalva@griffith.edu.au.sit",
+        "userType": "Standard",
+        "profile": "System Administrator",
+        "lastLogin": null,
+        "loginClass": "never"
+    },
+    {
+        "initials": "DM",
+        "name": "Data Migration User",
+        "username": "datamigration@griffith.edu.au.sit",
+        "userType": "Standard",
+        "profile": "GU Integration",
+        "lastLogin": null,
+        "loginClass": "never"
+    },
+    {
+        "initials": "S",
+        "name": "System",
+        "username": "automatedcase@00dog000003nrdimag.ext",
+        "userType": "AutomatedProcess",
+        "profile": null,
+        "lastLogin": null,
+        "loginClass": "never"
+    },
+    {
+        "initials": "II",
+        "name": "Insights Integration",
+        "username": "insightsintegration@00dog000003nrdimag.ext",
+        "userType": "Standard",
+        "profile": "Sales Insights Integration User",
+        "lastLogin": null,
+        "loginClass": "never"
+    },
+    {
+        "initials": "AI",
+        "name": "Azure Integration User",
+        "username": "azureintegration@griffith.edu.au.sit",
+        "userType": "Standard",
+        "profile": "GU Integration",
+        "lastLogin": null,
+        "loginClass": "never"
+    },
+    {
+        "initials": "DM",
+        "name": "Damon McLellan",
+        "username": "d.mclellan@griffith.edu.au.sit",
+        "userType": "Standard",
+        "profile": "GU Base Profile",
+        "lastLogin": null,
+        "loginClass": "never"
+    },
+    {
+        "initials": "SU",
+        "name": "Security User",
+        "username": "insightssecurity@00dog000003nrdimag.com",
+        "userType": "Standard",
+        "profile": "Analytics Cloud Security User",
+        "lastLogin": null,
+        "loginClass": "never"
+    },
+    {
+        "initials": "IU",
+        "name": "Integration User",
+        "username": "integration@00dog000003nrdimag.com",
+        "userType": "Standard",
+        "profile": "Analytics Cloud Integration User",
+        "lastLogin": null,
+        "loginClass": "never"
+    }
+],
 
-  /* Recent deployments from Tooling API */
-  sfDeployments: [
-    { id: '0AfOg000006bf8nKAA', deployedBy: 'Deployment User', checkOnly: true,  componentsDeployed: 0, componentsTotal: 0, errors: 0, status: 'Succeeded', startDate: '2026-10-01T14:30:50Z', durationSec: 0,  components: [] },
-    { id: '0AfOg000006bM1KKAU', deployedBy: 'Deployment User', checkOnly: true,  componentsDeployed: 0, componentsTotal: 0, errors: 0, status: 'Succeeded', startDate: '2026-10-01T07:47:19Z', durationSec: 0,  components: [] },
-    { id: '0AfOg000006aNSVKA2', deployedBy: 'Deployment User', checkOnly: true,  componentsDeployed: 1, componentsTotal: 1, errors: 0, status: 'Succeeded', startDate: '2026-09-30T07:34:28Z', durationSec: 2,  components: [] },
-    { id: '0AfOg000006aCiLKAU', deployedBy: 'Deployment User', checkOnly: false, componentsDeployed: 5, componentsTotal: 5, errors: 0, status: 'Succeeded', startDate: '2026-09-30T01:23:12Z', durationSec: 63, components: [] },
-    { id: '0AfOg000006a7QvKAI', deployedBy: 'Deployment User', checkOnly: true,  componentsDeployed: 5, componentsTotal: 5, errors: 0, status: 'Succeeded', startDate: '2026-09-29T13:31:34Z', durationSec: 48, components: [] },
-    { id: '0AfOg000006a5grKAA', deployedBy: 'Deployment User', checkOnly: true,  componentsDeployed: 3, componentsTotal: 3, errors: 0, status: 'Succeeded', startDate: '2026-09-29T11:21:43Z', durationSec: 3,  components: [] },
-    { id: '0AfOg000006a4rFKAQ', deployedBy: 'Deployment User', checkOnly: true,  componentsDeployed: 0, componentsTotal: 0, errors: 0, status: 'Succeeded', startDate: '2026-09-29T10:13:09Z', durationSec: 1,  components: [] },
-    { id: '0AfOg000006ZynRKAS', deployedBy: 'Deployment User', checkOnly: true,  componentsDeployed: 3, componentsTotal: 3, errors: 0, status: 'Succeeded', startDate: '2026-09-29T05:08:29Z', durationSec: 50, components: [] },
-    { id: '0AfOg000006ZVDZKA4', deployedBy: 'Deployment User', checkOnly: false, componentsDeployed: 1, componentsTotal: 1, errors: 0, status: 'Succeeded', startDate: '2026-09-25T12:44:35Z', durationSec: 6,  components: [] },
-    { id: '0AfOg000006ZTAAKA4', deployedBy: 'Deployment User', checkOnly: true,  componentsDeployed: 1, componentsTotal: 1, errors: 0, status: 'Succeeded', startDate: '2026-09-25T09:13:46Z', durationSec: 7,  components: [] },
-    { id: '0AfOg000006ZQXFKA4', deployedBy: 'Deployment User', checkOnly: false, componentsDeployed: 1, componentsTotal: 1, errors: 0, status: 'Succeeded', startDate: '2026-09-25T07:18:40Z', durationSec: 16, components: [] },
-    { id: '0AfOg000006ZQDtKAO', deployedBy: 'Deployment User', checkOnly: false, componentsDeployed: 1, componentsTotal: 1, errors: 0, status: 'Succeeded', startDate: '2026-09-25T07:15:20Z', durationSec: 3,  components: [] },
-    { id: '0AfOg000006ZF8nKAG', deployedBy: 'Deployment User', checkOnly: true,  componentsDeployed: 1, componentsTotal: 1, errors: 0, status: 'Succeeded', startDate: '2026-09-24T13:20:51Z', durationSec: 5,  components: [] },
-    { id: '0AfOg000006ZEW6KAO', deployedBy: 'Deployment User', checkOnly: true,  componentsDeployed: 1, componentsTotal: 1, errors: 0, status: 'Succeeded', startDate: '2026-09-24T11:31:59Z', durationSec: 23, components: [] },
-    { id: '0AfOg000006Z0RVKA0', deployedBy: 'Deployment User', checkOnly: false, componentsDeployed: 6, componentsTotal: 6, errors: 0, status: 'Succeeded', startDate: '2026-09-24T01:53:06Z', durationSec: 30, components: [] },
-  ],
+  /* Recent deployments */
+  sfDeployments: []
 };
 
 
@@ -1840,11 +2112,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-12 06:23 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-12 10:35 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-12 06:23 UTC',
+  fetchedAt: '2026-10-12 10:35 UTC',
 
   repos: [
     {
@@ -1921,6 +2193,17 @@ const AZURE_DATA = {
         "author": "Sagar-GitHub-18",
         "date": "2026-09-29",
         "comment": "Remove view roles from 3 PS"
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "name": "Feature-SOPS-237",
+        "isDefault": false,
+        "aheadCount": 1,
+        "behindCount": 0,
+        "commitId": "01f039ff",
+        "author": "Sagar-GitHub-18",
+        "date": "2026-10-12",
+        "comment": "Campus__c picklist API name update"
     },
     {
         "repo": "RSDF-SalesforcePlatform",
@@ -2101,13 +2384,13 @@ const AZURE_DATA = {
     {
         "repo": "RSDF-SalesforcePlatform",
         "name": "feature-SOPS-139",
-        "isDefault": true,
-        "aheadCount": 0,
+        "isDefault": false,
+        "aheadCount": 1,
         "behindCount": 0,
-        "commitId": "4eead63e",
-        "author": "akshay.kumar@griffith.edu.au",
-        "date": "2026-08-18",
-        "comment": "Retrieved latest metadata from production and committing to main branch to sync "
+        "commitId": "6fac8df1",
+        "author": "s.haider@griffith.edu.au",
+        "date": "2026-10-12",
+        "comment": "changes for SOPS-139"
     },
     {
         "repo": "RSDF-SalesforcePlatform",
@@ -2562,6 +2845,17 @@ const AZURE_DATA = {
     },
     {
         "repo": "RSDF-SalesforcePlatform",
+        "name": "gs-pipeline/Feature-SOPS-237_-_devmerge",
+        "isDefault": false,
+        "aheadCount": 1,
+        "behindCount": 0,
+        "commitId": "01f039ff",
+        "author": "Sagar-GitHub-18",
+        "date": "2026-10-12",
+        "comment": "Campus__c picklist API name update"
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
         "name": "gs-pipeline/Feature-SOPS-73_-_devmerge",
         "isDefault": false,
         "aheadCount": 4,
@@ -2669,6 +2963,17 @@ const AZURE_DATA = {
         "author": "Team user",
         "date": "2026-10-05",
         "comment": "Gearset: Semantic reverse merge of uat into gs-pipeline/bugFix-SOPS-195_-_uat"
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "name": "gs-pipeline/feature-SOPS-139_-_devmerge",
+        "isDefault": false,
+        "aheadCount": 100,
+        "behindCount": 0,
+        "commitId": "38393e64",
+        "author": "Team user",
+        "date": "2026-10-12",
+        "comment": "Gearset: Semantic reverse merge of devmerge into gs-pipeline/feature-SOPS-139_-_"
     },
     {
         "repo": "RSDF-SalesforcePlatform",
@@ -3136,6 +3441,56 @@ const AZURE_DATA = {
 
   pullRequests: [
     {
+        "id": 9376,
+        "title": "Feature-SOPS-237",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/Feature-SOPS-237_-_devmerge",
+        "targetBranch": "devmerge",
+        "createdBy": "Akshay Kumar",
+        "createdDate": "2026-10-12",
+        "closedDate": null,
+        "reviewers": [
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": true
+    },
+    {
+        "id": 9375,
+        "title": "Feature-SOPS-237",
+        "status": "abandoned",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "Feature-SOPS-237",
+        "targetBranch": "devmerge",
+        "createdBy": "Sagar Dey",
+        "createdDate": "2026-10-12",
+        "closedDate": "2026-10-12",
+        "reviewers": [
+            "Amit Sood",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "",
+        "approved": false
+    },
+    {
+        "id": 9374,
+        "title": "feature-SOPS-139",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/feature-SOPS-139_-_devmerge",
+        "targetBranch": "devmerge",
+        "createdBy": "Sudaif Haider",
+        "createdDate": "2026-10-12",
+        "closedDate": null,
+        "reviewers": [],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
         "id": 9373,
         "title": "feature-SOPS-163n",
         "status": "active",
@@ -3145,7 +3500,9 @@ const AZURE_DATA = {
         "createdBy": "Sudaif Haider",
         "createdDate": "2026-10-12",
         "closedDate": null,
-        "reviewers": [],
+        "reviewers": [
+            "Amit Sood"
+        ],
         "isDraft": false,
         "mergeStatus": "succeeded",
         "approved": false
@@ -4909,67 +5266,66 @@ const AZURE_DATA = {
         "isDraft": false,
         "mergeStatus": "succeeded",
         "approved": false
-    },
-    {
-        "id": 9275,
-        "title": "Feature SOPS 96",
-        "status": "completed",
-        "repo": "RSDF-SalesforcePlatform",
-        "sourceBranch": "gs-pipeline/feature-SOPS-96_-_devmerge",
-        "targetBranch": "devmerge",
-        "createdBy": "Akshay Kumar",
-        "createdDate": "2026-09-21",
-        "closedDate": "2026-09-22",
-        "reviewers": [
-            "Asra Khan",
-            "Amit Sood",
-            "Sudaif Haider",
-            "Rahul Ahuja"
-        ],
-        "isDraft": false,
-        "mergeStatus": "succeeded",
-        "approved": true
-    },
-    {
-        "id": 9274,
-        "title": "Feature SOPS 96",
-        "status": "abandoned",
-        "repo": "RSDF-SalesforcePlatform",
-        "sourceBranch": "feature-SOPS-96",
-        "targetBranch": "devmerge",
-        "createdBy": "Rahul Ahuja",
-        "createdDate": "2026-09-21",
-        "closedDate": "2026-09-21",
-        "reviewers": [
-            "Amit Sood",
-            "Sudaif Haider"
-        ],
-        "isDraft": false,
-        "mergeStatus": "",
-        "approved": false
-    },
-    {
-        "id": 9273,
-        "title": "Feature SOPS 96",
-        "status": "abandoned",
-        "repo": "RSDF-SalesforcePlatform",
-        "sourceBranch": "feature-SOPS-96",
-        "targetBranch": "devmerge",
-        "createdBy": "Rahul Ahuja",
-        "createdDate": "2026-09-21",
-        "closedDate": "2026-09-21",
-        "reviewers": [
-            "Asra Khan",
-            "Amit Sood",
-            "Sudaif Haider"
-        ],
-        "isDraft": false,
-        "mergeStatus": "",
-        "approved": false
     }
 ],
 
   commits: [
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "821ce795",
+        "comment": "Merge pull request 9376 from gs-pipeline/Feature-SOPS-237_-_devmerge into devmerge",
+        "author": "Akshay Kumar",
+        "date": "2026-10-12",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "249cd0ec",
+        "comment": "Merge pull request 9375 from Feature-SOPS-237 into devmerge",
+        "author": "Sagar Dey",
+        "date": "2026-10-12",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "01f039ff",
+        "comment": "Campus__c picklist API name update",
+        "author": "Sagar-GitHub-18",
+        "date": "2026-10-12",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "c9ec86c8",
+        "comment": "Merge pull request 9374 from gs-pipeline/feature-SOPS-139_-_devmerge into devmerge",
+        "author": "Sudaif Haider",
+        "date": "2026-10-12",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "38393e64",
+        "comment": "Gearset: Semantic reverse merge of devmerge into gs-pipeline/feature-SOPS-139_-_devmerge",
+        "author": "Team user",
+        "date": "2026-10-12",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "4ded5bbb",
+        "comment": "Merge pull request 9374 from gs-pipeline/feature-SOPS-139_-_devmerge into devmerge",
+        "author": "Sudaif Haider",
+        "date": "2026-10-12",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "6fac8df1",
+        "comment": "changes for SOPS-139",
+        "author": "s.haider@griffith.edu.au",
+        "date": "2026-10-12",
+        "branch": ""
+    },
     {
         "repo": "RSDF-SalesforcePlatform",
         "commitId": "a4d32f10",
@@ -5071,62 +5427,6 @@ const AZURE_DATA = {
         "commitId": "27e0373b",
         "comment": "Merge pull request 9368 from gs-pipeline/feature-SOPS140_-_uat into uat",
         "author": "Sudaif Haider",
-        "date": "2026-10-09",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "5fcda31c",
-        "comment": "Merged PR 9365: Feature SOPS140",
-        "author": "Sudaif Haider",
-        "date": "2026-10-09",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "6524a7c5",
-        "comment": "Merge pull request 9367 from gs-pipeline/SOPS-87_-_main into main",
-        "author": "Akshay Kumar",
-        "date": "2026-10-09",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "29dead88",
-        "comment": "Merge pull request 9366 from gs-pipeline/feature-sops-104_-_main into main",
-        "author": "Sudaif Haider",
-        "date": "2026-10-09",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "1338a854",
-        "comment": "Merge pull request 9264 from gs-pipeline/SOPS-87_-_uat into uat",
-        "author": "Akshay Kumar",
-        "date": "2026-10-09",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "42a635a0",
-        "comment": "Merge pull request 9350 from gs-pipeline/feature-sops-104_-_uat into uat",
-        "author": "Sudaif Haider",
-        "date": "2026-10-09",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "2ef6fe85",
-        "comment": "Merge pull request 9365 from gs-pipeline/feature-SOPS140_-_sit into sit",
-        "author": "Sudaif Haider",
-        "date": "2026-10-09",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "22562a66",
-        "comment": "Gearset: Semantic reverse merge of sit into gs-pipeline/feature-SOPS140_-_sit",
-        "author": "Team user",
         "date": "2026-10-09",
         "branch": ""
     }
