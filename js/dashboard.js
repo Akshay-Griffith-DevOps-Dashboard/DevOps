@@ -1215,6 +1215,74 @@
   /* ═══════════════════════════════════════════════════
      MAIN RENDER
   ═══════════════════════════════════════════════════ */
+  /* ── Overview: PR by branch table ────────────────── */
+  function renderOverviewPRs() {
+    const tbody = document.getElementById('ov-pr-branch-tbody');
+    if (!tbody) return;
+    const prs = (AZURE_DATA || {}).pullRequests || [];
+    const openPRs = prs.filter(p => (p.status || '').toLowerCase() === 'active');
+
+    const branches = ['devmerge', 'sit', 'uat', 'main'];
+    const byBranch = {};
+    branches.forEach(b => { byBranch[b] = []; });
+    openPRs.forEach(p => {
+      const t = (p.targetBranch || '').toLowerCase().replace('refs/heads/', '');
+      if (byBranch[t]) byBranch[t].push(p);
+      else {
+        // include other branches too
+        if (!byBranch[t]) byBranch[t] = [];
+        byBranch[t].push(p);
+      }
+    });
+
+    // Build rows for the 4 key branches (show even if 0)
+    tbody.innerHTML = branches.map(b => {
+      const list = byBranch[b] || [];
+      const count = list.length;
+      const latest = list[0];
+      const badgeCls = count === 0 ? 'green' : count <= 2 ? 'amber' : 'red';
+      return `<tr>
+        <td><span class="mono" style="font-weight:600">${b}</span></td>
+        <td style="text-align:center"><span class="badge ${badgeCls}">${count}</span></td>
+        <td style="max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${latest ? latest.title : ''}">${latest ? latest.title : '<span class="text-muted">—</span>'}</td>
+        <td>${latest ? (latest.createdBy || '—') : '<span class="text-muted">—</span>'}</td>
+      </tr>`;
+    }).join('');
+
+    const fetchedEl = document.getElementById('ov-pr-fetched');
+    if (fetchedEl) fetchedEl.textContent = AZURE_DATA.fetchedAt || '';
+  }
+
+  /* ── Overview: In UAT issues ──────────────────────── */
+  function renderOverviewUAT() {
+    const tbody = document.getElementById('ov-uat-tbody');
+    const countEl = document.getElementById('ov-uat-count');
+    if (!tbody) return;
+    const issues = (JIRA_DATA || {}).issues || [];
+    const inUAT = issues.filter(i => (i.status || '').toUpperCase() === 'IN UAT');
+
+    if (countEl) countEl.textContent = `${inUAT.length} item${inUAT.length !== 1 ? 's' : ''}`;
+
+    if (!inUAT.length) {
+      tbody.innerHTML = '<tr><td colspan="5" class="empty-row">No items currently In UAT</td></tr>';
+      return;
+    }
+
+    const typeIcon = t => t === 'Bug' ? '🐛' : t === 'Story' ? '📖' : t === 'Epic' ? '⚡' : '📋';
+    const priBadge = p => {
+      const cls = p === 'Highest' || p === 'High' ? 'red' : p === 'Medium' ? 'amber' : 'green';
+      return `<span class="badge ${cls}">${p || '—'}</span>`;
+    };
+
+    tbody.innerHTML = inUAT.map(i => `<tr>
+      <td><a href="${JIRA_DATA.baseUrl}/browse/${i.key}" target="_blank" rel="noopener" class="mono dep-id-link">${i.key} ↗</a></td>
+      <td><span class="text-muted">${typeIcon(i.type)} ${i.type || '—'}</span></td>
+      <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${(i.summary || '').replace(/"/g,'&quot;')}">${i.summary || '—'}</td>
+      <td>${i.assignee || '<span class="text-muted">Unassigned</span>'}</td>
+      <td>${priBadge(i.priority)}</td>
+    </tr>`).join('');
+  }
+
   function renderAll() {
     // Salesforce — from LIVE_DATA
     renderHealthScore();
@@ -1231,10 +1299,12 @@
 
     // Azure — from AZURE_DATA (populated by fetch-azure-data.py / GitHub Actions)
     renderAzure();
+    renderOverviewPRs();
 
     // Jira QA — from JIRA_DATA (populated by fetch-jira-data.py / GitHub Actions)
     renderQA();
     renderSprintTrendChart();
+    renderOverviewUAT();
   }
 
   renderAll();

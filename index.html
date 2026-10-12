@@ -110,7 +110,7 @@
         <div class="score-label-block">
           <span class="score-value-large" id="score-value-large">89</span>
           <span class="score-verdict" id="score-verdict">Healthy</span>
-          <span class="score-caption">Org Health Score</span>
+          <span class="score-caption">DevOps Score</span>
         </div>
 
         <!-- Score breakdown -->
@@ -240,6 +240,39 @@
           </div>
           <div class="inline-warning" id="ua-never-warning" style="display:none"></div>
         </div>
+      </div>
+
+      <!-- PR by branch + In UAT issues row -->
+      <div class="two-col">
+
+        <!-- Open Pull Requests by target branch -->
+        <div class="panel">
+          <div class="panel-header">
+            <span class="panel-title">Open Pull Requests by Branch</span>
+            <span class="panel-meta mono" id="ov-pr-fetched">—</span>
+          </div>
+          <table class="data-table" id="ov-pr-branch-table">
+            <thead><tr><th>Target Branch</th><th style="text-align:center">Open PRs</th><th>Latest PR</th><th>Author</th></tr></thead>
+            <tbody id="ov-pr-branch-tbody">
+              <tr><td colspan="4" class="empty-row">Loading…</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- In UAT issues -->
+        <div class="panel">
+          <div class="panel-header">
+            <span class="panel-title">QA — Items In UAT</span>
+            <span class="panel-meta mono" id="ov-uat-count">—</span>
+          </div>
+          <table class="data-table" id="ov-uat-table">
+            <thead><tr><th>Key</th><th>Type</th><th>Summary</th><th>Assignee</th><th>Priority</th></tr></thead>
+            <tbody id="ov-uat-tbody">
+              <tr><td colspan="5" class="empty-row">Loading…</td></tr>
+            </tbody>
+          </table>
+        </div>
+
       </div>
 
     </section>
