@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-10-12 11:00 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-10-12 11:03 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-10-12 11:00 UTC',
+  fetchedAt: '2026-10-12 11:03 UTC',
 
   sprints: [
     {
@@ -1662,21 +1662,21 @@ const JIRA_DATA = {
 ]
 };
 
-// ── Live SIT Sandbox data (fetched 2026-10-12 11:00 UTC) ────────────────────────────
+// ── Live SIT Sandbox data (fetched 2026-10-12 11:03 UTC) ────────────────────────────
 const LIVE_DATA = {
   org: {
     name:        'GRIFFITH UNIVERSITY',
     instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
     orgId:       '00DOg000003NRdiMAG',
     environment: 'SIT Sandbox',
-    fetchedAt:   '2026-10-12 11:00 UTC',
+    fetchedAt:   '2026-10-12 11:03 UTC',
   },
 
   /* Org limits */
   limits: {
     "DailyApiRequests": {
         "Max": 5000000,
-        "Remaining": 4999887
+        "Remaining": 4999877
     },
     "DailyAsyncApexExecutions": {
         "Max": 250000,
@@ -1714,9 +1714,9 @@ const LIVE_DATA = {
   /* Scheduled jobs summary */
   scheduledJobs: {
     "total": 27,
-    "waiting": 20,
+    "waiting": 21,
     "complete": 5,
-    "acquired": 2,
+    "acquired": 1,
     "jobs": [
         {
             "name": "287c8878-0d88-a8e9-787e-376a8892842a",
@@ -1746,12 +1746,12 @@ const LIVE_DATA = {
         {
             "name": "BatchDocgenProcessingCronJob",
             "state": "ACQUIRED",
-            "next": "2026-10-07T12:18:00Z"
+            "next": "2026-10-07T12:19:00Z"
         },
         {
             "name": "Privacy Center Audit",
-            "state": "ACQUIRED",
-            "next": "2026-10-12T11:00:00Z"
+            "state": "WAITING",
+            "next": "2026-10-12T12:00:00Z"
         },
         {
             "name": "Metalytics Data Loader Job for Org : 00DOg000003NRdi",
@@ -2035,7 +2035,454 @@ const LIVE_DATA = {
 ],
 
   /* Recent deployments */
-  sfDeployments: []
+  sfDeployments: [
+    {
+        "id": "0AfOg000006jrfpKAA",
+        "deployedBy": "Deployment User",
+        "checkOnly": true,
+        "componentsDeployed": 1,
+        "componentsTotal": 1,
+        "errors": 0,
+        "status": "Succeeded",
+        "startDate": "2026-10-09T08:30:14.000+0000",
+        "completedDate": "2026-10-09T08:30:23.000+0000",
+        "durationSec": 9,
+        "stateDetail": "",
+        "components": [
+            {
+                "name": "GU_Base_Ascend",
+                "type": "PermissionSet",
+                "success": true
+            }
+        ]
+    },
+    {
+        "id": "0AfOg000006joejKAA",
+        "deployedBy": "Deployment User",
+        "checkOnly": true,
+        "componentsDeployed": 0,
+        "componentsTotal": 0,
+        "errors": 0,
+        "status": "Succeeded",
+        "startDate": "2026-10-09T07:30:03.000+0000",
+        "completedDate": "2026-10-09T07:30:03.000+0000",
+        "durationSec": 0,
+        "stateDetail": "",
+        "components": []
+    },
+    {
+        "id": "0AfOg000006jfUzKAI",
+        "deployedBy": "Deployment User",
+        "checkOnly": false,
+        "componentsDeployed": 1,
+        "componentsTotal": 1,
+        "errors": 0,
+        "status": "Succeeded",
+        "startDate": "2026-10-09T05:39:57.000+0000",
+        "completedDate": "2026-10-09T05:40:02.000+0000",
+        "durationSec": 5,
+        "stateDetail": "",
+        "components": [
+            {
+                "name": "GU_Duplicate_Check_for_Salesforce_Super_User",
+                "type": "PermissionSet",
+                "success": true
+            }
+        ]
+    },
+    {
+        "id": "0AfOg000006jYAAKA2",
+        "deployedBy": "Deployment User",
+        "checkOnly": true,
+        "componentsDeployed": 1,
+        "componentsTotal": 1,
+        "errors": 0,
+        "status": "Succeeded",
+        "startDate": "2026-10-09T04:15:56.000+0000",
+        "completedDate": "2026-10-09T04:16:01.000+0000",
+        "durationSec": 5,
+        "stateDetail": "",
+        "components": [
+            {
+                "name": "GU_Duplicate_Check_for_Salesforce_Super_User",
+                "type": "PermissionSet",
+                "success": true
+            }
+        ]
+    },
+    {
+        "id": "0AfOg000006gO0sKAE",
+        "deployedBy": "Deployment User",
+        "checkOnly": false,
+        "componentsDeployed": 1,
+        "componentsTotal": 1,
+        "errors": 0,
+        "status": "Succeeded",
+        "startDate": "2026-10-06T10:40:12.000+0000",
+        "completedDate": "2026-10-06T10:40:14.000+0000",
+        "durationSec": 2,
+        "stateDetail": "",
+        "components": [
+            {
+                "name": "Splunk",
+                "type": "PermissionSet",
+                "success": true
+            }
+        ]
+    },
+    {
+        "id": "0AfOg000006gU9VKAU",
+        "deployedBy": "Deployment User",
+        "checkOnly": true,
+        "componentsDeployed": 1,
+        "componentsTotal": 1,
+        "errors": 0,
+        "status": "Succeeded",
+        "startDate": "2026-10-06T10:28:11.000+0000",
+        "completedDate": "2026-10-06T10:28:13.000+0000",
+        "durationSec": 2,
+        "stateDetail": "",
+        "components": [
+            {
+                "name": "Splunk",
+                "type": "PermissionSet",
+                "success": true
+            }
+        ]
+    },
+    {
+        "id": "0AfOg000006f5EqKAI",
+        "deployedBy": "Deployment User",
+        "checkOnly": false,
+        "componentsDeployed": 1,
+        "componentsTotal": 1,
+        "errors": 0,
+        "status": "Succeeded",
+        "startDate": "2026-10-05T09:50:57.000+0000",
+        "completedDate": "2026-10-05T09:51:00.000+0000",
+        "durationSec": 3,
+        "stateDetail": "",
+        "components": [
+            {
+                "name": "ascend Portal Profile",
+                "type": "Profile",
+                "success": true
+            }
+        ]
+    },
+    {
+        "id": "0AfOg000006f5GRKAY",
+        "deployedBy": "Deployment User",
+        "checkOnly": true,
+        "componentsDeployed": 1,
+        "componentsTotal": 1,
+        "errors": 0,
+        "status": "Succeeded",
+        "startDate": "2026-10-05T09:32:27.000+0000",
+        "completedDate": "2026-10-05T09:32:29.000+0000",
+        "durationSec": 2,
+        "stateDetail": "",
+        "components": [
+            {
+                "name": "ascend Portal Profile",
+                "type": "Profile",
+                "success": true
+            }
+        ]
+    },
+    {
+        "id": "0AfOg000006f2f7KAA",
+        "deployedBy": "Deployment User",
+        "checkOnly": false,
+        "componentsDeployed": 3,
+        "componentsTotal": 3,
+        "errors": 0,
+        "status": "Succeeded",
+        "startDate": "2026-10-05T07:22:14.000+0000",
+        "completedDate": "2026-10-05T07:22:18.000+0000",
+        "durationSec": 4,
+        "stateDetail": "",
+        "components": [
+            {
+                "name": "GU_Agent",
+                "type": "PermissionSet",
+                "success": true
+            },
+            {
+                "name": "GU_Future_Students",
+                "type": "PermissionSet",
+                "success": true
+            },
+            {
+                "name": "GU_Marketing_User",
+                "type": "PermissionSet",
+                "success": true
+            }
+        ]
+    },
+    {
+        "id": "0AfOg000006bf8nKAA",
+        "deployedBy": "Deployment User",
+        "checkOnly": true,
+        "componentsDeployed": 0,
+        "componentsTotal": 0,
+        "errors": 0,
+        "status": "Succeeded",
+        "startDate": "2026-10-01T14:30:50.000+0000",
+        "completedDate": "2026-10-01T14:30:50.000+0000",
+        "durationSec": 0,
+        "stateDetail": "",
+        "components": []
+    },
+    {
+        "id": "0AfOg000006bM1KKAU",
+        "deployedBy": "Deployment User",
+        "checkOnly": true,
+        "componentsDeployed": 0,
+        "componentsTotal": 0,
+        "errors": 0,
+        "status": "Succeeded",
+        "startDate": "2026-10-01T07:47:19.000+0000",
+        "completedDate": "2026-10-01T07:47:19.000+0000",
+        "durationSec": 0,
+        "stateDetail": "",
+        "components": []
+    },
+    {
+        "id": "0AfOg000006aNSVKA2",
+        "deployedBy": "Deployment User",
+        "checkOnly": true,
+        "componentsDeployed": 1,
+        "componentsTotal": 1,
+        "errors": 0,
+        "status": "Succeeded",
+        "startDate": "2026-09-30T07:34:28.000+0000",
+        "completedDate": "2026-09-30T07:34:30.000+0000",
+        "durationSec": 2,
+        "stateDetail": "",
+        "components": [
+            {
+                "name": "Splunk",
+                "type": "PermissionSet",
+                "success": true
+            }
+        ]
+    },
+    {
+        "id": "0AfOg000006aCiLKAU",
+        "deployedBy": "Deployment User",
+        "checkOnly": false,
+        "componentsDeployed": 5,
+        "componentsTotal": 5,
+        "errors": 0,
+        "status": "Succeeded",
+        "startDate": "2026-09-30T01:23:12.000+0000",
+        "completedDate": "2026-09-30T01:24:15.000+0000",
+        "durationSec": 63,
+        "stateDetail": "",
+        "components": [
+            {
+                "name": "GU_PTAT_Alert_Email__mdt.GU_Email_Address__c",
+                "type": "CustomField",
+                "success": true
+            },
+            {
+                "name": "GU_PTAT_Alert_Email__mdt",
+                "type": "CustomObject",
+                "success": true
+            },
+            {
+                "name": "GU_PTAT_Alert_Email__mdt.All_Emails",
+                "type": "ListView",
+                "success": true
+            },
+            {
+                "name": "GU_PTAT_Alert_Email__mdt-GU PTAT Alert Email Layout",
+                "type": "Layout",
+                "success": true
+            },
+            {
+                "name": "GU_Missing_PTAT_Alert_Flow",
+                "type": "Flow",
+                "success": true
+            }
+        ]
+    },
+    {
+        "id": "0AfOg000006a7QvKAI",
+        "deployedBy": "Deployment User",
+        "checkOnly": true,
+        "componentsDeployed": 5,
+        "componentsTotal": 5,
+        "errors": 0,
+        "status": "Succeeded",
+        "startDate": "2026-09-29T13:31:34.000+0000",
+        "completedDate": "2026-09-29T13:32:22.000+0000",
+        "durationSec": 48,
+        "stateDetail": "",
+        "components": [
+            {
+                "name": "GU_PTAT_Alert_Email__mdt.GU_Email_Address__c",
+                "type": "CustomField",
+                "success": true
+            },
+            {
+                "name": "GU_PTAT_Alert_Email__mdt",
+                "type": "CustomObject",
+                "success": true
+            },
+            {
+                "name": "GU_PTAT_Alert_Email__mdt.All_Emails",
+                "type": "ListView",
+                "success": true
+            },
+            {
+                "name": "GU_PTAT_Alert_Email__mdt-GU PTAT Alert Email Layout",
+                "type": "Layout",
+                "success": true
+            },
+            {
+                "name": "GU_Missing_PTAT_Alert_Flow",
+                "type": "Flow",
+                "success": true
+            }
+        ]
+    },
+    {
+        "id": "0AfOg000006a5grKAA",
+        "deployedBy": "Deployment User",
+        "checkOnly": true,
+        "componentsDeployed": 3,
+        "componentsTotal": 3,
+        "errors": 0,
+        "status": "Succeeded",
+        "startDate": "2026-09-29T11:21:43.000+0000",
+        "completedDate": "2026-09-29T11:21:46.000+0000",
+        "durationSec": 3,
+        "stateDetail": "",
+        "components": [
+            {
+                "name": "GU_Agent",
+                "type": "PermissionSet",
+                "success": true
+            },
+            {
+                "name": "GU_Future_Students",
+                "type": "PermissionSet",
+                "success": true
+            },
+            {
+                "name": "GU_Marketing_User",
+                "type": "PermissionSet",
+                "success": true
+            }
+        ]
+    },
+    {
+        "id": "0AfOg000006a4rFKAQ",
+        "deployedBy": "Deployment User",
+        "checkOnly": true,
+        "componentsDeployed": 0,
+        "componentsTotal": 0,
+        "errors": 0,
+        "status": "Succeeded",
+        "startDate": "2026-09-29T10:13:09.000+0000",
+        "completedDate": "2026-09-29T10:13:10.000+0000",
+        "durationSec": 1,
+        "stateDetail": "",
+        "components": []
+    },
+    {
+        "id": "0AfOg000006ZynRKAS",
+        "deployedBy": "Deployment User",
+        "checkOnly": true,
+        "componentsDeployed": 3,
+        "componentsTotal": 3,
+        "errors": 0,
+        "status": "Succeeded",
+        "startDate": "2026-09-29T05:08:29.000+0000",
+        "completedDate": "2026-09-29T05:09:19.000+0000",
+        "durationSec": 50,
+        "stateDetail": "",
+        "components": [
+            {
+                "name": "GU_PTAT_Alert_Email__mdt.GU_Email_Address__c",
+                "type": "CustomField",
+                "success": true
+            },
+            {
+                "name": "GU_PTAT_Alert_Email__mdt",
+                "type": "CustomObject",
+                "success": true
+            },
+            {
+                "name": "GU_Missing_PTAT_Alert_Flow",
+                "type": "Flow",
+                "success": true
+            }
+        ]
+    },
+    {
+        "id": "0AfOg000006ZVDZKA4",
+        "deployedBy": "Deployment User",
+        "checkOnly": false,
+        "componentsDeployed": 1,
+        "componentsTotal": 1,
+        "errors": 0,
+        "status": "Succeeded",
+        "startDate": "2026-09-25T12:44:35.000+0000",
+        "completedDate": "2026-09-25T12:44:41.000+0000",
+        "durationSec": 6,
+        "stateDetail": "",
+        "components": [
+            {
+                "name": "Account",
+                "type": "CustomObject",
+                "success": true
+            }
+        ]
+    },
+    {
+        "id": "0AfOg000006ZTAAKA4",
+        "deployedBy": "Deployment User",
+        "checkOnly": true,
+        "componentsDeployed": 1,
+        "componentsTotal": 1,
+        "errors": 0,
+        "status": "Succeeded",
+        "startDate": "2026-09-25T09:13:46.000+0000",
+        "completedDate": "2026-09-25T09:13:53.000+0000",
+        "durationSec": 7,
+        "stateDetail": "",
+        "components": [
+            {
+                "name": "Account",
+                "type": "CustomObject",
+                "success": true
+            }
+        ]
+    },
+    {
+        "id": "0AfOg000006ZQXFKA4",
+        "deployedBy": "Deployment User",
+        "checkOnly": false,
+        "componentsDeployed": 1,
+        "componentsTotal": 1,
+        "errors": 0,
+        "status": "Succeeded",
+        "startDate": "2026-09-25T07:18:40.000+0000",
+        "completedDate": "2026-09-25T07:18:56.000+0000",
+        "durationSec": 16,
+        "stateDetail": "",
+        "components": [
+            {
+                "name": "GU_Integration",
+                "type": "PermissionSet",
+                "success": true
+            }
+        ]
+    }
+]
 };
 
 
@@ -2112,11 +2559,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-12 11:00 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-12 11:03 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-12 11:00 UTC',
+  fetchedAt: '2026-10-12 11:03 UTC',
 
   repos: [
     {
@@ -3045,12 +3492,12 @@ const AZURE_DATA = {
         "repo": "RSDF-SalesforcePlatform",
         "name": "gs-pipeline/feature-SOPS-163n_-_devmerge",
         "isDefault": false,
-        "aheadCount": 100,
+        "aheadCount": 2,
         "behindCount": 0,
-        "commitId": "24dd3bdb",
-        "author": "s.haider@griffith.edu.au",
+        "commitId": "29983e4a",
+        "author": "Sudaif",
         "date": "2026-10-12",
-        "comment": "Gearset: Conflicts resolved. Merging branch devmerge into gs-pipeline/feature-SO"
+        "comment": "SOPS-163n Deployment Fix"
     },
     {
         "repo": "RSDF-SalesforcePlatform",
@@ -3452,6 +3899,36 @@ const AZURE_DATA = {
 
   pullRequests: [
     {
+        "id": 9378,
+        "title": "Feature SOPS 163n",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/feature-SOPS-163n_-_devmerge",
+        "targetBranch": "devmerge",
+        "createdBy": "Sudaif Haider",
+        "createdDate": "2026-10-12",
+        "closedDate": null,
+        "reviewers": [],
+        "isDraft": false,
+        "mergeStatus": "conflicts",
+        "approved": false
+    },
+    {
+        "id": 9377,
+        "title": "Feature SOPS 163n",
+        "status": "abandoned",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "feature-SOPS-163n",
+        "targetBranch": "devmerge",
+        "createdBy": "Sudaif Haider",
+        "createdDate": "2026-10-12",
+        "closedDate": "2026-10-12",
+        "reviewers": [],
+        "isDraft": false,
+        "mergeStatus": "",
+        "approved": false
+    },
+    {
         "id": 9376,
         "title": "Feature-SOPS-237",
         "status": "active",
@@ -3504,18 +3981,18 @@ const AZURE_DATA = {
     {
         "id": 9373,
         "title": "feature-SOPS-163n",
-        "status": "active",
+        "status": "abandoned",
         "repo": "RSDF-SalesforcePlatform",
         "sourceBranch": "gs-pipeline/feature-SOPS-163n_-_devmerge",
         "targetBranch": "devmerge",
         "createdBy": "Sudaif Haider",
         "createdDate": "2026-10-12",
-        "closedDate": null,
+        "closedDate": "2026-10-12",
         "reviewers": [
             "Amit Sood"
         ],
         "isDraft": false,
-        "mergeStatus": "succeeded",
+        "mergeStatus": "",
         "approved": false
     },
     {
@@ -5234,45 +5711,6 @@ const AZURE_DATA = {
             "Akshay Kumar",
             "Sudaif Haider",
             "Rahul Ahuja"
-        ],
-        "isDraft": false,
-        "mergeStatus": "succeeded",
-        "approved": false
-    },
-    {
-        "id": 9277,
-        "title": "Feature SOPS 96",
-        "status": "abandoned",
-        "repo": "RSDF-SalesforcePlatform",
-        "sourceBranch": "gs-pipeline/feature-SOPS-96_-_sit",
-        "targetBranch": "sit",
-        "createdBy": "Akshay Kumar",
-        "createdDate": "2026-09-22",
-        "closedDate": "2026-09-23",
-        "reviewers": [
-            "Asra Khan",
-            "Amit Sood",
-            "Sudaif Haider",
-            "Rahul Ahuja"
-        ],
-        "isDraft": false,
-        "mergeStatus": "",
-        "approved": false
-    },
-    {
-        "id": 9276,
-        "title": "feature-SOPS-159",
-        "status": "completed",
-        "repo": "RSDF-SalesforcePlatform",
-        "sourceBranch": "gs-pipeline/feature-SOPS-159_-_uat",
-        "targetBranch": "uat",
-        "createdBy": "Sudaif Haider",
-        "createdDate": "2026-09-22",
-        "closedDate": "2026-09-25",
-        "reviewers": [
-            "Amit Sood",
-            "Akshay Kumar",
-            "Sudaif Haider"
         ],
         "isDraft": false,
         "mergeStatus": "succeeded",
