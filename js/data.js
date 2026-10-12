@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-10-12 00:24 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-10-12 06:23 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-10-12 00:24 UTC',
+  fetchedAt: '2026-10-12 06:23 UTC',
 
   sprints: [
     {
@@ -96,13 +96,28 @@ const JIRA_DATA = {
 
   issues: [
     {
+        "key": "SOPS-150",
+        "summary": "OWD Remediation :  Restrict Learner Program OWD to Private",
+        "type": "Story",
+        "status": "IN SIT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Kaviya UC",
+        "reporter": "Sudaif Haider",
+        "created": "2026-09-11",
+        "updated": "2026-10-12",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
         "key": "SOPS-141",
         "summary": "OWD Remediation :  Change Individual Object OWD from ReadWrite to Private",
         "type": "Story",
-        "status": "Ready For Merge",
+        "status": "IN SIT",
         "statusCat": "In Progress",
         "priority": "Medium",
-        "assignee": "Amit Sood",
+        "assignee": "Kaviya UC",
         "reporter": "Sudaif Haider",
         "created": "2026-09-11",
         "updated": "2026-10-12",
@@ -114,6 +129,51 @@ const JIRA_DATA = {
         "key": "SOPS-145",
         "summary": "OWD Remediation :  Change Lead OWD from ReadWriteTransfer to Private",
         "type": "Story",
+        "status": "IN SIT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Kaviya UC",
+        "reporter": "Sudaif Haider",
+        "created": "2026-09-11",
+        "updated": "2026-10-12",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-140",
+        "summary": "OWD Remediation :  Audit and Restrict Access to Dupcheck and OB_Archiver Objects via Permission Sets",
+        "type": "Story",
+        "status": "IN SIT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Kaviya UC",
+        "reporter": "Sudaif Haider",
+        "created": "2026-09-11",
+        "updated": "2026-10-12",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-206",
+        "summary": "Speed #2 - Advancement future stories backlog",
+        "type": "Epic",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Unassigned",
+        "reporter": "Asra Khan",
+        "created": "2026-09-29",
+        "updated": "2026-10-12",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-139",
+        "summary": "OWD Remediation :  Restrict External & Internal OWD on Contact Point Social to Private",
+        "type": "Story",
         "status": "Ready For Merge",
         "statusCat": "In Progress",
         "priority": "Medium",
@@ -126,16 +186,16 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
-        "key": "SOPS-150",
-        "summary": "OWD Remediation :  Restrict Learner Program OWD to Private",
+        "key": "SOPS-163",
+        "summary": "Profile Remediation : Delete unused custom profiles in production",
         "type": "Story",
-        "status": "MERGE",
+        "status": "Ready For Merge",
         "statusCat": "In Progress",
         "priority": "Medium",
-        "assignee": "Sagar Dey",
-        "reporter": "Sudaif Haider",
+        "assignee": "Amit Sood",
+        "reporter": "Amit Sood",
         "created": "2026-09-11",
-        "updated": "2026-10-09",
+        "updated": "2026-10-12",
         "labels": [],
         "fixVersions": [],
         "storyPoints": null
@@ -436,21 +496,6 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
-        "key": "SOPS-140",
-        "summary": "OWD Remediation :  Audit and Restrict Access to Dupcheck and OB_Archiver Objects via Permission Sets",
-        "type": "Story",
-        "status": "IN SIT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Sudaif Haider",
-        "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
-        "updated": "2026-10-09",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-87",
         "summary": "Sharing Rules Remediation - Include Student Recruitment Opportunity in the Advancement sharing rule",
         "type": "Story",
@@ -490,21 +535,6 @@ const JIRA_DATA = {
         "assignee": "Unassigned",
         "reporter": "Asra Khan",
         "created": "2026-10-05",
-        "updated": "2026-10-09",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-139",
-        "summary": "OWD Remediation :  Restrict External & Internal OWD on Contact Point Social to Private",
-        "type": "Story",
-        "status": "In DEV",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Amit Sood",
-        "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
         "updated": "2026-10-09",
         "labels": [],
         "fixVersions": [],
@@ -672,21 +702,6 @@ const JIRA_DATA = {
         "assignee": "Frank Nigro",
         "reporter": "Giles Bill",
         "created": "2026-08-21",
-        "updated": "2026-10-08",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-163",
-        "summary": "Profile Remediation : Delete unused custom profiles in production",
-        "type": "Story",
-        "status": "Ready For Merge",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Amit Sood",
-        "reporter": "Amit Sood",
-        "created": "2026-09-11",
         "updated": "2026-10-08",
         "labels": [],
         "fixVersions": [],
@@ -1643,23 +1658,6 @@ const JIRA_DATA = {
         "labels": [],
         "fixVersions": [],
         "storyPoints": null
-    },
-    {
-        "key": "SOPS-15",
-        "summary": "Remediate Azure Integration App Connected App Security Configuration",
-        "type": "Story",
-        "status": "Blocked",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Amit Sood",
-        "reporter": "Amit Sood",
-        "created": "2026-07-31",
-        "updated": "2026-10-05",
-        "labels": [
-            "Blocked"
-        ],
-        "fixVersions": [],
-        "storyPoints": null
     }
 ]
 };
@@ -1842,11 +1840,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-12 00:24 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-12 06:23 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-12 00:24 UTC',
+  fetchedAt: '2026-10-12 06:23 UTC',
 
   repos: [
     {
@@ -2102,6 +2100,17 @@ const AZURE_DATA = {
     },
     {
         "repo": "RSDF-SalesforcePlatform",
+        "name": "feature-SOPS-139",
+        "isDefault": true,
+        "aheadCount": 0,
+        "behindCount": 0,
+        "commitId": "4eead63e",
+        "author": "akshay.kumar@griffith.edu.au",
+        "date": "2026-08-18",
+        "comment": "Retrieved latest metadata from production and committing to main branch to sync "
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
         "name": "feature-SOPS-145",
         "isDefault": true,
         "aheadCount": 0,
@@ -2143,6 +2152,17 @@ const AZURE_DATA = {
         "author": "s.haider@griffith.edu.au",
         "date": "2026-10-08",
         "comment": "Changes for SOPS-163"
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "name": "feature-SOPS-163n",
+        "isDefault": false,
+        "aheadCount": 1,
+        "behindCount": 0,
+        "commitId": "75697b08",
+        "author": "s.haider@griffith.edu.au",
+        "date": "2026-10-12",
+        "comment": "changes for SOPS-163"
     },
     {
         "repo": "RSDF-SalesforcePlatform",
@@ -2707,6 +2727,17 @@ const AZURE_DATA = {
     },
     {
         "repo": "RSDF-SalesforcePlatform",
+        "name": "gs-pipeline/feature-SOPS-163n_-_devmerge",
+        "isDefault": false,
+        "aheadCount": 100,
+        "behindCount": 0,
+        "commitId": "24dd3bdb",
+        "author": "s.haider@griffith.edu.au",
+        "date": "2026-10-12",
+        "comment": "Gearset: Conflicts resolved. Merging branch devmerge into gs-pipeline/feature-SO"
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
         "name": "gs-pipeline/feature-SOPS-28_-_main",
         "isDefault": false,
         "aheadCount": 1,
@@ -3104,6 +3135,21 @@ const AZURE_DATA = {
 ],
 
   pullRequests: [
+    {
+        "id": 9373,
+        "title": "feature-SOPS-163n",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/feature-SOPS-163n_-_devmerge",
+        "targetBranch": "devmerge",
+        "createdBy": "Sudaif Haider",
+        "createdDate": "2026-10-12",
+        "closedDate": null,
+        "reviewers": [],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
     {
         "id": 9372,
         "title": "Defect Fix SOPS-234",
@@ -4920,28 +4966,34 @@ const AZURE_DATA = {
         "isDraft": false,
         "mergeStatus": "",
         "approved": false
-    },
-    {
-        "id": 9272,
-        "title": "feature-SOPS-159",
-        "status": "completed",
-        "repo": "RSDF-SalesforcePlatform",
-        "sourceBranch": "gs-pipeline/feature-SOPS-159_-_sit",
-        "targetBranch": "sit",
-        "createdBy": "Sudaif Haider",
-        "createdDate": "2026-09-21",
-        "closedDate": "2026-09-22",
-        "reviewers": [
-            "Amit Sood",
-            "Sudaif Haider"
-        ],
-        "isDraft": false,
-        "mergeStatus": "succeeded",
-        "approved": false
     }
 ],
 
   commits: [
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "a4d32f10",
+        "comment": "Merge pull request 9373 from gs-pipeline/feature-SOPS-163n_-_devmerge into devmerge",
+        "author": "Sudaif Haider",
+        "date": "2026-10-12",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "24dd3bdb",
+        "comment": "Gearset: Conflicts resolved. Merging branch devmerge into gs-pipeline/feature-SOPS-163n_-_devmerge",
+        "author": "s.haider@griffith.edu.au",
+        "date": "2026-10-12",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "75697b08",
+        "comment": "changes for SOPS-163",
+        "author": "s.haider@griffith.edu.au",
+        "date": "2026-10-12",
+        "branch": ""
+    },
     {
         "repo": "RSDF-SalesforcePlatform",
         "commitId": "978ffa99",
@@ -5075,30 +5127,6 @@ const AZURE_DATA = {
         "commitId": "22562a66",
         "comment": "Gearset: Semantic reverse merge of sit into gs-pipeline/feature-SOPS140_-_sit",
         "author": "Team user",
-        "date": "2026-10-09",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "1bbe8ead",
-        "comment": "Merge pull request 9365 from gs-pipeline/feature-SOPS140_-_sit into sit",
-        "author": "Sudaif Haider",
-        "date": "2026-10-09",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "5cc2cef2",
-        "comment": "Merged PR 9363: Feature SOPS140",
-        "author": "Sudaif Haider",
-        "date": "2026-10-09",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "15c4d729",
-        "comment": "Merge pull request 9364 from gs-pipeline/Feature-SOPS-73_-_main into main",
-        "author": "Akshay Kumar",
         "date": "2026-10-09",
         "branch": ""
     }
