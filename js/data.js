@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-10-12 18:17 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-10-13 00:26 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-10-12 18:17 UTC',
+  fetchedAt: '2026-10-13 00:26 UTC',
 
   sprints: [
     {
@@ -1662,25 +1662,25 @@ const JIRA_DATA = {
 ]
 };
 
-// ── Live SIT Sandbox data (fetched 2026-10-12 18:17 UTC) ────────────────────────────
+// ── Live SIT Sandbox data (fetched 2026-10-13 00:25 UTC) ────────────────────────────
 const LIVE_DATA = {
   org: {
     name:        'GRIFFITH UNIVERSITY',
     instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
     orgId:       '00DOg000003NRdiMAG',
     environment: 'SIT Sandbox',
-    fetchedAt:   '2026-10-12 18:17 UTC',
+    fetchedAt:   '2026-10-13 00:25 UTC',
   },
 
   /* Org limits */
   limits: {
     "DailyApiRequests": {
         "Max": 5000000,
-        "Remaining": 4999552
+        "Remaining": 4999489
     },
     "DailyAsyncApexExecutions": {
         "Max": 250000,
-        "Remaining": 249989
+        "Remaining": 249982
     },
     "DailyBulkApiBatches": {
         "Max": 15000,
@@ -1714,9 +1714,9 @@ const LIVE_DATA = {
   /* Scheduled jobs summary */
   scheduledJobs: {
     "total": 27,
-    "waiting": 21,
+    "waiting": 22,
     "complete": 5,
-    "acquired": 1,
+    "acquired": 0,
     "jobs": [
         {
             "name": "287c8878-0d88-a8e9-787e-376a8892842a",
@@ -1745,28 +1745,28 @@ const LIVE_DATA = {
         },
         {
             "name": "BatchDocgenProcessingCronJob",
-            "state": "ACQUIRED",
-            "next": "2026-10-07T21:08:00Z"
-        },
-        {
-            "name": "DC.IN_APP_NOTIFICATIONS",
             "state": "WAITING",
-            "next": "2026-10-12T18:30:00Z"
+            "next": "2026-10-08T03:05:00Z"
         },
         {
             "name": "DC.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-10-12T18:44:00Z"
+            "next": "2026-10-13T00:44:00Z"
+        },
+        {
+            "name": "CommIncrementalSitemapJob-00DOg000003NRdi-0DMMp0000001ML4",
+            "state": "WAITING",
+            "next": "2026-10-13T00:45:08Z"
+        },
+        {
+            "name": "CommIncrementalSitemapJob-00DOg000003NRdi-0DMMn0000000Y4y",
+            "state": "WAITING",
+            "next": "2026-10-13T00:57:44Z"
         },
         {
             "name": "Privacy Center Audit",
             "state": "WAITING",
-            "next": "2026-10-12T19:00:00Z"
-        },
-        {
-            "name": "After_Create_Update_Person_Employment_Schedule_Flow-1",
-            "state": "WAITING",
-            "next": "2026-10-12T20:00:00Z"
+            "next": "2026-10-13T01:00:00Z"
         }
     ]
 },
@@ -1858,7 +1858,7 @@ const LIVE_DATA = {
         "username": "akshay.kumar@griffith.edu.au.dashboard",
         "userType": "Standard",
         "profile": "System Administrator",
-        "lastLogin": "2026-10-12",
+        "lastLogin": "2026-10-13",
         "loginClass": "recent"
     },
     {
@@ -2553,11 +2553,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-12 18:17 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-13 00:25 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-12 18:17 UTC',
+  fetchedAt: '2026-10-13 00:25 UTC',
 
   repos: [
     {
