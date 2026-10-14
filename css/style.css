@@ -96,6 +96,14 @@ body {
   text-decoration: none;
 }
 
+.brand-logo-img {
+  height: 34px;
+  width: 34px;
+  object-fit: contain;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
 .brand-mark {
   background: var(--gold);
   color: var(--navy);
