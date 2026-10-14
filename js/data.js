@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-10-13 18:22 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-10-14 00:32 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-10-13 18:22 UTC',
+  fetchedAt: '2026-10-14 00:32 UTC',
 
   sprints: [
     {
@@ -95,6 +95,81 @@ const JIRA_DATA = {
 ],
 
   issues: [
+    {
+        "key": "SOPS-204",
+        "summary": "DS Guidance on Strategic Integration & Data Architecture",
+        "type": "Task",
+        "status": "ISSUES",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Unassigned",
+        "reporter": "Frank Nigro",
+        "created": "2026-09-29",
+        "updated": "2026-10-14",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-205",
+        "summary": "Cost Model \\ Projections (D360)",
+        "type": "Task",
+        "status": "Risks",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Frank Nigro",
+        "reporter": "Frank Nigro",
+        "created": "2026-09-29",
+        "updated": "2026-10-14",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-75",
+        "summary": "Dependancy - PTAT Sync.: Datahub/SF Staging",
+        "type": "Task",
+        "status": "Monitor",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Unassigned",
+        "reporter": "Mani Maran Mani",
+        "created": "2026-08-28",
+        "updated": "2026-10-14",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-232",
+        "summary": "CO Approval",
+        "type": "Task",
+        "status": "Risks",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Frank Nigro",
+        "reporter": "Frank Nigro",
+        "created": "2026-10-06",
+        "updated": "2026-10-14",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-231",
+        "summary": "Risk - Remediation Scope",
+        "type": "Task",
+        "status": "Monitor",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Frank Nigro",
+        "reporter": "Frank Nigro",
+        "created": "2026-10-06",
+        "updated": "2026-10-14",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
     {
         "key": "SOPS-163",
         "summary": "Profile Remediation : Delete unused custom profiles in production",
@@ -1041,36 +1116,6 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
-        "key": "SOPS-231",
-        "summary": "Remediation Scope",
-        "type": "Task",
-        "status": "Risks",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Frank Nigro",
-        "reporter": "Frank Nigro",
-        "created": "2026-10-06",
-        "updated": "2026-10-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-232",
-        "summary": "CO Approval",
-        "type": "Task",
-        "status": "Risks",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Frank Nigro",
-        "reporter": "Frank Nigro",
-        "created": "2026-10-06",
-        "updated": "2026-10-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-77",
         "summary": "Monitor - Identification of Regression Testing Scope",
         "type": "Task",
@@ -1101,21 +1146,6 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
-        "key": "SOPS-204",
-        "summary": "DS Guidance on Strategic Integration & Data Architecture",
-        "type": "Task",
-        "status": "ISSUES",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Unassigned",
-        "reporter": "Frank Nigro",
-        "created": "2026-09-29",
-        "updated": "2026-10-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-99",
         "summary": "Monitor - GU BAU Team",
         "type": "Task",
@@ -1125,21 +1155,6 @@ const JIRA_DATA = {
         "assignee": "Unassigned",
         "reporter": "Frank Nigro",
         "created": "2026-09-04",
-        "updated": "2026-10-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-205",
-        "summary": "Cost Model \\ Projections (D360)",
-        "type": "Task",
-        "status": "Risks",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Unassigned",
-        "reporter": "Frank Nigro",
-        "created": "2026-09-29",
         "updated": "2026-10-06",
         "labels": [],
         "fixVersions": [],
@@ -1643,44 +1658,29 @@ const JIRA_DATA = {
         ],
         "fixVersions": [],
         "storyPoints": null
-    },
-    {
-        "key": "SOPS-83",
-        "summary": "Document Developer ways of working",
-        "type": "Story",
-        "status": "Review & Approval",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Giles Bill",
-        "reporter": "Giles Bill",
-        "created": "2026-08-31",
-        "updated": "2026-10-05",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
     }
 ]
 };
 
-// ── Live SIT Sandbox data (fetched 2026-10-13 18:22 UTC) ────────────────────────────
+// ── Live SIT Sandbox data (fetched 2026-10-14 00:32 UTC) ────────────────────────────
 const LIVE_DATA = {
   org: {
     name:        'GRIFFITH UNIVERSITY',
     instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
     orgId:       '00DOg000003NRdiMAG',
     environment: 'SIT Sandbox',
-    fetchedAt:   '2026-10-13 18:22 UTC',
+    fetchedAt:   '2026-10-14 00:32 UTC',
   },
 
   /* Org limits */
   limits: {
     "DailyApiRequests": {
         "Max": 5000000,
-        "Remaining": 4999985
+        "Remaining": 4999921
     },
     "DailyAsyncApexExecutions": {
         "Max": 250000,
-        "Remaining": 249998
+        "Remaining": 249991
     },
     "DailyBulkApiBatches": {
         "Max": 15000,
@@ -1746,27 +1746,27 @@ const LIVE_DATA = {
         {
             "name": "BatchDocgenProcessingCronJob",
             "state": "ACQUIRED",
-            "next": "2026-10-08T22:26:00Z"
-        },
-        {
-            "name": "DC.IN_APP_NOTIFICATIONS",
-            "state": "WAITING",
-            "next": "2026-10-13T18:30:00Z"
+            "next": "2026-10-09T06:18:00Z"
         },
         {
             "name": "DC.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-10-13T18:44:00Z"
+            "next": "2026-10-14T00:44:00Z"
+        },
+        {
+            "name": "CommIncrementalSitemapJob-00DOg000003NRdi-0DMMp0000001ML4",
+            "state": "WAITING",
+            "next": "2026-10-14T00:45:08Z"
+        },
+        {
+            "name": "CommIncrementalSitemapJob-00DOg000003NRdi-0DMMn0000000Y4y",
+            "state": "WAITING",
+            "next": "2026-10-14T00:57:44Z"
         },
         {
             "name": "Privacy Center Audit",
             "state": "WAITING",
-            "next": "2026-10-13T19:00:00Z"
-        },
-        {
-            "name": "After_Create_Update_Person_Employment_Schedule_Flow-1",
-            "state": "WAITING",
-            "next": "2026-10-13T20:00:00Z"
+            "next": "2026-10-14T01:00:00Z"
         }
     ]
 },
@@ -1858,7 +1858,7 @@ const LIVE_DATA = {
         "username": "akshay.kumar@griffith.edu.au.dashboard",
         "userType": "Standard",
         "profile": "System Administrator",
-        "lastLogin": "2026-10-13",
+        "lastLogin": "2026-10-14",
         "loginClass": "recent"
     },
     {
@@ -2622,11 +2622,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-13 18:22 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-14 00:32 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-13 18:22 UTC',
+  fetchedAt: '2026-10-14 00:32 UTC',
 
   repos: [
     {
