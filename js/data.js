@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-10-14 00:32 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-10-14 06:32 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-10-14 00:32 UTC',
+  fetchedAt: '2026-10-14 06:32 UTC',
 
   sprints: [
     {
@@ -96,6 +96,177 @@ const JIRA_DATA = {
 
   issues: [
     {
+        "key": "SOPS-238",
+        "summary": "QA : Test Scripts & Test Execution",
+        "type": "Sub-task",
+        "status": "In Progress",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Kaviya UC",
+        "reporter": "Kaviya UC",
+        "created": "2026-10-14",
+        "updated": "2026-10-14",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-149",
+        "summary": "OWD Remediation :  Restrict Internal OWD on STG Staging Objects from Public Read to Private",
+        "type": "Story",
+        "status": "IN SIT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Kaviya UC",
+        "reporter": "Sudaif Haider",
+        "created": "2026-09-11",
+        "updated": "2026-10-14",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-202",
+        "summary": "[UAT|SIT] Automation/ Batch process is not triggering and updating the status as 'Reviewed', when Payment Amount = Gift ",
+        "type": "Bug",
+        "status": "IN UAT",
+        "statusCat": "In Progress",
+        "priority": "High",
+        "assignee": "Sudaif Haider",
+        "reporter": "Kaviya UC",
+        "created": "2026-09-28",
+        "updated": "2026-10-14",
+        "labels": [
+            "RAC:Coding/Logic_Issue"
+        ],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-199",
+        "summary": "Notify the PTAT load owner when a new Learning Program is created",
+        "type": "Story",
+        "status": "READY FOR UAT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Asra Khan",
+        "created": "2026-09-28",
+        "updated": "2026-10-14",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-160",
+        "summary": "Permission Set Remediation : Rationalise redundant GU_ascend permission sets",
+        "type": "Story",
+        "status": "IN SIT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Kaviya UC",
+        "reporter": "Amit Sood",
+        "created": "2026-09-11",
+        "updated": "2026-10-14",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-42",
+        "summary": "Staging application records fail PTAT lookup \u2014 missing ProgramTermApplnTimeline",
+        "type": "Story",
+        "status": "READY FOR UAT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Asra Khan",
+        "created": "2026-08-17",
+        "updated": "2026-10-14",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-234",
+        "summary": "'GU_Base_Ascend' permission set is configured with 'Salesforce' license",
+        "type": "Bug",
+        "status": "IN SIT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Sudaif Haider",
+        "reporter": "Kaviya UC",
+        "created": "2026-10-06",
+        "updated": "2026-10-14",
+        "labels": [
+            "RAC:Coding/Logic_Issue"
+        ],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-96",
+        "summary": "Enable person/alumni search by additional identifiers (email, GU ID etc .) in Global Search Layout",
+        "type": "Story",
+        "status": "IN UAT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Kaviya UC",
+        "reporter": "Asra Khan",
+        "created": "2026-09-03",
+        "updated": "2026-10-14",
+        "labels": [],
+        "fixVersions": [
+            "GU-SF-R1"
+        ],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-139",
+        "summary": "OWD Remediation :  Restrict External & Internal OWD on Contact Point Social to Private",
+        "type": "Story",
+        "status": "IN SIT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Kaviya UC",
+        "reporter": "Sudaif Haider",
+        "created": "2026-09-11",
+        "updated": "2026-10-14",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-163",
+        "summary": "Profile Remediation : Delete unused custom profiles in production",
+        "type": "Story",
+        "status": "IN SIT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Kaviya UC",
+        "reporter": "Amit Sood",
+        "created": "2026-09-11",
+        "updated": "2026-10-14",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-81",
+        "summary": "Generate CRM Data Catalogue",
+        "type": "Sub-task",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Unassigned",
+        "reporter": "Giles Bill",
+        "created": "2026-08-31",
+        "updated": "2026-10-14",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
         "key": "SOPS-204",
         "summary": "DS Guidance on Strategic Integration & Data Architecture",
         "type": "Task",
@@ -167,85 +338,6 @@ const JIRA_DATA = {
         "created": "2026-10-06",
         "updated": "2026-10-14",
         "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-163",
-        "summary": "Profile Remediation : Delete unused custom profiles in production",
-        "type": "Story",
-        "status": "IN SIT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Amit Sood",
-        "reporter": "Amit Sood",
-        "created": "2026-09-11",
-        "updated": "2026-10-13",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-96",
-        "summary": "Enable person/alumni search by additional identifiers (email, GU ID etc .) in Global Search Layout",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Akshay Kumar",
-        "reporter": "Asra Khan",
-        "created": "2026-09-03",
-        "updated": "2026-10-13",
-        "labels": [],
-        "fixVersions": [
-            "GU-SF-R1"
-        ],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-139",
-        "summary": "OWD Remediation :  Restrict External & Internal OWD on Contact Point Social to Private",
-        "type": "Story",
-        "status": "IN SIT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Sudaif Haider",
-        "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
-        "updated": "2026-10-13",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-149",
-        "summary": "OWD Remediation :  Restrict Internal OWD on STG Staging Objects from Public Read to Private",
-        "type": "Story",
-        "status": "Ready For Merge",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Sagar Dey",
-        "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
-        "updated": "2026-10-13",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-202",
-        "summary": "[UAT|SIT] Automation/ Batch process is not triggering and updating the status as 'Reviewed', when Payment Amount = Gift ",
-        "type": "Bug",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "High",
-        "assignee": "Sudaif Haider",
-        "reporter": "Kaviya UC",
-        "created": "2026-09-28",
-        "updated": "2026-10-12",
-        "labels": [
-            "RAC:Coding/Logic_Issue"
-        ],
         "fixVersions": [],
         "storyPoints": null
     },
@@ -860,23 +952,6 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
-        "key": "SOPS-234",
-        "summary": "'GU_Base_Ascend' permission set is configured with 'Salesforce' license",
-        "type": "Bug",
-        "status": "To Do",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Sudaif Haider",
-        "reporter": "Kaviya UC",
-        "created": "2026-10-06",
-        "updated": "2026-10-07",
-        "labels": [
-            "RAC:Coding/Logic_Issue"
-        ],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-148",
         "summary": "OWD Remediation :  Audit and Enforce Private/Unlisted Type on Sensitive Chatter Groups",
         "type": "Story",
@@ -1067,21 +1142,6 @@ const JIRA_DATA = {
         "labels": [
             "RAC:Config_Issue"
         ],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-160",
-        "summary": "Permission Set Remediation : Rationalise redundant GU_ascend permission sets",
-        "type": "Story",
-        "status": "IN SIT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Kaviya UC",
-        "reporter": "Amit Sood",
-        "created": "2026-09-11",
-        "updated": "2026-10-06",
-        "labels": [],
         "fixVersions": [],
         "storyPoints": null
     },
@@ -1386,21 +1446,6 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
-        "key": "SOPS-42",
-        "summary": "Staging application records fail PTAT lookup \u2014 missing ProgramTermApplnTimeline",
-        "type": "Story",
-        "status": "READY FOR UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Asra Khan",
-        "created": "2026-08-17",
-        "updated": "2026-10-05",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-165",
         "summary": "Profile Remediation : Make API-enabled profiles API Only",
         "type": "Story",
@@ -1611,76 +1656,29 @@ const JIRA_DATA = {
         "labels": [],
         "fixVersions": [],
         "storyPoints": null
-    },
-    {
-        "key": "SOPS-86",
-        "summary": "Gearset to ADO - Options paper with justifications",
-        "type": "Story",
-        "status": "In Progress",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Giles Bill",
-        "reporter": "Giles Bill",
-        "created": "2026-09-01",
-        "updated": "2026-10-05",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-166",
-        "summary": "Profile Remediation : Configure IP range restrictions on internal user profiles",
-        "type": "Story",
-        "status": "NOT REQUIRED",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Amit Sood",
-        "reporter": "Amit Sood",
-        "created": "2026-09-11",
-        "updated": "2026-10-05",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-32",
-        "summary": "Remediate Ascend Salesforce API Connected App Security Configuration",
-        "type": "Story",
-        "status": "Blocked",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Amit Sood",
-        "reporter": "Amit Sood",
-        "created": "2026-08-06",
-        "updated": "2026-10-05",
-        "labels": [
-            "Blocked"
-        ],
-        "fixVersions": [],
-        "storyPoints": null
     }
 ]
 };
 
-// ── Live SIT Sandbox data (fetched 2026-10-14 00:32 UTC) ────────────────────────────
+// ── Live SIT Sandbox data (fetched 2026-10-14 06:32 UTC) ────────────────────────────
 const LIVE_DATA = {
   org: {
     name:        'GRIFFITH UNIVERSITY',
     instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
     orgId:       '00DOg000003NRdiMAG',
     environment: 'SIT Sandbox',
-    fetchedAt:   '2026-10-14 00:32 UTC',
+    fetchedAt:   '2026-10-14 06:32 UTC',
   },
 
   /* Org limits */
   limits: {
     "DailyApiRequests": {
         "Max": 5000000,
-        "Remaining": 4999921
+        "Remaining": 4999791
     },
     "DailyAsyncApexExecutions": {
         "Max": 250000,
-        "Remaining": 249991
+        "Remaining": 249987
     },
     "DailyBulkApiBatches": {
         "Max": 15000,
@@ -1746,27 +1744,27 @@ const LIVE_DATA = {
         {
             "name": "BatchDocgenProcessingCronJob",
             "state": "ACQUIRED",
-            "next": "2026-10-09T06:18:00Z"
+            "next": "2026-10-09T13:25:00Z"
         },
         {
             "name": "DC.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-10-14T00:44:00Z"
-        },
-        {
-            "name": "CommIncrementalSitemapJob-00DOg000003NRdi-0DMMp0000001ML4",
-            "state": "WAITING",
-            "next": "2026-10-14T00:45:08Z"
-        },
-        {
-            "name": "CommIncrementalSitemapJob-00DOg000003NRdi-0DMMn0000000Y4y",
-            "state": "WAITING",
-            "next": "2026-10-14T00:57:44Z"
+            "next": "2026-10-14T06:44:00Z"
         },
         {
             "name": "Privacy Center Audit",
             "state": "WAITING",
-            "next": "2026-10-14T01:00:00Z"
+            "next": "2026-10-14T07:00:00Z"
+        },
+        {
+            "name": "Metalytics Dataflow Runner Job for Org : 00DOg000003NRdi",
+            "state": "WAITING",
+            "next": "2026-10-14T07:09:00Z"
+        },
+        {
+            "name": "MciDashboardUpdateJobType",
+            "state": "WAITING",
+            "next": "2026-10-14T07:30:00Z"
         }
     ]
 },
@@ -1862,6 +1860,24 @@ const LIVE_DATA = {
         "loginClass": "recent"
     },
     {
+        "initials": "KU",
+        "name": "Kaviya UC",
+        "username": "k.uc@griffith.edu.au.sit",
+        "userType": "Standard",
+        "profile": "System Administrator",
+        "lastLogin": "2026-10-14",
+        "loginClass": "recent"
+    },
+    {
+        "initials": "SH",
+        "name": "Sudaif Haider",
+        "username": "s.haider@griffith.edu.au.sit",
+        "userType": "Standard",
+        "profile": "System Administrator",
+        "lastLogin": "2026-10-14",
+        "loginClass": "recent"
+    },
+    {
         "initials": "DU",
         "name": "Deployment User",
         "username": "deploymentuser@griffith.edu.au.sit",
@@ -1898,15 +1914,6 @@ const LIVE_DATA = {
         "loginClass": "recent"
     },
     {
-        "initials": "SH",
-        "name": "Sudaif Haider",
-        "username": "s.haider@griffith.edu.au.sit",
-        "userType": "Standard",
-        "profile": "System Administrator",
-        "lastLogin": "2026-10-12",
-        "loginClass": "recent"
-    },
-    {
         "initials": "AK",
         "name": "Akshay Kumar",
         "username": "akshay.kumar@griffith.edu.au.sit",
@@ -1922,15 +1929,6 @@ const LIVE_DATA = {
         "userType": "Standard",
         "profile": "System Administrator",
         "lastLogin": "2026-10-12",
-        "loginClass": "recent"
-    },
-    {
-        "initials": "KU",
-        "name": "Kaviya UC",
-        "username": "k.uc@griffith.edu.au.sit",
-        "userType": "Standard",
-        "profile": "System Administrator",
-        "lastLogin": "2026-10-08",
         "loginClass": "recent"
     },
     {
@@ -2622,11 +2620,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-14 00:32 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-14 06:32 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-14 00:32 UTC',
+  fetchedAt: '2026-10-14 06:32 UTC',
 
   repos: [
     {
