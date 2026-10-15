@@ -1354,7 +1354,7 @@
           <td style="color:${isFail ? (cls==='red'?'var(--red)':'var(--amber)') : 'var(--green)'}">
             ${isFail ? (cls==='red'?'Critical':'Warning') : 'Compliant'}</td>
           <td>${escHtml(r.setting)}</td>
-          <td>${r.group ? `<span class="hc-group-link">${escHtml(r.group)}</span>` : '—'}</td>
+          <td>${r.group ? `<span class="hc-group-link">${escHtml(r.group)}</span>` : escHtml(r.riskType.replace(/_/g,' ').replace(' RISK',' Risk'))}</td>
           <td class="mono" style="font-size:11px">${escHtml(r.orgValue)}</td>
           <td class="mono" style="font-size:11px">${escHtml(r.standardValue)}</td>
         </tr>`;

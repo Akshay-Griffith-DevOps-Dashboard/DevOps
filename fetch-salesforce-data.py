@@ -279,8 +279,9 @@ def fetch_all(instance_url, access_token):
             print("  ⚠️  No SecurityHealthCheck records returned")
 
         # Fetch all individual risk settings across all 4 categories
+        # Note: Group is a reserved word — must be wrapped in quotes in SOQL
         hc_risks_url = (f"{instance_url}/services/data/{API_VERSION}/tooling/query/"
-                        f"?q=SELECT+RiskType,Setting,OrgValue,StandardValue,Status,Group"
+                        f"?q=SELECT+RiskType,Setting,OrgValue,StandardValue,Status"
                         f"+FROM+SecurityHealthCheckRisks+ORDER+BY+RiskType,Setting+LIMIT+500")
         req2 = urllib.request.Request(hc_risks_url, headers={
             "Authorization": f"Bearer {access_token}",
@@ -321,7 +322,6 @@ def fetch_all(instance_url, access_token):
             entry = {
                 "setting":       risk.get("Setting", ""),
                 "riskType":      rt,
-                "group":         risk.get("Group", ""),
                 "status":        st,
                 "orgValue":      str(risk.get("OrgValue", "") or ""),
                 "standardValue": str(risk.get("StandardValue", "") or ""),
