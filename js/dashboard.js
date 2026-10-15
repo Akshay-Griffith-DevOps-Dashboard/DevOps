@@ -1285,87 +1285,110 @@
 
   /* ── Official Salesforce Health Check panel ──────── */
   function renderSFHealthCheck() {
-    const hc = (LIVE_DATA.healthCheck) || {};
-    const score  = hc.score  != null ? hc.score  : null;
-    const rating = hc.rating || null;
+    const hc    = (LIVE_DATA.healthCheck) || {};
+    const score = hc.score != null ? hc.score : null;
 
-    // Score display
+    // ── Score gauge ──────────────────────────────────
     const scoreEl   = document.getElementById('sf-hc-score');
     const ratingEl  = document.getElementById('sf-hc-rating');
     const barEl     = document.getElementById('sf-hc-bar');
     const versionEl = document.getElementById('sf-hc-version');
 
     if (score != null) {
-      if (scoreEl) scoreEl.textContent = Math.round(score);
-      const ratingLabel = rating || (score >= 90 ? 'Excellent' : score >= 70 ? 'Good' : score >= 50 ? 'Fair' : 'Poor');
+      const ratingLabel = hc.rating || (score >= 90 ? 'Excellent' : score >= 70 ? 'Good' : score >= 50 ? 'Fair' : 'Poor');
       const ratingCls   = score >= 90 ? 'var(--green)' : score >= 70 ? 'var(--amber)' : 'var(--red)';
+      if (scoreEl)  { scoreEl.textContent = Math.round(score); scoreEl.style.color = ratingCls; }
       if (ratingEl) { ratingEl.textContent = ratingLabel; ratingEl.style.color = ratingCls; }
-      if (scoreEl)  { scoreEl.style.color = ratingCls; }
-      if (barEl)    {
-        barEl.style.width = `${Math.min(score, 100)}%`;
-        barEl.style.background = ratingCls;
-      }
+      if (barEl)    { barEl.style.width = `${Math.min(score, 100)}%`; barEl.style.background = ratingCls; }
     } else {
       if (scoreEl)  scoreEl.textContent = 'N/A';
-      if (ratingEl) ratingEl.textContent = 'Health Check data unavailable';
+      if (ratingEl) ratingEl.textContent = 'Awaiting next data refresh';
     }
-
     if (versionEl) versionEl.textContent = hc.version || 'Salesforce Baseline Standard';
 
-    // Risk summary cards
+    // ── Risk summary cards ───────────────────────────
     const summaryEl = document.getElementById('sf-hc-risk-summary');
+    const riskMeta = [
+      { key: 'HIGH_RISK',     label: 'High-Risk Security Settings',    color: 'var(--red)',        badgeCls: 'red'  },
+      { key: 'MEDIUM_RISK',   label: 'Medium-Risk Security Settings',  color: 'var(--amber)',      badgeCls: 'amber'},
+      { key: 'LOW_RISK',      label: 'Low-Risk Security Settings',     color: 'var(--blue)',       badgeCls: 'blue' },
+      { key: 'INFORMATIONAL', label: 'Informational Security Settings',color: 'var(--text-muted)', badgeCls: 'muted'},
+    ];
     if (summaryEl && hc.riskSummary) {
-      const riskOrder = [
-        ['HIGH_RISK',   'High Risk',   'var(--red)'],
-        ['MEDIUM_RISK', 'Medium Risk', 'var(--amber)'],
-        ['LOW_RISK',    'Low Risk',    'var(--blue)'],
-        ['INFORMATIONAL', 'Informational', 'var(--text-muted)'],
-      ];
-      summaryEl.innerHTML = riskOrder.map(([key, label, color]) => {
-        const s = hc.riskSummary[key] || { total: 0, compliant: 0 };
-        const failing = s.total - s.compliant;
+      summaryEl.innerHTML = riskMeta.map(m => {
+        const s       = hc.riskSummary[m.key] || { total: 0, compliant: 0, failing: 0 };
+        const failing = s.failing != null ? s.failing : (s.total - s.compliant);
         return `
           <div class="sf-hc-risk-card">
-            <div class="sf-hc-risk-count" style="color:${color}">${failing}</div>
-            <div class="sf-hc-risk-label">${label}</div>
-            <div class="sf-hc-risk-sub">${s.compliant}/${s.total} passing</div>
+            <div class="sf-hc-risk-count" style="color:${m.color}">${failing}</div>
+            <div class="sf-hc-risk-label">${m.label.replace(' Security Settings','')}</div>
+            <div class="sf-hc-risk-sub">${s.compliant}/${s.total} compliant</div>
           </div>`;
       }).join('');
     }
 
-    // Risk details table toggle
-    const detailsWrap  = document.getElementById('sf-hc-details-wrap');
-    const detailToggle = document.getElementById('sf-hc-details-toggle');
-    const risksTable   = document.getElementById('sf-hc-risks-table');
-    const risksTbody   = document.getElementById('sf-hc-risks-tbody');
+    // ── Per-category collapsible sections ────────────
+    const sectionsEl = document.getElementById('sf-hc-categories');
+    if (!sectionsEl) return;
 
-    if (hc.risks && hc.risks.length && detailsWrap) {
-      detailsWrap.style.display = '';
-      if (risksTbody) {
-        const statusOrder = { FAIL: 0, WARNING: 1, PASS: 2 };
-        const sorted = [...hc.risks].sort((a, b) =>
-          (statusOrder[a.status] ?? 9) - (statusOrder[b.status] ?? 9));
-        risksTbody.innerHTML = sorted.map(r => {
-          const cls = r.status === 'PASS' ? 'green' : r.status === 'FAIL' ? 'red' : 'amber';
-          const lbl = r.status === 'PASS' ? 'Compliant' : r.status === 'FAIL' ? 'Critical' : 'Warning';
-          const riskLabel = r.riskType.replace('_', ' ').replace('_RISK', ' Risk');
-          return `<tr>
-            <td>${escHtml(r.setting)}</td>
-            <td><span class="badge ${cls === 'green' ? 'teal' : cls}" style="font-size:10px">${riskLabel}</span></td>
-            <td class="mono" style="font-size:11px">${escHtml(r.orgValue)}</td>
-            <td class="mono" style="font-size:11px">${escHtml(r.standardValue)}</td>
-            <td><span class="badge ${cls}">${lbl}</span></td>
-          </tr>`;
-        }).join('');
-      }
-      if (detailToggle) {
-        detailToggle.addEventListener('click', () => {
-          const open = risksTable.style.display !== 'none';
-          risksTable.style.display = open ? 'none' : '';
-          detailToggle.textContent = (open ? '▶' : '▼') + ' Show individual risk settings';
-        });
-      }
-    }
+    const byCategory = hc.riskByCategory || {};
+
+    sectionsEl.innerHTML = riskMeta.map((m, idx) => {
+      const items = byCategory[m.key] || [];
+      if (!items.length) return '';
+      const s = hc.riskSummary?.[m.key] || { total: items.length, compliant: 0, failing: items.length };
+      const failing = s.failing != null ? s.failing : (s.total - s.compliant);
+      const sectionId = `hc-cat-${idx}`;
+
+      // Sort: non-compliant first
+      const sorted = [...items].sort((a, b) => {
+        const ord = { FAIL: 0, WARNING: 1, PASS: 2 };
+        return (ord[a.status] ?? 9) - (ord[b.status] ?? 9);
+      });
+
+      const rows = sorted.map(r => {
+        const isFail = r.status !== 'PASS';
+        const cls  = r.status === 'PASS' ? 'green' : r.status === 'FAIL' ? 'red' : 'amber';
+        const lbl  = r.status === 'PASS' ? 'Compliant' : r.status === 'FAIL' ? 'Critical' : 'Warning';
+        return `<tr>
+          <td style="color:${isFail ? (cls==='red'?'var(--red)':'var(--amber)') : 'var(--green)'}">
+            ${isFail ? (cls==='red'?'Critical':'Warning') : 'Compliant'}</td>
+          <td>${escHtml(r.setting)}</td>
+          <td>${r.group ? `<span class="hc-group-link">${escHtml(r.group)}</span>` : '—'}</td>
+          <td class="mono" style="font-size:11px">${escHtml(r.orgValue)}</td>
+          <td class="mono" style="font-size:11px">${escHtml(r.standardValue)}</td>
+        </tr>`;
+      }).join('');
+
+      // Open by default only if there are failures
+      const openByDefault = failing > 0 && idx < 2;
+      return `
+        <div class="hc-category">
+          <div class="hc-category-header" data-target="${sectionId}">
+            <span class="hc-category-chevron">${openByDefault ? '▼' : '▶'}</span>
+            <span class="hc-category-title">${m.label} (${items.length})</span>
+            ${failing > 0 ? `<span class="badge ${m.badgeCls === 'muted' ? '' : m.badgeCls}" style="font-size:10px;margin-left:8px">${failing} failing</span>` : `<span class="badge green" style="font-size:10px;margin-left:8px">All passing</span>`}
+          </div>
+          <div class="hc-category-body" id="${sectionId}" style="display:${openByDefault ? '' : 'none'}">
+            <table class="data-table">
+              <thead><tr><th>Status</th><th>Setting</th><th>Group</th><th>Your Value</th><th>Standard Value</th></tr></thead>
+              <tbody>${rows}</tbody>
+            </table>
+          </div>
+        </div>`;
+    }).join('');
+
+    // Wire up accordion toggles
+    sectionsEl.querySelectorAll('.hc-category-header').forEach(hdr => {
+      hdr.addEventListener('click', () => {
+        const body    = document.getElementById(hdr.dataset.target);
+        const chevron = hdr.querySelector('.hc-category-chevron');
+        if (!body) return;
+        const open = body.style.display !== 'none';
+        body.style.display    = open ? 'none' : '';
+        chevron.textContent   = open ? '▶' : '▼';
+      });
+    });
   }
 
   function renderAll() {

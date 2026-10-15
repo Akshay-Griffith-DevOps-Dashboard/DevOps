@@ -278,10 +278,10 @@ def fetch_all(instance_url, access_token):
         else:
             print("  ⚠️  No SecurityHealthCheck records returned")
 
-        # Also fetch the individual risk categories (high/medium/low/info counts)
+        # Fetch all individual risk settings across all 4 categories
         hc_risks_url = (f"{instance_url}/services/data/{API_VERSION}/tooling/query/"
-                        f"?q=SELECT+RiskType,Setting,OrgValue,StandardValue,Status"
-                        f"+FROM+SecurityHealthCheckRisks+ORDER+BY+RiskType+LIMIT+200")
+                        f"?q=SELECT+RiskType,Setting,OrgValue,StandardValue,Status,Group"
+                        f"+FROM+SecurityHealthCheckRisks+ORDER+BY+RiskType,Setting+LIMIT+500")
         req2 = urllib.request.Request(hc_risks_url, headers={
             "Authorization": f"Bearer {access_token}",
             "Accept":        "application/json",
@@ -289,26 +289,55 @@ def fetch_all(instance_url, access_token):
         with urllib.request.urlopen(req2, timeout=30) as r2:
             risks_data = json.loads(r2.read())
         risks = risks_data.get("records", [])
-        # Summarise by risk type
+
+        # Paginate if more results exist
+        while not risks_data.get("done", True) and risks_data.get("nextRecordsUrl"):
+            req_page = urllib.request.Request(
+                f"{instance_url}{risks_data['nextRecordsUrl']}",
+                headers={"Authorization": f"Bearer {access_token}", "Accept": "application/json"}
+            )
+            with urllib.request.urlopen(req_page, timeout=30) as rp:
+                risks_data = json.loads(rp.read())
+                risks.extend(risks_data.get("records", []))
+
+        # Bucket by RiskType — preserve ALL items (no cap)
         risk_summary = {}
-        risk_details = []
+        # risks grouped by category for the dashboard sections
+        risk_by_category = {
+            "HIGH_RISK":      [],
+            "MEDIUM_RISK":    [],
+            "LOW_RISK":       [],
+            "INFORMATIONAL":  [],
+        }
         for risk in risks:
             rt = risk.get("RiskType", "Unknown")
             st = risk.get("Status", "")
-            risk_summary[rt] = risk_summary.get(rt, {"total": 0, "compliant": 0})
+            risk_summary[rt] = risk_summary.get(rt, {"total": 0, "compliant": 0, "failing": 0})
             risk_summary[rt]["total"] += 1
             if st == "PASS":
                 risk_summary[rt]["compliant"] += 1
-            risk_details.append({
+            else:
+                risk_summary[rt]["failing"] += 1
+            entry = {
                 "setting":       risk.get("Setting", ""),
                 "riskType":      rt,
+                "group":         risk.get("Group", ""),
                 "status":        st,
-                "orgValue":      str(risk.get("OrgValue", "")),
-                "standardValue": str(risk.get("StandardValue", "")),
-            })
-        health_check["riskSummary"] = risk_summary
-        health_check["risks"]       = risk_details[:50]  # cap to keep data.js small
-        print(f"  ✅ Health Check risks: {len(risks)} settings across {len(risk_summary)} risk categories")
+                "orgValue":      str(risk.get("OrgValue", "") or ""),
+                "standardValue": str(risk.get("StandardValue", "") or ""),
+            }
+            if rt in risk_by_category:
+                risk_by_category[rt].append(entry)
+            else:
+                risk_by_category.setdefault(rt, []).append(entry)
+
+        health_check["riskSummary"]    = risk_summary
+        health_check["riskByCategory"] = risk_by_category
+        print(f"  ✅ Health Check risks: {len(risks)} settings — "
+              f"High:{len(risk_by_category.get('HIGH_RISK',[]))} "
+              f"Medium:{len(risk_by_category.get('MEDIUM_RISK',[]))} "
+              f"Low:{len(risk_by_category.get('LOW_RISK',[]))} "
+              f"Info:{len(risk_by_category.get('INFORMATIONAL',[]))}")
     except urllib.error.HTTPError as e:
         body = e.read().decode(errors="replace")
         print(f"  ⚠️  HTTP {e.code} fetching Health Check: {body[:300]}")
@@ -373,7 +402,7 @@ const LIVE_DATA = {{
   /* Recent deployments */
   sfDeployments: {deployments_js},
 
-  /* Salesforce official Health Check (Tooling API - SecurityHealthCheck) */
+  /* Salesforce official Health Check (Tooling API — SecurityHealthCheck + SecurityHealthCheckRisks) */
   healthCheck: {health_js}
 }};"""
 

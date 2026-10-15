@@ -308,15 +308,9 @@
             <!-- populated by JS -->
           </div>
         </div>
-        <!-- Risk details table -->
-        <div class="sf-hc-details" id="sf-hc-details-wrap" style="display:none">
-          <div class="sf-hc-details-header" id="sf-hc-details-toggle" style="cursor:pointer;padding:8px 16px;font-size:12px;color:var(--text-muted);border-top:1px solid var(--border-light)">
-            ▶ Show individual risk settings
-          </div>
-          <table class="data-table" id="sf-hc-risks-table" style="display:none">
-            <thead><tr><th>Setting</th><th>Risk Type</th><th>Your Value</th><th>Standard Value</th><th>Status</th></tr></thead>
-            <tbody id="sf-hc-risks-tbody"></tbody>
-          </table>
+        <!-- Per-category collapsible sections (High / Medium / Low / Informational) -->
+        <div class="sf-hc-categories" id="sf-hc-categories">
+          <!-- populated by renderSFHealthCheck() -->
         </div>
       </div>
 

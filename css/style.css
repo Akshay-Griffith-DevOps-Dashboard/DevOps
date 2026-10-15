@@ -1260,6 +1260,57 @@ main {
   margin-top: 2px;
 }
 
+/* ── Health Check category accordion ────────────────── */
+.sf-hc-categories {
+  border-top: 1px solid var(--border-light);
+}
+
+.hc-category {
+  border-bottom: 1px solid var(--border-light);
+}
+
+.hc-category-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  cursor: pointer;
+  user-select: none;
+  background: var(--bg-subtle);
+  transition: background 0.15s;
+}
+
+.hc-category-header:hover {
+  background: var(--border-light);
+}
+
+.hc-category-chevron {
+  font-size: 11px;
+  color: var(--text-muted);
+  width: 12px;
+}
+
+.hc-category-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.hc-category-body {
+  padding: 0;
+}
+
+.hc-category-body .data-table {
+  margin: 0;
+  border-radius: 0;
+  border: none;
+}
+
+.hc-group-link {
+  color: var(--teal);
+  font-size: 12px;
+}
+
 /* ── Lic cards ───────────────────────────────────────── */
 .lic-card {
   background: var(--bg-subtle);
