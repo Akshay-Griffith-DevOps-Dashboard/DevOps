@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-10-15 06:55 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-10-15 06:58 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-10-15 06:55 UTC',
+  fetchedAt: '2026-10-15 06:58 UTC',
 
   sprints: [
     {
@@ -95,6 +95,21 @@ const JIRA_DATA = {
 ],
 
   issues: [
+    {
+        "key": "SOPS-243",
+        "summary": "QA : Test Scripts & Test Execution",
+        "type": "Sub-task",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Unassigned",
+        "reporter": "Kaviya UC",
+        "created": "2026-10-15",
+        "updated": "2026-10-15",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
     {
         "key": "SOPS-242",
         "summary": "[SIT] Access and the 11 editable fields are not disabled for the mentioned profiles in SIT",
@@ -1641,42 +1656,25 @@ const JIRA_DATA = {
         "labels": [],
         "fixVersions": [],
         "storyPoints": null
-    },
-    {
-        "key": "SOPS-9",
-        "summary": "Role Hierarchy Remediation - Remove Redundant Roles",
-        "type": "Story",
-        "status": "NOT REQUIRED",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Sudaif Haider",
-        "reporter": "Amit Sood",
-        "created": "2026-07-31",
-        "updated": "2026-10-05",
-        "labels": [
-            "Not_Required"
-        ],
-        "fixVersions": [],
-        "storyPoints": null
     }
 ]
 };
 
-// ── Live SIT Sandbox data (fetched 2026-10-15 06:54 UTC) ────────────────────────────
+// ── Live SIT Sandbox data (fetched 2026-10-15 06:58 UTC) ────────────────────────────
 const LIVE_DATA = {
   org: {
     name:        'GRIFFITH UNIVERSITY',
     instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
     orgId:       '00DOg000003NRdiMAG',
     environment: 'SIT Sandbox',
-    fetchedAt:   '2026-10-15 06:54 UTC',
+    fetchedAt:   '2026-10-15 06:58 UTC',
   },
 
   /* Org limits */
   limits: {
     "DailyApiRequests": {
         "Max": 5000000,
-        "Remaining": 4999432
+        "Remaining": 4999380
     },
     "DailyAsyncApexExecutions": {
         "Max": 250000,
@@ -1746,7 +1744,7 @@ const LIVE_DATA = {
         {
             "name": "BatchDocgenProcessingCronJob",
             "state": "ACQUIRED",
-            "next": "2026-10-10T23:51:00Z"
+            "next": "2026-10-10T23:54:00Z"
         },
         {
             "name": "Privacy Center Audit",
@@ -2635,11 +2633,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-15 06:54 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-15 06:58 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-15 06:54 UTC',
+  fetchedAt: '2026-10-15 06:58 UTC',
 
   repos: [
     {
