@@ -260,7 +260,7 @@ def fetch_all(instance_url, access_token):
     health_check = {"score": None, "rating": None, "checks": []}
     try:
         hc_url = (f"{instance_url}/services/data/{API_VERSION}/tooling/query/"
-                  f"?q=SELECT+Score,Rating,HealthCheckVersion+FROM+SecurityHealthCheck+LIMIT+1")
+                  f"?q=SELECT+Score,HealthCheckVersion+FROM+SecurityHealthCheck+LIMIT+1")
         req = urllib.request.Request(hc_url, headers={
             "Authorization": f"Bearer {access_token}",
             "Accept":        "application/json",
@@ -270,8 +270,10 @@ def fetch_all(instance_url, access_token):
         records = hc_data.get("records", [])
         if records:
             health_check["score"]   = records[0].get("Score")
-            health_check["rating"]  = records[0].get("Rating")
             health_check["version"] = records[0].get("HealthCheckVersion", "Salesforce Baseline Standard")
+            # Derive rating from score
+            s = health_check["score"] or 0
+            health_check["rating"] = "Excellent" if s >= 90 else "Good" if s >= 70 else "Fair" if s >= 50 else "Poor"
             print(f"  ✅ Health Check: {health_check['score']}% — {health_check['rating']}")
         else:
             print("  ⚠️  No SecurityHealthCheck records returned")
