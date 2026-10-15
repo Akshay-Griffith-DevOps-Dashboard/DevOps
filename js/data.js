@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-10-15 08:20 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-10-15 08:22 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-10-15 08:20 UTC',
+  fetchedAt: '2026-10-15 08:22 UTC',
 
   sprints: [
     {
@@ -1660,21 +1660,21 @@ const JIRA_DATA = {
 ]
 };
 
-// ── Live SIT Sandbox data (fetched 2026-10-15 08:20 UTC) ────────────────────────────
+// ── Live SIT Sandbox data (fetched 2026-10-15 08:22 UTC) ────────────────────────────
 const LIVE_DATA = {
   org: {
     name:        'GRIFFITH UNIVERSITY',
     instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
     orgId:       '00DOg000003NRdiMAG',
     environment: 'SIT Sandbox',
-    fetchedAt:   '2026-10-15 08:20 UTC',
+    fetchedAt:   '2026-10-15 08:22 UTC',
   },
 
   /* Org limits */
   limits: {
     "DailyApiRequests": {
         "Max": 5000000,
-        "Remaining": 4998894
+        "Remaining": 4998842
     },
     "DailyAsyncApexExecutions": {
         "Max": 250000,
@@ -1712,9 +1712,9 @@ const LIVE_DATA = {
   /* Scheduled jobs summary */
   scheduledJobs: {
     "total": 27,
-    "waiting": 22,
+    "waiting": 21,
     "complete": 5,
-    "acquired": 0,
+    "acquired": 1,
     "jobs": [
         {
             "name": "287c8878-0d88-a8e9-787e-376a8892842a",
@@ -1743,8 +1743,8 @@ const LIVE_DATA = {
         },
         {
             "name": "BatchDocgenProcessingCronJob",
-            "state": "WAITING",
-            "next": "2026-10-11T01:24:00Z"
+            "state": "ACQUIRED",
+            "next": "2026-10-11T01:26:00Z"
         },
         {
             "name": "DC.TELEMETRY",
@@ -2634,11 +2634,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-15 08:20 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-15 08:22 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-15 08:20 UTC',
+  fetchedAt: '2026-10-15 08:22 UTC',
 
   repos: [
     {
