@@ -282,6 +282,44 @@
     <section id="sf-health" class="section">
       <h2 class="section-heading">Salesforce Org Health</h2>
 
+      <!-- ── Official Salesforce Health Check panel ── -->
+      <div class="panel sf-hc-panel">
+        <div class="panel-header">
+          <span class="panel-title">Salesforce Health Check</span>
+          <span class="panel-meta">Security · Salesforce Baseline Standard</span>
+        </div>
+        <div class="sf-hc-body">
+          <!-- Score gauge -->
+          <div class="sf-hc-gauge">
+            <div class="sf-hc-score-wrap">
+              <span class="sf-hc-score-num" id="sf-hc-score">—</span>
+              <span class="sf-hc-score-pct">%</span>
+            </div>
+            <div class="sf-hc-score-label" id="sf-hc-rating">Loading…</div>
+            <div class="sf-hc-bar-wrap">
+              <div class="sf-hc-bar-track">
+                <div class="sf-hc-bar-fill" id="sf-hc-bar" style="width:0%"></div>
+              </div>
+            </div>
+            <div class="sf-hc-version" id="sf-hc-version"></div>
+          </div>
+          <!-- Risk category breakdown -->
+          <div class="sf-hc-risks" id="sf-hc-risk-summary">
+            <!-- populated by JS -->
+          </div>
+        </div>
+        <!-- Risk details table -->
+        <div class="sf-hc-details" id="sf-hc-details-wrap" style="display:none">
+          <div class="sf-hc-details-header" id="sf-hc-details-toggle" style="cursor:pointer;padding:8px 16px;font-size:12px;color:var(--text-muted);border-top:1px solid var(--border-light)">
+            ▶ Show individual risk settings
+          </div>
+          <table class="data-table" id="sf-hc-risks-table" style="display:none">
+            <thead><tr><th>Setting</th><th>Risk Type</th><th>Your Value</th><th>Standard Value</th><th>Status</th></tr></thead>
+            <tbody id="sf-hc-risks-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
       <div class="stat-row four-col">
         <div class="stat-card border-teal">
           <div class="stat-label">Daily API Limit</div>

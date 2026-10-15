@@ -255,6 +255,64 @@ def fetch_all(instance_url, access_token):
         })
     print(f"  ✅ Fetched details for {len(deployments)} deployments")
 
+    # ── Salesforce Health Check score (Tooling API) ───────────────────────────
+    print("  → Fetching Salesforce Health Check score...")
+    health_check = {"score": None, "rating": None, "checks": []}
+    try:
+        hc_url = (f"{instance_url}/services/data/{API_VERSION}/tooling/query/"
+                  f"?q=SELECT+Score,Rating,HealthCheckVersion+FROM+SecurityHealthCheck+LIMIT+1")
+        req = urllib.request.Request(hc_url, headers={
+            "Authorization": f"Bearer {access_token}",
+            "Accept":        "application/json",
+        })
+        with urllib.request.urlopen(req, timeout=30) as r:
+            hc_data = json.loads(r.read())
+        records = hc_data.get("records", [])
+        if records:
+            health_check["score"]   = records[0].get("Score")
+            health_check["rating"]  = records[0].get("Rating")
+            health_check["version"] = records[0].get("HealthCheckVersion", "Salesforce Baseline Standard")
+            print(f"  ✅ Health Check: {health_check['score']}% — {health_check['rating']}")
+        else:
+            print("  ⚠️  No SecurityHealthCheck records returned")
+
+        # Also fetch the individual risk categories (high/medium/low/info counts)
+        hc_risks_url = (f"{instance_url}/services/data/{API_VERSION}/tooling/query/"
+                        f"?q=SELECT+RiskType,Setting,Score,OrgValue,StandardValue,Status"
+                        f"+FROM+SecurityHealthCheckRisks+ORDER+BY+RiskType+LIMIT+200")
+        req2 = urllib.request.Request(hc_risks_url, headers={
+            "Authorization": f"Bearer {access_token}",
+            "Accept":        "application/json",
+        })
+        with urllib.request.urlopen(req2, timeout=30) as r2:
+            risks_data = json.loads(r2.read())
+        risks = risks_data.get("records", [])
+        # Summarise by risk type
+        risk_summary = {}
+        risk_details = []
+        for risk in risks:
+            rt = risk.get("RiskType", "Unknown")
+            st = risk.get("Status", "")
+            risk_summary[rt] = risk_summary.get(rt, {"total": 0, "compliant": 0})
+            risk_summary[rt]["total"] += 1
+            if st == "PASS":
+                risk_summary[rt]["compliant"] += 1
+            risk_details.append({
+                "setting":       risk.get("Setting", ""),
+                "riskType":      rt,
+                "status":        st,
+                "orgValue":      str(risk.get("OrgValue", "")),
+                "standardValue": str(risk.get("StandardValue", "")),
+            })
+        health_check["riskSummary"] = risk_summary
+        health_check["risks"]       = risk_details[:50]  # cap to keep data.js small
+        print(f"  ✅ Health Check risks: {len(risks)} settings across {len(risk_summary)} risk categories")
+    except urllib.error.HTTPError as e:
+        body = e.read().decode(errors="replace")
+        print(f"  ⚠️  HTTP {e.code} fetching Health Check: {body[:300]}")
+    except Exception as e:
+        print(f"  ⚠️  Could not fetch Health Check: {e}")
+
     return {
         "org_id":         org_id,
         "org_name":       org_name,
@@ -264,6 +322,7 @@ def fetch_all(instance_url, access_token):
         "user_licences":  user_licences,
         "users":          users,
         "deployments":    deployments,
+        "health_check":   health_check,
     }
 
 # ── Write LIVE_DATA into data.js ──────────────────────────────────────────────
@@ -282,6 +341,7 @@ def write_data_js(data, instance_url, fetched_at):
     licences_js    = json.dumps(d["user_licences"],   indent=4)
     users_js       = json.dumps(d["users"],           indent=4)
     deployments_js = json.dumps(d["deployments"],     indent=4)
+    health_js      = json.dumps(d.get("health_check", {}), indent=4)
 
     new_block = f"""// ── Live SIT Sandbox data (fetched {fetched_at}) ────────────────────────────
 const LIVE_DATA = {{
@@ -309,7 +369,10 @@ const LIVE_DATA = {{
   users: {users_js},
 
   /* Recent deployments */
-  sfDeployments: {deployments_js}
+  sfDeployments: {deployments_js},
+
+  /* Salesforce official Health Check (Tooling API - SecurityHealthCheck) */
+  healthCheck: {health_js}
 }};"""
 
     # Find the start of the LIVE_DATA block (including optional comment line)

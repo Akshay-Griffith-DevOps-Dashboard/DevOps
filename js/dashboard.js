@@ -1283,8 +1283,94 @@
     </tr>`).join('');
   }
 
+  /* ── Official Salesforce Health Check panel ──────── */
+  function renderSFHealthCheck() {
+    const hc = (LIVE_DATA.healthCheck) || {};
+    const score  = hc.score  != null ? hc.score  : null;
+    const rating = hc.rating || null;
+
+    // Score display
+    const scoreEl   = document.getElementById('sf-hc-score');
+    const ratingEl  = document.getElementById('sf-hc-rating');
+    const barEl     = document.getElementById('sf-hc-bar');
+    const versionEl = document.getElementById('sf-hc-version');
+
+    if (score != null) {
+      if (scoreEl) scoreEl.textContent = Math.round(score);
+      const ratingLabel = rating || (score >= 90 ? 'Excellent' : score >= 70 ? 'Good' : score >= 50 ? 'Fair' : 'Poor');
+      const ratingCls   = score >= 90 ? 'var(--green)' : score >= 70 ? 'var(--amber)' : 'var(--red)';
+      if (ratingEl) { ratingEl.textContent = ratingLabel; ratingEl.style.color = ratingCls; }
+      if (scoreEl)  { scoreEl.style.color = ratingCls; }
+      if (barEl)    {
+        barEl.style.width = `${Math.min(score, 100)}%`;
+        barEl.style.background = ratingCls;
+      }
+    } else {
+      if (scoreEl)  scoreEl.textContent = 'N/A';
+      if (ratingEl) ratingEl.textContent = 'Health Check data unavailable';
+    }
+
+    if (versionEl) versionEl.textContent = hc.version || 'Salesforce Baseline Standard';
+
+    // Risk summary cards
+    const summaryEl = document.getElementById('sf-hc-risk-summary');
+    if (summaryEl && hc.riskSummary) {
+      const riskOrder = [
+        ['HIGH_RISK',   'High Risk',   'var(--red)'],
+        ['MEDIUM_RISK', 'Medium Risk', 'var(--amber)'],
+        ['LOW_RISK',    'Low Risk',    'var(--blue)'],
+        ['INFORMATIONAL', 'Informational', 'var(--text-muted)'],
+      ];
+      summaryEl.innerHTML = riskOrder.map(([key, label, color]) => {
+        const s = hc.riskSummary[key] || { total: 0, compliant: 0 };
+        const failing = s.total - s.compliant;
+        return `
+          <div class="sf-hc-risk-card">
+            <div class="sf-hc-risk-count" style="color:${color}">${failing}</div>
+            <div class="sf-hc-risk-label">${label}</div>
+            <div class="sf-hc-risk-sub">${s.compliant}/${s.total} passing</div>
+          </div>`;
+      }).join('');
+    }
+
+    // Risk details table toggle
+    const detailsWrap  = document.getElementById('sf-hc-details-wrap');
+    const detailToggle = document.getElementById('sf-hc-details-toggle');
+    const risksTable   = document.getElementById('sf-hc-risks-table');
+    const risksTbody   = document.getElementById('sf-hc-risks-tbody');
+
+    if (hc.risks && hc.risks.length && detailsWrap) {
+      detailsWrap.style.display = '';
+      if (risksTbody) {
+        const statusOrder = { FAIL: 0, WARNING: 1, PASS: 2 };
+        const sorted = [...hc.risks].sort((a, b) =>
+          (statusOrder[a.status] ?? 9) - (statusOrder[b.status] ?? 9));
+        risksTbody.innerHTML = sorted.map(r => {
+          const cls = r.status === 'PASS' ? 'green' : r.status === 'FAIL' ? 'red' : 'amber';
+          const lbl = r.status === 'PASS' ? 'Compliant' : r.status === 'FAIL' ? 'Critical' : 'Warning';
+          const riskLabel = r.riskType.replace('_', ' ').replace('_RISK', ' Risk');
+          return `<tr>
+            <td>${escHtml(r.setting)}</td>
+            <td><span class="badge ${cls === 'green' ? 'teal' : cls}" style="font-size:10px">${riskLabel}</span></td>
+            <td class="mono" style="font-size:11px">${escHtml(r.orgValue)}</td>
+            <td class="mono" style="font-size:11px">${escHtml(r.standardValue)}</td>
+            <td><span class="badge ${cls}">${lbl}</span></td>
+          </tr>`;
+        }).join('');
+      }
+      if (detailToggle) {
+        detailToggle.addEventListener('click', () => {
+          const open = risksTable.style.display !== 'none';
+          risksTable.style.display = open ? 'none' : '';
+          detailToggle.textContent = (open ? '▶' : '▼') + ' Show individual risk settings';
+        });
+      }
+    }
+  }
+
   function renderAll() {
     // Salesforce — from LIVE_DATA
+    renderSFHealthCheck();
     renderHealthScore();
     renderOverviewStats();
     renderLiveLimits();
