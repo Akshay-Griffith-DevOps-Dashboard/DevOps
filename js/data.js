@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-10-16 00:30 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-10-16 06:31 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-10-16 00:30 UTC',
+  fetchedAt: '2026-10-16 06:31 UTC',
 
   sprints: [
     {
@@ -95,6 +95,38 @@ const JIRA_DATA = {
 ],
 
   issues: [
+    {
+        "key": "SOPS-246",
+        "summary": "[UAT] PRM filter not working as expected when searching Accounts.",
+        "type": "Bug",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Rahul Ahuja",
+        "reporter": "Kaviya UC",
+        "created": "2026-10-16",
+        "updated": "2026-10-16",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-96",
+        "summary": "Enable person/alumni search by additional identifiers (email, GU ID etc .) in Global Search Layout",
+        "type": "Story",
+        "status": "IN UAT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Kaviya UC",
+        "reporter": "Asra Khan",
+        "created": "2026-09-03",
+        "updated": "2026-10-16",
+        "labels": [],
+        "fixVersions": [
+            "GU-SF-R1"
+        ],
+        "storyPoints": null
+    },
     {
         "key": "SOPS-163",
         "summary": "Profile Remediation : Delete unused custom profiles in production",
@@ -429,23 +461,6 @@ const JIRA_DATA = {
         "updated": "2026-10-14",
         "labels": [],
         "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-96",
-        "summary": "Enable person/alumni search by additional identifiers (email, GU ID etc .) in Global Search Layout",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Kaviya UC",
-        "reporter": "Asra Khan",
-        "created": "2026-09-03",
-        "updated": "2026-10-14",
-        "labels": [],
-        "fixVersions": [
-            "GU-SF-R1"
-        ],
         "storyPoints": null
     },
     {
@@ -1641,44 +1656,29 @@ const JIRA_DATA = {
         "labels": [],
         "fixVersions": [],
         "storyPoints": null
-    },
-    {
-        "key": "SOPS-102",
-        "summary": "Sharing Rules Remediation - Ascend portal user Read access on Account Object",
-        "type": "Story",
-        "status": "READY FOR UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Amit Sood",
-        "created": "2026-09-08",
-        "updated": "2026-10-05",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
     }
 ]
 };
 
-// ── Live SIT Sandbox data (fetched 2026-10-16 00:30 UTC) ────────────────────────────
+// ── Live SIT Sandbox data (fetched 2026-10-16 06:31 UTC) ────────────────────────────
 const LIVE_DATA = {
   org: {
     name:        'GRIFFITH UNIVERSITY',
     instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
     orgId:       '00DOg000003NRdiMAG',
     environment: 'SIT Sandbox',
-    fetchedAt:   '2026-10-16 00:30 UTC',
+    fetchedAt:   '2026-10-16 06:31 UTC',
   },
 
   /* Org limits */
   limits: {
     "DailyApiRequests": {
         "Max": 5000000,
-        "Remaining": 4998809
+        "Remaining": 4998871
     },
     "DailyAsyncApexExecutions": {
         "Max": 250000,
-        "Remaining": 249990
+        "Remaining": 249986
     },
     "DailyBulkApiBatches": {
         "Max": 15000,
@@ -1744,27 +1744,27 @@ const LIVE_DATA = {
         {
             "name": "BatchDocgenProcessingCronJob",
             "state": "ACQUIRED",
-            "next": "2026-10-11T21:26:00Z"
+            "next": "2026-10-12T04:52:00Z"
         },
         {
             "name": "DC.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-10-16T00:44:00Z"
-        },
-        {
-            "name": "CommIncrementalSitemapJob-00DOg000003NRdi-0DMMp0000001ML4",
-            "state": "WAITING",
-            "next": "2026-10-16T00:45:08Z"
-        },
-        {
-            "name": "CommIncrementalSitemapJob-00DOg000003NRdi-0DMMn0000000Y4y",
-            "state": "WAITING",
-            "next": "2026-10-16T00:57:44Z"
+            "next": "2026-10-16T06:44:00Z"
         },
         {
             "name": "Privacy Center Audit",
             "state": "WAITING",
-            "next": "2026-10-16T01:00:00Z"
+            "next": "2026-10-16T07:00:00Z"
+        },
+        {
+            "name": "Metalytics Dataflow Runner Job for Org : 00DOg000003NRdi",
+            "state": "WAITING",
+            "next": "2026-10-16T07:09:00Z"
+        },
+        {
+            "name": "MciDashboardUpdateJobType",
+            "state": "WAITING",
+            "next": "2026-10-16T07:30:00Z"
         }
     ]
 },
@@ -1860,30 +1860,12 @@ const LIVE_DATA = {
         "loginClass": "recent"
     },
     {
-        "initials": "DU",
-        "name": "Deployment User",
-        "username": "deploymentuser@griffith.edu.au.sit",
-        "userType": "Standard",
-        "profile": "Gearset Integration Administrator",
-        "lastLogin": "2026-10-15",
-        "loginClass": "recent"
-    },
-    {
-        "initials": "KU",
-        "name": "Kaviya UC",
-        "username": "k.uc@griffith.edu.au.sit",
+        "initials": "RA",
+        "name": "Rahul Ahuja",
+        "username": "r.ahuja@griffith.edu.au.sit",
         "userType": "Standard",
         "profile": "System Administrator",
-        "lastLogin": "2026-10-15",
-        "loginClass": "recent"
-    },
-    {
-        "initials": "SD",
-        "name": "Sagar Dey",
-        "username": "sagar.dey@griffith.edu.au.sit",
-        "userType": "Standard",
-        "profile": "System Administrator",
-        "lastLogin": "2026-10-15",
+        "lastLogin": "2026-10-16",
         "loginClass": "recent"
     },
     {
@@ -1892,7 +1874,43 @@ const LIVE_DATA = {
         "username": "akshay.kumar@griffith.edu.au.sit",
         "userType": "Standard",
         "profile": "System Administrator",
-        "lastLogin": "2026-10-15",
+        "lastLogin": "2026-10-16",
+        "loginClass": "recent"
+    },
+    {
+        "initials": "KU",
+        "name": "Kaviya UC",
+        "username": "k.uc@griffith.edu.au.sit",
+        "userType": "Standard",
+        "profile": "System Administrator",
+        "lastLogin": "2026-10-16",
+        "loginClass": "recent"
+    },
+    {
+        "initials": "SD",
+        "name": "Sagar Dey",
+        "username": "sagar.dey@griffith.edu.au.sit",
+        "userType": "Standard",
+        "profile": "System Administrator",
+        "lastLogin": "2026-10-16",
+        "loginClass": "recent"
+    },
+    {
+        "initials": "DU",
+        "name": "Deployment User",
+        "username": "deploymentuser@griffith.edu.au.sit",
+        "userType": "Standard",
+        "profile": "Gearset Integration Administrator",
+        "lastLogin": "2026-10-16",
+        "loginClass": "recent"
+    },
+    {
+        "initials": "JF",
+        "name": "Jeremy Fahey",
+        "username": "j.fahey@griffith.edu.au.sit",
+        "userType": "Standard",
+        "profile": "System Administrator",
+        "lastLogin": "2026-10-16",
         "loginClass": "recent"
     },
     {
@@ -1908,24 +1926,6 @@ const LIVE_DATA = {
         "initials": "AS",
         "name": "Amit Sood",
         "username": "a.sood@griffith.edu.au.sit",
-        "userType": "Standard",
-        "profile": "System Administrator",
-        "lastLogin": "2026-10-13",
-        "loginClass": "recent"
-    },
-    {
-        "initials": "JF",
-        "name": "Jeremy Fahey",
-        "username": "j.fahey@griffith.edu.au.sit",
-        "userType": "Standard",
-        "profile": "System Administrator",
-        "lastLogin": "2026-10-13",
-        "loginClass": "recent"
-    },
-    {
-        "initials": "RA",
-        "name": "Rahul Ahuja",
-        "username": "r.ahuja@griffith.edu.au.sit",
         "userType": "Standard",
         "profile": "System Administrator",
         "lastLogin": "2026-10-13",
@@ -2034,6 +2034,20 @@ const LIVE_DATA = {
 
   /* Recent deployments */
   sfDeployments: [
+    {
+        "id": "0AfOg000006segAKAQ",
+        "deployedBy": "Deployment User",
+        "checkOnly": true,
+        "componentsDeployed": 0,
+        "componentsTotal": 0,
+        "errors": 0,
+        "status": "Succeeded",
+        "startDate": "2026-10-16T04:14:48.000+0000",
+        "completedDate": "2026-10-16T04:14:49.000+0000",
+        "durationSec": 1,
+        "stateDetail": "",
+        "components": []
+    },
     {
         "id": "0AfOg000006rumzKAA",
         "deployedBy": "Deployment User",
@@ -2500,26 +2514,6 @@ const LIVE_DATA = {
                 "success": true
             }
         ]
-    },
-    {
-        "id": "0AfOg000006gU9VKAU",
-        "deployedBy": "Deployment User",
-        "checkOnly": true,
-        "componentsDeployed": 1,
-        "componentsTotal": 1,
-        "errors": 0,
-        "status": "Succeeded",
-        "startDate": "2026-10-06T10:28:11.000+0000",
-        "completedDate": "2026-10-06T10:28:13.000+0000",
-        "durationSec": 2,
-        "stateDetail": "",
-        "components": [
-            {
-                "name": "Splunk",
-                "type": "PermissionSet",
-                "success": true
-            }
-        ]
     }
 ],
 
@@ -2606,11 +2600,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-16 00:30 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-16 06:31 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-16 00:30 UTC',
+  fetchedAt: '2026-10-16 06:31 UTC',
 
   repos: [
     {
@@ -2731,6 +2725,17 @@ const AZURE_DATA = {
         "author": "Sagar-GitHub-18",
         "date": "2026-10-15",
         "comment": "Feature-SOPS-237-CustomField1"
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "name": "Feature-SOPS-237-CustomField2",
+        "isDefault": false,
+        "aheadCount": 1,
+        "behindCount": 0,
+        "commitId": "2042c9fc",
+        "author": "Sagar-GitHub-18",
+        "date": "2026-10-16",
+        "comment": "Feature-SOPS-237-customField2"
     },
     {
         "repo": "RSDF-SalesforcePlatform",
@@ -2934,12 +2939,12 @@ const AZURE_DATA = {
         "repo": "RSDF-SalesforcePlatform",
         "name": "devmerge",
         "isDefault": false,
-        "aheadCount": 121,
+        "aheadCount": 123,
         "behindCount": 0,
-        "commitId": "fd4a7c34",
+        "commitId": "68acca5e",
         "author": "Akshay Kumar",
-        "date": "2026-10-15",
-        "comment": "Merge pull request 9407 from gs-pipeline/feature-SOPS140_-_devmerge into devmerg"
+        "date": "2026-10-16",
+        "comment": "Merged PR 9422: Feature-SOPS-237-CustomField1"
     },
     {
         "repo": "RSDF-SalesforcePlatform",
@@ -3471,7 +3476,7 @@ const AZURE_DATA = {
     },
     {
         "repo": "RSDF-SalesforcePlatform",
-        "name": "gs-pipeline/Feature-SOPS-237-CustomField1_-_devmerge",
+        "name": "gs-pipeline/Feature-SOPS-237-CustomField1_-_sit",
         "isDefault": false,
         "aheadCount": 1,
         "behindCount": 0,
@@ -4100,21 +4105,39 @@ const AZURE_DATA = {
 
   pullRequests: [
     {
-        "id": 9422,
+        "id": 9423,
         "title": "Feature-SOPS-237-CustomField1",
         "status": "active",
         "repo": "RSDF-SalesforcePlatform",
-        "sourceBranch": "gs-pipeline/Feature-SOPS-237-CustomField1_-_devmerge",
-        "targetBranch": "devmerge",
+        "sourceBranch": "gs-pipeline/Feature-SOPS-237-CustomField1_-_sit",
+        "targetBranch": "sit",
         "createdBy": "Akshay Kumar",
-        "createdDate": "2026-10-15",
+        "createdDate": "2026-10-16",
         "closedDate": null,
         "reviewers": [
+            "Amit Sood",
             "Sudaif Haider"
         ],
         "isDraft": false,
         "mergeStatus": "succeeded",
         "approved": false
+    },
+    {
+        "id": 9422,
+        "title": "Feature-SOPS-237-CustomField1",
+        "status": "completed",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/Feature-SOPS-237-CustomField1_-_devmerge",
+        "targetBranch": "devmerge",
+        "createdBy": "Akshay Kumar",
+        "createdDate": "2026-10-15",
+        "closedDate": "2026-10-16",
+        "reviewers": [
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": true
     },
     {
         "id": 9420,
@@ -5822,28 +5845,34 @@ const AZURE_DATA = {
         "isDraft": false,
         "mergeStatus": "succeeded",
         "approved": true
-    },
-    {
-        "id": 9321,
-        "title": "Commit: SOPS-199 GU_PTAT_Alert_Email__mdt page layout",
-        "status": "abandoned",
-        "repo": "RSDF-SalesforcePlatform",
-        "sourceBranch": "SOPS-199",
-        "targetBranch": "devmerge",
-        "createdBy": "Rahul Ahuja",
-        "createdDate": "2026-09-29",
-        "closedDate": "2026-09-29",
-        "reviewers": [
-            "Amit Sood",
-            "Sudaif Haider"
-        ],
-        "isDraft": false,
-        "mergeStatus": "",
-        "approved": false
     }
 ],
 
   commits: [
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "2042c9fc",
+        "comment": "Feature-SOPS-237-customField2",
+        "author": "Sagar-GitHub-18",
+        "date": "2026-10-16",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "d1a18b88",
+        "comment": "Merge pull request 9423 from gs-pipeline/Feature-SOPS-237-CustomField1_-_sit into sit",
+        "author": "Akshay Kumar",
+        "date": "2026-10-16",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "68acca5e",
+        "comment": "Merged PR 9422: Feature-SOPS-237-CustomField1",
+        "author": "Akshay Kumar",
+        "date": "2026-10-16",
+        "branch": ""
+    },
     {
         "repo": "RSDF-SalesforcePlatform",
         "commitId": "5772ced8",
@@ -5977,30 +6006,6 @@ const AZURE_DATA = {
         "commitId": "d6513287",
         "comment": "Merge pull request 9413 from gs-pipeline/Feature-SOPS-237-CampusField_-_main into main",
         "author": "Akshay Kumar",
-        "date": "2026-10-15",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "f002e9f1",
-        "comment": "Merge pull request 9412 from Feature-SOPS-237-CampusField into main",
-        "author": "Sagar Dey",
-        "date": "2026-10-15",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "6d1a725a",
-        "comment": "Feature-SOPS-237-Profile1",
-        "author": "Sagar-GitHub-18",
-        "date": "2026-10-15",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "e2ec2f1e",
-        "comment": "Feature-SOPS-237-CampusField",
-        "author": "Sagar-GitHub-18",
         "date": "2026-10-15",
         "branch": ""
     }
