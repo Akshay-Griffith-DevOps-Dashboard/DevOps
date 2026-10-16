@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-10-16 06:31 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-10-16 12:32 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-10-16 06:31 UTC',
+  fetchedAt: '2026-10-16 12:32 UTC',
 
   sprints: [
     {
@@ -96,15 +96,15 @@ const JIRA_DATA = {
 
   issues: [
     {
-        "key": "SOPS-246",
-        "summary": "[UAT] PRM filter not working as expected when searching Accounts.",
-        "type": "Bug",
-        "status": "To Do",
-        "statusCat": "To Do",
+        "key": "SOPS-140",
+        "summary": "OWD Remediation :  Audit and Restrict Access to Dupcheck and OB_Archiver Objects via Permission Sets",
+        "type": "Story",
+        "status": "IN SIT",
+        "statusCat": "In Progress",
         "priority": "Medium",
-        "assignee": "Rahul Ahuja",
-        "reporter": "Kaviya UC",
-        "created": "2026-10-16",
+        "assignee": "Kaviya UC",
+        "reporter": "Sudaif Haider",
+        "created": "2026-09-11",
         "updated": "2026-10-16",
         "labels": [],
         "fixVersions": [],
@@ -117,7 +117,7 @@ const JIRA_DATA = {
         "status": "IN UAT",
         "statusCat": "In Progress",
         "priority": "Medium",
-        "assignee": "Kaviya UC",
+        "assignee": "Akshay Kumar",
         "reporter": "Asra Khan",
         "created": "2026-09-03",
         "updated": "2026-10-16",
@@ -125,6 +125,21 @@ const JIRA_DATA = {
         "fixVersions": [
             "GU-SF-R1"
         ],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-246",
+        "summary": "[UAT] PRM filter not working as expected when searching Accounts.",
+        "type": "Bug",
+        "status": "Done",
+        "statusCat": "Done",
+        "priority": "Medium",
+        "assignee": "Akshay Kumar",
+        "reporter": "Kaviya UC",
+        "created": "2026-10-16",
+        "updated": "2026-10-16",
+        "labels": [],
+        "fixVersions": [],
         "storyPoints": null
     },
     {
@@ -197,21 +212,6 @@ const JIRA_DATA = {
         "assignee": "Kaviya UC",
         "reporter": "Kaviya UC",
         "created": "2026-10-15",
-        "updated": "2026-10-15",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-140",
-        "summary": "OWD Remediation :  Audit and Restrict Access to Dupcheck and OB_Archiver Objects via Permission Sets",
-        "type": "Story",
-        "status": "IN SIT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Kaviya UC",
-        "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
         "updated": "2026-10-15",
         "labels": [],
         "fixVersions": [],
@@ -1660,25 +1660,25 @@ const JIRA_DATA = {
 ]
 };
 
-// ── Live SIT Sandbox data (fetched 2026-10-16 06:31 UTC) ────────────────────────────
+// ── Live SIT Sandbox data (fetched 2026-10-16 12:32 UTC) ────────────────────────────
 const LIVE_DATA = {
   org: {
     name:        'GRIFFITH UNIVERSITY',
     instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
     orgId:       '00DOg000003NRdiMAG',
     environment: 'SIT Sandbox',
-    fetchedAt:   '2026-10-16 06:31 UTC',
+    fetchedAt:   '2026-10-16 12:32 UTC',
   },
 
   /* Org limits */
   limits: {
     "DailyApiRequests": {
         "Max": 5000000,
-        "Remaining": 4998871
+        "Remaining": 4997835
     },
     "DailyAsyncApexExecutions": {
         "Max": 250000,
-        "Remaining": 249986
+        "Remaining": 249996
     },
     "DailyBulkApiBatches": {
         "Max": 15000,
@@ -1711,8 +1711,8 @@ const LIVE_DATA = {
 
   /* Scheduled jobs summary */
   scheduledJobs: {
-    "total": 27,
-    "waiting": 21,
+    "total": 30,
+    "waiting": 24,
     "complete": 5,
     "acquired": 1,
     "jobs": [
@@ -1744,27 +1744,27 @@ const LIVE_DATA = {
         {
             "name": "BatchDocgenProcessingCronJob",
             "state": "ACQUIRED",
-            "next": "2026-10-12T04:52:00Z"
+            "next": "2026-10-12T13:23:00Z"
         },
         {
             "name": "DC.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-10-16T06:44:00Z"
+            "next": "2026-10-16T12:44:00Z"
+        },
+        {
+            "name": "DAP.TELEMETRY",
+            "state": "WAITING",
+            "next": "2026-10-16T12:44:00Z"
         },
         {
             "name": "Privacy Center Audit",
             "state": "WAITING",
-            "next": "2026-10-16T07:00:00Z"
+            "next": "2026-10-16T13:00:00Z"
         },
         {
-            "name": "Metalytics Dataflow Runner Job for Org : 00DOg000003NRdi",
+            "name": "Retention Usage",
             "state": "WAITING",
-            "next": "2026-10-16T07:09:00Z"
-        },
-        {
-            "name": "MciDashboardUpdateJobType",
-            "state": "WAITING",
-            "next": "2026-10-16T07:30:00Z"
+            "next": "2026-10-16T14:00:00Z"
         }
     ]
 },
@@ -1860,6 +1860,42 @@ const LIVE_DATA = {
         "loginClass": "recent"
     },
     {
+        "initials": "DU",
+        "name": "Deployment User",
+        "username": "deploymentuser@griffith.edu.au.sit",
+        "userType": "Standard",
+        "profile": "Gearset Integration Administrator",
+        "lastLogin": "2026-10-16",
+        "loginClass": "recent"
+    },
+    {
+        "initials": "SD",
+        "name": "Sagar Dey",
+        "username": "sagar.dey@griffith.edu.au.sit",
+        "userType": "Standard",
+        "profile": "System Administrator",
+        "lastLogin": "2026-10-16",
+        "loginClass": "recent"
+    },
+    {
+        "initials": "KU",
+        "name": "Kaviya UC",
+        "username": "k.uc@griffith.edu.au.sit",
+        "userType": "Standard",
+        "profile": "System Administrator",
+        "lastLogin": "2026-10-16",
+        "loginClass": "recent"
+    },
+    {
+        "initials": "SH",
+        "name": "Sudaif Haider",
+        "username": "s.haider@griffith.edu.au.sit",
+        "userType": "Standard",
+        "profile": "System Administrator",
+        "lastLogin": "2026-10-16",
+        "loginClass": "recent"
+    },
+    {
         "initials": "RA",
         "name": "Rahul Ahuja",
         "username": "r.ahuja@griffith.edu.au.sit",
@@ -1878,48 +1914,12 @@ const LIVE_DATA = {
         "loginClass": "recent"
     },
     {
-        "initials": "KU",
-        "name": "Kaviya UC",
-        "username": "k.uc@griffith.edu.au.sit",
-        "userType": "Standard",
-        "profile": "System Administrator",
-        "lastLogin": "2026-10-16",
-        "loginClass": "recent"
-    },
-    {
-        "initials": "SD",
-        "name": "Sagar Dey",
-        "username": "sagar.dey@griffith.edu.au.sit",
-        "userType": "Standard",
-        "profile": "System Administrator",
-        "lastLogin": "2026-10-16",
-        "loginClass": "recent"
-    },
-    {
-        "initials": "DU",
-        "name": "Deployment User",
-        "username": "deploymentuser@griffith.edu.au.sit",
-        "userType": "Standard",
-        "profile": "Gearset Integration Administrator",
-        "lastLogin": "2026-10-16",
-        "loginClass": "recent"
-    },
-    {
         "initials": "JF",
         "name": "Jeremy Fahey",
         "username": "j.fahey@griffith.edu.au.sit",
         "userType": "Standard",
         "profile": "System Administrator",
         "lastLogin": "2026-10-16",
-        "loginClass": "recent"
-    },
-    {
-        "initials": "SH",
-        "name": "Sudaif Haider",
-        "username": "s.haider@griffith.edu.au.sit",
-        "userType": "Standard",
-        "profile": "System Administrator",
-        "lastLogin": "2026-10-14",
         "loginClass": "recent"
     },
     {
@@ -2034,6 +2034,211 @@ const LIVE_DATA = {
 
   /* Recent deployments */
   sfDeployments: [
+    {
+        "id": "0AfOg000006t1HlKAI",
+        "deployedBy": "Deployment User",
+        "checkOnly": false,
+        "componentsDeployed": 0,
+        "componentsTotal": 0,
+        "errors": 0,
+        "status": "Succeeded",
+        "startDate": "2026-10-16T11:13:58.000+0000",
+        "completedDate": "2026-10-16T11:13:59.000+0000",
+        "durationSec": 1,
+        "stateDetail": "",
+        "components": []
+    },
+    {
+        "id": "0AfOg000006t1CvKAI",
+        "deployedBy": "Deployment User",
+        "checkOnly": true,
+        "componentsDeployed": 0,
+        "componentsTotal": 0,
+        "errors": 0,
+        "status": "Succeeded",
+        "startDate": "2026-10-16T11:13:04.000+0000",
+        "completedDate": "2026-10-16T11:13:04.000+0000",
+        "durationSec": 0,
+        "stateDetail": "",
+        "components": []
+    },
+    {
+        "id": "0AfOg000006t0lVKAQ",
+        "deployedBy": "Deployment User",
+        "checkOnly": true,
+        "componentsDeployed": 0,
+        "componentsTotal": 0,
+        "errors": 0,
+        "status": "Succeeded",
+        "startDate": "2026-10-16T11:08:00.000+0000",
+        "completedDate": "2026-10-16T11:08:00.000+0000",
+        "durationSec": 0,
+        "stateDetail": "",
+        "components": []
+    },
+    {
+        "id": "0AfOg000006t0FGKAY",
+        "deployedBy": "Deployment User",
+        "checkOnly": false,
+        "componentsDeployed": 1,
+        "componentsTotal": 1,
+        "errors": 0,
+        "status": "Succeeded",
+        "startDate": "2026-10-16T11:03:43.000+0000",
+        "completedDate": "2026-10-16T11:03:47.000+0000",
+        "durationSec": 4,
+        "stateDetail": "",
+        "components": [
+            {
+                "name": "Gearset Integration Administrator",
+                "type": "Profile",
+                "success": true
+            }
+        ]
+    },
+    {
+        "id": "0AfOg000006t0QXKAY",
+        "deployedBy": "Sagar Dey",
+        "checkOnly": false,
+        "componentsDeployed": 1,
+        "componentsTotal": 1,
+        "errors": 0,
+        "status": "Succeeded",
+        "startDate": "2026-10-16T11:03:04.000+0000",
+        "completedDate": "2026-10-16T11:03:10.000+0000",
+        "durationSec": 6,
+        "stateDetail": "",
+        "components": [
+            {
+                "name": "LearnerProgram.Campus__c",
+                "type": "CustomField",
+                "success": true
+            }
+        ]
+    },
+    {
+        "id": "0AfOg000006stouKAA",
+        "deployedBy": "Sagar Dey",
+        "checkOnly": false,
+        "componentsDeployed": 2,
+        "componentsTotal": 2,
+        "errors": 0,
+        "status": "Succeeded",
+        "startDate": "2026-10-16T11:00:50.000+0000",
+        "completedDate": "2026-10-16T11:00:57.000+0000",
+        "durationSec": 7,
+        "stateDetail": "",
+        "components": [
+            {
+                "name": "LearnerProgram.Campus__c",
+                "type": "CustomField",
+                "success": true
+            },
+            {
+                "name": "LearningProgram.Campus__c",
+                "type": "CustomField",
+                "success": true
+            }
+        ]
+    },
+    {
+        "id": "0AfOg000006stCFKAY",
+        "deployedBy": "Deployment User",
+        "checkOnly": true,
+        "componentsDeployed": 1,
+        "componentsTotal": 1,
+        "errors": 0,
+        "status": "Succeeded",
+        "startDate": "2026-10-16T10:57:45.000+0000",
+        "completedDate": "2026-10-16T10:57:49.000+0000",
+        "durationSec": 4,
+        "stateDetail": "",
+        "components": [
+            {
+                "name": "Gearset Integration Administrator",
+                "type": "Profile",
+                "success": true
+            }
+        ]
+    },
+    {
+        "id": "0AfOg000006stVXKAY",
+        "deployedBy": "Deployment User",
+        "checkOnly": false,
+        "componentsDeployed": 0,
+        "componentsTotal": 0,
+        "errors": 0,
+        "status": "Succeeded",
+        "startDate": "2026-10-16T10:33:33.000+0000",
+        "completedDate": "2026-10-16T10:33:33.000+0000",
+        "durationSec": 0,
+        "stateDetail": "",
+        "components": []
+    },
+    {
+        "id": "0AfOg000006sxpHKAQ",
+        "deployedBy": "Deployment User",
+        "checkOnly": true,
+        "componentsDeployed": 0,
+        "componentsTotal": 0,
+        "errors": 0,
+        "status": "Succeeded",
+        "startDate": "2026-10-16T10:32:41.000+0000",
+        "completedDate": "2026-10-16T10:32:42.000+0000",
+        "durationSec": 1,
+        "stateDetail": "",
+        "components": []
+    },
+    {
+        "id": "0AfOg000006snUwKAI",
+        "deployedBy": "Deployment User",
+        "checkOnly": false,
+        "componentsDeployed": 7,
+        "componentsTotal": 7,
+        "errors": 0,
+        "status": "Succeeded",
+        "startDate": "2026-10-16T08:11:35.000+0000",
+        "completedDate": "2026-10-16T08:11:42.000+0000",
+        "durationSec": 7,
+        "stateDetail": "",
+        "components": [
+            {
+                "name": "GU Base Profile",
+                "type": "Profile",
+                "success": true
+            },
+            {
+                "name": "Read Only",
+                "type": "Profile",
+                "success": true
+            },
+            {
+                "name": "Salesforce API Only System Integrations",
+                "type": "Profile",
+                "success": true
+            },
+            {
+                "name": "ascend Development",
+                "type": "Profile",
+                "success": true
+            },
+            {
+                "name": "ascend Gift Processing",
+                "type": "Profile",
+                "success": true
+            },
+            {
+                "name": "ascend Read Only",
+                "type": "Profile",
+                "success": true
+            },
+            {
+                "name": "ascend Research",
+                "type": "Profile",
+                "success": true
+            }
+        ]
+    },
     {
         "id": "0AfOg000006segAKAQ",
         "deployedBy": "Deployment User",
@@ -2321,199 +2526,6 @@ const LIVE_DATA = {
                 "problem": "cannot delete profile in use"
             }
         ]
-    },
-    {
-        "id": "0AfOg000006opyLKAQ",
-        "deployedBy": "Deployment User",
-        "checkOnly": false,
-        "componentsDeployed": 1,
-        "componentsTotal": 1,
-        "errors": 0,
-        "status": "Succeeded",
-        "startDate": "2026-10-13T10:16:29.000+0000",
-        "completedDate": "2026-10-13T10:16:41.000+0000",
-        "durationSec": 12,
-        "stateDetail": "",
-        "components": [
-            {
-                "name": "GU_Base_Ascend",
-                "type": "PermissionSet",
-                "success": true
-            }
-        ]
-    },
-    {
-        "id": "0AfOg000006onN5KAI",
-        "deployedBy": "Deployment User",
-        "checkOnly": true,
-        "componentsDeployed": 2,
-        "componentsTotal": 2,
-        "errors": 0,
-        "status": "Succeeded",
-        "startDate": "2026-10-13T10:03:42.000+0000",
-        "completedDate": "2026-10-13T10:03:43.000+0000",
-        "durationSec": 1,
-        "stateDetail": "",
-        "components": [
-            {
-                "name": "ContactPointSocial",
-                "type": "SharingRules",
-                "success": true
-            },
-            {
-                "name": "ContactPointSocial.Advancement",
-                "type": "SharingOwnerRule",
-                "success": true
-            }
-        ]
-    },
-    {
-        "id": "0AfOg000006oacjKAA",
-        "deployedBy": "Deployment User",
-        "checkOnly": false,
-        "componentsDeployed": 1,
-        "componentsTotal": 1,
-        "errors": 0,
-        "status": "Succeeded",
-        "startDate": "2026-10-13T06:13:17.000+0000",
-        "completedDate": "2026-10-13T06:13:26.000+0000",
-        "durationSec": 9,
-        "stateDetail": "",
-        "components": [
-            {
-                "name": "Account",
-                "type": "CustomObject",
-                "success": true
-            }
-        ]
-    },
-    {
-        "id": "0AfOg000006oWSfKAM",
-        "deployedBy": "Deployment User",
-        "checkOnly": true,
-        "componentsDeployed": 1,
-        "componentsTotal": 1,
-        "errors": 0,
-        "status": "Succeeded",
-        "startDate": "2026-10-13T04:45:43.000+0000",
-        "completedDate": "2026-10-13T04:45:50.000+0000",
-        "durationSec": 7,
-        "stateDetail": "",
-        "components": [
-            {
-                "name": "Account",
-                "type": "CustomObject",
-                "success": true
-            }
-        ]
-    },
-    {
-        "id": "0AfOg000006nfL8KAI",
-        "deployedBy": "Deployment User",
-        "checkOnly": true,
-        "componentsDeployed": 0,
-        "componentsTotal": 0,
-        "errors": 0,
-        "status": "Succeeded",
-        "startDate": "2026-10-12T13:02:31.000+0000",
-        "completedDate": "2026-10-12T13:02:32.000+0000",
-        "durationSec": 1,
-        "stateDetail": "",
-        "components": []
-    },
-    {
-        "id": "0AfOg000006jrfpKAA",
-        "deployedBy": "Deployment User",
-        "checkOnly": true,
-        "componentsDeployed": 1,
-        "componentsTotal": 1,
-        "errors": 0,
-        "status": "Succeeded",
-        "startDate": "2026-10-09T08:30:14.000+0000",
-        "completedDate": "2026-10-09T08:30:23.000+0000",
-        "durationSec": 9,
-        "stateDetail": "",
-        "components": [
-            {
-                "name": "GU_Base_Ascend",
-                "type": "PermissionSet",
-                "success": true
-            }
-        ]
-    },
-    {
-        "id": "0AfOg000006joejKAA",
-        "deployedBy": "Deployment User",
-        "checkOnly": true,
-        "componentsDeployed": 0,
-        "componentsTotal": 0,
-        "errors": 0,
-        "status": "Succeeded",
-        "startDate": "2026-10-09T07:30:03.000+0000",
-        "completedDate": "2026-10-09T07:30:03.000+0000",
-        "durationSec": 0,
-        "stateDetail": "",
-        "components": []
-    },
-    {
-        "id": "0AfOg000006jfUzKAI",
-        "deployedBy": "Deployment User",
-        "checkOnly": false,
-        "componentsDeployed": 1,
-        "componentsTotal": 1,
-        "errors": 0,
-        "status": "Succeeded",
-        "startDate": "2026-10-09T05:39:57.000+0000",
-        "completedDate": "2026-10-09T05:40:02.000+0000",
-        "durationSec": 5,
-        "stateDetail": "",
-        "components": [
-            {
-                "name": "GU_Duplicate_Check_for_Salesforce_Super_User",
-                "type": "PermissionSet",
-                "success": true
-            }
-        ]
-    },
-    {
-        "id": "0AfOg000006jYAAKA2",
-        "deployedBy": "Deployment User",
-        "checkOnly": true,
-        "componentsDeployed": 1,
-        "componentsTotal": 1,
-        "errors": 0,
-        "status": "Succeeded",
-        "startDate": "2026-10-09T04:15:56.000+0000",
-        "completedDate": "2026-10-09T04:16:01.000+0000",
-        "durationSec": 5,
-        "stateDetail": "",
-        "components": [
-            {
-                "name": "GU_Duplicate_Check_for_Salesforce_Super_User",
-                "type": "PermissionSet",
-                "success": true
-            }
-        ]
-    },
-    {
-        "id": "0AfOg000006gO0sKAE",
-        "deployedBy": "Deployment User",
-        "checkOnly": false,
-        "componentsDeployed": 1,
-        "componentsTotal": 1,
-        "errors": 0,
-        "status": "Succeeded",
-        "startDate": "2026-10-06T10:40:12.000+0000",
-        "completedDate": "2026-10-06T10:40:14.000+0000",
-        "durationSec": 2,
-        "stateDetail": "",
-        "components": [
-            {
-                "name": "Splunk",
-                "type": "PermissionSet",
-                "success": true
-            }
-        ]
     }
 ],
 
@@ -2600,11 +2612,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-16 06:31 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-16 12:32 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-16 06:31 UTC',
+  fetchedAt: '2026-10-16 12:32 UTC',
 
   repos: [
     {
@@ -3181,12 +3193,12 @@ const AZURE_DATA = {
         "repo": "RSDF-SalesforcePlatform",
         "name": "feature-SOPS140",
         "isDefault": false,
-        "aheadCount": 6,
+        "aheadCount": 7,
         "behindCount": 0,
-        "commitId": "cbe8cbc2",
-        "author": "s.haider@griffith.edu.au",
-        "date": "2026-10-15",
-        "comment": "PR fixes"
+        "commitId": "1acdfef7",
+        "author": "Sudaif",
+        "date": "2026-10-16",
+        "comment": "sops 140 fix"
     },
     {
         "repo": "RSDF-SalesforcePlatform",
@@ -3465,7 +3477,7 @@ const AZURE_DATA = {
     },
     {
         "repo": "RSDF-SalesforcePlatform",
-        "name": "gs-pipeline/Feature-SOPS-237-CampusField_-_sit",
+        "name": "gs-pipeline/Feature-SOPS-237-CampusField_-_uat",
         "isDefault": false,
         "aheadCount": 2,
         "behindCount": 0,
@@ -3476,7 +3488,7 @@ const AZURE_DATA = {
     },
     {
         "repo": "RSDF-SalesforcePlatform",
-        "name": "gs-pipeline/Feature-SOPS-237-CustomField1_-_sit",
+        "name": "gs-pipeline/Feature-SOPS-237-CustomField1_-_uat",
         "isDefault": false,
         "aheadCount": 1,
         "behindCount": 0,
@@ -3575,25 +3587,14 @@ const AZURE_DATA = {
     },
     {
         "repo": "RSDF-SalesforcePlatform",
-        "name": "gs-pipeline/SOPS-96-V2_-_uat",
+        "name": "gs-pipeline/SOPS-96-V2_-_main",
         "isDefault": false,
-        "aheadCount": 48,
+        "aheadCount": 1,
         "behindCount": 0,
-        "commitId": "509f3353",
+        "commitId": "db8ec6c9",
         "author": "Rahul Ahuja",
-        "date": "2026-10-13",
-        "comment": "Merge remote-tracking branch 'origin/uat' into gs-pipeline/SOPS-96-V2_-_uat"
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "name": "gs-pipeline/SOPS-96_-_uat",
-        "isDefault": false,
-        "aheadCount": 4,
-        "behindCount": 0,
-        "commitId": "f76afe1d",
-        "author": "Rahul Ahuja",
-        "date": "2026-09-25",
-        "comment": "Commit: Fix for City, State, Ascend Id"
+        "date": "2026-10-12",
+        "comment": "Commit: Fix for SOPS-96 UAT testing"
     },
     {
         "repo": "RSDF-SalesforcePlatform",
@@ -3698,12 +3699,12 @@ const AZURE_DATA = {
         "repo": "RSDF-SalesforcePlatform",
         "name": "gs-pipeline/feature-SOPS-237n_-_sit",
         "isDefault": false,
-        "aheadCount": 74,
+        "aheadCount": 5,
         "behindCount": 0,
-        "commitId": "ef245439",
-        "author": "Team user",
+        "commitId": "dcaa71ba",
+        "author": "Sagar-GitHub-18",
         "date": "2026-10-15",
-        "comment": "Gearset: Semantic reverse merge of sit into gs-pipeline/feature-SOPS-237n_-_sit"
+        "comment": "Remove local Salesforce CLI org tracking from the branch."
     },
     {
         "repo": "RSDF-SalesforcePlatform",
@@ -3825,6 +3826,17 @@ const AZURE_DATA = {
         "author": "s.haider@griffith.edu.au",
         "date": "2026-09-11",
         "comment": "Changes for SOPS-90"
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "name": "gs-pipeline/feature-SOPS140_-_devmerge",
+        "isDefault": false,
+        "aheadCount": 7,
+        "behindCount": 0,
+        "commitId": "1acdfef7",
+        "author": "Sudaif",
+        "date": "2026-10-16",
+        "comment": "sops 140 fix"
     },
     {
         "repo": "RSDF-SalesforcePlatform",
@@ -4017,12 +4029,12 @@ const AZURE_DATA = {
         "repo": "RSDF-SalesforcePlatform",
         "name": "sit",
         "isDefault": false,
-        "aheadCount": 75,
+        "aheadCount": 86,
         "behindCount": 0,
-        "commitId": "cdbe45cc",
+        "commitId": "79eb3e2a",
         "author": "Akshay Kumar",
-        "date": "2026-10-15",
-        "comment": "Merge pull request 9419 from gs-pipeline/feature-SOPS140_-_sit into sit"
+        "date": "2026-10-16",
+        "comment": "Merge pull request 9423 from gs-pipeline/Feature-SOPS-237-CustomField1_-_sit int"
     },
     {
         "repo": "RSDF-SalesforcePlatform",
@@ -4094,29 +4106,141 @@ const AZURE_DATA = {
         "repo": "RSDF-SalesforcePlatform",
         "name": "uat",
         "isDefault": false,
-        "aheadCount": 44,
+        "aheadCount": 49,
         "behindCount": 0,
-        "commitId": "1338a854",
+        "commitId": "82febd07",
         "author": "Akshay Kumar",
-        "date": "2026-10-09",
-        "comment": "Merge pull request 9264 from gs-pipeline/SOPS-87_-_uat into uat"
+        "date": "2026-10-16",
+        "comment": "Merge pull request 9390 from gs-pipeline/SOPS-96-V2_-_uat into uat"
     }
 ],
 
   pullRequests: [
     {
-        "id": 9423,
+        "id": 9429,
         "title": "Feature-SOPS-237-CustomField1",
         "status": "active",
         "repo": "RSDF-SalesforcePlatform",
-        "sourceBranch": "gs-pipeline/Feature-SOPS-237-CustomField1_-_sit",
-        "targetBranch": "sit",
+        "sourceBranch": "gs-pipeline/Feature-SOPS-237-CustomField1_-_uat",
+        "targetBranch": "uat",
         "createdBy": "Akshay Kumar",
         "createdDate": "2026-10-16",
         "closedDate": null,
         "reviewers": [
             "Amit Sood",
+            "Jeremy Fahey",
+            "Sudaif Haider",
+            "Sagar Dey"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9428,
+        "title": "Sync: Feature SOPS 237n",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/feature-SOPS-237n_-_sit",
+        "targetBranch": "sit",
+        "createdBy": "Sudaif Haider",
+        "createdDate": "2026-10-16",
+        "closedDate": null,
+        "reviewers": [
+            "Amit Sood",
             "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9427,
+        "title": "Feature SOPS 237 CampusField",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/Feature-SOPS-237-CampusField_-_uat",
+        "targetBranch": "uat",
+        "createdBy": "Sudaif Haider",
+        "createdDate": "2026-10-16",
+        "closedDate": null,
+        "reviewers": [
+            "Amit Sood",
+            "Jeremy Fahey",
+            "Sudaif Haider",
+            "Sagar Dey"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9426,
+        "title": "Commit: Fix for SOPS-96 UAT testing",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/SOPS-96-V2_-_main",
+        "targetBranch": "main",
+        "createdBy": "Akshay Kumar",
+        "createdDate": "2026-10-16",
+        "closedDate": null,
+        "reviewers": [
+            "Asra Khan",
+            "Amit Sood",
+            "Akshay Kumar",
+            "Jeremy Fahey",
+            "Sudaif Haider",
+            "Giles Bill",
+            "Rahul Ahuja"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9425,
+        "title": "sops 140 fix",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/feature-SOPS140_-_devmerge",
+        "targetBranch": "devmerge",
+        "createdBy": "Sudaif Haider",
+        "createdDate": "2026-10-16",
+        "closedDate": null,
+        "reviewers": [],
+        "isDraft": false,
+        "mergeStatus": "conflicts",
+        "approved": false
+    },
+    {
+        "id": 9424,
+        "title": "sops 140 fix",
+        "status": "abandoned",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "feature-SOPS140",
+        "targetBranch": "devmerge",
+        "createdBy": "Sudaif Haider",
+        "createdDate": "2026-10-16",
+        "closedDate": "2026-10-16",
+        "reviewers": [],
+        "isDraft": false,
+        "mergeStatus": "",
+        "approved": false
+    },
+    {
+        "id": 9423,
+        "title": "Feature-SOPS-237-CustomField1",
+        "status": "completed",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/Feature-SOPS-237-CustomField1_-_sit",
+        "targetBranch": "sit",
+        "createdBy": "Akshay Kumar",
+        "createdDate": "2026-10-16",
+        "closedDate": "2026-10-16",
+        "reviewers": [
+            "Amit Sood",
+            "Sudaif Haider",
+            "Sagar Dey"
         ],
         "isDraft": false,
         "mergeStatus": "succeeded",
@@ -4177,16 +4301,17 @@ const AZURE_DATA = {
     {
         "id": 9418,
         "title": "Feature SOPS 237 CampusField",
-        "status": "active",
+        "status": "completed",
         "repo": "RSDF-SalesforcePlatform",
         "sourceBranch": "gs-pipeline/Feature-SOPS-237-CampusField_-_sit",
         "targetBranch": "sit",
         "createdBy": "Sudaif Haider",
         "createdDate": "2026-10-15",
-        "closedDate": null,
+        "closedDate": "2026-10-16",
         "reviewers": [
             "Amit Sood",
-            "Sudaif Haider"
+            "Sudaif Haider",
+            "Sagar Dey"
         ],
         "isDraft": false,
         "mergeStatus": "succeeded",
@@ -4456,13 +4581,13 @@ const AZURE_DATA = {
     {
         "id": 9401,
         "title": "Feature SOPS 237n",
-        "status": "active",
+        "status": "completed",
         "repo": "RSDF-SalesforcePlatform",
         "sourceBranch": "gs-pipeline/feature-SOPS-237n_-_sit",
         "targetBranch": "sit",
         "createdBy": "Sudaif Haider",
         "createdDate": "2026-10-15",
-        "closedDate": null,
+        "closedDate": "2026-10-16",
         "reviewers": [
             "Amit Sood",
             "Sudaif Haider"
@@ -4646,13 +4771,13 @@ const AZURE_DATA = {
     {
         "id": 9390,
         "title": "Commit: Fix for SOPS-96 UAT testing",
-        "status": "active",
+        "status": "completed",
         "repo": "RSDF-SalesforcePlatform",
         "sourceBranch": "gs-pipeline/SOPS-96-V2_-_uat",
         "targetBranch": "uat",
         "createdBy": "Akshay Kumar",
         "createdDate": "2026-10-13",
-        "closedDate": null,
+        "closedDate": "2026-10-16",
         "reviewers": [
             "Asra Khan",
             "Amit Sood",
@@ -5578,13 +5703,13 @@ const AZURE_DATA = {
     {
         "id": 9337,
         "title": "Sync: SOPS 96",
-        "status": "active",
+        "status": "abandoned",
         "repo": "RSDF-SalesforcePlatform",
         "sourceBranch": "gs-pipeline/SOPS-96_-_uat",
         "targetBranch": "uat",
         "createdBy": "Akshay Kumar",
         "createdDate": "2026-10-01",
-        "closedDate": null,
+        "closedDate": "2026-10-16",
         "reviewers": [
             "Asra Khan",
             "Amit Sood",
@@ -5592,7 +5717,7 @@ const AZURE_DATA = {
             "Sudaif Haider"
         ],
         "isDraft": false,
-        "mergeStatus": "succeeded",
+        "mergeStatus": "",
         "approved": false
     },
     {
@@ -5735,120 +5860,98 @@ const AZURE_DATA = {
         "isDraft": false,
         "mergeStatus": "",
         "approved": false
-    },
-    {
-        "id": 9327,
-        "title": "Update ucinn_ascendv2__Designation__c.sharingRules-meta.xml",
-        "status": "active",
-        "repo": "RSDF-SalesforcePlatform",
-        "sourceBranch": "gs-pipeline/Feature-SOPS-73_-_sit",
-        "targetBranch": "sit",
-        "createdBy": "Akshay Kumar",
-        "createdDate": "2026-09-29",
-        "closedDate": null,
-        "reviewers": [
-            "Amit Sood",
-            "Sudaif Haider"
-        ],
-        "isDraft": false,
-        "mergeStatus": "succeeded",
-        "approved": false
-    },
-    {
-        "id": 9326,
-        "title": "Update ucinn_ascendv2__Designation__c.sharingRules-meta.xml",
-        "status": "completed",
-        "repo": "RSDF-SalesforcePlatform",
-        "sourceBranch": "gs-pipeline/Feature-SOPS-73_-_devmerge",
-        "targetBranch": "devmerge",
-        "createdBy": "Akshay Kumar",
-        "createdDate": "2026-09-29",
-        "closedDate": "2026-09-29",
-        "reviewers": [
-            "Amit Sood",
-            "Sudaif Haider"
-        ],
-        "isDraft": false,
-        "mergeStatus": "succeeded",
-        "approved": false
-    },
-    {
-        "id": 9325,
-        "title": "Update ucinn_ascendv2__Designation__c.sharingRules-meta.xml",
-        "status": "abandoned",
-        "repo": "RSDF-SalesforcePlatform",
-        "sourceBranch": "Feature-SOPS-73",
-        "targetBranch": "devmerge",
-        "createdBy": "Sagar Dey",
-        "createdDate": "2026-09-29",
-        "closedDate": "2026-09-29",
-        "reviewers": [
-            "Amit Sood",
-            "Sudaif Haider"
-        ],
-        "isDraft": false,
-        "mergeStatus": "",
-        "approved": false
-    },
-    {
-        "id": 9324,
-        "title": "Commit: SOPS-199, added new list view and updated nebula logger error handling",
-        "status": "completed",
-        "repo": "RSDF-SalesforcePlatform",
-        "sourceBranch": "gs-pipeline/SOPS-199_-_devmerge",
-        "targetBranch": "devmerge",
-        "createdBy": "Akshay Kumar",
-        "createdDate": "2026-09-29",
-        "closedDate": "2026-09-29",
-        "reviewers": [
-            "Asra Khan",
-            "Amit Sood",
-            "Sudaif Haider"
-        ],
-        "isDraft": false,
-        "mergeStatus": "succeeded",
-        "approved": true
-    },
-    {
-        "id": 9323,
-        "title": "Commit: SOPS-199, added new list view and updated nebula logger error handling",
-        "status": "abandoned",
-        "repo": "RSDF-SalesforcePlatform",
-        "sourceBranch": "SOPS-199",
-        "targetBranch": "devmerge",
-        "createdBy": "Rahul Ahuja",
-        "createdDate": "2026-09-29",
-        "closedDate": "2026-09-29",
-        "reviewers": [
-            "Amit Sood",
-            "Sudaif Haider"
-        ],
-        "isDraft": false,
-        "mergeStatus": "",
-        "approved": false
-    },
-    {
-        "id": 9322,
-        "title": "Commit: SOPS-199 GU_PTAT_Alert_Email__mdt page layout",
-        "status": "completed",
-        "repo": "RSDF-SalesforcePlatform",
-        "sourceBranch": "gs-pipeline/SOPS-199_-_devmerge",
-        "targetBranch": "devmerge",
-        "createdBy": "Akshay Kumar",
-        "createdDate": "2026-09-29",
-        "closedDate": "2026-09-29",
-        "reviewers": [
-            "Asra Khan",
-            "Amit Sood",
-            "Sudaif Haider"
-        ],
-        "isDraft": false,
-        "mergeStatus": "succeeded",
-        "approved": true
     }
 ],
 
   commits: [
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "60b09e2e",
+        "comment": "Merge pull request 9429 from gs-pipeline/Feature-SOPS-237-CustomField1_-_uat into uat",
+        "author": "Akshay Kumar",
+        "date": "2026-10-16",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "79eb3e2a",
+        "comment": "Merge pull request 9423 from gs-pipeline/Feature-SOPS-237-CustomField1_-_sit into sit",
+        "author": "Akshay Kumar",
+        "date": "2026-10-16",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "563642d3",
+        "comment": "Merge pull request 9428 from gs-pipeline/feature-SOPS-237n_-_sit into sit",
+        "author": "Sudaif Haider",
+        "date": "2026-10-16",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "2f51d230",
+        "comment": "Merge pull request 9401 from gs-pipeline/feature-SOPS-237n_-_sit into sit",
+        "author": "Sudaif Haider",
+        "date": "2026-10-16",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "c39191e2",
+        "comment": "Merge pull request 9401 from gs-pipeline/feature-SOPS-237n_-_sit into sit",
+        "author": "Sudaif Haider",
+        "date": "2026-10-16",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "93ee1a14",
+        "comment": "Gearset: Conflicts resolved. Merging branch sit into gs-pipeline/feature-SOPS-237n_-_sit",
+        "author": "s.haider@griffith.edu.au",
+        "date": "2026-10-16",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "9ea6a3a6",
+        "comment": "Merge pull request 9427 from gs-pipeline/Feature-SOPS-237-CampusField_-_uat into uat",
+        "author": "Sudaif Haider",
+        "date": "2026-10-16",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "347d5c8a",
+        "comment": "Merge pull request 9418 from gs-pipeline/Feature-SOPS-237-CampusField_-_sit into sit",
+        "author": "Sudaif Haider",
+        "date": "2026-10-16",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "194b0402",
+        "comment": "Merge pull request 9426 from gs-pipeline/SOPS-96-V2_-_main into main",
+        "author": "Akshay Kumar",
+        "date": "2026-10-16",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "82febd07",
+        "comment": "Merge pull request 9390 from gs-pipeline/SOPS-96-V2_-_uat into uat",
+        "author": "Akshay Kumar",
+        "date": "2026-10-16",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "1acdfef7",
+        "comment": "sops 140 fix",
+        "author": "Sudaif",
+        "date": "2026-10-16",
+        "branch": ""
+    },
     {
         "repo": "RSDF-SalesforcePlatform",
         "commitId": "2042c9fc",
@@ -5917,94 +6020,6 @@ const AZURE_DATA = {
         "repo": "RSDF-SalesforcePlatform",
         "commitId": "afd02a3a",
         "comment": "Merge pull request 9419 from gs-pipeline/feature-SOPS140_-_sit into sit",
-        "author": "Akshay Kumar",
-        "date": "2026-10-15",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "fd4a7c34",
-        "comment": "Merge pull request 9407 from gs-pipeline/feature-SOPS140_-_devmerge into devmerge",
-        "author": "Akshay Kumar",
-        "date": "2026-10-15",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "c06b4f8f",
-        "comment": "Merge pull request 9418 from gs-pipeline/Feature-SOPS-237-CampusField_-_sit into sit",
-        "author": "Sudaif Haider",
-        "date": "2026-10-15",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "35ed0a56",
-        "comment": "Merge pull request 9417 from gs-pipeline/Feature-SOPS-237-CampusField_-_devmerge into devmerge",
-        "author": "Sudaif Haider",
-        "date": "2026-10-15",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "efe42d66",
-        "comment": "Merge pull request 9417 from gs-pipeline/Feature-SOPS-237-CampusField_-_devmerge into devmerge",
-        "author": "Sudaif Haider",
-        "date": "2026-10-15",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "90bd72c9",
-        "comment": "Gearset: Conflicts resolved. Merging branch devmerge into gs-pipeline/Feature-SOPS-237-CampusField_-",
-        "author": "s.haider@griffith.edu.au",
-        "date": "2026-10-15",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "1715b64a",
-        "comment": "Update Campus__c.field-meta.xml",
-        "author": "Sudaif",
-        "date": "2026-10-15",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "268bf8b6",
-        "comment": "Merge pull request 9415 from gs-pipeline/Feature-SOPS-237-CampusField_-_devmerge into devmerge",
-        "author": "Akshay Kumar",
-        "date": "2026-10-15",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "0c728da6",
-        "comment": "Merge pull request 9414 from Feature-SOPS-237-CampusField into devmerge",
-        "author": "Sagar Dey",
-        "date": "2026-10-15",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "15711099",
-        "comment": "Merge pull request 9411 from gs-pipeline/Feature-SOPS-237_profile1_-_devmerge into devmerge",
-        "author": "Akshay Kumar",
-        "date": "2026-10-15",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "4fa91336",
-        "comment": "Gearset: Conflicts resolved. Merging branch devmerge into gs-pipeline/Feature-SOPS-237_profile1_-_de",
-        "author": "s.haider@griffith.edu.au",
-        "date": "2026-10-15",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "d6513287",
-        "comment": "Merge pull request 9413 from gs-pipeline/Feature-SOPS-237-CampusField_-_main into main",
         "author": "Akshay Kumar",
         "date": "2026-10-15",
         "branch": ""
