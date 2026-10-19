@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-10-19 00:31 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-10-19 06:37 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-10-19 00:31 UTC',
+  fetchedAt: '2026-10-19 06:37 UTC',
 
   sprints: [
     {
@@ -96,35 +96,112 @@ const JIRA_DATA = {
 
   issues: [
     {
-        "key": "SOPS-140",
-        "summary": "OWD Remediation :  Audit and Restrict Access to Dupcheck and OB_Archiver Objects via Permission Sets",
-        "type": "Story",
-        "status": "IN SIT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Kaviya UC",
-        "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
-        "updated": "2026-10-16",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-96",
         "summary": "Enable person/alumni search by additional identifiers (email, GU ID etc .) in Global Search Layout",
         "type": "Story",
         "status": "IN UAT",
         "statusCat": "In Progress",
         "priority": "Medium",
-        "assignee": "Akshay Kumar",
+        "assignee": "Kaviya UC",
         "reporter": "Asra Khan",
         "created": "2026-09-03",
-        "updated": "2026-10-16",
+        "updated": "2026-10-19",
         "labels": [],
         "fixVersions": [
             "GU-SF-R1"
         ],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-140",
+        "summary": "OWD Remediation :  Audit and Restrict Access to Dupcheck and OB_Archiver Objects via Permission Sets",
+        "type": "Story",
+        "status": "READY FOR UAT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Sudaif Haider",
+        "created": "2026-09-11",
+        "updated": "2026-10-19",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-242",
+        "summary": "[SIT] Access and the 11 editable fields are not disabled for the mentioned profiles in SIT",
+        "type": "Bug",
+        "status": "Done",
+        "statusCat": "Done",
+        "priority": "Highest",
+        "assignee": "Sudaif Haider",
+        "reporter": "Kaviya UC",
+        "created": "2026-10-15",
+        "updated": "2026-10-19",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-243",
+        "summary": "QA : Test Scripts & Test Execution",
+        "type": "Sub-task",
+        "status": "Done",
+        "statusCat": "Done",
+        "priority": "Medium",
+        "assignee": "Kaviya UC",
+        "reporter": "Kaviya UC",
+        "created": "2026-10-15",
+        "updated": "2026-10-19",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-185",
+        "summary": "SIT Org Refresh - Smoke Testing : Payroll giving processing",
+        "type": "Sub-task",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Kaviya UC",
+        "reporter": "Kaviya UC",
+        "created": "2026-09-18",
+        "updated": "2026-10-19",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-202",
+        "summary": "[UAT|SIT] Automation/ Batch process is not triggering and updating the status as 'Reviewed', when Payment Amount = Gift ",
+        "type": "Bug",
+        "status": "IN UAT",
+        "statusCat": "In Progress",
+        "priority": "High",
+        "assignee": "Akshay Kumar",
+        "reporter": "Kaviya UC",
+        "created": "2026-09-28",
+        "updated": "2026-10-19",
+        "labels": [
+            "RAC:Coding/Logic_Issue"
+        ],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-220",
+        "summary": "Student email keeps the alumnus personal address",
+        "type": "Story",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Unassigned",
+        "reporter": "Asra Khan",
+        "created": "2026-10-05",
+        "updated": "2026-10-19",
+        "labels": [],
+        "fixVersions": [],
         "storyPoints": null
     },
     {
@@ -159,21 +236,6 @@ const JIRA_DATA = {
     },
     {
         "key": "SOPS-245",
-        "summary": "QA : Test Scripts & Test Execution",
-        "type": "Sub-task",
-        "status": "In Progress",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Kaviya UC",
-        "reporter": "Kaviya UC",
-        "created": "2026-10-15",
-        "updated": "2026-10-15",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-243",
         "summary": "QA : Test Scripts & Test Execution",
         "type": "Sub-task",
         "status": "In Progress",
@@ -257,21 +319,6 @@ const JIRA_DATA = {
         "assignee": "Jeremy Fahey",
         "reporter": "Sudaif Haider",
         "created": "2026-09-11",
-        "updated": "2026-10-15",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-242",
-        "summary": "[SIT] Access and the 11 editable fields are not disabled for the mentioned profiles in SIT",
-        "type": "Bug",
-        "status": "To Do",
-        "statusCat": "To Do",
-        "priority": "Highest",
-        "assignee": "Sudaif Haider",
-        "reporter": "Kaviya UC",
-        "created": "2026-10-15",
         "updated": "2026-10-15",
         "labels": [],
         "fixVersions": [],
@@ -413,23 +460,6 @@ const JIRA_DATA = {
         "created": "2026-10-14",
         "updated": "2026-10-14",
         "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-202",
-        "summary": "[UAT|SIT] Automation/ Batch process is not triggering and updating the status as 'Reviewed', when Payment Amount = Gift ",
-        "type": "Bug",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "High",
-        "assignee": "Sudaif Haider",
-        "reporter": "Kaviya UC",
-        "created": "2026-09-28",
-        "updated": "2026-10-14",
-        "labels": [
-            "RAC:Coding/Logic_Issue"
-        ],
         "fixVersions": [],
         "storyPoints": null
     },
@@ -871,21 +901,6 @@ const JIRA_DATA = {
         "assignee": "Benjamin Bates",
         "reporter": "Amit Sood",
         "created": "2026-09-09",
-        "updated": "2026-10-09",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-220",
-        "summary": "Student email keeps the alumnus personal address",
-        "type": "Story",
-        "status": "To Do",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Unassigned",
-        "reporter": "Asra Khan",
-        "created": "2026-10-05",
         "updated": "2026-10-09",
         "labels": [],
         "fixVersions": [],
@@ -1641,48 +1656,33 @@ const JIRA_DATA = {
         "labels": [],
         "fixVersions": [],
         "storyPoints": null
-    },
-    {
-        "key": "SOPS-152",
-        "summary": "Permission Set Remediation : Merge CICDPermissions and GUCICD",
-        "type": "Story",
-        "status": "NOT REQUIRED",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Sagar Dey",
-        "reporter": "Amit Sood",
-        "created": "2026-09-11",
-        "updated": "2026-10-05",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
     }
 ]
 };
 
-// ── Live SIT Sandbox data (fetched 2026-10-19 00:31 UTC) ────────────────────────────
+// ── Live SIT Sandbox data (fetched 2026-10-19 06:37 UTC) ────────────────────────────
 const LIVE_DATA = {
   org: {
     name:        'GRIFFITH UNIVERSITY',
     instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
     orgId:       '00DOg000003NRdiMAG',
     environment: 'SIT Sandbox',
-    fetchedAt:   '2026-10-19 00:31 UTC',
+    fetchedAt:   '2026-10-19 06:37 UTC',
   },
 
   /* Org limits */
   limits: {
     "DailyApiRequests": {
         "Max": 5000000,
-        "Remaining": 4999853
+        "Remaining": 4998632
     },
     "DailyAsyncApexExecutions": {
         "Max": 250000,
-        "Remaining": 249982
+        "Remaining": 249973
     },
     "DailyBulkApiBatches": {
         "Max": 15000,
-        "Remaining": 15000
+        "Remaining": 14997
     },
     "DataStorageMB": {
         "Max": 5120,
@@ -1744,27 +1744,27 @@ const LIVE_DATA = {
         {
             "name": "BatchDocgenProcessingCronJob",
             "state": "ACQUIRED",
-            "next": "2026-10-16T04:14:00Z"
-        },
-        {
-            "name": "DAP.TELEMETRY",
-            "state": "WAITING",
-            "next": "2026-10-19T00:44:00Z"
+            "next": "2026-10-16T12:59:00Z"
         },
         {
             "name": "DC.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-10-19T00:44:00Z"
+            "next": "2026-10-19T06:44:00Z"
         },
         {
-            "name": "CommIncrementalSitemapJob-00DOg000003NRdi-0DMMp0000001ML4",
+            "name": "DAP.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-10-19T00:45:08Z"
+            "next": "2026-10-19T06:44:00Z"
         },
         {
-            "name": "CommIncrementalSitemapJob-00DOg000003NRdi-0DMMn0000000Y4y",
+            "name": "Privacy Center Audit",
             "state": "WAITING",
-            "next": "2026-10-19T00:57:44Z"
+            "next": "2026-10-19T07:00:00Z"
+        },
+        {
+            "name": "Metalytics Dataflow Runner Job for Org : 00DOg000003NRdi",
+            "state": "WAITING",
+            "next": "2026-10-19T07:09:00Z"
         }
     ]
 },
@@ -1865,7 +1865,7 @@ const LIVE_DATA = {
         "username": "k.uc@griffith.edu.au.sit",
         "userType": "Standard",
         "profile": "System Administrator",
-        "lastLogin": "2026-10-16",
+        "lastLogin": "2026-10-19",
         "loginClass": "recent"
     },
     {
@@ -1874,7 +1874,7 @@ const LIVE_DATA = {
         "username": "deploymentuser@griffith.edu.au.sit",
         "userType": "Standard",
         "profile": "Gearset Integration Administrator",
-        "lastLogin": "2026-10-16",
+        "lastLogin": "2026-10-19",
         "loginClass": "recent"
     },
     {
@@ -2612,11 +2612,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-19 00:31 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-19 06:37 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-19 00:31 UTC',
+  fetchedAt: '2026-10-19 06:37 UTC',
 
   repos: [
     {
