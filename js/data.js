@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-10-19 06:37 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-10-19 12:35 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-10-19 06:37 UTC',
+  fetchedAt: '2026-10-19 12:35 UTC',
 
   sprints: [
     {
@@ -1660,29 +1660,29 @@ const JIRA_DATA = {
 ]
 };
 
-// ── Live SIT Sandbox data (fetched 2026-10-19 06:37 UTC) ────────────────────────────
+// ── Live SIT Sandbox data (fetched 2026-10-19 12:35 UTC) ────────────────────────────
 const LIVE_DATA = {
   org: {
     name:        'GRIFFITH UNIVERSITY',
     instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
     orgId:       '00DOg000003NRdiMAG',
     environment: 'SIT Sandbox',
-    fetchedAt:   '2026-10-19 06:37 UTC',
+    fetchedAt:   '2026-10-19 12:35 UTC',
   },
 
   /* Org limits */
   limits: {
     "DailyApiRequests": {
         "Max": 5000000,
-        "Remaining": 4998632
+        "Remaining": 4999796
     },
     "DailyAsyncApexExecutions": {
         "Max": 250000,
-        "Remaining": 249973
+        "Remaining": 249996
     },
     "DailyBulkApiBatches": {
         "Max": 15000,
-        "Remaining": 14997
+        "Remaining": 14999
     },
     "DataStorageMB": {
         "Max": 5120,
@@ -1744,27 +1744,27 @@ const LIVE_DATA = {
         {
             "name": "BatchDocgenProcessingCronJob",
             "state": "ACQUIRED",
-            "next": "2026-10-16T12:59:00Z"
-        },
-        {
-            "name": "DC.TELEMETRY",
-            "state": "WAITING",
-            "next": "2026-10-19T06:44:00Z"
+            "next": "2026-10-16T20:16:00Z"
         },
         {
             "name": "DAP.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-10-19T06:44:00Z"
+            "next": "2026-10-19T12:44:00Z"
+        },
+        {
+            "name": "DC.TELEMETRY",
+            "state": "WAITING",
+            "next": "2026-10-19T12:44:00Z"
         },
         {
             "name": "Privacy Center Audit",
             "state": "WAITING",
-            "next": "2026-10-19T07:00:00Z"
+            "next": "2026-10-19T13:00:00Z"
         },
         {
-            "name": "Metalytics Dataflow Runner Job for Org : 00DOg000003NRdi",
+            "name": "Retention Usage",
             "state": "WAITING",
-            "next": "2026-10-19T07:09:00Z"
+            "next": "2026-10-19T14:00:00Z"
         }
     ]
 },
@@ -1860,20 +1860,38 @@ const LIVE_DATA = {
         "loginClass": "recent"
     },
     {
-        "initials": "KU",
-        "name": "Kaviya UC",
-        "username": "k.uc@griffith.edu.au.sit",
+        "initials": "DU",
+        "name": "Deployment User",
+        "username": "deploymentuser@griffith.edu.au.sit",
+        "userType": "Standard",
+        "profile": "Gearset Integration Administrator",
+        "lastLogin": "2026-10-19",
+        "loginClass": "recent"
+    },
+    {
+        "initials": "AK",
+        "name": "Akshay Kumar",
+        "username": "akshay.kumar@griffith.edu.au.sit",
         "userType": "Standard",
         "profile": "System Administrator",
         "lastLogin": "2026-10-19",
         "loginClass": "recent"
     },
     {
-        "initials": "DU",
-        "name": "Deployment User",
-        "username": "deploymentuser@griffith.edu.au.sit",
+        "initials": "SH",
+        "name": "Sudaif Haider",
+        "username": "s.haider@griffith.edu.au.sit",
         "userType": "Standard",
-        "profile": "Gearset Integration Administrator",
+        "profile": "System Administrator",
+        "lastLogin": "2026-10-19",
+        "loginClass": "recent"
+    },
+    {
+        "initials": "KU",
+        "name": "Kaviya UC",
+        "username": "k.uc@griffith.edu.au.sit",
+        "userType": "Standard",
+        "profile": "System Administrator",
         "lastLogin": "2026-10-19",
         "loginClass": "recent"
     },
@@ -1887,27 +1905,9 @@ const LIVE_DATA = {
         "loginClass": "recent"
     },
     {
-        "initials": "SH",
-        "name": "Sudaif Haider",
-        "username": "s.haider@griffith.edu.au.sit",
-        "userType": "Standard",
-        "profile": "System Administrator",
-        "lastLogin": "2026-10-16",
-        "loginClass": "recent"
-    },
-    {
         "initials": "RA",
         "name": "Rahul Ahuja",
         "username": "r.ahuja@griffith.edu.au.sit",
-        "userType": "Standard",
-        "profile": "System Administrator",
-        "lastLogin": "2026-10-16",
-        "loginClass": "recent"
-    },
-    {
-        "initials": "AK",
-        "name": "Akshay Kumar",
-        "username": "akshay.kumar@griffith.edu.au.sit",
         "userType": "Standard",
         "profile": "System Administrator",
         "lastLogin": "2026-10-16",
@@ -2612,11 +2612,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-19 06:37 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-19 12:35 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-19 06:37 UTC',
+  fetchedAt: '2026-10-19 12:35 UTC',
 
   repos: [
     {
