@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-10-19 18:28 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-10-20 00:33 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-10-19 18:28 UTC',
+  fetchedAt: '2026-10-20 00:33 UTC',
 
   sprints: [
     {
@@ -95,6 +95,51 @@ const JIRA_DATA = {
 ],
 
   issues: [
+    {
+        "key": "SOPS-205",
+        "summary": "Cost Model \\ Projections (D360)",
+        "type": "Task",
+        "status": "Risks",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Frank Nigro",
+        "reporter": "Frank Nigro",
+        "created": "2026-09-29",
+        "updated": "2026-10-20",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-232",
+        "summary": "CO Approval",
+        "type": "Task",
+        "status": "Risks",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Frank Nigro",
+        "reporter": "Frank Nigro",
+        "created": "2026-10-06",
+        "updated": "2026-10-20",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-247",
+        "summary": "Search Layout field level inconsistencies",
+        "type": "Bug",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Kaviya UC",
+        "reporter": "Vandana Bettens",
+        "created": "2026-10-20",
+        "updated": "2026-10-20",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
     {
         "key": "SOPS-96",
         "summary": "Enable person/alumni search by additional identifiers (email, GU ID etc .) in Global Search Layout",
@@ -524,21 +569,6 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
-        "key": "SOPS-205",
-        "summary": "Cost Model \\ Projections (D360)",
-        "type": "Task",
-        "status": "Risks",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Frank Nigro",
-        "reporter": "Frank Nigro",
-        "created": "2026-09-29",
-        "updated": "2026-10-14",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-75",
         "summary": "Dependancy - PTAT Sync.: Datahub/SF Staging",
         "type": "Task",
@@ -548,21 +578,6 @@ const JIRA_DATA = {
         "assignee": "Unassigned",
         "reporter": "Mani Maran Mani",
         "created": "2026-08-28",
-        "updated": "2026-10-14",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-232",
-        "summary": "CO Approval",
-        "type": "Task",
-        "status": "Risks",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Frank Nigro",
-        "reporter": "Frank Nigro",
-        "created": "2026-10-06",
         "updated": "2026-10-14",
         "labels": [],
         "fixVersions": [],
@@ -1641,44 +1656,29 @@ const JIRA_DATA = {
         "labels": [],
         "fixVersions": [],
         "storyPoints": null
-    },
-    {
-        "key": "SOPS-164",
-        "summary": "Profile Remediation : Assign users to minimum access standard profiles",
-        "type": "Story",
-        "status": "Review & Approval",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Sudaif Haider",
-        "reporter": "Amit Sood",
-        "created": "2026-09-11",
-        "updated": "2026-10-05",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
     }
 ]
 };
 
-// ── Live SIT Sandbox data (fetched 2026-10-19 18:28 UTC) ────────────────────────────
+// ── Live SIT Sandbox data (fetched 2026-10-20 00:33 UTC) ────────────────────────────
 const LIVE_DATA = {
   org: {
     name:        'GRIFFITH UNIVERSITY',
     instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
     orgId:       '00DOg000003NRdiMAG',
     environment: 'SIT Sandbox',
-    fetchedAt:   '2026-10-19 18:28 UTC',
+    fetchedAt:   '2026-10-20 00:33 UTC',
   },
 
   /* Org limits */
   limits: {
     "DailyApiRequests": {
         "Max": 5000000,
-        "Remaining": 4999638
+        "Remaining": 4999572
     },
     "DailyAsyncApexExecutions": {
         "Max": 250000,
-        "Remaining": 249990
+        "Remaining": 249980
     },
     "DailyBulkApiBatches": {
         "Max": 15000,
@@ -1712,9 +1712,9 @@ const LIVE_DATA = {
   /* Scheduled jobs summary */
   scheduledJobs: {
     "total": 30,
-    "waiting": 25,
+    "waiting": 24,
     "complete": 5,
-    "acquired": 0,
+    "acquired": 1,
     "jobs": [
         {
             "name": "287c8878-0d88-a8e9-787e-376a8892842a",
@@ -1743,28 +1743,28 @@ const LIVE_DATA = {
         },
         {
             "name": "BatchDocgenProcessingCronJob",
-            "state": "WAITING",
-            "next": "2026-10-17T04:14:00Z"
-        },
-        {
-            "name": "DC.IN_APP_NOTIFICATIONS",
-            "state": "WAITING",
-            "next": "2026-10-19T18:30:00Z"
-        },
-        {
-            "name": "DC.TELEMETRY",
-            "state": "WAITING",
-            "next": "2026-10-19T18:44:00Z"
+            "state": "ACQUIRED",
+            "next": "2026-10-17T14:05:00Z"
         },
         {
             "name": "DAP.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-10-19T18:44:00Z"
+            "next": "2026-10-20T00:44:00Z"
         },
         {
-            "name": "Privacy Center Audit",
+            "name": "DC.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-10-19T19:00:00Z"
+            "next": "2026-10-20T00:44:00Z"
+        },
+        {
+            "name": "CommIncrementalSitemapJob-00DOg000003NRdi-0DMMp0000001ML4",
+            "state": "WAITING",
+            "next": "2026-10-20T00:45:08Z"
+        },
+        {
+            "name": "CommIncrementalSitemapJob-00DOg000003NRdi-0DMMn0000000Y4y",
+            "state": "WAITING",
+            "next": "2026-10-20T00:57:44Z"
         }
     ]
 },
@@ -1856,7 +1856,7 @@ const LIVE_DATA = {
         "username": "akshay.kumar@griffith.edu.au.dashboard",
         "userType": "Standard",
         "profile": "System Administrator",
-        "lastLogin": "2026-10-19",
+        "lastLogin": "2026-10-20",
         "loginClass": "recent"
     },
     {
@@ -2612,11 +2612,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-19 18:28 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-20 00:33 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-19 18:28 UTC',
+  fetchedAt: '2026-10-20 00:33 UTC',
 
   repos: [
     {
