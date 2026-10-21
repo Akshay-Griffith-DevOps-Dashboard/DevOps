@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-10-21 12:33 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-10-21 18:29 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-10-21 12:33 UTC',
+  fetchedAt: '2026-10-21 18:29 UTC',
 
   sprints: [
     {
@@ -96,6 +96,55 @@ const JIRA_DATA = {
 
   issues: [
     {
+        "key": "SOPS-96",
+        "summary": "Enable person/alumni search by additional identifiers (email, GU ID etc .) in Global Search Layout",
+        "type": "Story",
+        "status": "IN UAT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Asra Khan",
+        "reporter": "Asra Khan",
+        "created": "2026-09-03",
+        "updated": "2026-10-22",
+        "labels": [],
+        "fixVersions": [
+            "GU-SF-R1"
+        ],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-247",
+        "summary": "[UAT] Search Layout field level inconsistencies",
+        "type": "Bug",
+        "status": "Done",
+        "statusCat": "Done",
+        "priority": "Medium",
+        "assignee": "Kaviya UC",
+        "reporter": "Vandana Bettens",
+        "created": "2026-10-20",
+        "updated": "2026-10-22",
+        "labels": [
+            "SOPS_UAT"
+        ],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-248",
+        "summary": "Below mentioned custom profile are not deleted in SIT",
+        "type": "Bug",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Amit Sood",
+        "reporter": "Kaviya UC",
+        "created": "2026-10-21",
+        "updated": "2026-10-21",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
         "key": "SOPS-163",
         "summary": "Profile Remediation : Delete unused custom profiles in production",
         "type": "Story",
@@ -107,23 +156,6 @@ const JIRA_DATA = {
         "created": "2026-09-11",
         "updated": "2026-10-21",
         "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-247",
-        "summary": "[UAT] Search Layout field level inconsistencies",
-        "type": "Bug",
-        "status": "IN SIT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Kaviya UC",
-        "reporter": "Vandana Bettens",
-        "created": "2026-10-20",
-        "updated": "2026-10-21",
-        "labels": [
-            "SOPS_UAT"
-        ],
         "fixVersions": [],
         "storyPoints": null
     },
@@ -185,23 +217,6 @@ const JIRA_DATA = {
         "updated": "2026-10-20",
         "labels": [],
         "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-96",
-        "summary": "Enable person/alumni search by additional identifiers (email, GU ID etc .) in Global Search Layout",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Kaviya UC",
-        "reporter": "Asra Khan",
-        "created": "2026-09-03",
-        "updated": "2026-10-19",
-        "labels": [],
-        "fixVersions": [
-            "GU-SF-R1"
-        ],
         "storyPoints": null
     },
     {
@@ -1643,44 +1658,29 @@ const JIRA_DATA = {
         "labels": [],
         "fixVersions": [],
         "storyPoints": null
-    },
-    {
-        "key": "SOPS-14",
-        "summary": "Platform Digital Certificate Upgrade",
-        "type": "Story",
-        "status": "READY FOR UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Amit Sood",
-        "created": "2026-07-31",
-        "updated": "2026-10-05",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
     }
 ]
 };
 
-// ── Live SIT Sandbox data (fetched 2026-10-21 12:33 UTC) ────────────────────────────
+// ── Live SIT Sandbox data (fetched 2026-10-21 18:28 UTC) ────────────────────────────
 const LIVE_DATA = {
   org: {
     name:        'GRIFFITH UNIVERSITY',
     instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
     orgId:       '00DOg000003NRdiMAG',
     environment: 'SIT Sandbox',
-    fetchedAt:   '2026-10-21 12:33 UTC',
+    fetchedAt:   '2026-10-21 18:28 UTC',
   },
 
   /* Org limits */
   limits: {
     "DailyApiRequests": {
         "Max": 5000000,
-        "Remaining": 4999902
+        "Remaining": 4999834
     },
     "DailyAsyncApexExecutions": {
         "Max": 250000,
-        "Remaining": 249998
+        "Remaining": 249992
     },
     "DailyBulkApiBatches": {
         "Max": 15000,
@@ -1714,9 +1714,9 @@ const LIVE_DATA = {
   /* Scheduled jobs summary */
   scheduledJobs: {
     "total": 30,
-    "waiting": 25,
+    "waiting": 24,
     "complete": 5,
-    "acquired": 0,
+    "acquired": 1,
     "jobs": [
         {
             "name": "287c8878-0d88-a8e9-787e-376a8892842a",
@@ -1745,28 +1745,28 @@ const LIVE_DATA = {
         },
         {
             "name": "BatchDocgenProcessingCronJob",
-            "state": "WAITING",
-            "next": "2026-10-19T15:26:00Z"
+            "state": "ACQUIRED",
+            "next": "2026-10-19T23:40:00Z"
         },
         {
-            "name": "DAP.TELEMETRY",
+            "name": "DC.IN_APP_NOTIFICATIONS",
             "state": "WAITING",
-            "next": "2026-10-21T12:44:00Z"
+            "next": "2026-10-21T18:30:00Z"
         },
         {
             "name": "DC.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-10-21T12:44:00Z"
+            "next": "2026-10-21T18:44:00Z"
+        },
+        {
+            "name": "DAP.TELEMETRY",
+            "state": "WAITING",
+            "next": "2026-10-21T18:44:00Z"
         },
         {
             "name": "Privacy Center Audit",
             "state": "WAITING",
-            "next": "2026-10-21T13:00:00Z"
-        },
-        {
-            "name": "Retention Usage",
-            "state": "WAITING",
-            "next": "2026-10-21T14:00:00Z"
+            "next": "2026-10-21T19:00:00Z"
         }
     ]
 },
@@ -2553,11 +2553,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-21 12:33 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-21 18:29 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-21 12:33 UTC',
+  fetchedAt: '2026-10-21 18:29 UTC',
 
   repos: [
     {
