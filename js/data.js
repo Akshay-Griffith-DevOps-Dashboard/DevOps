@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-10-22 00:32 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-10-22 06:33 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-10-22 00:32 UTC',
+  fetchedAt: '2026-10-22 06:33 UTC',
 
   sprints: [
     {
@@ -102,7 +102,7 @@ const JIRA_DATA = {
         "status": "IN UAT",
         "statusCat": "In Progress",
         "priority": "Medium",
-        "assignee": "Asra Khan",
+        "assignee": "Laura Coma",
         "reporter": "Asra Khan",
         "created": "2026-09-03",
         "updated": "2026-10-22",
@@ -126,6 +126,111 @@ const JIRA_DATA = {
         "labels": [
             "SOPS_UAT"
         ],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-237",
+        "summary": " Configure the Campus__c picklist field with standardized API names and labels on the LearningProgram and LearnerProgram",
+        "type": "Story",
+        "status": "In DEV",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Sagar Dey",
+        "reporter": "Sudaif Haider",
+        "created": "2026-10-12",
+        "updated": "2026-10-22",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-24",
+        "summary": "Advising on Archival Strategy",
+        "type": "Story",
+        "status": "Review & Approval",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Giles Bill",
+        "reporter": "Amit Sood",
+        "created": "2026-07-31",
+        "updated": "2026-10-22",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-57",
+        "summary": "CRM Data Storage Remediation",
+        "type": "Story",
+        "status": "Review & Approval",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Sudaif Haider",
+        "reporter": "Giles Bill",
+        "created": "2026-08-21",
+        "updated": "2026-10-22",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-23",
+        "summary": "Data Archival and Retention Policies Configuration",
+        "type": "Story",
+        "status": "Review & Approval",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Sudaif Haider",
+        "reporter": "Amit Sood",
+        "created": "2026-07-31",
+        "updated": "2026-10-22",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-26",
+        "summary": "Concurrency & Locking Safeguards",
+        "type": "Story",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Amit Sood",
+        "reporter": "Amit Sood",
+        "created": "2026-07-31",
+        "updated": "2026-10-22",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-25",
+        "summary": "Backup & Recovery Configuration",
+        "type": "Story",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Sudaif Haider",
+        "reporter": "Amit Sood",
+        "created": "2026-07-31",
+        "updated": "2026-10-22",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-225",
+        "summary": "Linkdein Sales navigator on the person account record",
+        "type": "Story",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Unassigned",
+        "reporter": "Asra Khan",
+        "created": "2026-10-05",
+        "updated": "2026-10-22",
+        "labels": [],
         "fixVersions": [],
         "storyPoints": null
     },
@@ -154,21 +259,6 @@ const JIRA_DATA = {
         "assignee": "Kaviya UC",
         "reporter": "Amit Sood",
         "created": "2026-09-11",
-        "updated": "2026-10-21",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-225",
-        "summary": "Linkdein Sales navigator on the person account record",
-        "type": "Story",
-        "status": "To Do",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Unassigned",
-        "reporter": "Asra Khan",
-        "created": "2026-10-05",
         "updated": "2026-10-21",
         "labels": [],
         "fixVersions": [],
@@ -366,21 +456,6 @@ const JIRA_DATA = {
         "assignee": "Kaviya UC",
         "reporter": "Kaviya UC",
         "created": "2026-10-15",
-        "updated": "2026-10-15",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-237",
-        "summary": " Configure the Campus__c picklist field with standardized API names and labels on the LearningProgram and LearnerProgram",
-        "type": "Story",
-        "status": "In DEV",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Sagar Dey",
-        "reporter": "Sudaif Haider",
-        "created": "2026-10-12",
         "updated": "2026-10-15",
         "labels": [],
         "fixVersions": [],
@@ -1031,21 +1106,6 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
-        "key": "SOPS-25",
-        "summary": "Backup & Recovery Configuration",
-        "type": "Story",
-        "status": "To Do",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Sudaif Haider",
-        "reporter": "Amit Sood",
-        "created": "2026-07-31",
-        "updated": "2026-10-08",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-235",
         "summary": "QA: Test Scripts & Test Execution",
         "type": "Sub-task",
@@ -1085,36 +1145,6 @@ const JIRA_DATA = {
         "assignee": "Kaviya UC",
         "reporter": "Kaviya UC",
         "created": "2026-08-28",
-        "updated": "2026-10-08",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-57",
-        "summary": "CRM Data Storage Remediation",
-        "type": "Story",
-        "status": "Review & Approval",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Frank Nigro",
-        "reporter": "Giles Bill",
-        "created": "2026-08-21",
-        "updated": "2026-10-08",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-23",
-        "summary": "Data Archival and Retention Policies Configuration",
-        "type": "Story",
-        "status": "Review & Approval",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Sudaif Haider",
-        "reporter": "Amit Sood",
-        "created": "2026-07-31",
         "updated": "2026-10-08",
         "labels": [],
         "fixVersions": [],
@@ -1628,59 +1658,29 @@ const JIRA_DATA = {
         "labels": [],
         "fixVersions": [],
         "storyPoints": null
-    },
-    {
-        "key": "SOPS-158",
-        "summary": "Permission Set Remediation : Reduce Modify All and View All on GU Integration",
-        "type": "Story",
-        "status": "Review & Approval",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Amit Sood",
-        "reporter": "Amit Sood",
-        "created": "2026-09-11",
-        "updated": "2026-10-05",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-153",
-        "summary": "Permission Set Remediation : Remove Bypass MFA For UI Logins from GU Integration",
-        "type": "Story",
-        "status": "NOT REQUIRED",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Sagar Dey",
-        "reporter": "Amit Sood",
-        "created": "2026-09-11",
-        "updated": "2026-10-05",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
     }
 ]
 };
 
-// ── Live SIT Sandbox data (fetched 2026-10-22 00:32 UTC) ────────────────────────────
+// ── Live SIT Sandbox data (fetched 2026-10-22 06:33 UTC) ────────────────────────────
 const LIVE_DATA = {
   org: {
     name:        'GRIFFITH UNIVERSITY',
     instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
     orgId:       '00DOg000003NRdiMAG',
     environment: 'SIT Sandbox',
-    fetchedAt:   '2026-10-22 00:32 UTC',
+    fetchedAt:   '2026-10-22 06:33 UTC',
   },
 
   /* Org limits */
   limits: {
     "DailyApiRequests": {
         "Max": 5000000,
-        "Remaining": 4999768
+        "Remaining": 4999702
     },
     "DailyAsyncApexExecutions": {
         "Max": 250000,
-        "Remaining": 249982
+        "Remaining": 249973
     },
     "DailyBulkApiBatches": {
         "Max": 15000,
@@ -1746,27 +1746,27 @@ const LIVE_DATA = {
         {
             "name": "BatchDocgenProcessingCronJob",
             "state": "ACQUIRED",
-            "next": "2026-10-20T07:49:00Z"
-        },
-        {
-            "name": "DAP.TELEMETRY",
-            "state": "WAITING",
-            "next": "2026-10-22T00:44:00Z"
+            "next": "2026-10-20T14:29:00Z"
         },
         {
             "name": "DC.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-10-22T00:44:00Z"
+            "next": "2026-10-22T06:44:00Z"
         },
         {
-            "name": "CommIncrementalSitemapJob-00DOg000003NRdi-0DMMp0000001ML4",
+            "name": "DAP.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-10-22T00:45:08Z"
+            "next": "2026-10-22T06:44:00Z"
         },
         {
-            "name": "CommIncrementalSitemapJob-00DOg000003NRdi-0DMMn0000000Y4y",
+            "name": "Privacy Center Audit",
             "state": "WAITING",
-            "next": "2026-10-22T00:57:44Z"
+            "next": "2026-10-22T07:00:00Z"
+        },
+        {
+            "name": "Metalytics Dataflow Runner Job for Org : 00DOg000003NRdi",
+            "state": "WAITING",
+            "next": "2026-10-22T07:09:00Z"
         }
     ]
 },
@@ -2553,11 +2553,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-22 00:32 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-22 06:33 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-22 00:32 UTC',
+  fetchedAt: '2026-10-22 06:33 UTC',
 
   repos: [
     {
