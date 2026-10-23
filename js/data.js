@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-10-23 12:29 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-10-23 18:28 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-10-23 12:29 UTC',
+  fetchedAt: '2026-10-23 18:28 UTC',
 
   sprints: [
     {
@@ -1662,14 +1662,14 @@ const JIRA_DATA = {
 ]
 };
 
-// ── Live SIT Sandbox data (fetched 2026-10-23 12:29 UTC) ────────────────────────────
+// ── Live SIT Sandbox data (fetched 2026-10-23 18:27 UTC) ────────────────────────────
 const LIVE_DATA = {
   org: {
     name:        'GRIFFITH UNIVERSITY',
     instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
     orgId:       '00DOg000003NRdiMAG',
     environment: 'SIT Sandbox',
-    fetchedAt:   '2026-10-23 12:29 UTC',
+    fetchedAt:   '2026-10-23 18:27 UTC',
   },
 
   /* Org limits */
@@ -1746,27 +1746,27 @@ const LIVE_DATA = {
         {
             "name": "BatchDocgenProcessingCronJob",
             "state": "ACQUIRED",
-            "next": "2026-10-22T06:56:00Z"
+            "next": "2026-10-22T14:56:00Z"
+        },
+        {
+            "name": "DC.IN_APP_NOTIFICATIONS",
+            "state": "WAITING",
+            "next": "2026-10-23T18:30:00Z"
         },
         {
             "name": "DC.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-10-23T12:44:00Z"
+            "next": "2026-10-23T18:44:00Z"
         },
         {
             "name": "DAP.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-10-23T12:44:00Z"
+            "next": "2026-10-23T18:44:00Z"
         },
         {
             "name": "Privacy Center Audit",
             "state": "WAITING",
-            "next": "2026-10-23T13:00:00Z"
-        },
-        {
-            "name": "Retention Usage",
-            "state": "WAITING",
-            "next": "2026-10-23T14:00:00Z"
+            "next": "2026-10-23T19:00:00Z"
         }
     ]
 },
@@ -2533,11 +2533,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-23 12:29 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-23 18:28 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-23 12:29 UTC',
+  fetchedAt: '2026-10-23 18:28 UTC',
 
   repos: [
     {
