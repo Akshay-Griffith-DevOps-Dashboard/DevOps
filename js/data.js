@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-10-26 00:39 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-10-26 06:37 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-10-26 00:39 UTC',
+  fetchedAt: '2026-10-26 06:37 UTC',
 
   sprints: [
     {
@@ -96,15 +96,30 @@ const JIRA_DATA = {
 
   issues: [
     {
-        "key": "SOPS-96",
-        "summary": "Enable person/alumni search by additional identifiers (email, GU ID etc .) in Global Search Layout",
+        "key": "SOPS-25",
+        "summary": "Backup & Recovery Configuration",
+        "type": "Story",
+        "status": "In Progress",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Sudaif Haider",
+        "reporter": "Amit Sood",
+        "created": "2026-07-31",
+        "updated": "2026-10-26",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-38",
+        "summary": "Role Hierarchy Remediation - Realign 'Advancement Data Loader' role and access strategy",
         "type": "Story",
         "status": "IN UAT",
         "statusCat": "In Progress",
         "priority": "Medium",
-        "assignee": "Asra Khan",
-        "reporter": "Asra Khan",
-        "created": "2026-09-03",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Amit Sood",
+        "created": "2026-08-12",
         "updated": "2026-10-26",
         "labels": [],
         "fixVersions": [
@@ -122,9 +137,26 @@ const JIRA_DATA = {
         "assignee": "Jeremy Fahey",
         "reporter": "Sudaif Haider",
         "created": "2026-09-11",
-        "updated": "2026-10-23",
+        "updated": "2026-10-26",
         "labels": [],
         "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-96",
+        "summary": "Enable person/alumni search by additional identifiers (email, GU ID etc .) in Global Search Layout",
+        "type": "Story",
+        "status": "IN UAT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Asra Khan",
+        "reporter": "Asra Khan",
+        "created": "2026-09-03",
+        "updated": "2026-10-26",
+        "labels": [],
+        "fixVersions": [
+            "GU-SF-R1"
+        ],
         "storyPoints": null
     },
     {
@@ -173,23 +205,6 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
-        "key": "SOPS-38",
-        "summary": "Role Hierarchy Remediation - Realign 'Advancement Data Loader' role and access strategy",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Amit Sood",
-        "created": "2026-08-12",
-        "updated": "2026-10-23",
-        "labels": [],
-        "fixVersions": [
-            "GU-SF-R1"
-        ],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-26",
         "summary": "Concurrency & Locking Safeguards",
         "type": "Story",
@@ -197,21 +212,6 @@ const JIRA_DATA = {
         "statusCat": "In Progress",
         "priority": "Medium",
         "assignee": "Amit Sood",
-        "reporter": "Amit Sood",
-        "created": "2026-07-31",
-        "updated": "2026-10-23",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-25",
-        "summary": "Backup & Recovery Configuration",
-        "type": "Story",
-        "status": "In Progress",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Sudaif Haider",
         "reporter": "Amit Sood",
         "created": "2026-07-31",
         "updated": "2026-10-23",
@@ -1662,25 +1662,25 @@ const JIRA_DATA = {
 ]
 };
 
-// ── Live SIT Sandbox data (fetched 2026-10-26 00:39 UTC) ────────────────────────────
+// ── Live SIT Sandbox data (fetched 2026-10-26 06:37 UTC) ────────────────────────────
 const LIVE_DATA = {
   org: {
     name:        'GRIFFITH UNIVERSITY',
     instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
     orgId:       '00DOg000003NRdiMAG',
     environment: 'SIT Sandbox',
-    fetchedAt:   '2026-10-26 00:39 UTC',
+    fetchedAt:   '2026-10-26 06:37 UTC',
   },
 
   /* Org limits */
   limits: {
     "DailyApiRequests": {
         "Max": 5000000,
-        "Remaining": 4999853
+        "Remaining": 4999787
     },
     "DailyAsyncApexExecutions": {
         "Max": 250000,
-        "Remaining": 249982
+        "Remaining": 249973
     },
     "DailyBulkApiBatches": {
         "Max": 15000,
@@ -1714,9 +1714,9 @@ const LIVE_DATA = {
   /* Scheduled jobs summary */
   scheduledJobs: {
     "total": 30,
-    "waiting": 25,
+    "waiting": 24,
     "complete": 5,
-    "acquired": 0,
+    "acquired": 1,
     "jobs": [
         {
             "name": "287c8878-0d88-a8e9-787e-376a8892842a",
@@ -1745,28 +1745,28 @@ const LIVE_DATA = {
         },
         {
             "name": "BatchDocgenProcessingCronJob",
-            "state": "WAITING",
-            "next": "2026-10-25T13:18:00Z"
-        },
-        {
-            "name": "DAP.TELEMETRY",
-            "state": "WAITING",
-            "next": "2026-10-26T00:44:00Z"
+            "state": "ACQUIRED",
+            "next": "2026-10-25T21:25:00Z"
         },
         {
             "name": "DC.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-10-26T00:44:00Z"
+            "next": "2026-10-26T06:44:00Z"
         },
         {
-            "name": "CommIncrementalSitemapJob-00DOg000003NRdi-0DMMp0000001ML4",
+            "name": "DAP.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-10-26T00:45:08Z"
+            "next": "2026-10-26T06:44:00Z"
         },
         {
-            "name": "CommIncrementalSitemapJob-00DOg000003NRdi-0DMMn0000000Y4y",
+            "name": "Privacy Center Audit",
             "state": "WAITING",
-            "next": "2026-10-26T00:57:44Z"
+            "next": "2026-10-26T07:00:00Z"
+        },
+        {
+            "name": "Metalytics Dataflow Runner Job for Org : 00DOg000003NRdi",
+            "state": "WAITING",
+            "next": "2026-10-26T07:09:00Z"
         }
     ]
 },
@@ -2533,11 +2533,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-26 00:39 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-26 06:37 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-26 00:39 UTC',
+  fetchedAt: '2026-10-26 06:37 UTC',
 
   repos: [
     {
@@ -2680,6 +2680,17 @@ const AZURE_DATA = {
         "author": "Sagar-GitHub-18",
         "date": "2026-10-15",
         "comment": "Remove local Salesforce CLI folders from the profile branch."
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "name": "Feature-SOPS-237-customfield_Object",
+        "isDefault": false,
+        "aheadCount": 1,
+        "behindCount": 0,
+        "commitId": "7579afe3",
+        "author": "Sagar-GitHub-18",
+        "date": "2026-10-26",
+        "comment": "Feature-SOPS-237-CustomeField-Object"
     },
     {
         "repo": "RSDF-SalesforcePlatform",
@@ -3453,6 +3464,28 @@ const AZURE_DATA = {
     },
     {
         "repo": "RSDF-SalesforcePlatform",
+        "name": "gs-pipeline/Feature-SOPS-237-customfield_Object_-_devmerge",
+        "isDefault": false,
+        "aheadCount": 1,
+        "behindCount": 0,
+        "commitId": "7579afe3",
+        "author": "Sagar-GitHub-18",
+        "date": "2026-10-26",
+        "comment": "Feature-SOPS-237-CustomeField-Object"
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "name": "gs-pipeline/Feature-SOPS-237-customfield_Object_-_main",
+        "isDefault": false,
+        "aheadCount": 1,
+        "behindCount": 0,
+        "commitId": "7579afe3",
+        "author": "Sagar-GitHub-18",
+        "date": "2026-10-26",
+        "comment": "Feature-SOPS-237-CustomeField-Object"
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
         "name": "gs-pipeline/Feature-SOPS-73_-_devmerge",
         "isDefault": false,
         "aheadCount": 4,
@@ -4136,6 +4169,80 @@ const AZURE_DATA = {
 ],
 
   pullRequests: [
+    {
+        "id": 9452,
+        "title": "Feature-SOPS-237-CustomeField-Object",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/Feature-SOPS-237-customfield_Object_-_devmerge",
+        "targetBranch": "devmerge",
+        "createdBy": "Akshay Kumar",
+        "createdDate": "2026-10-26",
+        "closedDate": null,
+        "reviewers": [
+            "Asra Khan",
+            "Amit Sood",
+            "Jeremy Fahey",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9451,
+        "title": "Feature-SOPS-237-CustomeField-Object",
+        "status": "abandoned",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "Feature-SOPS-237-customfield_Object",
+        "targetBranch": "devmerge",
+        "createdBy": "Sagar Dey",
+        "createdDate": "2026-10-26",
+        "closedDate": "2026-10-26",
+        "reviewers": [
+            "Asra Khan",
+            "Amit Sood",
+            "Jeremy Fahey",
+            "Sudaif Haider"
+        ],
+        "isDraft": false,
+        "mergeStatus": "",
+        "approved": false
+    },
+    {
+        "id": 9450,
+        "title": "Feature-SOPS-237-CustomeField-Object",
+        "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/Feature-SOPS-237-customfield_Object_-_main",
+        "targetBranch": "main",
+        "createdBy": "Akshay Kumar",
+        "createdDate": "2026-10-26",
+        "closedDate": null,
+        "reviewers": [
+            "Giles Bill"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9449,
+        "title": "Feature-SOPS-237-CustomeField-Object",
+        "status": "abandoned",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "Feature-SOPS-237-customfield_Object",
+        "targetBranch": "main",
+        "createdBy": "Sagar Dey",
+        "createdDate": "2026-10-26",
+        "closedDate": "2026-10-26",
+        "reviewers": [
+            "Giles Bill"
+        ],
+        "isDraft": false,
+        "mergeStatus": "",
+        "approved": false
+    },
     {
         "id": 9448,
         "title": "Sync: Feature SOPS 160",
@@ -5840,81 +5947,50 @@ const AZURE_DATA = {
         "isDraft": false,
         "mergeStatus": "succeeded",
         "approved": false
-    },
-    {
-        "id": 9347,
-        "title": "SOPS-156",
-        "status": "completed",
-        "repo": "RSDF-SalesforcePlatform",
-        "sourceBranch": "gs-pipeline/Feature-SOPS-156_-_uat",
-        "targetBranch": "uat",
-        "createdBy": "Akshay Kumar",
-        "createdDate": "2026-10-05",
-        "closedDate": "2026-10-08",
-        "reviewers": [
-            "Amit Sood",
-            "Jeremy Fahey",
-            "Sudaif Haider"
-        ],
-        "isDraft": false,
-        "mergeStatus": "succeeded",
-        "approved": false
-    },
-    {
-        "id": 9346,
-        "title": "bugFix-SOPS-195",
-        "status": "completed",
-        "repo": "RSDF-SalesforcePlatform",
-        "sourceBranch": "gs-pipeline/bugFix-SOPS-195_-_devmerge",
-        "targetBranch": "devmerge",
-        "createdBy": "Sudaif Haider",
-        "createdDate": "2026-10-05",
-        "closedDate": "2026-10-05",
-        "reviewers": [
-            "Amit Sood"
-        ],
-        "isDraft": false,
-        "mergeStatus": "succeeded",
-        "approved": false
-    },
-    {
-        "id": 9345,
-        "title": "Feature-SOPS-73_2",
-        "status": "active",
-        "repo": "RSDF-SalesforcePlatform",
-        "sourceBranch": "gs-pipeline/Feature-SOPS-73_2_-_sit",
-        "targetBranch": "sit",
-        "createdBy": "Akshay Kumar",
-        "createdDate": "2026-10-01",
-        "closedDate": null,
-        "reviewers": [
-            "Amit Sood",
-            "Sudaif Haider"
-        ],
-        "isDraft": false,
-        "mergeStatus": "succeeded",
-        "approved": false
-    },
-    {
-        "id": 9344,
-        "title": "Feature-SOPS-73_2",
-        "status": "completed",
-        "repo": "RSDF-SalesforcePlatform",
-        "sourceBranch": "gs-pipeline/Feature-SOPS-73_2_-_devmerge",
-        "targetBranch": "devmerge",
-        "createdBy": "Akshay Kumar",
-        "createdDate": "2026-10-01",
-        "closedDate": "2026-10-01",
-        "reviewers": [
-            "Sudaif Haider"
-        ],
-        "isDraft": false,
-        "mergeStatus": "succeeded",
-        "approved": true
     }
 ],
 
   commits: [
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "3c7fdf96",
+        "comment": "Merge pull request 9452 from gs-pipeline/Feature-SOPS-237-customfield_Object_-_devmerge into devmerg",
+        "author": "Akshay Kumar",
+        "date": "2026-10-26",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "c3135e4e",
+        "comment": "Merge pull request 9451 from Feature-SOPS-237-customfield_Object into devmerge",
+        "author": "Sagar Dey",
+        "date": "2026-10-26",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "521bede2",
+        "comment": "Merge pull request 9450 from gs-pipeline/Feature-SOPS-237-customfield_Object_-_main into main",
+        "author": "Akshay Kumar",
+        "date": "2026-10-26",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "1076e183",
+        "comment": "Merge pull request 9449 from Feature-SOPS-237-customfield_Object into main",
+        "author": "Sagar Dey",
+        "date": "2026-10-26",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "7579afe3",
+        "comment": "Feature-SOPS-237-CustomeField-Object",
+        "author": "Sagar-GitHub-18",
+        "date": "2026-10-26",
+        "branch": ""
+    },
     {
         "repo": "RSDF-SalesforcePlatform",
         "commitId": "45a57649",
@@ -6032,46 +6108,6 @@ const AZURE_DATA = {
         "commitId": "ce365ef9",
         "comment": "Merge pull request 9436 from gs-pipeline/feature-SOPS-163-2_-_sit into sit",
         "author": "Sudaif Haider",
-        "date": "2026-10-22",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "42920ed4",
-        "comment": "Gearset: Conflicts resolved. Merging branch sit into gs-pipeline/feature-SOPS-163-2_-_sit",
-        "author": "s.haider@griffith.edu.au",
-        "date": "2026-10-22",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "fae4d22e",
-        "comment": "Merge pull request 9435 from gs-pipeline/feature-SOPS-163-2_-_devmerge into devmerge",
-        "author": "Sudaif Haider",
-        "date": "2026-10-22",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "035dc8d7",
-        "comment": "Gearset: Conflicts resolved. Merging branch devmerge into gs-pipeline/feature-SOPS-163-2_-_devmerge",
-        "author": "s.haider@griffith.edu.au",
-        "date": "2026-10-22",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "9106b5d1",
-        "comment": "Merge pull request 9435 from gs-pipeline/feature-SOPS-163-2_-_devmerge into devmerge",
-        "author": "Sudaif Haider",
-        "date": "2026-10-22",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "f3a2dd40",
-        "comment": "changes for SOPS-163",
-        "author": "s.haider@griffith.edu.au",
         "date": "2026-10-22",
         "branch": ""
     }
