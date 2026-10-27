@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-10-27 12:37 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-10-27 18:38 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-10-27 12:37 UTC',
+  fetchedAt: '2026-10-27 18:38 UTC',
 
   sprints: [
     {
@@ -96,6 +96,23 @@ const JIRA_DATA = {
 
   issues: [
     {
+        "key": "SOPS-195",
+        "summary": "Ascend Portal Profile : Incorrect FLS for the below mentioned object",
+        "type": "Bug",
+        "status": "Done",
+        "statusCat": "Done",
+        "priority": "High",
+        "assignee": "Akshay Kumar",
+        "reporter": "Kaviya UC",
+        "created": "2026-09-22",
+        "updated": "2026-10-27",
+        "labels": [
+            "RAC:Deployment_Issue"
+        ],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
         "key": "SOPS-101",
         "summary": "Sharing Rules Remediation - Restrict Customer Portal User write access on Account and Case",
         "type": "Story",
@@ -127,23 +144,6 @@ const JIRA_DATA = {
         "fixVersions": [
             "GU-SF-R1"
         ],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-195",
-        "summary": "Ascend Portal Profile : Incorrect FLS for the below mentioned object",
-        "type": "Bug",
-        "status": "READY FOR UAT",
-        "statusCat": "In Progress",
-        "priority": "High",
-        "assignee": "Akshay Kumar",
-        "reporter": "Kaviya UC",
-        "created": "2026-09-22",
-        "updated": "2026-10-27",
-        "labels": [
-            "RAC:Deployment_Issue"
-        ],
-        "fixVersions": [],
         "storyPoints": null
     },
     {
@@ -1668,14 +1668,14 @@ const JIRA_DATA = {
 ]
 };
 
-// ── Live SIT Sandbox data (fetched 2026-10-27 12:37 UTC) ────────────────────────────
+// ── Live SIT Sandbox data (fetched 2026-10-27 18:37 UTC) ────────────────────────────
 const LIVE_DATA = {
   org: {
     name:        'GRIFFITH UNIVERSITY',
     instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
     orgId:       '00DOg000003NRdiMAG',
     environment: 'SIT Sandbox',
-    fetchedAt:   '2026-10-27 12:37 UTC',
+    fetchedAt:   '2026-10-27 18:37 UTC',
   },
 
   /* Org limits */
@@ -1686,7 +1686,7 @@ const LIVE_DATA = {
     },
     "DailyAsyncApexExecutions": {
         "Max": 250000,
-        "Remaining": 249996
+        "Remaining": 249990
     },
     "DailyBulkApiBatches": {
         "Max": 15000,
@@ -1720,9 +1720,9 @@ const LIVE_DATA = {
   /* Scheduled jobs summary */
   scheduledJobs: {
     "total": 30,
-    "waiting": 24,
+    "waiting": 25,
     "complete": 5,
-    "acquired": 1,
+    "acquired": 0,
     "jobs": [
         {
             "name": "287c8878-0d88-a8e9-787e-376a8892842a",
@@ -1751,28 +1751,28 @@ const LIVE_DATA = {
         },
         {
             "name": "BatchDocgenProcessingCronJob",
-            "state": "ACQUIRED",
-            "next": "2026-10-27T07:58:00Z"
+            "state": "WAITING",
+            "next": "2026-10-27T15:42:00Z"
         },
         {
             "name": "DC.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-10-27T12:44:00Z"
+            "next": "2026-10-27T18:44:00Z"
         },
         {
             "name": "DAP.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-10-27T12:44:00Z"
+            "next": "2026-10-27T18:44:00Z"
         },
         {
             "name": "Privacy Center Audit",
             "state": "WAITING",
-            "next": "2026-10-27T13:00:00Z"
+            "next": "2026-10-27T19:00:00Z"
         },
         {
-            "name": "Retention Usage",
+            "name": "After_Create_Update_Person_Employment_Schedule_Flow-1",
             "state": "WAITING",
-            "next": "2026-10-27T14:00:00Z"
+            "next": "2026-10-27T20:00:00Z"
         }
     ]
 },
@@ -2539,11 +2539,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-27 12:37 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-27 18:37 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-27 12:37 UTC',
+  fetchedAt: '2026-10-27 18:37 UTC',
 
   repos: [
     {
