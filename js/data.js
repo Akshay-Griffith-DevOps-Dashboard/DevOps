@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-10-29 06:43 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-10-29 12:43 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-10-29 06:43 UTC',
+  fetchedAt: '2026-10-29 12:43 UTC',
 
   sprints: [
     {
@@ -96,21 +96,6 @@ const JIRA_DATA = {
 
   issues: [
     {
-        "key": "SOPS-57",
-        "summary": "CRM Data Storage Remediation",
-        "type": "Story",
-        "status": "Review & Approval",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Sudaif Haider",
-        "reporter": "Giles Bill",
-        "created": "2026-08-21",
-        "updated": "2026-10-29",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-199",
         "summary": "Notify the PTAT load owner when a new Learning Program is created",
         "type": "Story",
@@ -120,6 +105,21 @@ const JIRA_DATA = {
         "assignee": "Jeremy Fahey",
         "reporter": "Asra Khan",
         "created": "2026-09-28",
+        "updated": "2026-10-29",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-57",
+        "summary": "CRM Data Storage Remediation",
+        "type": "Story",
+        "status": "Review & Approval",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Sudaif Haider",
+        "reporter": "Giles Bill",
+        "created": "2026-08-21",
         "updated": "2026-10-29",
         "labels": [],
         "fixVersions": [],
@@ -1670,25 +1670,25 @@ const JIRA_DATA = {
 ]
 };
 
-// ── Live SIT Sandbox data (fetched 2026-10-29 06:43 UTC) ────────────────────────────
+// ── Live SIT Sandbox data (fetched 2026-10-29 12:43 UTC) ────────────────────────────
 const LIVE_DATA = {
   org: {
     name:        'GRIFFITH UNIVERSITY',
     instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
     orgId:       '00DOg000003NRdiMAG',
     environment: 'SIT Sandbox',
-    fetchedAt:   '2026-10-29 06:43 UTC',
+    fetchedAt:   '2026-10-29 12:43 UTC',
   },
 
   /* Org limits */
   limits: {
     "DailyApiRequests": {
         "Max": 5000000,
-        "Remaining": 4999787
+        "Remaining": 4999985
     },
     "DailyAsyncApexExecutions": {
         "Max": 250000,
-        "Remaining": 249973
+        "Remaining": 249998
     },
     "DailyBulkApiBatches": {
         "Max": 15000,
@@ -1722,9 +1722,9 @@ const LIVE_DATA = {
   /* Scheduled jobs summary */
   scheduledJobs: {
     "total": 30,
-    "waiting": 25,
+    "waiting": 24,
     "complete": 5,
-    "acquired": 0,
+    "acquired": 1,
     "jobs": [
         {
             "name": "287c8878-0d88-a8e9-787e-376a8892842a",
@@ -1752,29 +1752,29 @@ const LIVE_DATA = {
             "next": "2026-10-05T03:00:00Z"
         },
         {
-            "name": "DC.TELEMETRY",
-            "state": "WAITING",
-            "next": "2026-10-29T06:44:00Z"
-        },
-        {
             "name": "BatchDocgenProcessingCronJob",
-            "state": "WAITING",
-            "next": "2026-10-29T06:44:00Z"
+            "state": "ACQUIRED",
+            "next": "2026-10-29T12:36:00Z"
         },
         {
             "name": "DAP.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-10-29T06:44:00Z"
+            "next": "2026-10-29T12:44:00Z"
+        },
+        {
+            "name": "DC.TELEMETRY",
+            "state": "WAITING",
+            "next": "2026-10-29T12:44:00Z"
         },
         {
             "name": "Privacy Center Audit",
             "state": "WAITING",
-            "next": "2026-10-29T07:00:00Z"
+            "next": "2026-10-29T13:00:00Z"
         },
         {
-            "name": "Metalytics Dataflow Runner Job for Org : 00DOg000003NRdi",
+            "name": "Retention Usage",
             "state": "WAITING",
-            "next": "2026-10-29T07:09:00Z"
+            "next": "2026-10-29T14:00:00Z"
         }
     ]
 },
@@ -1870,21 +1870,30 @@ const LIVE_DATA = {
         "loginClass": "recent"
     },
     {
-        "initials": "SH",
-        "name": "Sudaif Haider",
-        "username": "s.haider@griffith.edu.au.sit",
+        "initials": "DU",
+        "name": "Deployment User",
+        "username": "deploymentuser@griffith.edu.au.sit",
+        "userType": "Standard",
+        "profile": "Gearset Integration Administrator",
+        "lastLogin": "2026-10-29",
+        "loginClass": "recent"
+    },
+    {
+        "initials": "SD",
+        "name": "Sagar Dey",
+        "username": "sagar.dey@griffith.edu.au.sit",
         "userType": "Standard",
         "profile": "System Administrator",
         "lastLogin": "2026-10-29",
         "loginClass": "recent"
     },
     {
-        "initials": "DU",
-        "name": "Deployment User",
-        "username": "deploymentuser@griffith.edu.au.sit",
+        "initials": "SH",
+        "name": "Sudaif Haider",
+        "username": "s.haider@griffith.edu.au.sit",
         "userType": "Standard",
-        "profile": "Gearset Integration Administrator",
-        "lastLogin": "2026-10-28",
+        "profile": "System Administrator",
+        "lastLogin": "2026-10-29",
         "loginClass": "recent"
     },
     {
@@ -1900,15 +1909,6 @@ const LIVE_DATA = {
         "initials": "KU",
         "name": "Kaviya UC",
         "username": "k.uc@griffith.edu.au.sit",
-        "userType": "Standard",
-        "profile": "System Administrator",
-        "lastLogin": "2026-10-27",
-        "loginClass": "recent"
-    },
-    {
-        "initials": "SD",
-        "name": "Sagar Dey",
-        "username": "sagar.dey@griffith.edu.au.sit",
         "userType": "Standard",
         "profile": "System Administrator",
         "lastLogin": "2026-10-27",
@@ -2541,11 +2541,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-29 06:43 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-29 12:43 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-29 06:43 UTC',
+  fetchedAt: '2026-10-29 12:43 UTC',
 
   repos: [
     {
@@ -4761,13 +4761,13 @@ const AZURE_DATA = {
     {
         "id": 9429,
         "title": "Feature-SOPS-237-CustomField1",
-        "status": "active",
+        "status": "abandoned",
         "repo": "RSDF-SalesforcePlatform",
         "sourceBranch": "gs-pipeline/Feature-SOPS-237-CustomField1_-_uat",
         "targetBranch": "uat",
         "createdBy": "Akshay Kumar",
         "createdDate": "2026-10-16",
-        "closedDate": null,
+        "closedDate": "2026-10-29",
         "reviewers": [
             "Amit Sood",
             "Jeremy Fahey",
@@ -4775,7 +4775,7 @@ const AZURE_DATA = {
             "Sagar Dey"
         ],
         "isDraft": false,
-        "mergeStatus": "succeeded",
+        "mergeStatus": "",
         "approved": false
     },
     {
@@ -4799,13 +4799,13 @@ const AZURE_DATA = {
     {
         "id": 9427,
         "title": "Feature SOPS 237 CampusField",
-        "status": "active",
+        "status": "abandoned",
         "repo": "RSDF-SalesforcePlatform",
         "sourceBranch": "gs-pipeline/Feature-SOPS-237-CampusField_-_uat",
         "targetBranch": "uat",
         "createdBy": "Sudaif Haider",
         "createdDate": "2026-10-16",
-        "closedDate": null,
+        "closedDate": "2026-10-29",
         "reviewers": [
             "Amit Sood",
             "Jeremy Fahey",
@@ -4813,7 +4813,7 @@ const AZURE_DATA = {
             "Sagar Dey"
         ],
         "isDraft": false,
-        "mergeStatus": "succeeded",
+        "mergeStatus": "",
         "approved": false
     },
     {
