@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-10-29 00:42 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-10-29 06:43 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-10-29 00:42 UTC',
+  fetchedAt: '2026-10-29 06:43 UTC',
 
   sprints: [
     {
@@ -96,16 +96,31 @@ const JIRA_DATA = {
 
   issues: [
     {
-        "key": "SOPS-42",
-        "summary": "Staging application records fail PTAT lookup \u2014 missing ProgramTermApplnTimeline",
+        "key": "SOPS-57",
+        "summary": "CRM Data Storage Remediation",
         "type": "Story",
-        "status": "READY FOR UAT",
+        "status": "Review & Approval",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Sudaif Haider",
+        "reporter": "Giles Bill",
+        "created": "2026-08-21",
+        "updated": "2026-10-29",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-199",
+        "summary": "Notify the PTAT load owner when a new Learning Program is created",
+        "type": "Story",
+        "status": "IN UAT",
         "statusCat": "In Progress",
         "priority": "Medium",
         "assignee": "Jeremy Fahey",
         "reporter": "Asra Khan",
-        "created": "2026-08-17",
-        "updated": "2026-10-28",
+        "created": "2026-09-28",
+        "updated": "2026-10-29",
         "labels": [],
         "fixVersions": [],
         "storyPoints": null
@@ -120,6 +135,113 @@ const JIRA_DATA = {
         "assignee": "Jeremy Fahey",
         "reporter": "Amit Sood",
         "created": "2026-07-31",
+        "updated": "2026-10-29",
+        "labels": [],
+        "fixVersions": [
+            "GU-SF-R1"
+        ],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-254",
+        "summary": "Archival configuration review",
+        "type": "Sub-task",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Mani Maran Mani",
+        "reporter": "Benjamin Bates",
+        "created": "2026-10-29",
+        "updated": "2026-10-29",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-253",
+        "summary": "Archival rule definition",
+        "type": "Sub-task",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Mani Maran Mani",
+        "reporter": "Benjamin Bates",
+        "created": "2026-10-29",
+        "updated": "2026-10-29",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-252",
+        "summary": "Retention policy alignment",
+        "type": "Sub-task",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Mani Maran Mani",
+        "reporter": "Benjamin Bates",
+        "created": "2026-10-29",
+        "updated": "2026-10-29",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-251",
+        "summary": "Object retention assessment",
+        "type": "Sub-task",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Mani Maran Mani",
+        "reporter": "Benjamin Bates",
+        "created": "2026-10-29",
+        "updated": "2026-10-29",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-250",
+        "summary": "Archive platform migration",
+        "type": "Sub-task",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Mani Maran Mani",
+        "reporter": "Benjamin Bates",
+        "created": "2026-10-29",
+        "updated": "2026-10-29",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-25",
+        "summary": "Backup & Recovery Configuration",
+        "type": "Story",
+        "status": "In Progress",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Sudaif Haider",
+        "reporter": "Amit Sood",
+        "created": "2026-07-31",
+        "updated": "2026-10-29",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-42",
+        "summary": "Staging application records fail PTAT lookup \u2014 missing ProgramTermApplnTimeline",
+        "type": "Story",
+        "status": "READY FOR UAT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Asra Khan",
+        "created": "2026-08-17",
         "updated": "2026-10-28",
         "labels": [],
         "fixVersions": [],
@@ -287,21 +409,6 @@ const JIRA_DATA = {
         "assignee": "Sagar Dey",
         "reporter": "Sudaif Haider",
         "created": "2026-10-12",
-        "updated": "2026-10-28",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-57",
-        "summary": "CRM Data Storage Remediation",
-        "type": "Story",
-        "status": "Review & Approval",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Sudaif Haider",
-        "reporter": "Giles Bill",
-        "created": "2026-08-21",
         "updated": "2026-10-28",
         "labels": [],
         "fixVersions": [],
@@ -680,21 +787,6 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
-        "key": "SOPS-25",
-        "summary": "Backup & Recovery Configuration",
-        "type": "Story",
-        "status": "In Progress",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Sudaif Haider",
-        "reporter": "Amit Sood",
-        "created": "2026-07-31",
-        "updated": "2026-10-26",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-38",
         "summary": "Role Hierarchy Remediation - Realign 'Advancement Data Loader' role and access strategy",
         "type": "Story",
@@ -1012,21 +1104,6 @@ const JIRA_DATA = {
         "assignee": "Kaviya UC",
         "reporter": "Kaviya UC",
         "created": "2026-10-14",
-        "updated": "2026-10-14",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-199",
-        "summary": "Notify the PTAT load owner when a new Learning Program is created",
-        "type": "Story",
-        "status": "READY FOR UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Asra Khan",
-        "created": "2026-09-28",
         "updated": "2026-10-14",
         "labels": [],
         "fixVersions": [],
@@ -1589,104 +1666,29 @@ const JIRA_DATA = {
         "labels": [],
         "fixVersions": [],
         "storyPoints": null
-    },
-    {
-        "key": "SOPS-228",
-        "summary": "Gift-processing spike: batch-size regression and a size for bulk approval",
-        "type": "Story",
-        "status": "To Do",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Unassigned",
-        "reporter": "Asra Khan",
-        "created": "2026-10-06",
-        "updated": "2026-10-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-229",
-        "summary": "Gift processing: Generate and send end-of-day gift receipts from GEMS",
-        "type": "Story",
-        "status": "To Do",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Unassigned",
-        "reporter": "Asra Khan",
-        "created": "2026-10-06",
-        "updated": "2026-10-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-224",
-        "summary": "Bulk close and approve auto-matched payroll sessions by rule",
-        "type": "Story",
-        "status": "To Do",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Unassigned",
-        "reporter": "Asra Khan",
-        "created": "2026-10-05",
-        "updated": "2026-10-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-227",
-        "summary": "HomePages: Donor and Prospect Officers workspace and pipeline dashboards",
-        "type": "Story",
-        "status": "To Do",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Unassigned",
-        "reporter": "Asra Khan",
-        "created": "2026-10-06",
-        "updated": "2026-10-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-222",
-        "summary": "HomePages: Gift-administration workspace and pipeline dashboards",
-        "type": "Story",
-        "status": "To Do",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Unassigned",
-        "reporter": "Asra Khan",
-        "created": "2026-10-05",
-        "updated": "2026-10-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
     }
 ]
 };
 
-// ── Live SIT Sandbox data (fetched 2026-10-29 00:42 UTC) ────────────────────────────
+// ── Live SIT Sandbox data (fetched 2026-10-29 06:43 UTC) ────────────────────────────
 const LIVE_DATA = {
   org: {
     name:        'GRIFFITH UNIVERSITY',
     instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
     orgId:       '00DOg000003NRdiMAG',
     environment: 'SIT Sandbox',
-    fetchedAt:   '2026-10-29 00:42 UTC',
+    fetchedAt:   '2026-10-29 06:43 UTC',
   },
 
   /* Org limits */
   limits: {
     "DailyApiRequests": {
         "Max": 5000000,
-        "Remaining": 4999853
+        "Remaining": 4999787
     },
     "DailyAsyncApexExecutions": {
         "Max": 250000,
-        "Remaining": 249982
+        "Remaining": 249973
     },
     "DailyBulkApiBatches": {
         "Max": 15000,
@@ -1720,9 +1722,9 @@ const LIVE_DATA = {
   /* Scheduled jobs summary */
   scheduledJobs: {
     "total": 30,
-    "waiting": 24,
+    "waiting": 25,
     "complete": 5,
-    "acquired": 1,
+    "acquired": 0,
     "jobs": [
         {
             "name": "287c8878-0d88-a8e9-787e-376a8892842a",
@@ -1750,29 +1752,29 @@ const LIVE_DATA = {
             "next": "2026-10-05T03:00:00Z"
         },
         {
+            "name": "DC.TELEMETRY",
+            "state": "WAITING",
+            "next": "2026-10-29T06:44:00Z"
+        },
+        {
             "name": "BatchDocgenProcessingCronJob",
-            "state": "ACQUIRED",
-            "next": "2026-10-29T00:38:00Z"
+            "state": "WAITING",
+            "next": "2026-10-29T06:44:00Z"
         },
         {
             "name": "DAP.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-10-29T00:44:00Z"
+            "next": "2026-10-29T06:44:00Z"
         },
         {
-            "name": "DC.TELEMETRY",
+            "name": "Privacy Center Audit",
             "state": "WAITING",
-            "next": "2026-10-29T00:44:00Z"
+            "next": "2026-10-29T07:00:00Z"
         },
         {
-            "name": "CommIncrementalSitemapJob-00DOg000003NRdi-0DMMp0000001ML4",
+            "name": "Metalytics Dataflow Runner Job for Org : 00DOg000003NRdi",
             "state": "WAITING",
-            "next": "2026-10-29T00:45:08Z"
-        },
-        {
-            "name": "CommIncrementalSitemapJob-00DOg000003NRdi-0DMMn0000000Y4y",
-            "state": "WAITING",
-            "next": "2026-10-29T00:57:44Z"
+            "next": "2026-10-29T07:09:00Z"
         }
     ]
 },
@@ -1868,6 +1870,15 @@ const LIVE_DATA = {
         "loginClass": "recent"
     },
     {
+        "initials": "SH",
+        "name": "Sudaif Haider",
+        "username": "s.haider@griffith.edu.au.sit",
+        "userType": "Standard",
+        "profile": "System Administrator",
+        "lastLogin": "2026-10-29",
+        "loginClass": "recent"
+    },
+    {
         "initials": "DU",
         "name": "Deployment User",
         "username": "deploymentuser@griffith.edu.au.sit",
@@ -1898,15 +1909,6 @@ const LIVE_DATA = {
         "initials": "SD",
         "name": "Sagar Dey",
         "username": "sagar.dey@griffith.edu.au.sit",
-        "userType": "Standard",
-        "profile": "System Administrator",
-        "lastLogin": "2026-10-27",
-        "loginClass": "recent"
-    },
-    {
-        "initials": "SH",
-        "name": "Sudaif Haider",
-        "username": "s.haider@griffith.edu.au.sit",
         "userType": "Standard",
         "profile": "System Administrator",
         "lastLogin": "2026-10-27",
@@ -2539,11 +2541,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-29 00:42 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-29 06:43 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-29 00:42 UTC',
+  fetchedAt: '2026-10-29 06:43 UTC',
 
   repos: [
     {
@@ -3734,14 +3736,14 @@ const AZURE_DATA = {
     },
     {
         "repo": "RSDF-SalesforcePlatform",
-        "name": "gs-pipeline/feature-SOPS-199-New2_-_uat",
+        "name": "gs-pipeline/feature-SOPS-199-New2_-_main",
         "isDefault": false,
-        "aheadCount": 3,
+        "aheadCount": 1,
         "behindCount": 0,
-        "commitId": "3bdc81dd",
-        "author": "Rahul Ahuja",
+        "commitId": "6936c6eb",
+        "author": "akshay.kumar@griffith.edu.au",
         "date": "2026-10-28",
-        "comment": "Commit: SOPS-199 UAT Deployment Added Layout"
+        "comment": "SOPS-199 changes. New branch created"
     },
     {
         "repo": "RSDF-SalesforcePlatform",
@@ -4154,29 +4156,50 @@ const AZURE_DATA = {
         "repo": "RSDF-SalesforcePlatform",
         "name": "uat",
         "isDefault": false,
-        "aheadCount": 85,
+        "aheadCount": 89,
         "behindCount": 0,
-        "commitId": "6ade5983",
-        "author": "Sudaif Haider",
-        "date": "2026-10-28",
-        "comment": "Merge pull request 9398 from gs-pipeline/feature-SOPS-163new_-_uat into uat"
+        "commitId": "09c2ebcc",
+        "author": "Akshay Kumar",
+        "date": "2026-10-29",
+        "comment": "Merge pull request 9464 from gs-pipeline/feature-SOPS-199-New2_-_uat into uat"
     }
 ],
 
   pullRequests: [
     {
-        "id": 9464,
+        "id": 9465,
         "title": "feature SOPS 199 New2",
         "status": "active",
+        "repo": "RSDF-SalesforcePlatform",
+        "sourceBranch": "gs-pipeline/feature-SOPS-199-New2_-_main",
+        "targetBranch": "main",
+        "createdBy": "Akshay Kumar",
+        "createdDate": "2026-10-29",
+        "closedDate": null,
+        "reviewers": [
+            "Akshay Kumar",
+            "Jeremy Fahey",
+            "Giles Bill",
+            "Rahul Ahuja"
+        ],
+        "isDraft": false,
+        "mergeStatus": "succeeded",
+        "approved": false
+    },
+    {
+        "id": 9464,
+        "title": "feature SOPS 199 New2",
+        "status": "completed",
         "repo": "RSDF-SalesforcePlatform",
         "sourceBranch": "gs-pipeline/feature-SOPS-199-New2_-_uat",
         "targetBranch": "uat",
         "createdBy": "Akshay Kumar",
         "createdDate": "2026-10-28",
-        "closedDate": null,
+        "closedDate": "2026-10-29",
         "reviewers": [
             "Akshay Kumar",
-            "Jeremy Fahey"
+            "Jeremy Fahey",
+            "Rahul Ahuja"
         ],
         "isDraft": false,
         "mergeStatus": "succeeded",
@@ -5942,29 +5965,26 @@ const AZURE_DATA = {
         "isDraft": false,
         "mergeStatus": "succeeded",
         "approved": false
-    },
-    {
-        "id": 9358,
-        "title": "Sync: Feature SOPS 73",
-        "status": "completed",
-        "repo": "RSDF-SalesforcePlatform",
-        "sourceBranch": "gs-pipeline/Feature-SOPS-73_-_uat",
-        "targetBranch": "uat",
-        "createdBy": "Akshay Kumar",
-        "createdDate": "2026-10-08",
-        "closedDate": "2026-10-09",
-        "reviewers": [
-            "Amit Sood",
-            "Jeremy Fahey",
-            "Sudaif Haider"
-        ],
-        "isDraft": false,
-        "mergeStatus": "succeeded",
-        "approved": false
     }
 ],
 
   commits: [
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "4b7ccdd3",
+        "comment": "Merge pull request 9465 from gs-pipeline/feature-SOPS-199-New2_-_main into main",
+        "author": "Akshay Kumar",
+        "date": "2026-10-29",
+        "branch": ""
+    },
+    {
+        "repo": "RSDF-SalesforcePlatform",
+        "commitId": "09c2ebcc",
+        "comment": "Merge pull request 9464 from gs-pipeline/feature-SOPS-199-New2_-_uat into uat",
+        "author": "Akshay Kumar",
+        "date": "2026-10-29",
+        "branch": ""
+    },
     {
         "repo": "RSDF-SalesforcePlatform",
         "commitId": "af00e141",
@@ -6106,22 +6126,6 @@ const AZURE_DATA = {
         "commitId": "f995d0fe",
         "comment": "Gearset: Conflicts resolved. Merging branch uat into gs-pipeline/feature-SOPS-163new_-_uat",
         "author": "s.haider@griffith.edu.au",
-        "date": "2026-10-28",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "ad7e3231",
-        "comment": "Gearset: Conflicts resolved. Merging branch uat into gs-pipeline/feature-SOPS-163new_-_uat",
-        "author": "s.haider@griffith.edu.au",
-        "date": "2026-10-28",
-        "branch": ""
-    },
-    {
-        "repo": "RSDF-SalesforcePlatform",
-        "commitId": "5002d52e",
-        "comment": "Merge pull request 9437 from gs-pipeline/feature-SOPS-163-2_-_uat into uat",
-        "author": "Sudaif Haider",
         "date": "2026-10-28",
         "branch": ""
     }
