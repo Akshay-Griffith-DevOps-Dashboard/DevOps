@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-10-30 00:42 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-10-30 06:44 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-10-30 00:42 UTC',
+  fetchedAt: '2026-10-30 06:44 UTC',
 
   sprints: [
     {
@@ -96,6 +96,525 @@ const JIRA_DATA = {
 
   issues: [
     {
+        "key": "SOPS-199",
+        "summary": "Notify the PTAT load owner when a new Learning Program is created",
+        "type": "Story",
+        "status": "IN UAT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Amit Sood",
+        "reporter": "Asra Khan",
+        "created": "2026-09-28",
+        "updated": "2026-10-30",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-87",
+        "summary": "Sharing Rules Remediation - Include Student Recruitment Opportunity in the Advancement sharing rule",
+        "type": "Story",
+        "status": "READY FOR RELEASE",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Amit Sood",
+        "created": "2026-09-01",
+        "updated": "2026-10-30",
+        "labels": [],
+        "fixVersions": [
+            "GU-SF-R1-Nov-02-26"
+        ],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-139",
+        "summary": "OWD Remediation :  Restrict External & Internal OWD on Contact Point Social to Private",
+        "type": "Story",
+        "status": "READY FOR RELEASE",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Sudaif Haider",
+        "created": "2026-09-11",
+        "updated": "2026-10-30",
+        "labels": [],
+        "fixVersions": [
+            "GU-SF-R1-Nov-02-26"
+        ],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-160",
+        "summary": "Permission Set Remediation : Rationalise redundant GU_ascend permission sets",
+        "type": "Story",
+        "status": "READY FOR RELEASE",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Amit Sood",
+        "created": "2026-09-11",
+        "updated": "2026-10-30",
+        "labels": [
+            "RAC:Config_Issue"
+        ],
+        "fixVersions": [
+            "GU-SF-R1-Nov-02-26"
+        ],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-140",
+        "summary": "OWD Remediation :  Audit and Restrict Access to Dupcheck and OB_Archiver Objects via Permission Sets",
+        "type": "Story",
+        "status": "READY FOR RELEASE",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Sudaif Haider",
+        "created": "2026-09-11",
+        "updated": "2026-10-30",
+        "labels": [],
+        "fixVersions": [
+            "GU-SF-R1-Nov-02-26"
+        ],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-102",
+        "summary": "Sharing Rules Remediation - Ascend portal user Read access on Account Object",
+        "type": "Story",
+        "status": "READY FOR RELEASE",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Amit Sood",
+        "created": "2026-09-08",
+        "updated": "2026-10-30",
+        "labels": [],
+        "fixVersions": [
+            "GU-SF-R1-Nov-02-26"
+        ],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-145",
+        "summary": "OWD Remediation :  Change Lead OWD from ReadWriteTransfer to Private",
+        "type": "Story",
+        "status": "READY FOR RELEASE",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Sudaif Haider",
+        "created": "2026-09-11",
+        "updated": "2026-10-30",
+        "labels": [],
+        "fixVersions": [
+            "GU-SF-R1-Nov-02-26"
+        ],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-141",
+        "summary": "OWD Remediation :  Change Individual Object OWD from ReadWrite to Private",
+        "type": "Story",
+        "status": "READY FOR RELEASE",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Sudaif Haider",
+        "created": "2026-09-11",
+        "updated": "2026-10-30",
+        "labels": [],
+        "fixVersions": [
+            "GU-SF-R1-Nov-02-26"
+        ],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-90",
+        "summary": "Sharing Rules Remediation - Review Advancement Ops sharing rule on Person Education",
+        "type": "Story",
+        "status": "READY FOR RELEASE",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Amit Sood",
+        "created": "2026-09-01",
+        "updated": "2026-10-30",
+        "labels": [],
+        "fixVersions": [
+            "GU-SF-R1-Nov-02-26"
+        ],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-14",
+        "summary": "Platform Digital Certificate Upgrade",
+        "type": "Story",
+        "status": "READY FOR RELEASE",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Amit Sood",
+        "created": "2026-07-31",
+        "updated": "2026-10-30",
+        "labels": [],
+        "fixVersions": [
+            "GU-SF-R1-Nov-02-26"
+        ],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-35",
+        "summary": "Sharing Rules Remediation - Remove Ineffective Community_User_Access Sharing Rules",
+        "type": "Story",
+        "status": "READY FOR RELEASE",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Asra Khan",
+        "created": "2026-08-07",
+        "updated": "2026-10-30",
+        "labels": [
+            "Blocked"
+        ],
+        "fixVersions": [
+            "GU-SF-R1-Nov-02-26"
+        ],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-101",
+        "summary": "Sharing Rules Remediation - Restrict Customer Portal User write access on Account and Case",
+        "type": "Story",
+        "status": "READY FOR RELEASE",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Amit Sood",
+        "created": "2026-09-08",
+        "updated": "2026-10-30",
+        "labels": [],
+        "fixVersions": [
+            "GU-SF-R1-Nov-02-26"
+        ],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-38",
+        "summary": "Role Hierarchy Remediation - Realign 'Advancement Data Loader' role and access strategy",
+        "type": "Story",
+        "status": "READY FOR RELEASE",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Amit Sood",
+        "created": "2026-08-12",
+        "updated": "2026-10-30",
+        "labels": [],
+        "fixVersions": [
+            "GU-SF-R1-Nov-02-26"
+        ],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-159",
+        "summary": "Permission Set Remediation : Review Splunk customize application access",
+        "type": "Story",
+        "status": "READY FOR RELEASE",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Amit Sood",
+        "created": "2026-09-11",
+        "updated": "2026-10-30",
+        "labels": [],
+        "fixVersions": [
+            "GU-SF-R1-Nov-02-26"
+        ],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-73",
+        "summary": "Sharing Rules Remediation - Replace Single-Member Public Group Sharing with Direct Role Sharing",
+        "type": "Story",
+        "status": "READY FOR RELEASE",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Amit Sood",
+        "created": "2026-08-27",
+        "updated": "2026-10-30",
+        "labels": [],
+        "fixVersions": [
+            "GU-SF-R1-Nov-02-26"
+        ],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-28",
+        "summary": "Sharing Rules Remediation -  Ascend Portal Guest User Profile Permissions and FLS",
+        "type": "Story",
+        "status": "READY FOR RELEASE",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Amit Sood",
+        "created": "2026-08-04",
+        "updated": "2026-10-30",
+        "labels": [],
+        "fixVersions": [
+            "GU-SF-R1-Nov-02-26"
+        ],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-89",
+        "summary": "Sharing Rules Remediation - Remove/replace the ineffective Campaign community sharing rule",
+        "type": "Story",
+        "status": "READY FOR RELEASE",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Amit Sood",
+        "created": "2026-09-01",
+        "updated": "2026-10-30",
+        "labels": [],
+        "fixVersions": [
+            "GU-SF-R1-Nov-02-26"
+        ],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-88",
+        "summary": "Sharing Rules Remediation - Remediate the Read_Only_All_Opportunities sharing rule",
+        "type": "Story",
+        "status": "READY FOR RELEASE",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Amit Sood",
+        "created": "2026-09-01",
+        "updated": "2026-10-30",
+        "labels": [],
+        "fixVersions": [
+            "GU-SF-R1-Nov-02-26"
+        ],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-37",
+        "summary": "Role Hierarchy Remediation - Realign 'Supervisor' and 'Agent' roles",
+        "type": "Story",
+        "status": "READY FOR RELEASE",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Amit Sood",
+        "created": "2026-08-12",
+        "updated": "2026-10-30",
+        "labels": [],
+        "fixVersions": [
+            "GU-SF-R1-Nov-02-26"
+        ],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-10",
+        "summary": "Session Settings Remediation",
+        "type": "Story",
+        "status": "READY FOR RELEASE",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Amit Sood",
+        "created": "2026-07-31",
+        "updated": "2026-10-30",
+        "labels": [
+            "Blocked"
+        ],
+        "fixVersions": [
+            "GU-SF-R1-Nov-02-26"
+        ],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-103",
+        "summary": "Sharing Rules Remediation - Delete unused Advancement_Public_Group",
+        "type": "Story",
+        "status": "READY FOR RELEASE",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Amit Sood",
+        "created": "2026-09-09",
+        "updated": "2026-10-30",
+        "labels": [],
+        "fixVersions": [
+            "GU-SF-R1-Nov-02-26"
+        ],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-96",
+        "summary": "Enable person/alumni search by additional identifiers (email, GU ID etc .) in Global Search Layout",
+        "type": "Story",
+        "status": "READY FOR RELEASE",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Asra Khan",
+        "created": "2026-09-03",
+        "updated": "2026-10-30",
+        "labels": [],
+        "fixVersions": [
+            "GU-SF-R1-Nov-02-26"
+        ],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-156",
+        "summary": "Permission Set Remediation : Remove view role hierarchy from listed permission sets",
+        "type": "Story",
+        "status": "READY FOR RELEASE",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Amit Sood",
+        "created": "2026-09-11",
+        "updated": "2026-10-30",
+        "labels": [],
+        "fixVersions": [
+            "GU-SF-R1-Nov-02-26"
+        ],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-104",
+        "summary": "Permission Set Remediation : Make API-enabled permission sets API Only",
+        "type": "Story",
+        "status": "READY FOR RELEASE",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Amit Sood",
+        "created": "2026-09-10",
+        "updated": "2026-10-30",
+        "labels": [],
+        "fixVersions": [
+            "GU-SF-R1-Nov-02-26"
+        ],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-155",
+        "summary": "Permission Set Remediation : Remove Run Reports from GU Integration",
+        "type": "Story",
+        "status": "IN UAT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Patricia Villalva",
+        "reporter": "Amit Sood",
+        "created": "2026-09-11",
+        "updated": "2026-10-30",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-154",
+        "summary": "Permission Set Remediation : Remove Customize Dashboards and Customize Reports from GU Integration",
+        "type": "Story",
+        "status": "IN UAT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Patricia Villalva",
+        "reporter": "Amit Sood",
+        "created": "2026-09-11",
+        "updated": "2026-10-30",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-33",
+        "summary": "Remediate Gearset Deploy Connected App Access Controls",
+        "type": "Story",
+        "status": "IN UAT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Vandana Bettens",
+        "reporter": "Amit Sood",
+        "created": "2026-08-06",
+        "updated": "2026-10-30",
+        "labels": [
+            "Blocked"
+        ],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-163",
+        "summary": "Profile Remediation : Delete unused custom profiles in production",
+        "type": "Story",
+        "status": "IN UAT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Akshay Kumar",
+        "reporter": "Amit Sood",
+        "created": "2026-09-11",
+        "updated": "2026-10-30",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-149",
+        "summary": "OWD Remediation :  Restrict Internal OWD on STG Staging Objects from Public Read to Private",
+        "type": "Story",
+        "status": "IN UAT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Patricia Villalva",
+        "reporter": "Sudaif Haider",
+        "created": "2026-09-11",
+        "updated": "2026-10-30",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-150",
+        "summary": "OWD Remediation :  Restrict Learner Program OWD to Private",
+        "type": "Story",
+        "status": "IN UAT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Vandana Bettens",
+        "reporter": "Sudaif Haider",
+        "created": "2026-09-11",
+        "updated": "2026-10-30",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-237",
+        "summary": " Configure the Campus__c picklist field with standardized API names and labels on the LearningProgram and LearnerProgram",
+        "type": "Story",
+        "status": "READY FOR SIT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Amit Sood",
+        "reporter": "Sudaif Haider",
+        "created": "2026-10-12",
+        "updated": "2026-10-30",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
         "key": "SOPS-42",
         "summary": "Staging application records fail PTAT lookup \u2014 missing ProgramTermApplnTimeline",
         "type": "Story",
@@ -126,21 +645,6 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
-        "key": "SOPS-199",
-        "summary": "Notify the PTAT load owner when a new Learning Program is created",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Asra Khan",
-        "created": "2026-09-28",
-        "updated": "2026-10-29",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-57",
         "summary": "CRM Data Storage Remediation",
         "type": "Story",
@@ -153,23 +657,6 @@ const JIRA_DATA = {
         "updated": "2026-10-29",
         "labels": [],
         "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-14",
-        "summary": "Platform Digital Certificate Upgrade",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Amit Sood",
-        "created": "2026-07-31",
-        "updated": "2026-10-29",
-        "labels": [],
-        "fixVersions": [
-            "GU-SF-R1"
-        ],
         "storyPoints": null
     },
     {
@@ -248,96 +735,6 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
-        "key": "SOPS-163",
-        "summary": "Profile Remediation : Delete unused custom profiles in production",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Amit Sood",
-        "created": "2026-09-11",
-        "updated": "2026-10-28",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-150",
-        "summary": "OWD Remediation :  Restrict Learner Program OWD to Private",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
-        "updated": "2026-10-28",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-149",
-        "summary": "OWD Remediation :  Restrict Internal OWD on STG Staging Objects from Public Read to Private",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
-        "updated": "2026-10-28",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-102",
-        "summary": "Sharing Rules Remediation - Ascend portal user Read access on Account Object",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Amit Sood",
-        "created": "2026-09-08",
-        "updated": "2026-10-28",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-141",
-        "summary": "OWD Remediation :  Change Individual Object OWD from ReadWrite to Private",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
-        "updated": "2026-10-28",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-145",
-        "summary": "OWD Remediation :  Change Lead OWD from ReadWriteTransfer to Private",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
-        "updated": "2026-10-28",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-81",
         "summary": "Generate CRM Data Catalogue",
         "type": "Sub-task",
@@ -347,68 +744,6 @@ const JIRA_DATA = {
         "assignee": "Mani Maran Mani",
         "reporter": "Giles Bill",
         "created": "2026-08-31",
-        "updated": "2026-10-28",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-87",
-        "summary": "Sharing Rules Remediation - Include Student Recruitment Opportunity in the Advancement sharing rule",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Amit Sood",
-        "created": "2026-09-01",
-        "updated": "2026-10-28",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-140",
-        "summary": "OWD Remediation :  Audit and Restrict Access to Dupcheck and OB_Archiver Objects via Permission Sets",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
-        "updated": "2026-10-28",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-160",
-        "summary": "Permission Set Remediation : Rationalise redundant GU_ascend permission sets",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Amit Sood",
-        "created": "2026-09-11",
-        "updated": "2026-10-28",
-        "labels": [
-            "RAC:Config_Issue"
-        ],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-237",
-        "summary": " Configure the Campus__c picklist field with standardized API names and labels on the LearningProgram and LearnerProgram",
-        "type": "Story",
-        "status": "READY FOR SIT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Sagar Dey",
-        "reporter": "Sudaif Haider",
-        "created": "2026-10-12",
         "updated": "2026-10-28",
         "labels": [],
         "fixVersions": [],
@@ -429,40 +764,6 @@ const JIRA_DATA = {
             "RAC:Deployment_Issue"
         ],
         "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-101",
-        "summary": "Sharing Rules Remediation - Restrict Customer Portal User write access on Account and Case",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Amit Sood",
-        "created": "2026-09-08",
-        "updated": "2026-10-27",
-        "labels": [],
-        "fixVersions": [
-            "GU-SF-R1"
-        ],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-73",
-        "summary": "Sharing Rules Remediation - Replace Single-Member Public Group Sharing with Direct Role Sharing",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Amit Sood",
-        "created": "2026-08-27",
-        "updated": "2026-10-27",
-        "labels": [],
-        "fixVersions": [
-            "GU-SF-R1"
-        ],
         "storyPoints": null
     },
     {
@@ -508,197 +809,6 @@ const JIRA_DATA = {
         "updated": "2026-10-26",
         "labels": [],
         "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-10",
-        "summary": "Session Settings Remediation",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Amit Sood",
-        "created": "2026-07-31",
-        "updated": "2026-10-26",
-        "labels": [
-            "Blocked"
-        ],
-        "fixVersions": [
-            "GU-SF-R1"
-        ],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-33",
-        "summary": "Remediate Gearset Deploy Connected App Access Controls",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Akshay Kumar",
-        "reporter": "Amit Sood",
-        "created": "2026-08-06",
-        "updated": "2026-10-26",
-        "labels": [
-            "Blocked"
-        ],
-        "fixVersions": [
-            "GU-SF-R1"
-        ],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-35",
-        "summary": "Sharing Rules Remediation - Remove Ineffective Community_User_Access Sharing Rules",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Akshay Kumar",
-        "reporter": "Asra Khan",
-        "created": "2026-08-07",
-        "updated": "2026-10-26",
-        "labels": [
-            "Blocked"
-        ],
-        "fixVersions": [
-            "GU-SF-R1"
-        ],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-37",
-        "summary": "Role Hierarchy Remediation - Realign 'Supervisor' and 'Agent' roles",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Akshay Kumar",
-        "reporter": "Amit Sood",
-        "created": "2026-08-12",
-        "updated": "2026-10-26",
-        "labels": [],
-        "fixVersions": [
-            "GU-SF-R1"
-        ],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-88",
-        "summary": "Sharing Rules Remediation - Remediate the Read_Only_All_Opportunities sharing rule",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Akshay Kumar",
-        "reporter": "Amit Sood",
-        "created": "2026-09-01",
-        "updated": "2026-10-26",
-        "labels": [],
-        "fixVersions": [
-            "GU-SF-R1"
-        ],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-89",
-        "summary": "Sharing Rules Remediation - Remove/replace the ineffective Campaign community sharing rule",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Akshay Kumar",
-        "reporter": "Amit Sood",
-        "created": "2026-09-01",
-        "updated": "2026-10-26",
-        "labels": [],
-        "fixVersions": [
-            "GU-SF-R1"
-        ],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-90",
-        "summary": "Sharing Rules Remediation - Review Advancement Ops sharing rule on Person Education",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Amit Sood",
-        "created": "2026-09-01",
-        "updated": "2026-10-26",
-        "labels": [],
-        "fixVersions": [
-            "GU-SF-R1"
-        ],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-103",
-        "summary": "Sharing Rules Remediation - Delete unused Advancement_Public_Group",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Benjamin Bates",
-        "reporter": "Amit Sood",
-        "created": "2026-09-09",
-        "updated": "2026-10-26",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-104",
-        "summary": "Permission Set Remediation : Make API-enabled permission sets API Only",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Amit Sood",
-        "created": "2026-09-10",
-        "updated": "2026-10-26",
-        "labels": [],
-        "fixVersions": [
-            "GU-SF-R1"
-        ],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-154",
-        "summary": "Permission Set Remediation : Remove Customize Dashboards and Customize Reports from GU Integration",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Amit Sood",
-        "created": "2026-09-11",
-        "updated": "2026-10-26",
-        "labels": [],
-        "fixVersions": [
-            "GU-SF-R1"
-        ],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-156",
-        "summary": "Permission Set Remediation : Remove view role hierarchy from listed permission sets",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Amit Sood",
-        "created": "2026-09-11",
-        "updated": "2026-10-26",
-        "labels": [],
-        "fixVersions": [
-            "GU-SF-R1"
-        ],
         "storyPoints": null
     },
     {
@@ -767,72 +877,6 @@ const JIRA_DATA = {
             "RAC:Coding/Logic_Issue"
         ],
         "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-159",
-        "summary": "Permission Set Remediation : Review Splunk customize application access",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Amit Sood",
-        "created": "2026-09-11",
-        "updated": "2026-10-26",
-        "labels": [],
-        "fixVersions": [
-            "GU-SF-R1"
-        ],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-38",
-        "summary": "Role Hierarchy Remediation - Realign 'Advancement Data Loader' role and access strategy",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Amit Sood",
-        "created": "2026-08-12",
-        "updated": "2026-10-26",
-        "labels": [],
-        "fixVersions": [
-            "GU-SF-R1"
-        ],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-139",
-        "summary": "OWD Remediation :  Restrict External & Internal OWD on Contact Point Social to Private",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
-        "updated": "2026-10-26",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-96",
-        "summary": "Enable person/alumni search by additional identifiers (email, GU ID etc .) in Global Search Layout",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Asra Khan",
-        "reporter": "Asra Khan",
-        "created": "2026-09-03",
-        "updated": "2026-10-26",
-        "labels": [],
-        "fixVersions": [
-            "GU-SF-R1"
-        ],
         "storyPoints": null
     },
     {
@@ -1167,40 +1211,6 @@ const JIRA_DATA = {
         "updated": "2026-10-12",
         "labels": [],
         "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-28",
-        "summary": "Sharing Rules Remediation -  Ascend Portal Guest User Profile Permissions and FLS",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Kaviya UC",
-        "reporter": "Amit Sood",
-        "created": "2026-08-04",
-        "updated": "2026-10-09",
-        "labels": [],
-        "fixVersions": [
-            "GU-SF-R1"
-        ],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-155",
-        "summary": "Permission Set Remediation : Remove Run Reports from GU Integration",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Amit Sood",
-        "created": "2026-09-11",
-        "updated": "2026-10-09",
-        "labels": [],
-        "fixVersions": [
-            "GU-SF-R1"
-        ],
         "storyPoints": null
     },
     {
@@ -1670,25 +1680,25 @@ const JIRA_DATA = {
 ]
 };
 
-// ── Live SIT Sandbox data (fetched 2026-10-30 00:42 UTC) ────────────────────────────
+// ── Live SIT Sandbox data (fetched 2026-10-30 06:44 UTC) ────────────────────────────
 const LIVE_DATA = {
   org: {
     name:        'GRIFFITH UNIVERSITY',
     instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
     orgId:       '00DOg000003NRdiMAG',
     environment: 'SIT Sandbox',
-    fetchedAt:   '2026-10-30 00:42 UTC',
+    fetchedAt:   '2026-10-30 06:44 UTC',
   },
 
   /* Org limits */
   limits: {
     "DailyApiRequests": {
         "Max": 5000000,
-        "Remaining": 4999985
+        "Remaining": 4999583
     },
     "DailyAsyncApexExecutions": {
         "Max": 250000,
-        "Remaining": 249986
+        "Remaining": 249975
     },
     "DailyBulkApiBatches": {
         "Max": 15000,
@@ -1754,27 +1764,27 @@ const LIVE_DATA = {
         {
             "name": "BatchDocgenProcessingCronJob",
             "state": "WAITING",
-            "next": "2026-10-30T00:43:00Z"
+            "next": "2026-10-30T06:45:00Z"
         },
         {
-            "name": "DAP.TELEMETRY",
+            "name": "Privacy Center Audit",
             "state": "WAITING",
-            "next": "2026-10-30T00:44:00Z"
+            "next": "2026-10-30T07:00:00Z"
+        },
+        {
+            "name": "Metalytics Dataflow Runner Job for Org : 00DOg000003NRdi",
+            "state": "WAITING",
+            "next": "2026-10-30T07:09:00Z"
+        },
+        {
+            "name": "MciDashboardUpdateJobType",
+            "state": "WAITING",
+            "next": "2026-10-30T07:30:00Z"
         },
         {
             "name": "DC.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-10-30T00:44:00Z"
-        },
-        {
-            "name": "CommIncrementalSitemapJob-00DOg000003NRdi-0DMMp0000001ML4",
-            "state": "WAITING",
-            "next": "2026-10-30T00:45:08Z"
-        },
-        {
-            "name": "CommIncrementalSitemapJob-00DOg000003NRdi-0DMMn0000000Y4y",
-            "state": "WAITING",
-            "next": "2026-10-30T00:57:44Z"
+            "next": "2026-10-30T08:44:00Z"
         }
     ]
 },
@@ -1870,6 +1880,15 @@ const LIVE_DATA = {
         "loginClass": "recent"
     },
     {
+        "initials": "SH",
+        "name": "Sudaif Haider",
+        "username": "s.haider@griffith.edu.au.sit",
+        "userType": "Standard",
+        "profile": "System Administrator",
+        "lastLogin": "2026-10-30",
+        "loginClass": "recent"
+    },
+    {
         "initials": "DU",
         "name": "Deployment User",
         "username": "deploymentuser@griffith.edu.au.sit",
@@ -1882,15 +1901,6 @@ const LIVE_DATA = {
         "initials": "SD",
         "name": "Sagar Dey",
         "username": "sagar.dey@griffith.edu.au.sit",
-        "userType": "Standard",
-        "profile": "System Administrator",
-        "lastLogin": "2026-10-29",
-        "loginClass": "recent"
-    },
-    {
-        "initials": "SH",
-        "name": "Sudaif Haider",
-        "username": "s.haider@griffith.edu.au.sit",
         "userType": "Standard",
         "profile": "System Administrator",
         "lastLogin": "2026-10-29",
@@ -2541,11 +2551,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-30 00:42 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-30 06:44 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-30 00:42 UTC',
+  fetchedAt: '2026-10-30 06:44 UTC',
 
   repos: [
     {
