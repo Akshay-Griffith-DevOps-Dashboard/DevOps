@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-10-29 18:41 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-10-30 00:42 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-10-29 18:41 UTC',
+  fetchedAt: '2026-10-30 00:42 UTC',
 
   sprints: [
     {
@@ -95,6 +95,36 @@ const JIRA_DATA = {
 ],
 
   issues: [
+    {
+        "key": "SOPS-42",
+        "summary": "Staging application records fail PTAT lookup \u2014 missing ProgramTermApplnTimeline",
+        "type": "Story",
+        "status": "Done",
+        "statusCat": "Done",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Asra Khan",
+        "created": "2026-08-17",
+        "updated": "2026-10-30",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-250",
+        "summary": "Archive platform migration",
+        "type": "Sub-task",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Giles Bill",
+        "reporter": "Benjamin Bates",
+        "created": "2026-10-29",
+        "updated": "2026-10-30",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
     {
         "key": "SOPS-199",
         "summary": "Notify the PTAT load owner when a new Learning Program is created",
@@ -203,21 +233,6 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
-        "key": "SOPS-250",
-        "summary": "Archive platform migration",
-        "type": "Sub-task",
-        "status": "To Do",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Mani Maran Mani",
-        "reporter": "Benjamin Bates",
-        "created": "2026-10-29",
-        "updated": "2026-10-29",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-25",
         "summary": "Backup & Recovery Configuration",
         "type": "Story",
@@ -228,21 +243,6 @@ const JIRA_DATA = {
         "reporter": "Amit Sood",
         "created": "2026-07-31",
         "updated": "2026-10-29",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-42",
-        "summary": "Staging application records fail PTAT lookup \u2014 missing ProgramTermApplnTimeline",
-        "type": "Story",
-        "status": "READY FOR UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Asra Khan",
-        "created": "2026-08-17",
-        "updated": "2026-10-28",
         "labels": [],
         "fixVersions": [],
         "storyPoints": null
@@ -1670,14 +1670,14 @@ const JIRA_DATA = {
 ]
 };
 
-// ── Live SIT Sandbox data (fetched 2026-10-29 18:41 UTC) ────────────────────────────
+// ── Live SIT Sandbox data (fetched 2026-10-30 00:42 UTC) ────────────────────────────
 const LIVE_DATA = {
   org: {
     name:        'GRIFFITH UNIVERSITY',
     instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
     orgId:       '00DOg000003NRdiMAG',
     environment: 'SIT Sandbox',
-    fetchedAt:   '2026-10-29 18:41 UTC',
+    fetchedAt:   '2026-10-30 00:42 UTC',
   },
 
   /* Org limits */
@@ -1688,7 +1688,7 @@ const LIVE_DATA = {
     },
     "DailyAsyncApexExecutions": {
         "Max": 250000,
-        "Remaining": 249994
+        "Remaining": 249986
     },
     "DailyBulkApiBatches": {
         "Max": 15000,
@@ -1754,27 +1754,27 @@ const LIVE_DATA = {
         {
             "name": "BatchDocgenProcessingCronJob",
             "state": "WAITING",
-            "next": "2026-10-29T18:42:00Z"
-        },
-        {
-            "name": "DC.TELEMETRY",
-            "state": "WAITING",
-            "next": "2026-10-29T18:44:00Z"
+            "next": "2026-10-30T00:43:00Z"
         },
         {
             "name": "DAP.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-10-29T18:44:00Z"
+            "next": "2026-10-30T00:44:00Z"
         },
         {
-            "name": "Privacy Center Audit",
+            "name": "DC.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-10-29T19:00:00Z"
+            "next": "2026-10-30T00:44:00Z"
         },
         {
-            "name": "After_Create_Update_Person_Employment_Schedule_Flow-1",
+            "name": "CommIncrementalSitemapJob-00DOg000003NRdi-0DMMp0000001ML4",
             "state": "WAITING",
-            "next": "2026-10-29T20:00:00Z"
+            "next": "2026-10-30T00:45:08Z"
+        },
+        {
+            "name": "CommIncrementalSitemapJob-00DOg000003NRdi-0DMMn0000000Y4y",
+            "state": "WAITING",
+            "next": "2026-10-30T00:57:44Z"
         }
     ]
 },
@@ -1866,7 +1866,7 @@ const LIVE_DATA = {
         "username": "akshay.kumar@griffith.edu.au.dashboard",
         "userType": "Standard",
         "profile": "System Administrator",
-        "lastLogin": "2026-10-29",
+        "lastLogin": "2026-10-30",
         "loginClass": "recent"
     },
     {
@@ -2541,11 +2541,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-10-29 18:41 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-10-30 00:42 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-10-29 18:41 UTC',
+  fetchedAt: '2026-10-30 00:42 UTC',
 
   repos: [
     {
