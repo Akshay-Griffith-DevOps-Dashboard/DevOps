@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-11-03 00:45 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-11-03 13:53 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-11-03 00:45 UTC',
+  fetchedAt: '2026-11-03 13:53 UTC',
 
   sprints: [
     {
@@ -95,6 +95,36 @@ const JIRA_DATA = {
 ],
 
   issues: [
+    {
+        "key": "SOPS-237",
+        "summary": " Configure the Campus__c picklist field with standardized API names and labels on the LearningProgram and LearnerProgram",
+        "type": "Story",
+        "status": "READY FOR SIT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Amit Sood",
+        "reporter": "Sudaif Haider",
+        "created": "2026-10-12",
+        "updated": "2026-11-03",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-57",
+        "summary": "CRM Data Storage Remediation",
+        "type": "Story",
+        "status": "Review & Approval",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Sudaif Haider",
+        "reporter": "Giles Bill",
+        "created": "2026-08-21",
+        "updated": "2026-11-03",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
     {
         "key": "SOPS-96",
         "summary": "Enable person/alumni search by additional identifiers (email, GU ID etc .) in Global Search Layout",
@@ -538,21 +568,6 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
-        "key": "SOPS-57",
-        "summary": "CRM Data Storage Remediation",
-        "type": "Story",
-        "status": "Review & Approval",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Sudaif Haider",
-        "reporter": "Giles Bill",
-        "created": "2026-08-21",
-        "updated": "2026-11-02",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-26",
         "summary": "Concurrency & Locking Safeguards",
         "type": "Story",
@@ -669,21 +684,6 @@ const JIRA_DATA = {
         "assignee": "Vandana Bettens",
         "reporter": "Sudaif Haider",
         "created": "2026-09-11",
-        "updated": "2026-10-30",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-237",
-        "summary": " Configure the Campus__c picklist field with standardized API names and labels on the LearningProgram and LearnerProgram",
-        "type": "Story",
-        "status": "READY FOR SIT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Amit Sood",
-        "reporter": "Sudaif Haider",
-        "created": "2026-10-12",
         "updated": "2026-10-30",
         "labels": [],
         "fixVersions": [],
@@ -1680,25 +1680,25 @@ const JIRA_DATA = {
 ]
 };
 
-// ── Live SIT Sandbox data (fetched 2026-11-03 00:45 UTC) ────────────────────────────
+// ── Live SIT Sandbox data (fetched 2026-11-03 13:52 UTC) ────────────────────────────
 const LIVE_DATA = {
   org: {
     name:        'GRIFFITH UNIVERSITY',
     instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
     orgId:       '00DOg000003NRdiMAG',
     environment: 'SIT Sandbox',
-    fetchedAt:   '2026-11-03 00:45 UTC',
+    fetchedAt:   '2026-11-03 13:52 UTC',
   },
 
   /* Org limits */
   limits: {
     "DailyApiRequests": {
         "Max": 5000000,
-        "Remaining": 4999905
+        "Remaining": 4999999
     },
     "DailyAsyncApexExecutions": {
         "Max": 250000,
-        "Remaining": 249979
+        "Remaining": 249998
     },
     "DailyBulkApiBatches": {
         "Max": 15000,
@@ -1732,9 +1732,9 @@ const LIVE_DATA = {
   /* Scheduled jobs summary */
   scheduledJobs: {
     "total": 30,
-    "waiting": 24,
+    "waiting": 25,
     "complete": 5,
-    "acquired": 1,
+    "acquired": 0,
     "jobs": [
         {
             "name": "287c8878-0d88-a8e9-787e-376a8892842a",
@@ -1764,27 +1764,27 @@ const LIVE_DATA = {
         {
             "name": "BatchDocgenProcessingCronJob",
             "state": "WAITING",
-            "next": "2026-11-03T00:37:00Z"
+            "next": "2026-11-03T13:53:00Z"
         },
         {
-            "name": "CommIncrementalSitemapJob-00DOg000003NRdi-0DMMp0000001ML4",
-            "state": "ACQUIRED",
-            "next": "2026-11-03T00:45:08Z"
-        },
-        {
-            "name": "CommIncrementalSitemapJob-00DOg000003NRdi-0DMMn0000000Y4y",
+            "name": "OmnistudioCronJob",
             "state": "WAITING",
-            "next": "2026-11-03T00:57:44Z"
+            "next": "2026-11-03T14:00:00Z"
         },
         {
             "name": "Privacy Center Audit",
             "state": "WAITING",
-            "next": "2026-11-03T01:00:00Z"
+            "next": "2026-11-03T14:00:00Z"
         },
         {
-            "name": "CommIncrementalSitemapJob-00DOg000003NRdi-0DMMn0000000VdK",
+            "name": "Retention Usage",
             "state": "WAITING",
-            "next": "2026-11-03T01:14:32Z"
+            "next": "2026-11-03T14:00:00Z"
+        },
+        {
+            "name": "DAP.TELEMETRY",
+            "state": "WAITING",
+            "next": "2026-11-03T14:44:00Z"
         }
     ]
 },
@@ -2551,11 +2551,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-11-03 00:45 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-11-03 13:52 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-11-03 00:45 UTC',
+  fetchedAt: '2026-11-03 13:52 UTC',
 
   repos: [
     {
