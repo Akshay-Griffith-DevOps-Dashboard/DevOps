@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-11-03 23:02 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-11-04 05:34 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-11-03 23:02 UTC',
+  fetchedAt: '2026-11-04 05:34 UTC',
 
   sprints: [
     {
@@ -102,10 +102,44 @@ const JIRA_DATA = {
         "status": "READY FOR SIT",
         "statusCat": "In Progress",
         "priority": "Medium",
-        "assignee": "Amit Sood",
+        "assignee": "Sagar Dey",
         "reporter": "Sudaif Haider",
         "created": "2026-10-12",
-        "updated": "2026-11-03",
+        "updated": "2026-11-04",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-10",
+        "summary": "Session Settings Remediation",
+        "type": "Story",
+        "status": "IN UAT",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Amit Sood",
+        "created": "2026-07-31",
+        "updated": "2026-11-04",
+        "labels": [
+            "Blocked"
+        ],
+        "fixVersions": [
+            "GU-SF-R1-Nov-02-26"
+        ],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-251",
+        "summary": "Object retention assessment",
+        "type": "Sub-task",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Mani Maran Mani",
+        "reporter": "Benjamin Bates",
+        "created": "2026-10-29",
+        "updated": "2026-11-04",
         "labels": [],
         "fixVersions": [],
         "storyPoints": null
@@ -120,7 +154,52 @@ const JIRA_DATA = {
         "assignee": "Sudaif Haider",
         "reporter": "Giles Bill",
         "created": "2026-08-21",
-        "updated": "2026-11-03",
+        "updated": "2026-11-04",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-59",
+        "summary": " Top-10 storage audit and root-cause map",
+        "type": "Sub-task",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Mani Maran Mani",
+        "reporter": "Giles Bill",
+        "created": "2026-08-21",
+        "updated": "2026-11-04",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-250",
+        "summary": "Archive platform migration",
+        "type": "Sub-task",
+        "status": "Done",
+        "statusCat": "Done",
+        "priority": "Medium",
+        "assignee": "Benjamin Bates",
+        "reporter": "Benjamin Bates",
+        "created": "2026-10-29",
+        "updated": "2026-11-04",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-147",
+        "summary": "OWD Remediation :  Audit and Restrict Access to ucinn Ascend Constituent Objects via Permission Sets",
+        "type": "Story",
+        "status": "Discovery & Refinement",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Sagar Dey",
+        "reporter": "Sudaif Haider",
+        "created": "2026-09-11",
+        "updated": "2026-11-04",
         "labels": [],
         "fixVersions": [],
         "storyPoints": null
@@ -137,25 +216,6 @@ const JIRA_DATA = {
         "created": "2026-09-03",
         "updated": "2026-11-03",
         "labels": [],
-        "fixVersions": [
-            "GU-SF-R1-Nov-02-26"
-        ],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-10",
-        "summary": "Session Settings Remediation",
-        "type": "Story",
-        "status": "Done",
-        "statusCat": "Done",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Amit Sood",
-        "created": "2026-07-31",
-        "updated": "2026-11-02",
-        "labels": [
-            "Blocked"
-        ],
         "fixVersions": [
             "GU-SF-R1-Nov-02-26"
         ],
@@ -705,21 +765,6 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
-        "key": "SOPS-250",
-        "summary": "Archive platform migration",
-        "type": "Sub-task",
-        "status": "To Do",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Giles Bill",
-        "reporter": "Benjamin Bates",
-        "created": "2026-10-29",
-        "updated": "2026-10-30",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-254",
         "summary": "Archival configuration review",
         "type": "Sub-task",
@@ -752,21 +797,6 @@ const JIRA_DATA = {
     {
         "key": "SOPS-252",
         "summary": "Retention policy alignment",
-        "type": "Sub-task",
-        "status": "To Do",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Mani Maran Mani",
-        "reporter": "Benjamin Bates",
-        "created": "2026-10-29",
-        "updated": "2026-10-29",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-251",
-        "summary": "Object retention assessment",
         "type": "Sub-task",
         "status": "To Do",
         "statusCat": "To Do",
@@ -1646,59 +1676,29 @@ const JIRA_DATA = {
         "labels": [],
         "fixVersions": [],
         "storyPoints": null
-    },
-    {
-        "key": "SOPS-212",
-        "summary": "Provide role-specific Person Account pages for Fundraising and Alumni Engagement",
-        "type": "Story",
-        "status": "To Do",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Unassigned",
-        "reporter": "Asra Khan",
-        "created": "2026-09-30",
-        "updated": "2026-10-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-208",
-        "summary": "Constituent Roles field lists only current roles",
-        "type": "Story",
-        "status": "To Do",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Unassigned",
-        "reporter": "Asra Khan",
-        "created": "2026-09-29",
-        "updated": "2026-10-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
     }
 ]
 };
 
-// ── Live SIT Sandbox data (fetched 2026-11-03 23:02 UTC) ────────────────────────────
+// ── Live SIT Sandbox data (fetched 2026-11-04 05:34 UTC) ────────────────────────────
 const LIVE_DATA = {
   org: {
     name:        'GRIFFITH UNIVERSITY',
     instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
     orgId:       '00DOg000003NRdiMAG',
     environment: 'SIT Sandbox',
-    fetchedAt:   '2026-11-03 23:02 UTC',
+    fetchedAt:   '2026-11-04 05:34 UTC',
   },
 
   /* Org limits */
   limits: {
     "DailyApiRequests": {
         "Max": 5000000,
-        "Remaining": 4999933
+        "Remaining": 4999794
     },
     "DailyAsyncApexExecutions": {
         "Max": 250000,
-        "Remaining": 249986
+        "Remaining": 249972
     },
     "DailyBulkApiBatches": {
         "Max": 15000,
@@ -1764,27 +1764,27 @@ const LIVE_DATA = {
         {
             "name": "BatchDocgenProcessingCronJob",
             "state": "ACQUIRED",
-            "next": "2026-11-03T22:48:00Z"
+            "next": "2026-11-04T05:34:00Z"
         },
         {
             "name": "Privacy Center Audit",
             "state": "WAITING",
-            "next": "2026-11-04T00:00:00Z"
-        },
-        {
-            "name": "DC.LICENSE",
-            "state": "WAITING",
-            "next": "2026-11-04T00:00:00Z"
+            "next": "2026-11-04T06:00:00Z"
         },
         {
             "name": "DC.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-11-04T00:44:00Z"
+            "next": "2026-11-04T06:44:00Z"
         },
         {
             "name": "DAP.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-11-04T00:44:00Z"
+            "next": "2026-11-04T06:44:00Z"
+        },
+        {
+            "name": "MciDashboardUpdateJobType",
+            "state": "WAITING",
+            "next": "2026-11-04T07:30:00Z"
         }
     ]
 },
@@ -1824,7 +1824,7 @@ const LIVE_DATA = {
     {
         "type": "Salesforce",
         "total": 140,
-        "used": 133
+        "used": 132
     },
     {
         "type": "Guest User License",
@@ -1874,6 +1874,24 @@ const LIVE_DATA = {
         "initials": "DU",
         "name": "Dashboard User",
         "username": "akshay.kumar@griffith.edu.au.dashboard",
+        "userType": "Standard",
+        "profile": "System Administrator",
+        "lastLogin": "2026-11-04",
+        "loginClass": "recent"
+    },
+    {
+        "initials": "AI",
+        "name": "Azure Integration User",
+        "username": "azureintegration@griffith.edu.au.sit",
+        "userType": "Standard",
+        "profile": "GU Integration",
+        "lastLogin": "2026-11-04",
+        "loginClass": "recent"
+    },
+    {
+        "initials": "JF",
+        "name": "Jeremy Fahey",
+        "username": "j.fahey@griffith.edu.au.sit",
         "userType": "Standard",
         "profile": "System Administrator",
         "lastLogin": "2026-11-03",
@@ -1934,15 +1952,6 @@ const LIVE_DATA = {
         "loginClass": "recent"
     },
     {
-        "initials": "JF",
-        "name": "Jeremy Fahey",
-        "username": "j.fahey@griffith.edu.au.sit",
-        "userType": "Standard",
-        "profile": "System Administrator",
-        "lastLogin": "2026-10-16",
-        "loginClass": "recent"
-    },
-    {
         "initials": "AS",
         "name": "Amit Sood",
         "username": "a.sood@griffith.edu.au.sit",
@@ -1961,6 +1970,15 @@ const LIVE_DATA = {
         "loginClass": "recent"
     },
     {
+        "initials": "PV",
+        "name": "Patricia Villalva",
+        "username": "p.villalva@griffith.edu.au.sit",
+        "userType": "Standard",
+        "profile": "System Administrator",
+        "lastLogin": null,
+        "loginClass": "never"
+    },
+    {
         "initials": "GI",
         "name": "Gearset Integration User",
         "username": "gearset@griffith.edu.au.sit",
@@ -1975,15 +1993,6 @@ const LIVE_DATA = {
         "username": "ascend_portal@00dmn000001a6tnma0.org.force.com.sit",
         "userType": "Guest",
         "profile": "ascend Portal Profile",
-        "lastLogin": null,
-        "loginClass": "never"
-    },
-    {
-        "initials": "PV",
-        "name": "Patricia Villalva",
-        "username": "p.villalva@griffith.edu.au.sit",
-        "userType": "Standard",
-        "profile": "System Administrator",
         "lastLogin": null,
         "loginClass": "never"
     },
@@ -2011,15 +2020,6 @@ const LIVE_DATA = {
         "username": "insightsintegration@00dog000003nrdimag.ext",
         "userType": "Standard",
         "profile": "Sales Insights Integration User",
-        "lastLogin": null,
-        "loginClass": "never"
-    },
-    {
-        "initials": "AI",
-        "name": "Azure Integration User",
-        "username": "azureintegration@griffith.edu.au.sit",
-        "userType": "Standard",
-        "profile": "GU Integration",
         "lastLogin": null,
         "loginClass": "never"
     },
@@ -2470,7 +2470,7 @@ const LIVE_DATA = {
 
   /* Salesforce official Health Check (Tooling API — SecurityHealthCheck + SecurityHealthCheckRisks) */
   healthCheck: {
-    "score": "78",
+    "score": "76",
     "rating": null,
     "checks": [],
     "version": "Salesforce Baseline Standard"
@@ -2551,11 +2551,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-11-03 23:02 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-11-04 05:34 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-11-03 23:02 UTC',
+  fetchedAt: '2026-11-04 05:34 UTC',
 
   repos: [
     {
