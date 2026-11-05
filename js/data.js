@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-11-05 14:22 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-11-05 23:27 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-11-05 14:22 UTC',
+  fetchedAt: '2026-11-05 23:27 UTC',
 
   sprints: [
     {
@@ -96,16 +96,76 @@ const JIRA_DATA = {
 
   issues: [
     {
-        "key": "SOPS-256",
-        "summary": "Classify High Volume Record Types",
+        "key": "SOPS-254",
+        "summary": "Archival configuration review",
+        "type": "Sub-task",
+        "status": "In Progress",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Mani Maran Mani",
+        "reporter": "Benjamin Bates",
+        "created": "2026-10-29",
+        "updated": "2026-11-06",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-253",
+        "summary": "Archival rule definition",
         "type": "Sub-task",
         "status": "To Do",
         "statusCat": "To Do",
         "priority": "Medium",
+        "assignee": "Amit Sood",
+        "reporter": "Benjamin Bates",
+        "created": "2026-10-29",
+        "updated": "2026-11-06",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-81",
+        "summary": "Generate CRM Data Catalogue",
+        "type": "Sub-task",
+        "status": "Done",
+        "statusCat": "Done",
+        "priority": "Medium",
+        "assignee": "Mani Maran Mani",
+        "reporter": "Giles Bill",
+        "created": "2026-08-31",
+        "updated": "2026-11-06",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-251",
+        "summary": "Object retention assessment",
+        "type": "Sub-task",
+        "status": "In Progress",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Mani Maran Mani",
+        "reporter": "Benjamin Bates",
+        "created": "2026-10-29",
+        "updated": "2026-11-06",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-256",
+        "summary": "Classify High Volume Record Types",
+        "type": "Sub-task",
+        "status": "Done",
+        "statusCat": "Done",
+        "priority": "Medium",
         "assignee": "Mani Maran Mani",
         "reporter": "Mani Maran Mani",
         "created": "2026-11-05",
-        "updated": "2026-11-05",
+        "updated": "2026-11-06",
         "labels": [],
         "fixVersions": [],
         "storyPoints": null
@@ -180,21 +240,6 @@ const JIRA_DATA = {
         "assignee": "Sagar Dey",
         "reporter": "Sudaif Haider",
         "created": "2026-10-12",
-        "updated": "2026-11-05",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-254",
-        "summary": "Archival configuration review",
-        "type": "Sub-task",
-        "status": "To Do",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Mani Maran Mani",
-        "reporter": "Benjamin Bates",
-        "created": "2026-10-29",
         "updated": "2026-11-05",
         "labels": [],
         "fixVersions": [],
@@ -279,21 +324,6 @@ const JIRA_DATA = {
         "fixVersions": [
             "GU-SF-R1-Nov-02-26"
         ],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-251",
-        "summary": "Object retention assessment",
-        "type": "Sub-task",
-        "status": "To Do",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Mani Maran Mani",
-        "reporter": "Benjamin Bates",
-        "created": "2026-10-29",
-        "updated": "2026-11-04",
-        "labels": [],
-        "fixVersions": [],
         "storyPoints": null
     },
     {
@@ -870,21 +900,6 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
-        "key": "SOPS-253",
-        "summary": "Archival rule definition",
-        "type": "Sub-task",
-        "status": "To Do",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Mani Maran Mani",
-        "reporter": "Benjamin Bates",
-        "created": "2026-10-29",
-        "updated": "2026-10-29",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-252",
         "summary": "Retention policy alignment",
         "type": "Sub-task",
@@ -895,21 +910,6 @@ const JIRA_DATA = {
         "reporter": "Benjamin Bates",
         "created": "2026-10-29",
         "updated": "2026-10-29",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-81",
-        "summary": "Generate CRM Data Catalogue",
-        "type": "Sub-task",
-        "status": "To Do",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Mani Maran Mani",
-        "reporter": "Giles Bill",
-        "created": "2026-08-31",
-        "updated": "2026-10-28",
         "labels": [],
         "fixVersions": [],
         "storyPoints": null
@@ -1680,25 +1680,25 @@ const JIRA_DATA = {
 ]
 };
 
-// ── Live SIT Sandbox data (fetched 2026-11-05 14:22 UTC) ────────────────────────────
+// ── Live SIT Sandbox data (fetched 2026-11-05 23:27 UTC) ────────────────────────────
 const LIVE_DATA = {
   org: {
     name:        'GRIFFITH UNIVERSITY',
     instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
     orgId:       '00DOg000003NRdiMAG',
     environment: 'SIT Sandbox',
-    fetchedAt:   '2026-11-05 14:22 UTC',
+    fetchedAt:   '2026-11-05 23:27 UTC',
   },
 
   /* Org limits */
   limits: {
     "DailyApiRequests": {
         "Max": 5000000,
-        "Remaining": 4985725
+        "Remaining": 4992829
     },
     "DailyAsyncApexExecutions": {
         "Max": 250000,
-        "Remaining": 249996
+        "Remaining": 249984
     },
     "DailyBulkApiBatches": {
         "Max": 15000,
@@ -1732,9 +1732,9 @@ const LIVE_DATA = {
   /* Scheduled jobs summary */
   scheduledJobs: {
     "total": 30,
-    "waiting": 24,
+    "waiting": 25,
     "complete": 5,
-    "acquired": 1,
+    "acquired": 0,
     "jobs": [
         {
             "name": "287c8878-0d88-a8e9-787e-376a8892842a",
@@ -1763,28 +1763,28 @@ const LIVE_DATA = {
         },
         {
             "name": "BatchDocgenProcessingCronJob",
-            "state": "ACQUIRED",
-            "next": "2026-11-05T14:22:00Z"
-        },
-        {
-            "name": "DAP.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-11-05T14:44:00Z"
-        },
-        {
-            "name": "DC.TELEMETRY",
-            "state": "WAITING",
-            "next": "2026-11-05T14:44:00Z"
+            "next": "2026-11-05T23:28:00Z"
         },
         {
             "name": "Privacy Center Audit",
             "state": "WAITING",
-            "next": "2026-11-05T15:00:00Z"
+            "next": "2026-11-06T00:00:00Z"
         },
         {
-            "name": "SmartDigestJob_1E1Mp0000000Alm",
+            "name": "DC.LICENSE",
             "state": "WAITING",
-            "next": "2026-11-05T17:00:00Z"
+            "next": "2026-11-06T00:00:00Z"
+        },
+        {
+            "name": "DC.TELEMETRY",
+            "state": "WAITING",
+            "next": "2026-11-06T00:44:00Z"
+        },
+        {
+            "name": "DAP.TELEMETRY",
+            "state": "WAITING",
+            "next": "2026-11-06T00:44:00Z"
         }
     ]
 },
@@ -2551,11 +2551,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-11-05 14:22 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-11-05 23:27 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-11-05 14:22 UTC',
+  fetchedAt: '2026-11-05 23:27 UTC',
 
   repos: [
     {
