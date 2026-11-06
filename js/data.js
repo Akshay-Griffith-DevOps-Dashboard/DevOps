@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-11-05 23:27 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-11-06 05:50 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-11-05 23:27 UTC',
+  fetchedAt: '2026-11-06 05:50 UTC',
 
   sprints: [
     {
@@ -96,15 +96,255 @@ const JIRA_DATA = {
 
   issues: [
     {
+        "key": "SOPS-162",
+        "summary": "Profile Remediation : Restrict System Administrator profile in production",
+        "type": "Story",
+        "status": "Discovery & Refinement",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Vandana Bettens",
+        "reporter": "Amit Sood",
+        "created": "2026-09-11",
+        "updated": "2026-11-06",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-256",
+        "summary": "Classify High Volume Record Types",
+        "type": "Sub-task",
+        "status": "In Progress",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Mani Maran Mani",
+        "reporter": "Mani Maran Mani",
+        "created": "2026-11-05",
+        "updated": "2026-11-06",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-171",
+        "summary": "Investigate and Resolve Salesforce Backup Failure",
+        "type": "Story",
+        "status": "Done",
+        "statusCat": "Done",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Jeremy Fahey",
+        "created": "2026-09-15",
+        "updated": "2026-11-06",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
         "key": "SOPS-254",
         "summary": "Archival configuration review",
         "type": "Sub-task",
         "status": "In Progress",
         "statusCat": "In Progress",
         "priority": "Medium",
-        "assignee": "Mani Maran Mani",
+        "assignee": "Benjamin Bates",
         "reporter": "Benjamin Bates",
         "created": "2026-10-29",
+        "updated": "2026-11-06",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-170",
+        "summary": "Salesforce Administrative Remediation \u2013 Lapsed Platform Actions",
+        "type": "Epic",
+        "status": "In Progress",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Jeremy Fahey",
+        "created": "2026-09-15",
+        "updated": "2026-11-06",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-172",
+        "summary": "Remediate Marketing Cloud Engagement Security Enhancements",
+        "type": "Story",
+        "status": "Done",
+        "statusCat": "Done",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Jeremy Fahey",
+        "created": "2026-09-15",
+        "updated": "2026-11-06",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-267",
+        "summary": "Investigate NewRelic connector with Salesforce/Nebula logger",
+        "type": "Task",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Unassigned",
+        "reporter": "Benjamin Bates",
+        "created": "2026-11-06",
+        "updated": "2026-11-06",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-266",
+        "summary": "Investigate Splunk connection owner",
+        "type": "Task",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Benjamin Bates",
+        "reporter": "Benjamin Bates",
+        "created": "2026-11-06",
+        "updated": "2026-11-06",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-257",
+        "summary": "INC0758261 PIR Remediation \u2013 Salesforce Integration Resilience, Release Controls and Observability",
+        "type": "Epic",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Benjamin Bates",
+        "reporter": "Benjamin Bates",
+        "created": "2026-11-06",
+        "updated": "2026-11-06",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-265",
+        "summary": "Define Salesforce operational support and incident escalation model",
+        "type": "Task",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Unassigned",
+        "reporter": "Benjamin Bates",
+        "created": "2026-11-06",
+        "updated": "2026-11-06",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-264",
+        "summary": "Review Salesforce release/change controls and segregation of duties",
+        "type": "Task",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Unassigned",
+        "reporter": "Benjamin Bates",
+        "created": "2026-11-06",
+        "updated": "2026-11-06",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-263",
+        "summary": "Establish Salesforce regression and post-deployment validation capability",
+        "type": "Task",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Unassigned",
+        "reporter": "Benjamin Bates",
+        "created": "2026-11-06",
+        "updated": "2026-11-06",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-262",
+        "summary": "Implement Salesforce webform and integration failure monitoring",
+        "type": "Task",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Unassigned",
+        "reporter": "Benjamin Bates",
+        "created": "2026-11-06",
+        "updated": "2026-11-06",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-261",
+        "summary": "Enable representative Salesforce integration authentication in lower environments",
+        "type": "Task",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Unassigned",
+        "reporter": "Benjamin Bates",
+        "created": "2026-11-06",
+        "updated": "2026-11-06",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-260",
+        "summary": "Introduce impact assessment for Salesforce platform configuration changes",
+        "type": "Task",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Unassigned",
+        "reporter": "Benjamin Bates",
+        "created": "2026-11-06",
+        "updated": "2026-11-06",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-258",
+        "summary": "Establish supported network configuration for Azure-to-Salesforce integrations",
+        "type": "Task",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Unassigned",
+        "reporter": "Benjamin Bates",
+        "created": "2026-11-06",
+        "updated": "2026-11-06",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-259",
+        "summary": "Complete Salesforce IP restriction design and close SOPS control gap",
+        "type": "Task",
+        "status": "To Do",
+        "statusCat": "To Do",
+        "priority": "Medium",
+        "assignee": "Unassigned",
+        "reporter": "Benjamin Bates",
+        "created": "2026-11-06",
         "updated": "2026-11-06",
         "labels": [],
         "fixVersions": [],
@@ -150,21 +390,6 @@ const JIRA_DATA = {
         "assignee": "Mani Maran Mani",
         "reporter": "Benjamin Bates",
         "created": "2026-10-29",
-        "updated": "2026-11-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-256",
-        "summary": "Classify High Volume Record Types",
-        "type": "Sub-task",
-        "status": "Done",
-        "statusCat": "Done",
-        "priority": "Medium",
-        "assignee": "Mani Maran Mani",
-        "reporter": "Mani Maran Mani",
-        "created": "2026-11-05",
         "updated": "2026-11-06",
         "labels": [],
         "fixVersions": [],
@@ -1364,21 +1589,6 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
-        "key": "SOPS-162",
-        "summary": "Profile Remediation : Restrict System Administrator profile in production",
-        "type": "Story",
-        "status": "Discovery & Refinement",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Amit Sood",
-        "created": "2026-09-11",
-        "updated": "2026-10-09",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-144",
         "summary": "OWD Remediation :  Change Case OWD from Public Read to Private",
         "type": "Story",
@@ -1452,257 +1662,33 @@ const JIRA_DATA = {
         "labels": [],
         "fixVersions": [],
         "storyPoints": null
-    },
-    {
-        "key": "SOPS-148",
-        "summary": "OWD Remediation :  Audit and Enforce Private/Unlisted Type on Sensitive Chatter Groups",
-        "type": "Story",
-        "status": "NOT REQUIRED",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Sagar Dey",
-        "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
-        "updated": "2026-10-07",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-34",
-        "summary": "Remediate ODIDataMigration Connected App Security Configuration",
-        "type": "Story",
-        "status": "Blocked",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Amit Sood",
-        "reporter": "Amit Sood",
-        "created": "2026-08-06",
-        "updated": "2026-10-07",
-        "labels": [
-            "Blocked"
-        ],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-174",
-        "summary": "Review and Remediate SOAP API Login Usage",
-        "type": "Story",
-        "status": "To Do",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Unassigned",
-        "reporter": "Jeremy Fahey",
-        "created": "2026-09-15",
-        "updated": "2026-10-07",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-172",
-        "summary": "Remediate Marketing Cloud Engagement Security Enhancements",
-        "type": "Story",
-        "status": "In Progress",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Jeremy Fahey",
-        "created": "2026-09-15",
-        "updated": "2026-10-07",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-171",
-        "summary": "Investigate and Resolve Salesforce Backup Failure",
-        "type": "Story",
-        "status": "In Progress",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Jeremy Fahey",
-        "created": "2026-09-15",
-        "updated": "2026-10-07",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-169",
-        "summary": "Setup and Configure Event Monitoring Analytics App",
-        "type": "Story",
-        "status": "Done",
-        "statusCat": "Done",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Jeremy Fahey",
-        "created": "2026-09-14",
-        "updated": "2026-10-07",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-186",
-        "summary": "Regression Test Suite : Future Student Module",
-        "type": "Story",
-        "status": "Blocked",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Kaviya UC",
-        "reporter": "Kaviya UC",
-        "created": "2026-09-18",
-        "updated": "2026-10-07",
-        "labels": [
-            "Blocked"
-        ],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-209",
-        "summary": "Sharing Rule of Designation & Constituent Role Objs are still shared with Advancement Operations Group in SIT ",
-        "type": "Bug",
-        "status": "Done",
-        "statusCat": "Done",
-        "priority": "High",
-        "assignee": "Kaviya UC",
-        "reporter": "Kaviya UC",
-        "created": "2026-09-29",
-        "updated": "2026-10-06",
-        "labels": [
-            "RAC:Deployment_Issue"
-        ],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-197",
-        "summary": "'Ascend ID', 'Mailing State' and 'Mailing City' fields are mapped incorrectly in the Account Search Layout ",
-        "type": "Bug",
-        "status": "Done",
-        "statusCat": "Done",
-        "priority": "Medium",
-        "assignee": "Kaviya UC",
-        "reporter": "Kaviya UC",
-        "created": "2026-09-25",
-        "updated": "2026-10-06",
-        "labels": [
-            "RAC:Coding/Logic_Issue"
-        ],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-108",
-        "summary": "[SIT| Org Refresh| Smoke Testing] EDO is not able to create New Organisation (Account)/ Person Account Record",
-        "type": "Bug",
-        "status": "Done",
-        "statusCat": "Done",
-        "priority": "Medium",
-        "assignee": "Kaviya UC",
-        "reporter": "Kaviya UC",
-        "created": "2026-09-10",
-        "updated": "2026-10-06",
-        "labels": [
-            "RAC:Config_Issue"
-        ],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-192",
-        "summary": "[SIT - Fund Raising Activity] EDO is not able to create 'Organisation Account' with multiple modal steps to collect the ",
-        "type": "Bug",
-        "status": "Done",
-        "statusCat": "Done",
-        "priority": "High",
-        "assignee": "Kaviya UC",
-        "reporter": "Kaviya UC",
-        "created": "2026-09-21",
-        "updated": "2026-10-06",
-        "labels": [
-            "RAC:Config_Issue"
-        ],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-193",
-        "summary": "'Deployment user' is assigned with incorrect profile and permission sets.",
-        "type": "Bug",
-        "status": "Done",
-        "statusCat": "Done",
-        "priority": "Medium",
-        "assignee": "Kaviya UC",
-        "reporter": "Kaviya UC",
-        "created": "2026-09-22",
-        "updated": "2026-10-06",
-        "labels": [
-            "RAC:Config_Issue"
-        ],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-233",
-        "summary": "QA: Test Scripts & Test Execution",
-        "type": "Sub-task",
-        "status": "Done",
-        "statusCat": "Done",
-        "priority": "Medium",
-        "assignee": "Kaviya UC",
-        "reporter": "Kaviya UC",
-        "created": "2026-10-06",
-        "updated": "2026-10-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-214",
-        "summary": "QA: Test Scripts & Test Execution",
-        "type": "Sub-task",
-        "status": "Done",
-        "statusCat": "Done",
-        "priority": "Medium",
-        "assignee": "Kaviya UC",
-        "reporter": "Kaviya UC",
-        "created": "2026-09-30",
-        "updated": "2026-10-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
     }
 ]
 };
 
-// ── Live SIT Sandbox data (fetched 2026-11-05 23:27 UTC) ────────────────────────────
+// ── Live SIT Sandbox data (fetched 2026-11-06 05:49 UTC) ────────────────────────────
 const LIVE_DATA = {
   org: {
     name:        'GRIFFITH UNIVERSITY',
     instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
     orgId:       '00DOg000003NRdiMAG',
     environment: 'SIT Sandbox',
-    fetchedAt:   '2026-11-05 23:27 UTC',
+    fetchedAt:   '2026-11-06 05:49 UTC',
   },
 
   /* Org limits */
   limits: {
     "DailyApiRequests": {
         "Max": 5000000,
-        "Remaining": 4992829
+        "Remaining": 4991408
     },
     "DailyAsyncApexExecutions": {
         "Max": 250000,
-        "Remaining": 249984
+        "Remaining": 249973
     },
     "DailyBulkApiBatches": {
         "Max": 15000,
-        "Remaining": 15000
+        "Remaining": 14998
     },
     "DataStorageMB": {
         "Max": 5120,
@@ -1732,9 +1718,9 @@ const LIVE_DATA = {
   /* Scheduled jobs summary */
   scheduledJobs: {
     "total": 30,
-    "waiting": 25,
+    "waiting": 24,
     "complete": 5,
-    "acquired": 0,
+    "acquired": 1,
     "jobs": [
         {
             "name": "287c8878-0d88-a8e9-787e-376a8892842a",
@@ -1763,28 +1749,28 @@ const LIVE_DATA = {
         },
         {
             "name": "BatchDocgenProcessingCronJob",
-            "state": "WAITING",
-            "next": "2026-11-05T23:28:00Z"
+            "state": "ACQUIRED",
+            "next": "2026-11-06T05:50:00Z"
         },
         {
             "name": "Privacy Center Audit",
             "state": "WAITING",
-            "next": "2026-11-06T00:00:00Z"
-        },
-        {
-            "name": "DC.LICENSE",
-            "state": "WAITING",
-            "next": "2026-11-06T00:00:00Z"
+            "next": "2026-11-06T06:00:00Z"
         },
         {
             "name": "DC.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-11-06T00:44:00Z"
+            "next": "2026-11-06T06:44:00Z"
         },
         {
             "name": "DAP.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-11-06T00:44:00Z"
+            "next": "2026-11-06T06:44:00Z"
+        },
+        {
+            "name": "MciDashboardUpdateJobType",
+            "state": "WAITING",
+            "next": "2026-11-06T07:30:00Z"
         }
     ]
 },
@@ -1876,7 +1862,7 @@ const LIVE_DATA = {
         "username": "akshay.kumar@griffith.edu.au.dashboard",
         "userType": "Standard",
         "profile": "System Administrator",
-        "lastLogin": "2026-11-05",
+        "lastLogin": "2026-11-06",
         "loginClass": "recent"
     },
     {
@@ -1885,7 +1871,16 @@ const LIVE_DATA = {
         "username": "azureintegration@griffith.edu.au.sit",
         "userType": "Standard",
         "profile": "GU Integration",
-        "lastLogin": "2026-11-05",
+        "lastLogin": "2026-11-06",
+        "loginClass": "recent"
+    },
+    {
+        "initials": "JF",
+        "name": "Jeremy Fahey",
+        "username": "j.fahey@griffith.edu.au.sit",
+        "userType": "Standard",
+        "profile": "System Administrator",
+        "lastLogin": "2026-11-06",
         "loginClass": "recent"
     },
     {
@@ -1904,15 +1899,6 @@ const LIVE_DATA = {
         "userType": "Standard",
         "profile": "Gearset Integration Administrator",
         "lastLogin": "2026-11-05",
-        "loginClass": "recent"
-    },
-    {
-        "initials": "JF",
-        "name": "Jeremy Fahey",
-        "username": "j.fahey@griffith.edu.au.sit",
-        "userType": "Standard",
-        "profile": "System Administrator",
-        "lastLogin": "2026-11-03",
         "loginClass": "recent"
     },
     {
@@ -2551,11 +2537,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-11-05 23:27 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-11-06 05:50 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-11-05 23:27 UTC',
+  fetchedAt: '2026-11-06 05:50 UTC',
 
   repos: [
     {
