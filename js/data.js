@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-11-08 21:51 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-11-09 05:29 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-11-08 21:51 UTC',
+  fetchedAt: '2026-11-09 05:29 UTC',
 
   sprints: [
     {
@@ -96,46 +96,76 @@ const JIRA_DATA = {
 
   issues: [
     {
-        "key": "SOPS-162",
-        "summary": "Profile Remediation : Restrict System Administrator profile in production",
-        "type": "Story",
-        "status": "Discovery & Refinement",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Vandana Bettens",
-        "reporter": "Amit Sood",
-        "created": "2026-09-11",
-        "updated": "2026-11-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-256",
         "summary": "Classify High Volume Record Types",
         "type": "Sub-task",
         "status": "In Progress",
         "statusCat": "In Progress",
         "priority": "Medium",
-        "assignee": "Mani Maran Mani",
+        "assignee": "Jeremy Fahey",
         "reporter": "Mani Maran Mani",
         "created": "2026-11-05",
-        "updated": "2026-11-06",
+        "updated": "2026-11-09",
         "labels": [],
         "fixVersions": [],
         "storyPoints": null
     },
     {
-        "key": "SOPS-171",
-        "summary": "Investigate and Resolve Salesforce Backup Failure",
+        "key": "SOPS-26",
+        "summary": "Concurrency & Locking Safeguards",
         "type": "Story",
-        "status": "Done",
-        "statusCat": "Done",
+        "status": "Review & Approval",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Benjamin Bates",
+        "reporter": "Amit Sood",
+        "created": "2026-07-31",
+        "updated": "2026-11-09",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-162",
+        "summary": "Profile Remediation : Restrict System Administrator profile in production",
+        "type": "Story",
+        "status": "Discovery & Refinement",
+        "statusCat": "To Do",
         "priority": "Medium",
         "assignee": "Jeremy Fahey",
-        "reporter": "Jeremy Fahey",
-        "created": "2026-09-15",
-        "updated": "2026-11-06",
+        "reporter": "Amit Sood",
+        "created": "2026-09-11",
+        "updated": "2026-11-09",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-57",
+        "summary": "CRM Data Storage Remediation",
+        "type": "Story",
+        "status": "Review & Approval",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Sudaif Haider",
+        "reporter": "Giles Bill",
+        "created": "2026-08-21",
+        "updated": "2026-11-09",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-251",
+        "summary": "Object retention assessment",
+        "type": "Sub-task",
+        "status": "In Progress",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Benjamin Bates",
+        "reporter": "Benjamin Bates",
+        "created": "2026-10-29",
+        "updated": "2026-11-09",
         "labels": [],
         "fixVersions": [],
         "storyPoints": null
@@ -150,6 +180,21 @@ const JIRA_DATA = {
         "assignee": "Benjamin Bates",
         "reporter": "Benjamin Bates",
         "created": "2026-10-29",
+        "updated": "2026-11-09",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-171",
+        "summary": "Investigate and Resolve Salesforce Backup Failure",
+        "type": "Story",
+        "status": "Done",
+        "statusCat": "Done",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Jeremy Fahey",
+        "created": "2026-09-15",
         "updated": "2026-11-06",
         "labels": [],
         "fixVersions": [],
@@ -381,21 +426,6 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
-        "key": "SOPS-251",
-        "summary": "Object retention assessment",
-        "type": "Sub-task",
-        "status": "In Progress",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Mani Maran Mani",
-        "reporter": "Benjamin Bates",
-        "created": "2026-10-29",
-        "updated": "2026-11-06",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-40",
         "summary": "Enhancement BackLog (from Workshop Feedback)",
         "type": "Epic",
@@ -465,21 +495,6 @@ const JIRA_DATA = {
         "assignee": "Sagar Dey",
         "reporter": "Sudaif Haider",
         "created": "2026-10-12",
-        "updated": "2026-11-05",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-57",
-        "summary": "CRM Data Storage Remediation",
-        "type": "Story",
-        "status": "Review & Approval",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Sudaif Haider",
-        "reporter": "Giles Bill",
-        "created": "2026-08-21",
         "updated": "2026-11-05",
         "labels": [],
         "fixVersions": [],
@@ -995,21 +1010,6 @@ const JIRA_DATA = {
         "statusCat": "In Progress",
         "priority": "Medium",
         "assignee": "Sudaif Haider",
-        "reporter": "Amit Sood",
-        "created": "2026-07-31",
-        "updated": "2026-11-02",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-26",
-        "summary": "Concurrency & Locking Safeguards",
-        "type": "Story",
-        "status": "Review & Approval",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Benjamin Bates",
         "reporter": "Amit Sood",
         "created": "2026-07-31",
         "updated": "2026-11-02",
@@ -1666,29 +1666,29 @@ const JIRA_DATA = {
 ]
 };
 
-// ── Live SIT Sandbox data (fetched 2026-11-08 21:51 UTC) ────────────────────────────
+// ── Live SIT Sandbox data (fetched 2026-11-09 05:29 UTC) ────────────────────────────
 const LIVE_DATA = {
   org: {
     name:        'GRIFFITH UNIVERSITY',
     instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
     orgId:       '00DOg000003NRdiMAG',
     environment: 'SIT Sandbox',
-    fetchedAt:   '2026-11-08 21:51 UTC',
+    fetchedAt:   '2026-11-09 05:29 UTC',
   },
 
   /* Org limits */
   limits: {
     "DailyApiRequests": {
         "Max": 5000000,
-        "Remaining": 4995820
+        "Remaining": 4995861
     },
     "DailyAsyncApexExecutions": {
         "Max": 250000,
-        "Remaining": 249986
+        "Remaining": 249973
     },
     "DailyBulkApiBatches": {
         "Max": 15000,
-        "Remaining": 14616
+        "Remaining": 14608
     },
     "DataStorageMB": {
         "Max": 5120,
@@ -1750,27 +1750,27 @@ const LIVE_DATA = {
         {
             "name": "BatchDocgenProcessingCronJob",
             "state": "WAITING",
-            "next": "2026-11-08T21:52:00Z"
+            "next": "2026-11-09T05:30:00Z"
         },
         {
             "name": "Privacy Center Audit",
             "state": "WAITING",
-            "next": "2026-11-08T22:00:00Z"
+            "next": "2026-11-09T06:00:00Z"
         },
         {
             "name": "DC.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-11-08T22:44:00Z"
+            "next": "2026-11-09T06:44:00Z"
         },
         {
             "name": "DAP.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-11-08T22:44:00Z"
+            "next": "2026-11-09T06:44:00Z"
         },
         {
-            "name": "DC.LICENSE",
+            "name": "MciDashboardUpdateJobType",
             "state": "WAITING",
-            "next": "2026-11-09T00:00:00Z"
+            "next": "2026-11-09T07:30:00Z"
         }
     ]
 },
@@ -1862,7 +1862,7 @@ const LIVE_DATA = {
         "username": "akshay.kumar@griffith.edu.au.dashboard",
         "userType": "Standard",
         "profile": "System Administrator",
-        "lastLogin": "2026-11-08",
+        "lastLogin": "2026-11-09",
         "loginClass": "recent"
     },
     {
@@ -1871,7 +1871,7 @@ const LIVE_DATA = {
         "username": "azureintegration@griffith.edu.au.sit",
         "userType": "Standard",
         "profile": "GU Integration",
-        "lastLogin": "2026-11-08",
+        "lastLogin": "2026-11-09",
         "loginClass": "recent"
     },
     {
@@ -2537,11 +2537,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-11-08 21:51 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-11-09 05:29 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-11-08 21:51 UTC',
+  fetchedAt: '2026-11-09 05:29 UTC',
 
   repos: [
     {
