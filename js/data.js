@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-11-11 05:28 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-11-11 13:51 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-11-11 05:28 UTC',
+  fetchedAt: '2026-11-11 13:51 UTC',
 
   sprints: [
     {
@@ -95,6 +95,66 @@ const JIRA_DATA = {
 ],
 
   issues: [
+    {
+        "key": "SOPS-60",
+        "summary": "GU - Test Strategy & Framework",
+        "type": "Epic",
+        "status": "In Progress",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Simon Toll",
+        "reporter": "Frank Nigro",
+        "created": "2026-08-21",
+        "updated": "2026-11-11",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-181",
+        "summary": "SIT Org Refresh - Smoke Testing",
+        "type": "Story",
+        "status": "Done",
+        "statusCat": "Done",
+        "priority": "Medium",
+        "assignee": "Kaviya UC",
+        "reporter": "Kaviya UC",
+        "created": "2026-09-18",
+        "updated": "2026-11-11",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-106",
+        "summary": "Regression Test Suite : Advancement Module",
+        "type": "Story",
+        "status": "Done",
+        "statusCat": "Done",
+        "priority": "Medium",
+        "assignee": "Kaviya UC",
+        "reporter": "Kaviya UC",
+        "created": "2026-09-10",
+        "updated": "2026-11-11",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-185",
+        "summary": "SIT Org Refresh - Smoke Testing : Payroll giving processing",
+        "type": "Sub-task",
+        "status": "Done",
+        "statusCat": "Done",
+        "priority": "Medium",
+        "assignee": "Kaviya UC",
+        "reporter": "Kaviya UC",
+        "created": "2026-09-18",
+        "updated": "2026-11-11",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
     {
         "key": "SOPS-269",
         "summary": "Create an archival policy for CampaignMembers object",
@@ -1437,21 +1497,6 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
-        "key": "SOPS-185",
-        "summary": "SIT Org Refresh - Smoke Testing : Payroll giving processing",
-        "type": "Sub-task",
-        "status": "To Do",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Kaviya UC",
-        "reporter": "Kaviya UC",
-        "created": "2026-09-18",
-        "updated": "2026-10-19",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-220",
         "summary": "Student email keeps the alumnus personal address",
         "type": "Story",
@@ -1617,74 +1662,29 @@ const JIRA_DATA = {
         "labels": [],
         "fixVersions": [],
         "storyPoints": null
-    },
-    {
-        "key": "SOPS-144",
-        "summary": "OWD Remediation :  Change Case OWD from Public Read to Private",
-        "type": "Story",
-        "status": "Discovery & Refinement",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Sagar Dey",
-        "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
-        "updated": "2026-10-09",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-143",
-        "summary": "OWD Remediation :  Change Account OWD from Public Read to Private",
-        "type": "Story",
-        "status": "Discovery & Refinement",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Sagar Dey",
-        "reporter": "Sudaif Haider",
-        "created": "2026-09-11",
-        "updated": "2026-10-09",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-235",
-        "summary": "QA: Test Scripts & Test Execution",
-        "type": "Sub-task",
-        "status": "Done",
-        "statusCat": "Done",
-        "priority": "Medium",
-        "assignee": "Kaviya UC",
-        "reporter": "Kaviya UC",
-        "created": "2026-10-07",
-        "updated": "2026-10-08",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
     }
 ]
 };
 
-// ── Live SIT Sandbox data (fetched 2026-11-11 05:27 UTC) ────────────────────────────
+// ── Live SIT Sandbox data (fetched 2026-11-11 13:50 UTC) ────────────────────────────
 const LIVE_DATA = {
   org: {
     name:        'GRIFFITH UNIVERSITY',
     instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
     orgId:       '00DOg000003NRdiMAG',
     environment: 'SIT Sandbox',
-    fetchedAt:   '2026-11-11 05:27 UTC',
+    fetchedAt:   '2026-11-11 13:50 UTC',
   },
 
   /* Org limits */
   limits: {
     "DailyApiRequests": {
         "Max": 5000000,
-        "Remaining": 4997021
+        "Remaining": 4996913
     },
     "DailyAsyncApexExecutions": {
         "Max": 250000,
-        "Remaining": 249993
+        "Remaining": 249996
     },
     "DailyBulkApiBatches": {
         "Max": 15000,
@@ -1718,9 +1718,9 @@ const LIVE_DATA = {
   /* Scheduled jobs summary */
   scheduledJobs: {
     "total": 30,
-    "waiting": 24,
+    "waiting": 25,
     "complete": 5,
-    "acquired": 1,
+    "acquired": 0,
     "jobs": [
         {
             "name": "287c8878-0d88-a8e9-787e-376a8892842a",
@@ -1749,28 +1749,28 @@ const LIVE_DATA = {
         },
         {
             "name": "BatchDocgenProcessingCronJob",
-            "state": "ACQUIRED",
-            "next": "2026-11-11T05:28:00Z"
+            "state": "WAITING",
+            "next": "2026-11-11T13:51:00Z"
+        },
+        {
+            "name": "Retention Usage",
+            "state": "WAITING",
+            "next": "2026-11-11T14:00:00Z"
         },
         {
             "name": "Privacy Center Audit",
             "state": "WAITING",
-            "next": "2026-11-11T06:00:00Z"
+            "next": "2026-11-11T14:00:00Z"
         },
         {
             "name": "DC.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-11-11T06:44:00Z"
+            "next": "2026-11-11T14:44:00Z"
         },
         {
             "name": "DAP.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-11-11T06:44:00Z"
-        },
-        {
-            "name": "MciDashboardUpdateJobType",
-            "state": "WAITING",
-            "next": "2026-11-11T07:30:00Z"
+            "next": "2026-11-11T14:44:00Z"
         }
     ]
 },
@@ -1875,6 +1875,15 @@ const LIVE_DATA = {
         "loginClass": "recent"
     },
     {
+        "initials": "AK",
+        "name": "Akshay Kumar",
+        "username": "akshay.kumar@griffith.edu.au.sit",
+        "userType": "Standard",
+        "profile": "System Administrator",
+        "lastLogin": "2026-11-11",
+        "loginClass": "recent"
+    },
+    {
         "initials": "JF",
         "name": "Jeremy Fahey",
         "username": "j.fahey@griffith.edu.au.sit",
@@ -1908,15 +1917,6 @@ const LIVE_DATA = {
         "userType": "Standard",
         "profile": "System Administrator",
         "lastLogin": "2026-10-30",
-        "loginClass": "recent"
-    },
-    {
-        "initials": "AK",
-        "name": "Akshay Kumar",
-        "username": "akshay.kumar@griffith.edu.au.sit",
-        "userType": "Standard",
-        "profile": "System Administrator",
-        "lastLogin": "2026-10-27",
         "loginClass": "recent"
     },
     {
@@ -2537,11 +2537,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-11-11 05:28 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-11-11 13:50 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-11-11 05:28 UTC',
+  fetchedAt: '2026-11-11 13:50 UTC',
 
   repos: [
     {
