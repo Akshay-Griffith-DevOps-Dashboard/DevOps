@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-11-10 23:00 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-11-11 05:28 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-11-10 23:00 UTC',
+  fetchedAt: '2026-11-11 05:28 UTC',
 
   sprints: [
     {
@@ -96,6 +96,66 @@ const JIRA_DATA = {
 
   issues: [
     {
+        "key": "SOPS-269",
+        "summary": "Create an archival policy for CampaignMembers object",
+        "type": "Story",
+        "status": "In Progress",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Mani Maran Mani",
+        "reporter": "Amit Sood",
+        "created": "2026-11-11",
+        "updated": "2026-11-11",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-57",
+        "summary": "CRM Data Storage Remediation",
+        "type": "Story",
+        "status": "Review & Approval",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Sudaif Haider",
+        "reporter": "Giles Bill",
+        "created": "2026-08-21",
+        "updated": "2026-11-11",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-268",
+        "summary": "Modify existing archival policy for Staging Application Object",
+        "type": "Story",
+        "status": "Review & Approval",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Benjamin Bates",
+        "reporter": "Amit Sood",
+        "created": "2026-11-11",
+        "updated": "2026-11-11",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-253",
+        "summary": "Archival rule definition",
+        "type": "Sub-task",
+        "status": "In Progress",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Amit Sood",
+        "reporter": "Benjamin Bates",
+        "created": "2026-10-29",
+        "updated": "2026-11-11",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
         "key": "SOPS-162",
         "summary": "Profile Remediation : Restrict System Administrator profile in production",
         "type": "Story",
@@ -126,21 +186,6 @@ const JIRA_DATA = {
         "storyPoints": null
     },
     {
-        "key": "SOPS-253",
-        "summary": "Archival rule definition",
-        "type": "Sub-task",
-        "status": "To Do",
-        "statusCat": "To Do",
-        "priority": "Medium",
-        "assignee": "Amit Sood",
-        "reporter": "Benjamin Bates",
-        "created": "2026-10-29",
-        "updated": "2026-11-10",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
         "key": "SOPS-26",
         "summary": "Concurrency & Locking Safeguards",
         "type": "Story",
@@ -150,21 +195,6 @@ const JIRA_DATA = {
         "assignee": "Benjamin Bates",
         "reporter": "Amit Sood",
         "created": "2026-07-31",
-        "updated": "2026-11-09",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-57",
-        "summary": "CRM Data Storage Remediation",
-        "type": "Story",
-        "status": "Review & Approval",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Sudaif Haider",
-        "reporter": "Giles Bill",
-        "created": "2026-08-21",
         "updated": "2026-11-09",
         "labels": [],
         "fixVersions": [],
@@ -1632,63 +1662,33 @@ const JIRA_DATA = {
         "labels": [],
         "fixVersions": [],
         "storyPoints": null
-    },
-    {
-        "key": "SOPS-72",
-        "summary": "QA : Test Scripts & Test Execution",
-        "type": "Sub-task",
-        "status": "Done",
-        "statusCat": "Done",
-        "priority": "Medium",
-        "assignee": "Kaviya UC",
-        "reporter": "Kaviya UC",
-        "created": "2026-08-26",
-        "updated": "2026-10-08",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-80",
-        "summary": "QA:Test Scripts & Test Execution",
-        "type": "Sub-task",
-        "status": "Done",
-        "statusCat": "Done",
-        "priority": "Medium",
-        "assignee": "Kaviya UC",
-        "reporter": "Kaviya UC",
-        "created": "2026-08-28",
-        "updated": "2026-10-08",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
     }
 ]
 };
 
-// ── Live SIT Sandbox data (fetched 2026-11-10 23:00 UTC) ────────────────────────────
+// ── Live SIT Sandbox data (fetched 2026-11-11 05:27 UTC) ────────────────────────────
 const LIVE_DATA = {
   org: {
     name:        'GRIFFITH UNIVERSITY',
     instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
     orgId:       '00DOg000003NRdiMAG',
     environment: 'SIT Sandbox',
-    fetchedAt:   '2026-11-10 23:00 UTC',
+    fetchedAt:   '2026-11-11 05:27 UTC',
   },
 
   /* Org limits */
   limits: {
     "DailyApiRequests": {
         "Max": 5000000,
-        "Remaining": 4996955
+        "Remaining": 4997021
     },
     "DailyAsyncApexExecutions": {
         "Max": 250000,
-        "Remaining": 249988
+        "Remaining": 249993
     },
     "DailyBulkApiBatches": {
         "Max": 15000,
-        "Remaining": 14992
+        "Remaining": 15000
     },
     "DataStorageMB": {
         "Max": 5120,
@@ -1718,9 +1718,9 @@ const LIVE_DATA = {
   /* Scheduled jobs summary */
   scheduledJobs: {
     "total": 30,
-    "waiting": 23,
+    "waiting": 24,
     "complete": 5,
-    "acquired": 2,
+    "acquired": 1,
     "jobs": [
         {
             "name": "287c8878-0d88-a8e9-787e-376a8892842a",
@@ -1748,29 +1748,29 @@ const LIVE_DATA = {
             "next": "2026-10-05T03:00:00Z"
         },
         {
-            "name": "Privacy Center Audit",
-            "state": "ACQUIRED",
-            "next": "2026-11-10T23:00:00Z"
-        },
-        {
             "name": "BatchDocgenProcessingCronJob",
             "state": "ACQUIRED",
-            "next": "2026-11-10T23:00:00Z"
+            "next": "2026-11-11T05:28:00Z"
         },
         {
-            "name": "DC.LICENSE",
+            "name": "Privacy Center Audit",
             "state": "WAITING",
-            "next": "2026-11-11T00:00:00Z"
+            "next": "2026-11-11T06:00:00Z"
         },
         {
             "name": "DC.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-11-11T00:44:00Z"
+            "next": "2026-11-11T06:44:00Z"
         },
         {
             "name": "DAP.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-11-11T00:44:00Z"
+            "next": "2026-11-11T06:44:00Z"
+        },
+        {
+            "name": "MciDashboardUpdateJobType",
+            "state": "WAITING",
+            "next": "2026-11-11T07:30:00Z"
         }
     ]
 },
@@ -1862,7 +1862,7 @@ const LIVE_DATA = {
         "username": "akshay.kumar@griffith.edu.au.dashboard",
         "userType": "Standard",
         "profile": "System Administrator",
-        "lastLogin": "2026-11-10",
+        "lastLogin": "2026-11-11",
         "loginClass": "recent"
     },
     {
@@ -1871,7 +1871,7 @@ const LIVE_DATA = {
         "username": "azureintegration@griffith.edu.au.sit",
         "userType": "Standard",
         "profile": "GU Integration",
-        "lastLogin": "2026-11-10",
+        "lastLogin": "2026-11-11",
         "loginClass": "recent"
     },
     {
@@ -2537,11 +2537,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-11-10 23:00 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-11-11 05:28 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-11-10 23:00 UTC',
+  fetchedAt: '2026-11-11 05:28 UTC',
 
   repos: [
     {
