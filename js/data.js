@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-11-12 00:17 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-11-12 14:53 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-11-12 00:17 UTC',
+  fetchedAt: '2026-11-12 14:53 UTC',
 
   sprints: [
     {
@@ -96,6 +96,21 @@ const JIRA_DATA = {
 
   issues: [
     {
+        "key": "SOPS-269",
+        "summary": "Create an archival policy for Advancement Records in the CampaignMembers object ",
+        "type": "Story",
+        "status": "Review & Approval",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Benjamin Bates",
+        "reporter": "Amit Sood",
+        "created": "2026-11-11",
+        "updated": "2026-11-12",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
         "key": "SOPS-57",
         "summary": "CRM Data Storage Remediation",
         "type": "Story",
@@ -105,21 +120,6 @@ const JIRA_DATA = {
         "assignee": "Sudaif Haider",
         "reporter": "Giles Bill",
         "created": "2026-08-21",
-        "updated": "2026-11-12",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-269",
-        "summary": "Create an archival policy for CampaignMembers object",
-        "type": "Story",
-        "status": "Review & Approval",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Benjamin Bates",
-        "reporter": "Amit Sood",
-        "created": "2026-11-11",
         "updated": "2026-11-12",
         "labels": [],
         "fixVersions": [],
@@ -1666,29 +1666,29 @@ const JIRA_DATA = {
 ]
 };
 
-// ── Live SIT Sandbox data (fetched 2026-11-12 00:17 UTC) ────────────────────────────
+// ── Live SIT Sandbox data (fetched 2026-11-12 14:53 UTC) ────────────────────────────
 const LIVE_DATA = {
   org: {
     name:        'GRIFFITH UNIVERSITY',
     instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
     orgId:       '00DOg000003NRdiMAG',
     environment: 'SIT Sandbox',
-    fetchedAt:   '2026-11-12 00:17 UTC',
+    fetchedAt:   '2026-11-12 14:53 UTC',
   },
 
   /* Org limits */
   limits: {
     "DailyApiRequests": {
         "Max": 5000000,
-        "Remaining": 4997034
+        "Remaining": 4997009
     },
     "DailyAsyncApexExecutions": {
         "Max": 250000,
-        "Remaining": 249982
+        "Remaining": 249992
     },
     "DailyBulkApiBatches": {
         "Max": 15000,
-        "Remaining": 14992
+        "Remaining": 15000
     },
     "DataStorageMB": {
         "Max": 5120,
@@ -1718,9 +1718,9 @@ const LIVE_DATA = {
   /* Scheduled jobs summary */
   scheduledJobs: {
     "total": 30,
-    "waiting": 25,
+    "waiting": 24,
     "complete": 5,
-    "acquired": 0,
+    "acquired": 1,
     "jobs": [
         {
             "name": "287c8878-0d88-a8e9-787e-376a8892842a",
@@ -1749,28 +1749,28 @@ const LIVE_DATA = {
         },
         {
             "name": "BatchDocgenProcessingCronJob",
+            "state": "ACQUIRED",
+            "next": "2026-11-12T14:53:00Z"
+        },
+        {
+            "name": "Privacy Center Audit",
             "state": "WAITING",
-            "next": "2026-11-12T00:18:00Z"
+            "next": "2026-11-12T15:00:00Z"
         },
         {
             "name": "DAP.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-11-12T00:44:00Z"
+            "next": "2026-11-12T16:44:00Z"
         },
         {
             "name": "DC.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-11-12T00:44:00Z"
+            "next": "2026-11-12T16:44:00Z"
         },
         {
-            "name": "CommIncrementalSitemapJob-00DOg000003NRdi-0DMMp0000001ML4",
+            "name": "SmartDigestJob_1E1Mp0000000Alm",
             "state": "WAITING",
-            "next": "2026-11-12T00:45:08Z"
-        },
-        {
-            "name": "CommIncrementalSitemapJob-00DOg000003NRdi-0DMMn0000000Y4y",
-            "state": "WAITING",
-            "next": "2026-11-12T00:57:44Z"
+            "next": "2026-11-12T17:00:00Z"
         }
     ]
 },
@@ -1871,7 +1871,7 @@ const LIVE_DATA = {
         "username": "azureintegration@griffith.edu.au.sit",
         "userType": "Standard",
         "profile": "GU Integration",
-        "lastLogin": "2026-11-11",
+        "lastLogin": "2026-11-12",
         "loginClass": "recent"
     },
     {
@@ -2537,11 +2537,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-11-12 00:17 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-11-12 14:53 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-11-12 00:17 UTC',
+  fetchedAt: '2026-11-12 14:53 UTC',
 
   repos: [
     {
