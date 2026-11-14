@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-11-14 05:40 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-11-14 13:14 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-11-14 05:40 UTC',
+  fetchedAt: '2026-11-14 13:14 UTC',
 
   sprints: [
     {
@@ -1666,29 +1666,29 @@ const JIRA_DATA = {
 ]
 };
 
-// ── Live SIT Sandbox data (fetched 2026-11-14 05:40 UTC) ────────────────────────────
+// ── Live SIT Sandbox data (fetched 2026-11-14 13:14 UTC) ────────────────────────────
 const LIVE_DATA = {
   org: {
     name:        'GRIFFITH UNIVERSITY',
     instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
     orgId:       '00DOg000003NRdiMAG',
     environment: 'SIT Sandbox',
-    fetchedAt:   '2026-11-14 05:40 UTC',
+    fetchedAt:   '2026-11-14 13:14 UTC',
   },
 
   /* Org limits */
   limits: {
     "DailyApiRequests": {
         "Max": 5000000,
-        "Remaining": 4996982
+        "Remaining": 4996986
     },
     "DailyAsyncApexExecutions": {
         "Max": 250000,
-        "Remaining": 249973
+        "Remaining": 249996
     },
     "DailyBulkApiBatches": {
         "Max": 15000,
-        "Remaining": 14992
+        "Remaining": 15000
     },
     "DataStorageMB": {
         "Max": 5120,
@@ -1718,9 +1718,9 @@ const LIVE_DATA = {
   /* Scheduled jobs summary */
   scheduledJobs: {
     "total": 30,
-    "waiting": 25,
+    "waiting": 24,
     "complete": 5,
-    "acquired": 0,
+    "acquired": 1,
     "jobs": [
         {
             "name": "287c8878-0d88-a8e9-787e-376a8892842a",
@@ -1749,28 +1749,28 @@ const LIVE_DATA = {
         },
         {
             "name": "BatchDocgenProcessingCronJob",
+            "state": "ACQUIRED",
+            "next": "2026-11-14T13:14:00Z"
+        },
+        {
+            "name": "Metalytics Data Loader Job for Org : 00DOg000003NRdi",
             "state": "WAITING",
-            "next": "2026-11-14T05:41:00Z"
+            "next": "2026-11-14T13:23:00Z"
         },
         {
             "name": "Privacy Center Audit",
             "state": "WAITING",
-            "next": "2026-11-14T06:00:00Z"
+            "next": "2026-11-14T14:00:00Z"
         },
         {
-            "name": "DC.TELEMETRY",
+            "name": "Retention Usage",
             "state": "WAITING",
-            "next": "2026-11-14T06:44:00Z"
+            "next": "2026-11-14T14:00:00Z"
         },
         {
-            "name": "DAP.TELEMETRY",
+            "name": "OmnistudioCronJob",
             "state": "WAITING",
-            "next": "2026-11-14T06:44:00Z"
-        },
-        {
-            "name": "MciDashboardUpdateJobType",
-            "state": "WAITING",
-            "next": "2026-11-14T07:30:00Z"
+            "next": "2026-11-14T14:00:00Z"
         }
     ]
 },
@@ -2423,34 +2423,6 @@ const LIVE_DATA = {
         "durationSec": 1,
         "stateDetail": "",
         "components": []
-    },
-    {
-        "id": "0AfOg000006ru8fKAA",
-        "deployedBy": "Deployment User",
-        "checkOnly": true,
-        "componentsDeployed": 0,
-        "componentsTotal": 0,
-        "errors": 0,
-        "status": "Succeeded",
-        "startDate": "2026-10-15T12:47:53.000+0000",
-        "completedDate": "2026-10-15T12:47:54.000+0000",
-        "durationSec": 1,
-        "stateDetail": "",
-        "components": []
-    },
-    {
-        "id": "0AfOg000006rte1KAA",
-        "deployedBy": "Deployment User",
-        "checkOnly": true,
-        "componentsDeployed": 0,
-        "componentsTotal": 0,
-        "errors": 0,
-        "status": "Succeeded",
-        "startDate": "2026-10-15T12:39:13.000+0000",
-        "completedDate": "2026-10-15T12:39:13.000+0000",
-        "durationSec": 0,
-        "stateDetail": "",
-        "components": []
     }
 ],
 
@@ -2537,11 +2509,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-11-14 05:40 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-11-14 13:14 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-11-14 05:40 UTC',
+  fetchedAt: '2026-11-14 13:14 UTC',
 
   repos: [
     {
