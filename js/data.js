@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-11-15 05:39 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-11-15 13:42 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-11-15 05:39 UTC',
+  fetchedAt: '2026-11-15 13:42 UTC',
 
   sprints: [
     {
@@ -1666,29 +1666,29 @@ const JIRA_DATA = {
 ]
 };
 
-// ── Live SIT Sandbox data (fetched 2026-11-15 05:39 UTC) ────────────────────────────
+// ── Live SIT Sandbox data (fetched 2026-11-15 13:42 UTC) ────────────────────────────
 const LIVE_DATA = {
   org: {
     name:        'GRIFFITH UNIVERSITY',
     instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
     orgId:       '00DOg000003NRdiMAG',
     environment: 'SIT Sandbox',
-    fetchedAt:   '2026-11-15 05:39 UTC',
+    fetchedAt:   '2026-11-15 13:42 UTC',
   },
 
   /* Org limits */
   limits: {
     "DailyApiRequests": {
         "Max": 5000000,
-        "Remaining": 4997003
+        "Remaining": 4996998
     },
     "DailyAsyncApexExecutions": {
         "Max": 250000,
-        "Remaining": 249973
+        "Remaining": 249996
     },
     "DailyBulkApiBatches": {
         "Max": 15000,
-        "Remaining": 14991
+        "Remaining": 15000
     },
     "DataStorageMB": {
         "Max": 5120,
@@ -1718,9 +1718,9 @@ const LIVE_DATA = {
   /* Scheduled jobs summary */
   scheduledJobs: {
     "total": 30,
-    "waiting": 25,
+    "waiting": 24,
     "complete": 5,
-    "acquired": 0,
+    "acquired": 1,
     "jobs": [
         {
             "name": "287c8878-0d88-a8e9-787e-376a8892842a",
@@ -1749,28 +1749,28 @@ const LIVE_DATA = {
         },
         {
             "name": "BatchDocgenProcessingCronJob",
+            "state": "ACQUIRED",
+            "next": "2026-11-15T13:42:00Z"
+        },
+        {
+            "name": "SmartDigestJob_1E1Mp0000000All",
             "state": "WAITING",
-            "next": "2026-11-15T05:40:00Z"
+            "next": "2026-11-15T14:00:00Z"
         },
         {
             "name": "Privacy Center Audit",
             "state": "WAITING",
-            "next": "2026-11-15T06:00:00Z"
+            "next": "2026-11-15T14:00:00Z"
+        },
+        {
+            "name": "Retention Usage",
+            "state": "WAITING",
+            "next": "2026-11-15T14:00:00Z"
         },
         {
             "name": "DC.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-11-15T06:44:00Z"
-        },
-        {
-            "name": "DAP.TELEMETRY",
-            "state": "WAITING",
-            "next": "2026-11-15T06:44:00Z"
-        },
-        {
-            "name": "MciDashboardUpdateJobType",
-            "state": "WAITING",
-            "next": "2026-11-15T07:30:00Z"
+            "next": "2026-11-15T14:44:00Z"
         }
     ]
 },
@@ -2190,239 +2190,6 @@ const LIVE_DATA = {
                 "problem": "No more than 10 columns may be specified in searchResultsFields"
             }
         ]
-    },
-    {
-        "id": "0AfOg000006t1HlKAI",
-        "deployedBy": "Deployment User",
-        "checkOnly": false,
-        "componentsDeployed": 0,
-        "componentsTotal": 0,
-        "errors": 0,
-        "status": "Succeeded",
-        "startDate": "2026-10-16T11:13:58.000+0000",
-        "completedDate": "2026-10-16T11:13:59.000+0000",
-        "durationSec": 1,
-        "stateDetail": "",
-        "components": []
-    },
-    {
-        "id": "0AfOg000006t1CvKAI",
-        "deployedBy": "Deployment User",
-        "checkOnly": true,
-        "componentsDeployed": 0,
-        "componentsTotal": 0,
-        "errors": 0,
-        "status": "Succeeded",
-        "startDate": "2026-10-16T11:13:04.000+0000",
-        "completedDate": "2026-10-16T11:13:04.000+0000",
-        "durationSec": 0,
-        "stateDetail": "",
-        "components": []
-    },
-    {
-        "id": "0AfOg000006t0lVKAQ",
-        "deployedBy": "Deployment User",
-        "checkOnly": true,
-        "componentsDeployed": 0,
-        "componentsTotal": 0,
-        "errors": 0,
-        "status": "Succeeded",
-        "startDate": "2026-10-16T11:08:00.000+0000",
-        "completedDate": "2026-10-16T11:08:00.000+0000",
-        "durationSec": 0,
-        "stateDetail": "",
-        "components": []
-    },
-    {
-        "id": "0AfOg000006t0FGKAY",
-        "deployedBy": "Deployment User",
-        "checkOnly": false,
-        "componentsDeployed": 1,
-        "componentsTotal": 1,
-        "errors": 0,
-        "status": "Succeeded",
-        "startDate": "2026-10-16T11:03:43.000+0000",
-        "completedDate": "2026-10-16T11:03:47.000+0000",
-        "durationSec": 4,
-        "stateDetail": "",
-        "components": [
-            {
-                "name": "Gearset Integration Administrator",
-                "type": "Profile",
-                "success": true
-            }
-        ]
-    },
-    {
-        "id": "0AfOg000006t0QXKAY",
-        "deployedBy": "Sagar Dey",
-        "checkOnly": false,
-        "componentsDeployed": 1,
-        "componentsTotal": 1,
-        "errors": 0,
-        "status": "Succeeded",
-        "startDate": "2026-10-16T11:03:04.000+0000",
-        "completedDate": "2026-10-16T11:03:10.000+0000",
-        "durationSec": 6,
-        "stateDetail": "",
-        "components": [
-            {
-                "name": "LearnerProgram.Campus__c",
-                "type": "CustomField",
-                "success": true
-            }
-        ]
-    },
-    {
-        "id": "0AfOg000006stouKAA",
-        "deployedBy": "Sagar Dey",
-        "checkOnly": false,
-        "componentsDeployed": 2,
-        "componentsTotal": 2,
-        "errors": 0,
-        "status": "Succeeded",
-        "startDate": "2026-10-16T11:00:50.000+0000",
-        "completedDate": "2026-10-16T11:00:57.000+0000",
-        "durationSec": 7,
-        "stateDetail": "",
-        "components": [
-            {
-                "name": "LearnerProgram.Campus__c",
-                "type": "CustomField",
-                "success": true
-            },
-            {
-                "name": "LearningProgram.Campus__c",
-                "type": "CustomField",
-                "success": true
-            }
-        ]
-    },
-    {
-        "id": "0AfOg000006stCFKAY",
-        "deployedBy": "Deployment User",
-        "checkOnly": true,
-        "componentsDeployed": 1,
-        "componentsTotal": 1,
-        "errors": 0,
-        "status": "Succeeded",
-        "startDate": "2026-10-16T10:57:45.000+0000",
-        "completedDate": "2026-10-16T10:57:49.000+0000",
-        "durationSec": 4,
-        "stateDetail": "",
-        "components": [
-            {
-                "name": "Gearset Integration Administrator",
-                "type": "Profile",
-                "success": true
-            }
-        ]
-    },
-    {
-        "id": "0AfOg000006stVXKAY",
-        "deployedBy": "Deployment User",
-        "checkOnly": false,
-        "componentsDeployed": 0,
-        "componentsTotal": 0,
-        "errors": 0,
-        "status": "Succeeded",
-        "startDate": "2026-10-16T10:33:33.000+0000",
-        "completedDate": "2026-10-16T10:33:33.000+0000",
-        "durationSec": 0,
-        "stateDetail": "",
-        "components": []
-    },
-    {
-        "id": "0AfOg000006sxpHKAQ",
-        "deployedBy": "Deployment User",
-        "checkOnly": true,
-        "componentsDeployed": 0,
-        "componentsTotal": 0,
-        "errors": 0,
-        "status": "Succeeded",
-        "startDate": "2026-10-16T10:32:41.000+0000",
-        "completedDate": "2026-10-16T10:32:42.000+0000",
-        "durationSec": 1,
-        "stateDetail": "",
-        "components": []
-    },
-    {
-        "id": "0AfOg000006snUwKAI",
-        "deployedBy": "Deployment User",
-        "checkOnly": false,
-        "componentsDeployed": 7,
-        "componentsTotal": 7,
-        "errors": 0,
-        "status": "Succeeded",
-        "startDate": "2026-10-16T08:11:35.000+0000",
-        "completedDate": "2026-10-16T08:11:42.000+0000",
-        "durationSec": 7,
-        "stateDetail": "",
-        "components": [
-            {
-                "name": "GU Base Profile",
-                "type": "Profile",
-                "success": true
-            },
-            {
-                "name": "Read Only",
-                "type": "Profile",
-                "success": true
-            },
-            {
-                "name": "Salesforce API Only System Integrations",
-                "type": "Profile",
-                "success": true
-            },
-            {
-                "name": "ascend Development",
-                "type": "Profile",
-                "success": true
-            },
-            {
-                "name": "ascend Gift Processing",
-                "type": "Profile",
-                "success": true
-            },
-            {
-                "name": "ascend Read Only",
-                "type": "Profile",
-                "success": true
-            },
-            {
-                "name": "ascend Research",
-                "type": "Profile",
-                "success": true
-            }
-        ]
-    },
-    {
-        "id": "0AfOg000006segAKAQ",
-        "deployedBy": "Deployment User",
-        "checkOnly": true,
-        "componentsDeployed": 0,
-        "componentsTotal": 0,
-        "errors": 0,
-        "status": "Succeeded",
-        "startDate": "2026-10-16T04:14:48.000+0000",
-        "completedDate": "2026-10-16T04:14:49.000+0000",
-        "durationSec": 1,
-        "stateDetail": "",
-        "components": []
-    },
-    {
-        "id": "0AfOg000006rumzKAA",
-        "deployedBy": "Deployment User",
-        "checkOnly": false,
-        "componentsDeployed": 0,
-        "componentsTotal": 0,
-        "errors": 0,
-        "status": "Succeeded",
-        "startDate": "2026-10-15T13:01:27.000+0000",
-        "completedDate": "2026-10-15T13:01:28.000+0000",
-        "durationSec": 1,
-        "stateDetail": "",
-        "components": []
     }
 ],
 
@@ -2509,11 +2276,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-11-15 05:39 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-11-15 13:42 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-11-15 05:39 UTC',
+  fetchedAt: '2026-11-15 13:42 UTC',
 
   repos: [
     {
