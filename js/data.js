@@ -9,11 +9,11 @@
  * MOCK_DATA: Azure DevOps data (no PAT configured yet).
  */
 
-// ── Jira live data (fetched 2026-11-16 15:16 UTC) ────────────────────────────
+// ── Jira live data (fetched 2026-11-17 01:45 UTC) ────────────────────────────
 const JIRA_DATA = {
   project:   'SOPS',
   baseUrl:   'https://griffith.atlassian.net',
-  fetchedAt: '2026-11-16 15:16 UTC',
+  fetchedAt: '2026-11-17 01:45 UTC',
 
   sprints: [
     {
@@ -95,6 +95,40 @@ const JIRA_DATA = {
 ],
 
   issues: [
+    {
+        "key": "SOPS-270",
+        "summary": "Reconcile and recover outstanding Kindsight work from UCIQA into the Salesforce release pipeline",
+        "type": "Story",
+        "status": "In Progress",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Jeremy Fahey",
+        "created": "2026-11-17",
+        "updated": "2026-11-17",
+        "labels": [],
+        "fixVersions": [],
+        "storyPoints": null
+    },
+    {
+        "key": "SOPS-10",
+        "summary": "Session Settings Remediation",
+        "type": "Story",
+        "status": "Blocked",
+        "statusCat": "In Progress",
+        "priority": "Medium",
+        "assignee": "Jeremy Fahey",
+        "reporter": "Amit Sood",
+        "created": "2026-07-31",
+        "updated": "2026-11-17",
+        "labels": [
+            "Blocked"
+        ],
+        "fixVersions": [
+            "GU-SF-R1-Nov-02-26"
+        ],
+        "storyPoints": null
+    },
     {
         "key": "SOPS-85",
         "summary": "QA : Test Scripts & Test Execution",
@@ -667,25 +701,6 @@ const JIRA_DATA = {
         "updated": "2026-11-05",
         "labels": [],
         "fixVersions": [],
-        "storyPoints": null
-    },
-    {
-        "key": "SOPS-10",
-        "summary": "Session Settings Remediation",
-        "type": "Story",
-        "status": "IN UAT",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Jeremy Fahey",
-        "reporter": "Amit Sood",
-        "created": "2026-07-31",
-        "updated": "2026-11-04",
-        "labels": [
-            "Blocked"
-        ],
-        "fixVersions": [
-            "GU-SF-R1-Nov-02-26"
-        ],
         "storyPoints": null
     },
     {
@@ -1647,52 +1662,37 @@ const JIRA_DATA = {
         "labels": [],
         "fixVersions": [],
         "storyPoints": null
-    },
-    {
-        "key": "SOPS-231",
-        "summary": "Risk - Remediation Scope",
-        "type": "Task",
-        "status": "Monitor",
-        "statusCat": "In Progress",
-        "priority": "Medium",
-        "assignee": "Frank Nigro",
-        "reporter": "Frank Nigro",
-        "created": "2026-10-06",
-        "updated": "2026-10-14",
-        "labels": [],
-        "fixVersions": [],
-        "storyPoints": null
     }
 ]
 };
 
-// ── Live SIT Sandbox data (fetched 2026-11-16 15:16 UTC) ────────────────────────────
+// ── Live SIT Sandbox data (fetched 2026-11-17 01:45 UTC) ────────────────────────────
 const LIVE_DATA = {
   org: {
     name:        'GRIFFITH UNIVERSITY',
     instanceUrl: 'https://griffith--sit.sandbox.my.salesforce.com',
     orgId:       '00DOg000003NRdiMAG',
     environment: 'SIT Sandbox',
-    fetchedAt:   '2026-11-16 15:16 UTC',
+    fetchedAt:   '2026-11-17 01:45 UTC',
   },
 
   /* Org limits */
   limits: {
     "DailyApiRequests": {
         "Max": 5000000,
-        "Remaining": 4996917
+        "Remaining": 4996650
     },
     "DailyAsyncApexExecutions": {
         "Max": 250000,
-        "Remaining": 249994
+        "Remaining": 249976
     },
     "DailyBulkApiBatches": {
         "Max": 15000,
-        "Remaining": 15000
+        "Remaining": 14990
     },
     "DataStorageMB": {
         "Max": 5120,
-        "Remaining": 3911
+        "Remaining": 3910
     },
     "FileStorageMB": {
         "Max": 332440,
@@ -1718,9 +1718,9 @@ const LIVE_DATA = {
   /* Scheduled jobs summary */
   scheduledJobs: {
     "total": 30,
-    "waiting": 25,
+    "waiting": 24,
     "complete": 5,
-    "acquired": 0,
+    "acquired": 1,
     "jobs": [
         {
             "name": "287c8878-0d88-a8e9-787e-376a8892842a",
@@ -1749,28 +1749,28 @@ const LIVE_DATA = {
         },
         {
             "name": "BatchDocgenProcessingCronJob",
-            "state": "WAITING",
-            "next": "2026-11-16T15:17:00Z"
+            "state": "ACQUIRED",
+            "next": "2026-11-17T01:45:00Z"
         },
         {
             "name": "Privacy Center Audit",
             "state": "WAITING",
-            "next": "2026-11-16T16:00:00Z"
+            "next": "2026-11-17T02:00:00Z"
         },
         {
-            "name": "DAP.TELEMETRY",
+            "name": "DAP Scheduled Job - ass Update ucinn_ascendv2__Review_Transaction_v2__c - a4TOg000000GHePMAW",
             "state": "WAITING",
-            "next": "2026-11-16T16:44:00Z"
+            "next": "2026-11-17T02:00:00Z"
+        },
+        {
+            "name": "CommIncrementalSitemapJob-00DOg000003NRdi-0DMMn0000000Y4x",
+            "state": "WAITING",
+            "next": "2026-11-17T02:21:23Z"
         },
         {
             "name": "DC.TELEMETRY",
             "state": "WAITING",
-            "next": "2026-11-16T16:44:00Z"
-        },
-        {
-            "name": "SmartDigestJob_1E1Mp0000000Alm",
-            "state": "WAITING",
-            "next": "2026-11-16T17:00:00Z"
+            "next": "2026-11-17T02:44:00Z"
         }
     ]
 },
@@ -1862,7 +1862,7 @@ const LIVE_DATA = {
         "username": "akshay.kumar@griffith.edu.au.dashboard",
         "userType": "Standard",
         "profile": "System Administrator",
-        "lastLogin": "2026-11-16",
+        "lastLogin": "2026-11-17",
         "loginClass": "recent"
     },
     {
@@ -1871,6 +1871,15 @@ const LIVE_DATA = {
         "username": "azureintegration@griffith.edu.au.sit",
         "userType": "Standard",
         "profile": "GU Integration",
+        "lastLogin": "2026-11-17",
+        "loginClass": "recent"
+    },
+    {
+        "initials": "JF",
+        "name": "Jeremy Fahey",
+        "username": "j.fahey@griffith.edu.au.sit",
+        "userType": "Standard",
+        "profile": "System Administrator",
         "lastLogin": "2026-11-16",
         "loginClass": "recent"
     },
@@ -1887,15 +1896,6 @@ const LIVE_DATA = {
         "initials": "AK",
         "name": "Akshay Kumar",
         "username": "akshay.kumar@griffith.edu.au.sit",
-        "userType": "Standard",
-        "profile": "System Administrator",
-        "lastLogin": "2026-11-16",
-        "loginClass": "recent"
-    },
-    {
-        "initials": "JF",
-        "name": "Jeremy Fahey",
-        "username": "j.fahey@griffith.edu.au.sit",
         "userType": "Standard",
         "profile": "System Administrator",
         "lastLogin": "2026-11-16",
@@ -2276,11 +2276,11 @@ const MOCK_DATA = {
   ],
 };
 
-// ── Azure DevOps live data (fetched 2026-11-16 15:16 UTC) ─────────────────────
+// ── Azure DevOps live data (fetched 2026-11-17 01:45 UTC) ─────────────────────
 const AZURE_DATA = {
   org:     'griffith-SalesforceCRM',
   project: 'RSDF-SalesforcePlatform',
-  fetchedAt: '2026-11-16 15:16 UTC',
+  fetchedAt: '2026-11-17 01:45 UTC',
 
   repos: [
     {
